@@ -2996,6 +2996,104 @@
     box-shadow: 0 18px 50px -12px rgba(11, 19, 48, 0.45),
                 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   }
+  /* Mobile: Jeton-style split bar (Menu + Contact) */
+  .sticky-bar-links-desktop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sticky-bar-mobile {
+    display: none;
+    width: 100%;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .sticky-seg {
+    flex: 1 1 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 12px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: filter 0.2s ease, background 0.2s ease;
+  }
+  .sticky-seg--menu {
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+    color: var(--white);
+  }
+  .sticky-seg--menu:hover { filter: brightness(1.06); }
+  .sticky-seg--contact {
+    background: linear-gradient(160deg, var(--blue-900), var(--ink));
+    color: rgba(255, 255, 255, 0.94);
+  }
+  .sticky-seg--contact:hover { filter: brightness(1.08); }
+  .sticky-menu-lines {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    width: 13px;
+    flex-shrink: 0;
+  }
+  .sticky-menu-lines span {
+    display: block;
+    height: 2px;
+    border-radius: 1px;
+    background: currentColor;
+  }
+  .mobile-nav-sheet {
+    position: fixed;
+    left: 50%;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px) + 44px);
+    transform: translateX(-50%) translateY(8px);
+    z-index: 99;
+    width: min(300px, calc(100% - 24px));
+    padding: 8px;
+    border-radius: 20px;
+    background: rgba(11, 19, 48, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 16px 40px -14px rgba(11, 19, 48, 0.65);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  }
+  .mobile-nav-sheet.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .mobile-nav-sheet a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .mobile-nav-sheet a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+  }
+  .mobile-nav-sheet svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
   .sticky-bar a {
     display: inline-flex;
     align-items: center;
@@ -3059,11 +3157,18 @@
   }
 
   @media (max-width: 560px) {
-    .sticky-bar { bottom: 14px; gap: 4px; padding: 4px; }
-    .sticky-bar a { padding: 10px 16px; font-size: 14.5px; }
-    .sticky-bar a.home-link { padding: 10px 12px; }
-    .scroll-cue { right: 14px; bottom: 84px; font-size: 12px; }
-    body { padding-bottom: 80px; }
+    .hero-inner .eyebrow { display: none; }
+    .hero-inner .copy { margin-top: 48px; }
+    .sticky-bar {
+      bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+      width: min(280px, calc(100% - 28px));
+      gap: 0;
+      padding: 3px;
+    }
+    .sticky-bar-links-desktop { display: none; }
+    .sticky-bar-mobile { display: flex; }
+    .scroll-cue { right: 14px; bottom: 72px; font-size: 12px; }
+    body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
   }
 
   /* ===================================================
@@ -3158,7 +3263,7 @@
 <section class="hero">
   <div class="blob blob-a"></div>
   <div class="blob blob-b"></div>
-  <video class="hero-video" autoplay muted loop playsinline>
+  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
     <source src="hero-printer-loop.mp4?v=5clips" type="video/mp4" />
   </video>
 
@@ -3305,6 +3410,7 @@
           class="brands-scene-photo-video"
           muted
           playsinline
+          webkit-playsinline
           preload="auto"
           disablepictureinpicture
           disableremoteplayback
@@ -3444,7 +3550,13 @@
     var wrap = document.querySelector('.products-banner-video-wrap');
     if (!wrap) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var clips = wrap.querySelectorAll('.products-banner-bg-video');
+    var clips = Array.prototype.slice.call(wrap.querySelectorAll('.products-banner-bg-video'));
+    if (window.matchMedia('(max-width: 700px)').matches) {
+      clips = clips.filter(function (v) {
+        var src = (v.currentSrc || v.getAttribute('src') || '').toLowerCase();
+        return src.indexOf('.mp4') !== -1;
+      });
+    }
     if (!clips.length) return;
     var i = 0;
     function activate(idx) {
@@ -4899,8 +5011,35 @@
 
 <!-- Sticky bottom navigation -->
 <nav class="sticky-bar" aria-label="Quick navigation">
-  <a href="automation-one-homepage-6.html" class="primary home-link" aria-label="Home">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
+  <div class="sticky-bar-mobile">
+    <button type="button" class="sticky-seg sticky-seg--menu" id="sticky-menu-btn" aria-expanded="false" aria-controls="mobile-nav-sheet">
+      <span>Menu</span>
+      <span class="sticky-menu-lines" aria-hidden="true"><span></span><span></span></span>
+    </button>
+    <a href="automation-one-contact.html" class="sticky-seg sticky-seg--contact">Contact</a>
+  </div>
+  <div class="sticky-bar-links-desktop">
+    <a href="automation-one-homepage-6.html" class="primary home-link" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
+    </a>
+    <a href="#process">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      What We Offer
+    </a>
+    <a href="#about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      Who We Are
+    </a>
+    <a href="automation-one-contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Get in Touch
+    </a>
+  </div>
+</nav>
+<div class="mobile-nav-sheet" id="mobile-nav-sheet" hidden>
+  <a href="automation-one-homepage-6.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/></svg>
+    Home
   </a>
   <a href="#process">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
@@ -4914,6 +5053,82 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     Get in Touch
   </a>
-</nav>
+</div>
+
+<script>
+  (function initMobileNavAndVideos() {
+    var menuBtn = document.getElementById('sticky-menu-btn');
+    var sheet = document.getElementById('mobile-nav-sheet');
+    if (menuBtn && sheet) {
+      function setOpen(open) {
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        sheet.hidden = !open;
+        sheet.classList.toggle('is-open', open);
+      }
+      menuBtn.addEventListener('click', function () {
+        setOpen(!sheet.classList.contains('is-open'));
+      });
+      sheet.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+      document.addEventListener('click', function (e) {
+        if (!sheet.classList.contains('is-open')) return;
+        if (menuBtn.contains(e.target) || sheet.contains(e.target)) return;
+        setOpen(false);
+      });
+    }
+
+    function wireVideo(v, opts) {
+      if (!v) return;
+      v.muted = true;
+      v.defaultMuted = true;
+      v.setAttribute('muted', '');
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
+      if (opts && opts.loop) v.loop = true;
+      var tryPlay = function () { v.play().catch(function () {}); };
+      v.addEventListener('loadeddata', tryPlay, { once: true });
+      tryPlay();
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) tryPlay();
+      });
+      if (opts && opts.ioRoot) {
+        var root = opts.ioRoot;
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) tryPlay();
+              else if (opts.pauseOffscreen) v.pause();
+            });
+          }, { threshold: 0.12, rootMargin: '8% 0px' }).observe(root);
+        }
+      }
+    }
+
+    wireVideo(document.querySelector('.hero-video'), { loop: true });
+
+    var brandsVideo = document.querySelector('.brands-scene-photo-video');
+    if (brandsVideo && window.matchMedia('(max-width: 700px)').matches) {
+      brandsVideo.loop = true;
+      wireVideo(brandsVideo, {
+        loop: true,
+        ioRoot: brandsVideo.closest('.brands-scene-pin') || brandsVideo,
+        pauseOffscreen: true
+      });
+    }
+
+    document.querySelectorAll('.products-banner-bg-video').forEach(function (v) {
+      var src = (v.currentSrc || v.getAttribute('src') || '').toLowerCase();
+      if (window.matchMedia('(max-width: 700px)').matches && src.indexOf('.mp4') === -1) return;
+      wireVideo(v, { loop: true, ioRoot: v.closest('.products-banner') || v });
+    });
+
+    document.addEventListener('touchstart', function once() {
+      document.querySelectorAll('video').forEach(function (v) {
+        if (v.paused) v.play().catch(function () {});
+      });
+    }, { once: true, passive: true });
+  })();
+</script>
 
 </body>
