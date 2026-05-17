@@ -412,7 +412,7 @@
     body.contact-page .site-header .nav,
     .site-header .nav {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 8px;
       padding-left: 16px;
@@ -462,25 +462,26 @@
       line-height: 1.25;
       white-space: nowrap;
     }
-    /* Nav logo: much smaller on phones; name + sub each one line */
+    /* Nav logo: top-aligned with quote CTA; mark 5% smaller; name +1px */
     .site-header .nav .logo {
-      gap: 5px;
+      align-items: flex-start;
+      gap: 4px;
       min-width: 0;
       flex: 1 1 auto;
       width: auto;
       max-width: 58%;
     }
     .site-header .nav .logo .logo-mark {
-      height: 26px;
+      height: 24.7px;
       width: auto;
     }
     .site-header .nav .logo-text {
-      align-items: flex-start;
+      align-items: flex-end;
       line-height: 1.08;
       min-width: 0;
     }
     .site-header .nav .logo-text .name {
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: -0.02em;
       white-space: nowrap;
     }
