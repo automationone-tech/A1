@@ -618,16 +618,38 @@
     .fc-2 { right: 0; }
   }
   @media (max-width: 560px) {
-    .nav-actions .btn-ghost { display: none; }
-    .quote-award-logo {
-      height: clamp(76px, 22vw, 96px);
-      transform: translateY(calc(-50% + 8px));
+    /* Stacked mobile header: logo → Request a Quote → Remote Support; no award */
+    .site-header .nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .site-header .nav-actions {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding-right: 0;
+      gap: 8px;
+    }
+    .site-header .nav-actions .quote-award-logo {
+      display: none !important;
+    }
+    .site-header .nav-actions .cta.cta-primary.cta-pill-arrow {
+      order: 1;
+      font-size: 14px;
+    }
+    .site-header .nav-actions .btn-ghost {
+      display: inline-flex;
+      order: 2;
+      padding: 12px 22px;
+      font-size: 14px;
     }
     /* Nav logo: much smaller on phones; name + sub each one line */
     .site-header .nav .logo {
       gap: 5px;
       min-width: 0;
-      flex-shrink: 1;
+      flex-shrink: 0;
+      width: 100%;
     }
     .site-header .nav .logo .logo-mark {
       height: 26px;
@@ -648,6 +670,9 @@
       letter-spacing: 0.03em;
       opacity: 0.92;
       white-space: nowrap;
+    }
+    .hero-inner {
+      padding-top: max(228px, calc(env(safe-area-inset-top, 0px) + 196px));
     }
     .device { transform: rotate(-2deg); max-width: 320px; }
     .visual { height: 380px; }
