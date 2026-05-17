@@ -653,8 +653,15 @@
       width: 24px;
       height: 24px;
       right: 5px;
-      background-size: 48% auto;
+      top: 50%;
+      transform: translateY(-50%);
+      background-position: 50% 50%;
+      background-size: 46% auto;
       box-shadow: 0 8px 16px -10px rgba(15, 56, 158, 0.88);
+    }
+    .site-header .nav-actions .cta.cta-primary.cta-pill-arrow:hover::after {
+      transform: translateY(-50%);
+      background-position: 50% 50%;
     }
     .site-header .nav-actions .btn-ghost {
       display: inline-flex;
