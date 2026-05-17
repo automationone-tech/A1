@@ -1,0 +1,21 @@
+Automation One — your website folder (Part 1 done)
+================================================
+
+This folder is your whole website in one place.
+
+MAIN PAGES
+  index.html                    → Homepage (opens first on the internet)
+  automation-one-homepage-6.html → Same homepage (backup name)
+  automation-one-contact.html   → Contact page
+
+PICTURES & VIDEOS
+  All .png, .jpg, .mp4, .mov files in this folder
+  service-stats/                → Icons on the homepage
+  testimonial-logos/            → Customer logos on the homepage
+
+NEXT STEP (Part 2 — on your Mac)
+  1. In Cursor: File → Open Folder → choose this folder
+  2. Terminal:  cd ~/Downloads/automation-one-site && python3 -m http.server 8000
+  3. Browser:    http://localhost:8000
+
+Your original files in Downloads are unchanged — these are copies.
