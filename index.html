@@ -2996,7 +2996,7 @@
     box-shadow: 0 18px 50px -12px rgba(11, 19, 48, 0.45),
                 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   }
-  /* Mobile: Jeton-style split bar (Menu + Contact) */
+  /* Mobile: compact Menu bar */
   .sticky-bar-links-desktop {
     display: flex;
     align-items: center;
@@ -3009,7 +3009,8 @@
     overflow: hidden;
   }
   .sticky-seg {
-    flex: 1 1 50%;
+    flex: 1 1 auto;
+    width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -3030,11 +3031,6 @@
     color: var(--white);
   }
   .sticky-seg--menu:hover { filter: brightness(1.06); }
-  .sticky-seg--contact {
-    background: linear-gradient(160deg, var(--blue-900), var(--ink));
-    color: rgba(255, 255, 255, 0.94);
-  }
-  .sticky-seg--contact:hover { filter: brightness(1.08); }
   .sticky-menu-lines {
     display: inline-flex;
     flex-direction: column;
@@ -3161,7 +3157,8 @@
     .hero-inner .copy { margin-top: 48px; }
     .sticky-bar {
       bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-      width: min(280px, calc(100% - 28px));
+      width: auto;
+      min-width: 120px;
       gap: 0;
       padding: 3px;
     }
@@ -5016,7 +5013,6 @@
       <span>Menu</span>
       <span class="sticky-menu-lines" aria-hidden="true"><span></span><span></span></span>
     </button>
-    <a href="automation-one-contact.html" class="sticky-seg sticky-seg--contact">Contact</a>
   </div>
   <div class="sticky-bar-links-desktop">
     <a href="automation-one-homepage-6.html" class="primary home-link" aria-label="Home">
