@@ -413,6 +413,32 @@
       height: clamp(76px, 22vw, 96px);
       transform: translateY(calc(-50% + 8px));
     }
+    /* Nav logo: much smaller on phones; name + sub each one line */
+    .site-header .nav .logo {
+      gap: 5px;
+      min-width: 0;
+      flex-shrink: 1;
+    }
+    .site-header .nav .logo .logo-mark {
+      height: 26px;
+      width: auto;
+    }
+    .site-header .nav .logo-text {
+      align-items: flex-start;
+      line-height: 1.08;
+      min-width: 0;
+    }
+    .site-header .nav .logo-text .name {
+      font-size: 12px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .site-header .nav .logo-text .sub {
+      font-size: 9px;
+      letter-spacing: 0.03em;
+      opacity: 0.92;
+      white-space: nowrap;
+    }
   }
 
 
@@ -916,8 +942,8 @@
         <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
       </span>
       <span class="logo-text">
-        <span class="name">Automation One</span>
-        <span class="sub">Business Systems</span>
+        <span class="name">Automation&nbsp;One</span>
+        <span class="sub">Business&nbsp;Systems</span>
       </span>
     </a>
     <ul class="nav-links" hidden></ul>
