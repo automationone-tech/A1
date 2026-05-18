@@ -4,8 +4,8 @@ Automation One — your website folder (Part 1 done)
 This folder is your whole website in one place.
 
 MAIN PAGES
-  index.html                    → Homepage (opens first on the internet)
-  automation-one-homepage-6.html → Same homepage (backup name)
+  index.html                    → Homepage (opens at http://localhost:8000/)
+  automation-one-homepage-6.html → Same homepage (used by Home links on other pages)
   automation-one-contact.html   → Contact page
 
 PICTURES & VIDEOS
