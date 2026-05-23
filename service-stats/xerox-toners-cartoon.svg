@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 0 760 430" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrated Xerox toner boxes</title>
+  <desc id="desc">A realistic cartoon-style illustration of stacked Xerox toner boxes.</desc>
+  <defs>
+    <linearGradient id="kraft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9b77f"/>
+      <stop offset="0.45" stop-color="#c99f62"/>
+      <stop offset="1" stop-color="#a97838"/>
+    </linearGradient>
+    <linearGradient id="kraftSide" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b98647"/>
+      <stop offset="1" stop-color="#8c5f2b"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f0d19c" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#b17b3d" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#0f389e" flood-opacity="0.18"/>
+    </filter>
+    <pattern id="barcode" width="22" height="48" patternUnits="userSpaceOnUse">
+      <rect width="22" height="48" fill="#f4d49b"/>
+      <rect x="2" width="2" height="48" fill="#2b241c"/>
+      <rect x="6" width="1.4" height="48" fill="#2b241c"/>
+      <rect x="10" width="3" height="48" fill="#2b241c"/>
+      <rect x="16" width="1.8" height="48" fill="#2b241c"/>
+      <rect x="20" width="1" height="48" fill="#2b241c"/>
+    </pattern>
+  </defs>
+
+  <ellipse cx="340" cy="363" rx="292" ry="34" fill="#0f389e" opacity="0.11"/>
+
+  <g filter="url(#softShadow)" font-family="Arial, Helvetica, sans-serif">
+    <!-- Yellow toner box -->
+    <g transform="translate(24 72) rotate(-5 260 58)">
+      <polygon points="0,30 32,0 566,0 534,30" fill="#e7c58d"/>
+      <polygon points="534,30 566,0 566,78 534,110" fill="url(#kraftSide)"/>
+      <rect x="0" y="30" width="534" height="80" rx="5" fill="url(#kraft)"/>
+      <path d="M8 40h514" stroke="url(#edge)" stroke-width="5" opacity="0.7"/>
+      <rect x="292" y="47" width="72" height="46" fill="url(#barcode)" stroke="#4b3822" stroke-width="2"/>
+      <rect x="42" y="68" width="34" height="24" rx="4" fill="#f2d400"/>
+      <text x="42" y="57" font-size="22" fill="#2b241c">Yellow Toner · Toner jaune</text>
+      <text x="84" y="88" font-size="16" fill="#3b2c1b">WorkCentre 7425, 7428, 7435</text>
+      <text x="430" y="58" font-size="24" font-weight="800" fill="#2b241c">xerox</text>
+      <circle cx="505" cy="52" r="16" fill="none" stroke="#2b241c" stroke-width="4"/>
+      <path d="M493 52h24M505 40v24" stroke="#2b241c" stroke-width="4" stroke-linecap="round"/>
+      <text x="430" y="87" font-size="15" font-weight="700" fill="#2b241c">006R01396</text>
+      <g opacity="0.28" fill="#2b241c">
+        <rect x="45" y="12" width="140" height="5" rx="2"/>
+        <rect x="204" y="12" width="78" height="5" rx="2"/>
+      </g>
+    </g>
+
+    <!-- Magenta toner box -->
+    <g transform="translate(102 161) rotate(-1 260 58)">
+      <polygon points="0,30 32,0 566,0 534,30" fill="#e3be83"/>
+      <polygon points="534,30 566,0 566,78 534,110" fill="url(#kraftSide)"/>
+      <rect x="0" y="30" width="534" height="80" rx="5" fill="url(#kraft)"/>
+      <path d="M8 40h514" stroke="url(#edge)" stroke-width="5" opacity="0.68"/>
+      <rect x="306" y="47" width="72" height="46" fill="url(#barcode)" stroke="#4b3822" stroke-width="2"/>
+      <rect x="48" y="69" width="34" height="24" rx="4" fill="#d8337d"/>
+      <text x="48" y="58" font-size="22" fill="#2b241c">Magenta Toner</text>
+      <text x="48" y="81" font-size="18" fill="#2b241c">Toner magenta</text>
+      <text x="91" y="91" font-size="16" fill="#3b2c1b">WorkCentre 7425, 7428, 7435</text>
+      <text x="432" y="58" font-size="24" font-weight="800" fill="#2b241c">xerox</text>
+      <circle cx="507" cy="52" r="16" fill="none" stroke="#2b241c" stroke-width="4"/>
+      <path d="M495 52h24M507 40v24" stroke="#2b241c" stroke-width="4" stroke-linecap="round"/>
+      <text x="432" y="87" font-size="15" font-weight="700" fill="#2b241c">006R01397</text>
+      <g opacity="0.28" fill="#2b241c">
+        <rect x="52" y="12" width="132" height="5" rx="2"/>
+        <rect x="204" y="12" width="78" height="5" rx="2"/>
+      </g>
+    </g>
+
+    <!-- Cyan toner box -->
+    <g transform="translate(162 250) rotate(-4 260 58)">
+      <polygon points="0,30 32,0 566,0 534,30" fill="#e5c188"/>
+      <polygon points="534,30 566,0 566,78 534,110" fill="url(#kraftSide)"/>
+      <rect x="0" y="30" width="534" height="80" rx="5" fill="url(#kraft)"/>
+      <path d="M8 40h514" stroke="url(#edge)" stroke-width="5" opacity="0.68"/>
+      <rect x="306" y="47" width="72" height="46" fill="url(#barcode)" stroke="#4b3822" stroke-width="2"/>
+      <rect x="48" y="69" width="34" height="24" rx="4" fill="#0097b6"/>
+      <text x="48" y="58" font-size="22" fill="#2b241c">Cyan Toner · Toner cyan</text>
+      <text x="91" y="91" font-size="16" fill="#3b2c1b">WorkCentre 7425, 7428, 7435</text>
+      <text x="432" y="58" font-size="24" font-weight="800" fill="#2b241c">xerox</text>
+      <circle cx="507" cy="52" r="16" fill="none" stroke="#2b241c" stroke-width="4"/>
+      <path d="M495 52h24M507 40v24" stroke="#2b241c" stroke-width="4" stroke-linecap="round"/>
+      <text x="432" y="87" font-size="15" font-weight="700" fill="#2b241c">006R01398</text>
+      <g opacity="0.28" fill="#2b241c">
+        <rect x="52" y="12" width="132" height="5" rx="2"/>
+        <rect x="204" y="12" width="78" height="5" rx="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

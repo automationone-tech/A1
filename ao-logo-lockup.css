@@ -1,0 +1,68 @@
+/* Nav + brands lockup (synced via ao-logo-lockup.js) */
+
+.ao-logo-lockup,
+.logo-text,
+.brands-scene-logo-text,
+.pt-logo .pt-text {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+  max-width: 100%;
+  line-height: 1.05;
+  gap: 2px;
+}
+
+.ao-logo-lockup {
+  align-items: stretch !important;
+}
+
+.ao-lockup-name,
+.logo-text .name,
+.brands-scene-logo-text .brands-scene-logo-name,
+.pt-logo .pt-name {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.ao-lockup-sub,
+.logo-text .sub,
+.brands-scene-logo-text .brands-scene-logo-sub,
+.pt-logo .pt-sub {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-align: right;
+  font-size: inherit;
+}
+
+.logo-text .sub,
+.brands-scene-logo-text .brands-scene-logo-sub {
+  font-size: 0.53em;
+}
+
+/* Page transition: show logo on blue */
+.page-transition.is-covered .pt-logo,
+.page-transition.is-cover-in .pt-logo,
+.page-transition.is-cover-out .pt-logo {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) translateZ(0) !important;
+}
+.page-transition.is-cover-in .pt-logo {
+  transition-delay: 0.025s, 0.025s;
+}
+.page-transition.is-cover-out .pt-logo .pt-text {
+  text-shadow: none;
+}
+
+.page-transition .pt-logo .pt-mark {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(6, 26, 74, 0.28));
+}
+.page-transition.is-covered .pt-logo .pt-mark,
+.page-transition.is-cover-in .pt-logo .pt-mark,
+.page-transition.is-cover-out .pt-logo .pt-mark {
+  filter: brightness(0) invert(1);
+}

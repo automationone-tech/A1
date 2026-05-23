@@ -7,7 +7,8 @@
 <meta name="description" content="Browse office printers, production systems, scanners, mailing equipment, and shredders from Canon, Xerox, Lexmark, and more. Authorized Automation One dealer in Vancouver, BC." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts-jeton.css">
 <style>
 
   :root {
@@ -19,8 +20,8 @@
     --ink: #0b1330;
     --paper: #f8faff;
     --white: #ffffff;
-    --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
-    --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+    
+    
     --cta-pill-chevron-white: url("process-flow-arrow-white.png");
     --cta-pill-chevron-blue-700: url("process-flow-arrow.png");
     --cta-pill-chevron-blue-800: url("process-flow-arrow-blue-800.png");
@@ -1995,9 +1996,272 @@
       display: none !important;
     }
   }
+
+/* ---------- PAGE TRANSITION (photocopier scan) ---------- */
+html { background-color: #ffffff; }
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1c40a8 0%, #061a4a 100%);
+  clip-path: inset(0 0 0 0%);
+  -webkit-clip-path: inset(0 0 0 0%);
+  will-change: clip-path;
+}
+.page-transition.is-finished { display: none; }
+.page-transition.is-cover-out::before {
+  opacity: 0 !important;
+  animation: none;
+}
+.page-transition::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, #4f6fd8 0%, #1c40a8 100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.page-transition.is-cover-in::before {
+  animation: pt-light-fade 0.36s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes pt-light-fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.page-transition .pt-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  isolation: isolate;
+}
+/* Faded AO mark — same asset as CTA banner; grows while blue overlay is visible */
+.page-transition .pt-watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  height: min(168vh, 158vw);
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  opacity: 0.04;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(var(--pt-wm-scale, 1)) translateZ(0);
+  transform-origin: center center;
+  will-change: transform;
+  transition: none;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.page-transition .pt-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  isolation: isolate;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.94) translateZ(0);
+  opacity: 0;
+  transition: opacity 0.06s ease, transform 0.08s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #ffffff;
+  will-change: opacity, transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.page-transition .pt-mark-wrap {
+  display: block;
+  line-height: 0;
+  width: 100%;
+}
+.page-transition .pt-logo .pt-mark {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+.page-transition .pt-logo .pt-text {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  gap: 2px;
+  line-height: 1.05;
+  color: #ffffff;
+  text-shadow: 0 1px 8px rgba(6, 26, 74, 0.22);
+}
+.page-transition .pt-logo .pt-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 40px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #ffffff;
+  text-align: left;
+  white-space: nowrap;
+}
+.page-transition .pt-logo .pt-sub {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  opacity: 0.9;
+  color: #ffffff;
+  text-align: right;
+  white-space: nowrap;
+}
+.page-transition.is-covered .pt-logo,
+.page-transition.is-cover-in .pt-logo,
+.page-transition.is-cover-out .pt-logo {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) translateZ(0);
+}
+.page-transition.is-cover-in .pt-logo {
+  transition-delay: 0.025s, 0.025s;
+}
+.page-transition.is-cover-out .pt-logo .pt-text {
+  text-shadow: none;
+}
+.page-transition .pt-cell {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  background-color: #3868f7;
+  background-image: radial-gradient(circle at 32% 28%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 38%,
+      rgba(0, 0, 0, 0.025) 78%,
+      rgba(0, 0, 0, 0.06) 100%);
+  translate: var(--tx, -150vw) var(--ty, 150vh);
+  scale: 0;
+  will-change: translate, scale;
+  pointer-events: none;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  outline: none;
+}
+.page-transition.is-covered .pt-cell { translate: 0 0; scale: var(--s, 1.5); }
+.page-transition.is-cover-in .pt-cell {
+  animation: pt-translate-in 0.36s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+             pt-grow 0.36s cubic-bezier(0.34, 1.45, 0.6, 1) forwards;
+  animation-delay: 0s;
+}
+@keyframes pt-grow {
+  0%   { scale: calc(var(--s, 1.5) * 0.50); }
+  55%  { scale: calc(var(--s, 1.5) * 1.08); }
+  80%  { scale: calc(var(--s, 1.5) * 0.97); }
+  100% { scale: var(--s, 1.5); }
+}
+@keyframes pt-translate-in {
+  0% { translate: var(--tx, -150vw) var(--ty, 150vh); }
+  100% { translate: 0 0; }
+}
+
+/* Photocopier light — one clean left-to-right swipe */
+.pt-scan-bar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 58px;
+  background: #ffffff;
+  z-index: 1000000;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(0);
+  will-change: transform, opacity;
+  box-shadow:
+    0 0 28px 8px rgba(255, 255, 255, 0.75),
+    0 0 12px 3px rgba(255, 255, 255, 0.9);
+}
+.pt-scan-bar.is-sweeping {
+  opacity: 1;
+}
+/* Even glow — fades into the revealed page on the left */
+.pt-scan-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 120px;
+  background: linear-gradient(to left,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.55) 38%,
+      rgba(255, 255, 255, 0.22) 68%,
+      rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+/* Even glow — fades into the blue on the right */
+.pt-scan-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 120px;
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.55) 38%,
+      rgba(255, 255, 255, 0.22) 68%,
+      rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { display: none !important; }
+  .pt-scan-bar { display: none !important; }
+  html { background-color: transparent; }
+}
+/* Final CTA banner animation synced with homepage */
+.cta-section {
+  --cta-letter-bg-size: 159%;
+  --cta-letter-bg-y: 44%;
+  --cta-letter-x: -0.75%;
+  --cta-letter-rotate: -13deg;
+  --cta-letter-scale: 1.16;
+  --cta-watermark-left: 66%;
+  --cta-watermark-scale: 1;
+}
+.cta-section::after {
+  inset: -16% -12%;
+  background-size: var(--cta-letter-bg-size) auto;
+  background-position: left var(--cta-letter-bg-y);
+  transform: translate3d(var(--cta-letter-x), 0, 0) rotate(var(--cta-letter-rotate)) scale(var(--cta-letter-scale));
+  transform-origin: 28% 50%;
+}
+.cta-watermark {
+  left: var(--cta-watermark-left);
+  transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
+}
 </style>
+<link rel="stylesheet" href="ao-logo-lockup.css">
 </head>
 <body class="products-page">
+<div id="page-transition" class="page-transition" aria-hidden="true">
+  <div class="pt-grid" id="pt-grid"></div>
+  <img class="pt-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" decoding="async" fetchpriority="low" />
+  <div class="pt-logo" aria-hidden="true">
+    <span class="pt-mark-wrap" aria-hidden="true"><img class="pt-mark" src="ao-nav-logo.png" width="416" height="288" alt="" decoding="sync" fetchpriority="high" /></span>
+    <span class="pt-text">
+        <span class="pt-name">Automation&nbsp;One</span>
+        <span class="pt-sub">Business&nbsp;Systems</span>
+      </span>
+  </div>
+</div>
+<div id="pt-scan-bar" class="pt-scan-bar" aria-hidden="true"></div>
+
 
 <header class="site-header">
   <nav class="nav">
@@ -2006,8 +2270,8 @@
         <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
       </span>
       <span class="logo-text">
-        <span class="name">Automation One</span>
-        <span class="sub">Business Systems</span>
+        <span class="name">Automation&nbsp;One</span>
+        <span class="sub">Business&nbsp;Systems</span>
       </span>
     </a>
     <div class="nav-actions">
@@ -2561,6 +2825,98 @@
   </div>
 </section>
 
+<script>
+  (function initFinalCtaLetterPan() {
+    var section = document.querySelector('.cta-section');
+    if (!section) return;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+    var hasStarted = false, lockedFinal = false, rafId = 0, finalLetterRafId = 0;
+    var DURATION_MS = 3500, WATERMARK_DURATION_MS = 2250;
+    function clamp01(v) { return Math.max(0, Math.min(1, v)); }
+    function smoothstep(t) { t = clamp01(t); return t * t * (3 - 2 * t); }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function setLetterEasedProgress(t) {
+      t = clamp01(t);
+      section.style.setProperty('--cta-letter-bg-size', lerp(159, 100, t).toFixed(2) + '%');
+      section.style.setProperty('--cta-letter-bg-y', lerp(44, 40, t).toFixed(2) + '%');
+      section.style.setProperty('--cta-letter-x', lerp(-0.75, 0, t).toFixed(2) + '%');
+      section.style.setProperty('--cta-letter-rotate', lerp(-13, 0, t).toFixed(3) + 'deg');
+      section.style.setProperty('--cta-letter-scale', lerp(1.16, 1, t).toFixed(4));
+    }
+    function setProgress(t) { setLetterEasedProgress(smoothstep(t)); }
+    function setWatermarkProgress(t) {
+      t = smoothstep(t);
+      section.style.setProperty('--cta-watermark-left', lerp(60.67, 66, t).toFixed(2) + '%');
+      section.style.setProperty('--cta-watermark-scale', lerp(1.15, 1, t).toFixed(4));
+    }
+    function setFinalState() {
+      section.style.setProperty('--cta-letter-bg-size', '100%');
+      section.style.setProperty('--cta-letter-bg-y', '40%');
+      section.style.setProperty('--cta-letter-x', '0%');
+      section.style.setProperty('--cta-letter-rotate', '0deg');
+      section.style.setProperty('--cta-letter-scale', '1');
+    }
+    function setWatermarkFinalState() {
+      section.style.setProperty('--cta-watermark-left', '66%');
+      section.style.setProperty('--cta-watermark-scale', '1');
+    }
+    function lockFinalState() {
+      if (lockedFinal) return;
+      lockedFinal = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      setFinalState();
+      setWatermarkFinalState();
+      window.removeEventListener('scroll', requestStart);
+      window.removeEventListener('resize', requestStart);
+      window.addEventListener('scroll', requestFinalLetterUpdate, { passive: true });
+      window.addEventListener('resize', requestFinalLetterUpdate, { passive: true });
+    }
+    function isInViewport() {
+      var r = section.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight || 1;
+      return r.top < vh && r.bottom > 0;
+    }
+    function startAnimation() {
+      if (hasStarted || lockedFinal) return;
+      hasStarted = true;
+      window.removeEventListener('scroll', requestStart);
+      window.removeEventListener('resize', requestStart);
+      var startTs = performance.now();
+      function step(now) {
+        var t = clamp01((now - startTs) / DURATION_MS);
+        var watermarkT = clamp01((now - startTs) / WATERMARK_DURATION_MS);
+        setProgress(t);
+        setWatermarkProgress(watermarkT);
+        if (t < 1) rafId = requestAnimationFrame(step);
+        else lockFinalState();
+      }
+      setProgress(0);
+      setWatermarkProgress(0);
+      rafId = requestAnimationFrame(step);
+    }
+    function requestStart() { if (isInViewport()) startAnimation(); }
+    function finalLetterProgressFromScroll() {
+      var r = section.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight || 1;
+      return smoothstep((vh * 0.62 - r.top) / (vh * 0.62));
+    }
+    function updateFinalLetterFromScroll() {
+      finalLetterRafId = 0;
+      setLetterEasedProgress(0.95 + finalLetterProgressFromScroll() * 0.05);
+    }
+    function requestFinalLetterUpdate() {
+      if (!lockedFinal || finalLetterRafId) return;
+      finalLetterRafId = requestAnimationFrame(updateFinalLetterFromScroll);
+    }
+    setProgress(0);
+    setWatermarkProgress(0);
+    requestStart();
+    window.addEventListener('scroll', requestStart, { passive: true });
+    window.addEventListener('resize', requestStart, { passive: true });
+  })();
+</script>
+
 <footer>
   <div class="container">
     <div class="foot-grid">
@@ -2568,8 +2924,8 @@
         <a href="automation-one-homepage-6.html" class="logo">
           <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
-            <span class="name">Automation One</span>
-            <span class="sub">Business Systems</span>
+            <span class="name">Automation&nbsp;One</span>
+            <span class="sub">Business&nbsp;Systems</span>
           </span>
         </a>
         <p>Vancouver's locally owned printing and office equipment leader since 1981. Independent, multi-brand, and always on call.</p>
@@ -2610,21 +2966,20 @@
       <div class="foot-col">
         <h6>Service</h6>
         <ul>
-          <li><a href="#">Service Request</a></li>
-          <li><a href="#">Order Toner</a></li>
-          <li><a href="#">Managed Print</a></li>
-          <li><a href="#">Forms &amp; Links</a></li>
-          <li><a href="#">FAQs</a></li>
+          <li><a href="automation-one-service-support.html">Service Request</a></li>
+          <li><a href="automation-one-toner.html">Order Toner</a></li>
+          <li><a href="automation-one-service-support.html#managed-print">Managed Print</a></li>
+          <li><a href="automation-one-resources.html">Forms &amp; Links</a></li>
+          <li><a href="automation-one-resources.html#manufacturer-support">Manufacturer Support</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Company</h6>
         <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">What We Do</a></li>
-          <li><a href="#">Testimonials</a></li>
-          <li><a href="#">News</a></li>
+          <li><a href="automation-one-about.html">About &amp; History</a></li>
+          <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
+          <li><a href="automation-one-testimonials.html">Testimonials</a></li>
           <li><a href="automation-one-contact.html">Contact</a></li>
         </ul>
       </div>
@@ -2665,9 +3020,9 @@
       </button>
       <div class="sticky-nav-dropdown" hidden>
         <a href="automation-one-products.html">Products &amp; Solutions</a>
-        <a href="automation-one-homepage-6.html#service-support">Service &amp; Support</a>
-        <a href="automation-one-homepage-6.html#toner">Toner</a>
-        <a href="automation-one-homepage-6.html#resources">Resources</a>
+        <a href="automation-one-service-support.html">Service &amp; Support</a>
+        <a href="automation-one-toner.html">Toner</a>
+        <a href="automation-one-resources.html">Resources</a>
       </div>
     </div>
     <div class="sticky-nav-group">
@@ -2676,9 +3031,9 @@
         Who We Are
       </button>
       <div class="sticky-nav-dropdown" hidden>
-        <a href="automation-one-homepage-6.html#what-we-do">What We Do for You</a>
-        <a href="automation-one-homepage-6.html#our-history">About Us &amp; Our History</a>
-        <a href="automation-one-homepage-6.html#testimonials">Testimonials</a>
+        <a href="automation-one-what-we-do.html">What We Do for You</a>
+        <a href="automation-one-about.html">About Us &amp; Our History</a>
+        <a href="automation-one-testimonials.html">Testimonials</a>
       </div>
     </div>
     <a href="automation-one-contact.html" >
@@ -2695,15 +3050,15 @@
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">What We Offer</span>
     <a href="automation-one-products.html" class="mobile-nav-sub">Products &amp; Solutions</a>
-    <a href="automation-one-homepage-6.html#service-support" class="mobile-nav-sub">Service &amp; Support</a>
-    <a href="automation-one-homepage-6.html#toner" class="mobile-nav-sub">Toner</a>
-    <a href="automation-one-homepage-6.html#resources" class="mobile-nav-sub">Resources</a>
+    <a href="automation-one-service-support.html" class="mobile-nav-sub">Service &amp; Support</a>
+    <a href="automation-one-toner.html" class="mobile-nav-sub">Toner</a>
+    <a href="automation-one-resources.html" class="mobile-nav-sub">Resources</a>
   </div>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">Who We Are</span>
-    <a href="automation-one-homepage-6.html#what-we-do" class="mobile-nav-sub">What We Do for You</a>
-    <a href="automation-one-homepage-6.html#our-history" class="mobile-nav-sub">About Us &amp; Our History</a>
-    <a href="automation-one-homepage-6.html#testimonials" class="mobile-nav-sub">Testimonials</a>
+    <a href="automation-one-what-we-do.html" class="mobile-nav-sub">What We Do for You</a>
+    <a href="automation-one-about.html" class="mobile-nav-sub">About Us &amp; Our History</a>
+    <a href="automation-one-testimonials.html" class="mobile-nav-sub">Testimonials</a>
   </div>
   <a href="automation-one-contact.html" >
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -3061,6 +3416,299 @@
     applyFilters();
   })();
 
+</script>
+
+<script src="ao-logo-lockup.js"></script>
+<script>
+  (function initPageTransition() {
+    var overlay = document.getElementById('page-transition');
+    var grid = document.getElementById('pt-grid');
+    var scanBar = document.getElementById('pt-scan-bar');
+    if (!overlay || !grid || !scanBar) return;
+    var ptWatermark = document.querySelector('.pt-watermark');
+    var ptMark = document.querySelector('.pt-logo .pt-mark');
+    var hdrLogo = document.querySelector('.site-header .logo-mark, .nav .logo .logo-mark');
+    if (ptMark && hdrLogo) {
+      var hiSrc = hdrLogo.currentSrc || hdrLogo.getAttribute('src');
+      if (hiSrc) ptMark.src = hiSrc;
+    }
+    function syncPtLogoLockup() {
+      if (window.syncAoLogoLockups) window.syncAoLogoLockups();
+    }
+    if (ptMark) {
+      if (ptMark.complete) syncPtLogoLockup();
+      else ptMark.addEventListener('load', syncPtLogoLockup, { once: true });
+    } else {
+      syncPtLogoLockup();
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncPtLogoLockup);
+    }
+    window.addEventListener('resize', syncPtLogoLockup);
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (rm && rm.matches) {
+      overlay.classList.add('is-finished');
+      return;
+    }
+
+    var SHADES = ['#3055c8', '#3258cc', '#2b50c0', '#3863d2', '#2e54c5', '#3760ce'];
+
+    var COVER_IN_MS = 360;
+    var SCAN_MS = 480;
+    var LOGO_FADE_MS = 50;
+
+    var wmRafId = null;
+    var blueVisibleStart = 0;
+    var wmBlueDurationMs = 0;
+    var WM_SCALE_MIN = 1;
+    var WM_SCALE_MAX = 2.75;
+    var PT_WM_RESUME_KEY = 'pt-wm-resume-linear';
+
+    function ptNavTotalMs() { return COVER_IN_MS + SCAN_MS; }
+
+    function setWatermarkScale(s) {
+      if (ptWatermark) ptWatermark.style.setProperty('--pt-wm-scale', String(s));
+    }
+
+    function setWatermarkFromScanProgress(progress) {
+      var p = Math.max(0, Math.min(1, progress));
+      setWatermarkScale(WM_SCALE_MIN + (WM_SCALE_MAX - WM_SCALE_MIN) * p);
+    }
+
+    function readWatermarkResumeLinear() {
+      var resume = 0;
+      try {
+        var saved = sessionStorage.getItem(PT_WM_RESUME_KEY);
+        sessionStorage.removeItem(PT_WM_RESUME_KEY);
+        resume = saved ? parseFloat(saved) : 0;
+      } catch (err) {}
+      if (isNaN(resume) || resume < 0) resume = 0;
+      if (resume > 1) resume = 1;
+      return resume;
+    }
+
+    function saveWatermarkResumeLinear() {
+      if (!blueVisibleStart) return;
+      var elapsed = performance.now() - blueVisibleStart;
+      var overallLinear = Math.min(1, elapsed / ptNavTotalMs());
+      try { sessionStorage.setItem(PT_WM_RESUME_KEY, String(overallLinear)); } catch (err) {}
+    }
+
+    function tickWatermarkCoverIn() {
+      if (!ptWatermark || overlay.classList.contains('is-finished')) {
+        wmRafId = null;
+        return;
+      }
+      var elapsed = performance.now() - blueVisibleStart;
+      var overallLinear = Math.min(1, elapsed / ptNavTotalMs());
+      setWatermarkFromScanProgress(ptEase(overallLinear));
+      if (elapsed < COVER_IN_MS) wmRafId = requestAnimationFrame(tickWatermarkCoverIn);
+    }
+
+    function startWatermarkGrow() {
+      blueVisibleStart = performance.now();
+      setWatermarkFromScanProgress(ptEase(0));
+      if (wmRafId) cancelAnimationFrame(wmRafId);
+      wmRafId = requestAnimationFrame(tickWatermarkCoverIn);
+    }
+
+    function stopWatermarkGrow() {
+      if (wmRafId) { cancelAnimationFrame(wmRafId); wmRafId = null; }
+      blueVisibleStart = 0;
+      wmBlueDurationMs = 0;
+    }
+
+    function buildGrid() {
+      grid.innerHTML = '';
+      var w = window.innerWidth;
+      var h = window.innerHeight;
+      var minDim = Math.min(w, h);
+      var size = Math.max(110, Math.min(180, Math.floor(minDim / 5)));
+      var cols = Math.ceil(w / size) + 1;
+      var rows = Math.ceil(h / size) + 1;
+      var maxDiag = (cols - 1) + (rows - 1) || 1;
+      var midCol = (cols - 1) / 2;
+      var html = '';
+      for (var r = 0; r < rows; r++) {
+        for (var c = 0; c < cols; c++) {
+          var d = (c + r) / maxDiag;
+          var shade = SHADES[(Math.random() * SHADES.length) | 0];
+          var scale = (0.90 + Math.random() * 0.55).toFixed(2);
+          // Every cell shares one off-screen origin and fans out.
+          var cellXvw = (c * size) / w * 100;
+          var cellYvh = (r * size) / h * 100;
+          var tx = (-30 - cellXvw).toFixed(1);
+          var ty = (115 - cellYvh).toFixed(1);
+          html += '<span class="pt-cell" style="' +
+            'left:' + (c * size) + 'px;' +
+            'top:' + (r * size) + 'px;' +
+            'width:' + size + 'px;' +
+            'height:' + size + 'px;' +
+            'background-color:' + shade + ';' +
+            '--s:' + scale + ';' +
+            '--tx:' + tx + 'vw;' +
+            '--ty:' + ty + 'vh;' +
+            '--d:' + d.toFixed(3) + ';"></span>';
+        }
+      }
+      grid.innerHTML = html;
+    }
+
+
+    // ---- INITIAL REVEAL ----
+    // 1) Cells already cover the screen + logo fades into view.
+    // 2) After the logo settles, fire the photocopier scan: clip-path
+    //    wipes the overlay (cells + logo) from left to right, while a
+    //    bright vertical light bar sweeps across in sync.
+    var ptRafId = null;
+    var PT_BAR_W = 58;
+    var ptRevealDone = false;
+
+    function ptEase(t) {
+      if (t <= 0) return 0;
+      if (t >= 1) return 1;
+      var x1 = 0.55, y1 = 0, x2 = 0.45, y2 = 1;
+      var cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+      var cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+      function sampleX(u) { return ((ax * u + bx) * u + cx) * u; }
+      function sampleY(u) { return ((ay * u + by) * u + cy) * u; }
+      var u = t;
+      for (var i = 0; i < 10; i++) {
+        var err = sampleX(u) - t;
+        if (Math.abs(err) < 1e-5) break;
+        var d = (3 * ax * u + 2 * bx) * u + cx;
+        if (Math.abs(d) < 1e-6) break;
+        u -= err / d;
+      }
+      return sampleY(u);
+    }
+
+    function applyScanFrame(eased) {
+      var w = window.innerWidth;
+      var travel = Math.max(0, w - PT_BAR_W);
+      var barLeft = eased * travel;
+      var clipPct = Math.min(100, ((barLeft + PT_BAR_W) / w) * 100);
+      var clip = 'inset(0 0 0 ' + clipPct + '%)';
+      overlay.style.clipPath = clip;
+      overlay.style.webkitClipPath = clip;
+      scanBar.style.transform = 'translateX(' + barLeft + 'px)';
+    }
+
+    function finishScanReveal() {
+      if (ptRevealDone) return;
+      ptRevealDone = true;
+      setWatermarkFromScanProgress(1);
+      stopWatermarkGrow();
+      if (ptRafId) { cancelAnimationFrame(ptRafId); ptRafId = null; }
+      overlay.style.clipPath = 'inset(0 0 0 100%)';
+      overlay.style.webkitClipPath = 'inset(0 0 0 100%)';
+      scanBar.style.opacity = '0';
+      scanBar.classList.remove('is-sweeping');
+      overlay.classList.add('is-finished');
+      overlay.classList.remove('is-cover-out');
+      scanBar.style.transform = 'translateX(' + Math.max(0, window.innerWidth - PT_BAR_W) + 'px)';
+    }
+
+    function startScanReveal() {
+      ptRevealDone = false;
+      if (ptRafId) { cancelAnimationFrame(ptRafId); ptRafId = null; }
+      if (wmRafId) { cancelAnimationFrame(wmRafId); wmRafId = null; }
+      overlay.classList.remove('is-cover-out', 'is-finished');
+      scanBar.classList.remove('is-sweeping');
+      overlay.style.clipPath = 'inset(0 0 0 0%)';
+      overlay.style.webkitClipPath = 'inset(0 0 0 0%)';
+      scanBar.style.transform = 'translateX(0)';
+      scanBar.style.opacity = '1';
+      void overlay.offsetWidth;
+      overlay.classList.add('is-cover-out');
+      scanBar.classList.add('is-sweeping');
+      var resumeLinear = readWatermarkResumeLinear();
+      setWatermarkFromScanProgress(ptEase(resumeLinear));
+      var t0 = performance.now();
+      function frame(now) {
+        if (ptRevealDone) return;
+        var scanT = Math.min(1, (now - t0) / SCAN_MS);
+        var overallLinear = resumeLinear + (1 - resumeLinear) * scanT;
+        var eased = ptEase(overallLinear);
+        setWatermarkFromScanProgress(eased);
+        applyScanFrame(ptEase(scanT));
+        scanBar.style.opacity = '1';
+        if (scanT < 1) {
+          ptRafId = requestAnimationFrame(frame);
+        } else {
+          finishScanReveal();
+        }
+      }
+      ptRafId = requestAnimationFrame(frame);
+      setTimeout(finishScanReveal, SCAN_MS + 80);
+    }
+
+    overlay.classList.add('is-covered');
+    syncPtLogoLockup();
+    startScanReveal();
+
+    // ---- RESIZE ----
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { if (grid.children.length > 0) buildGrid(); }, 150);
+    });
+
+    // ---- COVER-IN ON INTERNAL LINK CLICK ----
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var link = e.target.closest && e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      if (!href) return;
+      if (href.charAt(0) === '#') return;
+      if (href.indexOf('mailto:') === 0) return;
+      if (href.indexOf('tel:') === 0) return;
+      if (href.indexOf('javascript:') === 0) return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+      if (link.classList.contains('js-open-quote-drawer')) return;
+      if (link.dataset && link.dataset.noTransition !== undefined) return;
+
+      var url;
+      try { url = new URL(link.href, window.location.href); } catch (_) { return; }
+      if (url.origin !== window.location.origin) return;
+      // Same-document navigation (just an anchor or query) — skip transition
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+
+      e.preventDefault();
+      scanBar.classList.remove('is-sweeping');
+      scanBar.style.opacity = '0';
+      overlay.style.clipPath = '';
+      overlay.style.webkitClipPath = '';
+      overlay.classList.remove('is-finished', 'is-cover-out', 'is-covered');
+      stopWatermarkGrow();
+      // force reflow so animation restarts cleanly
+      void overlay.offsetWidth;
+      overlay.classList.add('is-cover-in');
+      syncPtLogoLockup();
+      startWatermarkGrow();
+      setTimeout(function () {
+        saveWatermarkResumeLinear();
+        window.location.href = url.href;
+      }, COVER_IN_MS);
+    });
+
+    // ---- BFCACHE / PAGESHOW: replay reveal if the page is restored from history ----
+    window.addEventListener('pageshow', function (e) {
+      if (!e.persisted) return;
+      grid.innerHTML = '';
+      scanBar.classList.remove('is-sweeping');
+      scanBar.style.opacity = '0';
+      overlay.style.clipPath = '';
+      overlay.style.webkitClipPath = '';
+      overlay.classList.remove('is-finished', 'is-cover-in', 'is-cover-out');
+      overlay.classList.add('is-covered');
+      syncPtLogoLockup();
+      startScanReveal();
+    });
+  })();
 </script>
 </body>
 </html>
