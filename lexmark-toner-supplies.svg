@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+  <title id="title">Lexmark toner and supplies</title>
+  <desc id="desc">Illustrated Lexmark toner and supplies boxes.</desc>
+  <defs>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7faf7"/>
+      <stop offset="1" stop-color="#dfe8df"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#27c66f"/>
+      <stop offset="1" stop-color="#008a44"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#061a4a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M120 134h270v190H120z" rx="18" fill="url(#box)"/>
+    <path d="M120 134h270v64H120z" rx="18" fill="#fff"/>
+    <path d="M120 179h270v38H120z" fill="url(#green)" opacity="0.95"/>
+    <rect x="152" y="232" width="106" height="16" rx="8" fill="#303744" opacity="0.72"/>
+    <rect x="152" y="260" width="184" height="12" rx="6" fill="#303744" opacity="0.35"/>
+    <rect x="152" y="282" width="150" height="12" rx="6" fill="#303744" opacity="0.25"/>
+
+    <path d="M342 92h270v232H342z" rx="20" fill="url(#box)"/>
+    <path d="M342 92h270v78H342z" rx="20" fill="#fff"/>
+    <path d="M342 152h270v48H342z" fill="url(#green)"/>
+    <rect x="382" y="222" width="128" height="18" rx="9" fill="#303744" opacity="0.72"/>
+    <rect x="382" y="252" width="176" height="12" rx="6" fill="#303744" opacity="0.35"/>
+    <rect x="382" y="274" width="132" height="12" rx="6" fill="#303744" opacity="0.25"/>
+  </g>
+  <g transform="translate(424 108)">
+    <rect width="46" height="46" rx="4" fill="url(#green)"/>
+    <path d="M10 23 23 10l13 13-13 13z" fill="#fff" opacity="0.9"/>
+    <path d="M23 10h13v13zM10 23h13v13z" fill="#006b38" opacity="0.52"/>
+    <text x="62" y="32" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500" fill="#303744">Lexmark</text>
+  </g>
+</svg>

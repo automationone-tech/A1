@@ -1,6 +1,81 @@
 [build]
   publish = "."
 
+[[redirects]]
+  from = "/about"
+  to = "/automation-one-about.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon"
+  to = "/automation-one-canon.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/automation-one-contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp"
+  to = "/automation-one-fp.html"
+  status = 200
+
+[[redirects]]
+  from = "/francotyp-postalia"
+  to = "/automation-one-fp.html"
+  status = 200
+
+[[redirects]]
+  from = "/ideal-mbm"
+  to = "/automation-one-ideal-mbm.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark"
+  to = "/automation-one-lexmark.html"
+  status = 200
+
+[[redirects]]
+  from = "/products"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/resources"
+  to = "/automation-one-resources.html"
+  status = 200
+
+[[redirects]]
+  from = "/service"
+  to = "/automation-one-service-support.html"
+  status = 200
+
+[[redirects]]
+  from = "/service-support"
+  to = "/automation-one-service-support.html"
+  status = 200
+
+[[redirects]]
+  from = "/testimonials"
+  to = "/automation-one-testimonials.html"
+  status = 200
+
+[[redirects]]
+  from = "/toner"
+  to = "/automation-one-toner.html"
+  status = 200
+
+[[redirects]]
+  from = "/what-we-do"
+  to = "/automation-one-what-we-do.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox"
+  to = "/automation-one-xerox.html"
+  status = 200
+
 [[headers]]
   for = "/*.html"
   [headers.values]

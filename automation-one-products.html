@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#1547d1" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <title>Products &amp; Solutions | Automation One Vancouver</title>
 <meta name="description" content="Browse office printers, production systems, scanners, mailing equipment, and shredders from Canon, Xerox, Lexmark, and more. Authorized Automation One dealer in Vancouver, BC." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2319,7 +2321,15 @@ html { background-color: #ffffff; }
         height="107"
         alt="Authorized dealer for Canon, Ideal MBM, Lexmark, FP, and Xerox"
         decoding="async"
+        usemap="#products-authorized-brands-map"
       />
+      <map name="products-authorized-brands-map">
+        <area shape="rect" coords="0,0,200,107" href="automation-one-canon.html" alt="Canon products" aria-label="Canon products" />
+        <area shape="rect" coords="206,0,406,107" href="automation-one-ideal-mbm.html" alt="Ideal.MBM products" aria-label="Ideal.MBM products" />
+        <area shape="rect" coords="412,0,612,107" href="automation-one-lexmark.html" alt="Lexmark products" aria-label="Lexmark products" />
+        <area shape="rect" coords="618,0,818,107" href="automation-one-fp.html" alt="Francotyp Postalia products" aria-label="Francotyp Postalia products" />
+        <area shape="rect" coords="824,0,1024,107" href="automation-one-xerox.html" alt="Xerox products" aria-label="Xerox products" />
+      </map>
     </div>
   </div>
 </section>
@@ -2955,11 +2965,11 @@ html { background-color: #ffffff; }
       <div class="foot-col">
         <h6>Brands</h6>
         <ul>
-          <li><a href="#">Canon</a></li>
-          <li><a href="#">Xerox</a></li>
-          <li><a href="#">Lexmark</a></li>
-          <li><a href="#">Francotyp Postalia</a></li>
-          <li><a href="#">Ideal MBM</a></li>
+          <li><a href="automation-one-canon.html">Canon</a></li>
+          <li><a href="automation-one-xerox.html">Xerox</a></li>
+          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
+          <li><a href="automation-one-fp.html">Francotyp Postalia</a></li>
+          <li><a href="automation-one-ideal-mbm.html">Ideal MBM</a></li>
         </ul>
       </div>
 
@@ -3708,6 +3718,38 @@ html { background-color: #ffffff; }
       syncPtLogoLockup();
       startScanReveal();
     });
+  })();
+</script>
+
+<script>
+  (function initResponsiveImageMaps() {
+    function scaleMapForImage(img) {
+      var usemap = img.getAttribute('usemap');
+      if (!usemap || !img.naturalWidth || !img.naturalHeight) return;
+      var map = document.querySelector('map[name="' + usemap.slice(1) + '"]');
+      if (!map) return;
+      var scaleX = img.clientWidth / img.naturalWidth;
+      var scaleY = img.clientHeight / img.naturalHeight;
+      map.querySelectorAll('area[coords]').forEach(function (area) {
+        if (!area.dataset.originalCoords) {
+          area.dataset.originalCoords = area.getAttribute('coords');
+        }
+        var scaled = area.dataset.originalCoords.split(',').map(function (value, index) {
+          var numeric = parseFloat(value);
+          return Math.round(numeric * (index % 2 === 0 ? scaleX : scaleY));
+        });
+        area.setAttribute('coords', scaled.join(','));
+      });
+    }
+
+    function scaleMaps() {
+      document.querySelectorAll('img[usemap]').forEach(scaleMapForImage);
+    }
+
+    window.addEventListener('load', scaleMaps);
+    window.addEventListener('resize', scaleMaps);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(scaleMaps);
+    scaleMaps();
   })();
 </script>
 </body>

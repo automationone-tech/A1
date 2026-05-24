@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#1547d1" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<title>Contact | Automation One</title>
-<meta name="description" content="Contact Automation One in Vancouver or Burnaby for product info, technical assistance, toner, supplies, or general advice." />
+<title>Lexmark Products | Authorized Dealer in Vancouver | Automation One</title>
+<meta name="description" content="Explore Lexmark office printers, multifunction printers, toner, supplies, and imaging solutions from Automation One, an authorized Lexmark dealer in Vancouver." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="fonts-jeton.css">
 <style>
   :root {
@@ -20,10 +20,9 @@
     --blue-800: #0a2870;
     --blue-900: #061a4a;
     --ink: #0b1330;
+    --ink-soft: #4a5274;
     --paper: #f8faff;
     --white: #ffffff;
-    
-    
     --cta-pill-chevron-white: url("process-flow-arrow-white.png");
     --cta-pill-chevron-blue-700: url("process-flow-arrow.png");
     --cta-pill-chevron-blue-800: url("process-flow-arrow-blue-800.png");
@@ -32,50 +31,52 @@
     --nav-logo-mark-width: calc(var(--nav-logo-mark-height) * 416 / 288);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    background: var(--blue-600);
+  }
   body {
-    background: var(--paper);
+    background: var(--blue-600);
     color: var(--ink);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     padding-bottom: 100px;
   }
-  :focus-visible {
-    outline: 2px solid rgba(31, 92, 245, 0.55);
-    outline-offset: 3px;
-    border-radius: 8px;
-  }
+  main { background: var(--paper); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
   .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(22px, 5vw, 48px); }
+
   /* ---------- SITE HEADER (transparent; contact-page tints nav for light bg) ---------- */
   .site-header {
     position: relative;
     z-index: 12;
     width: 100%;
-    background: transparent;
+    background: var(--paper);
     border-bottom: none;
     box-shadow: none;
   }
-  body.contact-page .site-header {
+  body.canon-page .site-header {
     padding-top: calc(env(safe-area-inset-top, 0px) + clamp(16px, 2.4vh, 28px));
   }
-  body.contact-page .site-header .nav {
+  body.canon-page .site-header .nav {
     padding-top: 14px;
     padding-bottom: clamp(20px, 3.2vh, 32px);
     padding-left: 48px;
     padding-right: 48px;
   }
 
-  body.contact-page .site-header a.logo {
+  body.canon-page .site-header a.logo {
     color: var(--nav-logo-ink);
   }
-  body.contact-page .site-header a.logo .logo-text,
-  body.contact-page .site-header a.logo .logo-text .name,
-  body.contact-page .site-header a.logo .logo-text .sub {
+  body.canon-page .site-header a.logo .logo-text,
+  body.canon-page .site-header a.logo .logo-text .name,
+  body.canon-page .site-header a.logo .logo-text .sub {
     color: var(--nav-logo-ink);
     opacity: 1;
     -webkit-text-fill-color: var(--nav-logo-ink);
   }
-  body.contact-page .site-header .logo-mark-wrap {
+  body.canon-page .site-header .logo-mark-wrap {
     display: inline-block;
     flex-shrink: 0;
     height: var(--nav-logo-mark-height);
@@ -90,10 +91,10 @@
     -webkit-mask-position: center;
     mask-position: center;
   }
-  body.contact-page .site-header .logo-mark {
+  body.canon-page .site-header .logo-mark {
     display: none;
   }
-  body.contact-page .nav-actions .btn-ghost {
+  body.canon-page .nav-actions .btn-ghost {
     color: var(--blue-800);
     background:
       radial-gradient(118% 90% at 44% 12%, rgba(255, 255, 255, 0.95) 0%, rgba(238, 244, 255, 0.55) 42%, transparent 58%),
@@ -104,7 +105,7 @@
       inset 0 -4px 10px rgba(15, 56, 158, 0.05),
       inset 0 0 0 1px rgba(15, 56, 158, 0.14);
   }
-  body.contact-page .nav-actions .btn-ghost:hover {
+  body.canon-page .nav-actions .btn-ghost:hover {
     color: var(--blue-700);
     background:
       radial-gradient(118% 90% at 44% 11%, rgba(255, 255, 255, 1) 0%, rgba(238, 244, 255, 0.65) 42%, transparent 58%),
@@ -114,7 +115,7 @@
       inset 0 -4px 11px rgba(15, 56, 158, 0.04),
       inset 0 0 0 1px rgba(15, 56, 158, 0.18);
   }
-  body.contact-page .nav-actions .btn-ghost:active {
+  body.canon-page .nav-actions .btn-ghost:active {
     box-shadow:
       inset 0 3px 9px rgba(15, 56, 158, 0.08),
       inset 0 1px 5px rgba(255, 255, 255, 0.8),
@@ -428,10 +429,10 @@
     filter: none;
   }
   @media (max-width: 980px) {
-    body.contact-page .site-header {
+    body.canon-page .site-header {
       padding-top: calc(env(safe-area-inset-top, 0px) + clamp(12px, 2vh, 22px));
     }
-    body.contact-page .site-header .nav {
+    body.canon-page .site-header .nav {
       padding-top: 10px;
       padding-bottom: clamp(14px, 2.5vh, 22px);
       padding-left: 22px;
@@ -441,7 +442,7 @@
   }
   @media (max-width: 1024px) {
     /* Mobile-style header: logo left, compact CTAs stacked right; no award */
-    body.contact-page .site-header .nav {
+    body.canon-page .site-header .nav {
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: flex-start;
@@ -500,7 +501,7 @@
       width: auto;
       max-width: 58%;
     }
-    body.contact-page .site-header .logo-mark-wrap {
+    body.canon-page .site-header .logo-mark-wrap {
       --nav-logo-mark-height: 24.7px;
       transform: translateX(-8px);
     }
@@ -520,10 +521,10 @@
       opacity: 1;
       white-space: nowrap;
     }
-    body.contact-page .site-header .nav a.logo,
-    body.contact-page .site-header .nav a.logo .logo-text,
-    body.contact-page .site-header .nav a.logo .logo-text .name,
-    body.contact-page .site-header .nav a.logo .logo-text .sub {
+    body.canon-page .site-header .nav a.logo,
+    body.canon-page .site-header .nav a.logo .logo-text,
+    body.canon-page .site-header .nav a.logo .logo-text .name,
+    body.canon-page .site-header .nav a.logo .logo-text .sub {
       color: var(--nav-logo-ink);
       opacity: 1;
       -webkit-text-fill-color: var(--nav-logo-ink);
@@ -533,230 +534,1019 @@
     .site-header .nav-actions .quote-award-link {
       display: none !important;
     }
-    body.contact-page .contact-hero {
+    body.canon-page .canon-hero {
       padding-top: clamp(100px, 24vw, 128px);
     }
   }
 
 
-  .contact-hero {
-    padding: clamp(48px, 8vw, 88px) 0 56px;
+
+  /* Canon page hero CTAs */
+  .nav-actions .cta-secondary {
+    color: var(--blue-800);
     background:
-      radial-gradient(120% 80% at 90% 0%, rgba(106, 155, 255, 0.2) 0%, transparent 55%),
-      linear-gradient(165deg, #eef4ff 0%, var(--paper) 55%);
+      radial-gradient(118% 90% at 44% 12%, rgba(255, 255, 255, 0.95), rgba(238, 244, 255, 0.58) 42%, transparent 58%),
+      rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(15, 56, 158, 0.14);
   }
-  .section-eyebrow {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--blue-600);
-    margin-bottom: 16px;
-  }
-  h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(34px, 5vw, 52px);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin-bottom: 20px;
-  }
-  .contact-hero .lead {
-    font-size: clamp(17px, 1.35vw, 19px);
-    line-height: 1.6;
-    color: #3d4666;
-    max-width: 72ch;
-  }
-  .contact-hero .lead p + p { margin-top: 14px; }
-
-  .band { padding: 72px 0; }
-  .band--tint { background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(238,244,255,0.5) 100%); }
-
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(26px, 3.2vw, 36px);
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 28px;
-  }
-  h2 a {
-    color: inherit;
-    text-decoration: none;
-  }
-  h2 a:hover { color: var(--blue-600); }
-
-  .channel-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-  @media (max-width: 900px) { .channel-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .channel-grid { grid-template-columns: 1fr; } }
-
-  .channel-card {
-    background: var(--white);
-    border: 1px solid rgba(15, 56, 158, 0.1);
-    border-radius: 16px;
-    padding: 22px 20px;
-    box-shadow: 0 14px 40px -24px rgba(10, 40, 112, 0.35);
-    text-align: center;
-  }
-  .channel-card h3 {
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--blue-800);
-    margin-bottom: 8px;
-  }
-  .channel-card p, .channel-card a {
-    font-size: 15px;
-    color: #3d4666;
-    line-height: 1.45;
-  }
-  .channel-card a {
-    color: var(--blue-700);
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .channel-card a:hover { text-decoration: underline; }
-
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(28px, 4vw, 48px);
-    align-items: start;
-  }
-  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
-
-  .map-frame {
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(15, 56, 158, 0.12);
-    box-shadow: 0 16px 44px -28px rgba(10, 40, 112, 0.4);
-    line-height: 0;
-    background: #e2e8f5;
-  }
-  .map-frame iframe {
-    width: 100%;
-    height: min(320px, 48vw);
-    border: 0;
-  }
-
-  .contact-form label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--blue-800);
-    margin-bottom: 6px;
-  }
-  .contact-form .row2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-  @media (max-width: 560px) { .contact-form .row2 { grid-template-columns: 1fr; } }
-  .contact-form .field { margin-bottom: 14px; }
-  .contact-form input, .contact-form textarea {
-    width: 100%;
-    font: inherit;
-    font-size: 15px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(15, 56, 158, 0.18);
-    background: var(--white);
-    color: var(--ink);
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .contact-form input:focus, .contact-form textarea:focus {
-    outline: none;
-    border-color: var(--blue-500);
-    box-shadow: 0 0 0 3px rgba(31, 92, 245, 0.15);
-  }
-  .contact-form textarea { resize: vertical; min-height: 120px; }
-  .contact-form button[type="submit"] {
-    margin-top: 6px;
-    width: 100%;
-    padding: 14px 22px;
-    border: none;
-    border-radius: 999px;
-    font: inherit;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    color: var(--white);
-    background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 100%);
-    box-shadow: 0 14px 32px -14px rgba(15, 56, 158, 0.75);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .contact-form button[type="submit"]:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 18px 36px -14px rgba(15, 56, 158, 0.85);
-  }
-  .form-hint {
-    margin-top: 12px;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #5a6488;
-  }
-  .form-hint a { color: var(--blue-700); font-weight: 600; }
-
-  /* ---------- CTA banner + footer (aligned with homepage) ---------- */
-  .cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 32px;
-  }
-  .cta {
+  .canon-hero-actions .cta {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 28px;
+    justify-content: center;
+    min-height: 60px;
+    padding: 10px 28px;
     border-radius: 999px;
-    font-weight: 600;
+    box-sizing: border-box;
     font-size: 16px;
+    font-weight: 600;
     text-decoration: none;
-    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease, color .25s ease;
-    font-family: var(--font-body);
+    white-space: nowrap;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   }
-  .cta-primary {
-    background: var(--white);
-    color: var(--blue-700);
-    box-shadow: 0 18px 40px -16px rgba(0,0,0,0.45);
-  }
-  .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 24px 50px -16px rgba(0,0,0,0.55); }
-  .cta-secondary {
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
-    border: 1.5px solid rgba(255,255,255,0.45);
+  .canon-hero-actions .cta-secondary {
+    min-height: 58px;
+    padding: 13px 34px;
+    background: rgba(238, 244, 255, 0.72);
+    color: var(--blue-800);
+    border: 2.5px solid rgba(126, 167, 255, 0.72);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
-  .cta-secondary:hover { background: rgba(255,255,255,0.16); border-color: var(--white); }
-  .cta svg { width: 18px; height: 18px; }
+  .canon-hero-actions .cta-secondary:hover {
+    transform: translateY(-1px);
+    background: rgba(238, 244, 255, 0.92);
+    border-color: rgba(126, 167, 255, 0.95);
+    box-shadow: 0 16px 32px -22px rgba(10, 40, 112, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+  .canon-hero .cta-pill-arrow {
+    position: relative;
+    justify-content: flex-start;
+    min-height: 60px;
+    padding: 10px 74px 10px 28px;
+  }
+  .canon-hero .cta-pill-arrow::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.96) var(--cta-pill-chevron-blue-700) calc(50% + 2px) 50% / 50% auto no-repeat;
+  }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 34px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(126, 167, 255, 0.34);
+    box-shadow: 0 10px 28px -22px rgba(15, 56, 158, 0.55);
+    color: var(--blue-700);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  h1, h2, h3 { font-family: var(--font-display); }
+
+  .canon-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(34px, 5vw, 68px) 0 clamp(92px, 10vw, 128px);
+    background:
+      radial-gradient(circle at 78% 18%, rgba(31, 92, 245, 0.22), transparent 34%),
+      radial-gradient(circle at 18% 24%, rgba(126, 167, 255, 0.2), transparent 28%),
+      linear-gradient(180deg, #f8faff 0%, #eef4ff 100%);
+  }
+  .canon-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(15, 56, 158, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 56, 158, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 0.65), transparent 74%);
+    pointer-events: none;
+  }
+  .canon-hero::after {
+    content: "";
+    position: absolute;
+    left: clamp(-78px, -5vw, -28px);
+    bottom: clamp(4px, 3vw, 40px);
+    width: min(56vw, 720px);
+    aspect-ratio: 416 / 288;
+    background: var(--blue-800);
+    opacity: 0.045;
+    -webkit-mask: url("ao-nav-logo.png") center / contain no-repeat;
+    mask: url("ao-nav-logo.png") center / contain no-repeat;
+    pointer-events: none;
+    transform-origin: left bottom;
+    animation: canonHeroWatermarkSlide 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+  }
+  @keyframes canonHeroWatermarkSlide {
+    from {
+      opacity: 0;
+      transform: translateX(-42px) scale(0.9);
+    }
+    to {
+      opacity: 0.045;
+      transform: translateX(0) scale(1);
+    }
+  }
+  .canon-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
+    gap: clamp(42px, 7vw, 90px);
+    align-items: center;
+  }
+  .canon-hero-copy { max-width: 700px; }
+  .canon-logo-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    padding: 9px 15px 9px 13px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(126, 167, 255, 0.32);
+    box-shadow: 0 18px 34px -26px rgba(15, 56, 158, 0.55);
+  }
+  .canon-logo-pill img { height: 22px; width: auto; }
+  .canon-logo-pill span {
+    color: var(--blue-800);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .canon-hero h1 {
+    max-width: 11ch;
+    font-size: clamp(3.4rem, 8vw, 7.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .canon-hero h1 em {
+    display: block;
+    font-style: normal;
+    background: linear-gradient(120deg, var(--blue-500), var(--blue-800));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .canon-hero-lead {
+    max-width: 58ch;
+    color: rgba(26, 40, 74, 0.76);
+    font-size: clamp(17px, 1.45vw, 21px);
+    line-height: 1.62;
+    margin-bottom: 30px;
+  }
+  .canon-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .canon-hero-visual {
+    position: relative;
+    min-height: clamp(460px, 52vw, 650px);
+    border-radius: 42px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(235, 242, 255, 0.28)),
+      radial-gradient(circle at 74% 22%, rgba(31, 92, 245, 0.14), transparent 34%);
+    border: 1px solid rgba(126, 167, 255, 0.32);
+    box-shadow: 0 34px 82px -54px rgba(10, 40, 112, 0.72);
+    overflow: hidden;
+    transform-origin: center center;
+    animation: canonHeroVisualGlide 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .canon-hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .canon-hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0.88) 18%, rgba(255, 255, 255, 0.35) 36%, transparent 54%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .canon-hero-visual .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0.72;
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.25) 16%, #000 42%, #000 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.25) 16%, #000 42%, #000 100%);
+  }
+  @keyframes canonHeroVisualGlide {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes canonPrinterDriftIn {
+    0% {
+      opacity: 0;
+      transform: translateX(38px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes canonBrochureDriftIn {
+    0% {
+      opacity: 0;
+      transform: translate(-18px, 16px) rotate(-9deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0) rotate(-7deg) scale(1);
+    }
+  }
+  .canon-hero-printer {
+    position: absolute;
+    right: -6%;
+    bottom: 10%;
+    width: min(92%, 620px);
+    filter: drop-shadow(0 32px 36px rgba(10, 40, 112, 0.25));
+    z-index: 2;
+    transform-origin: 58% 82%;
+    animation: canonPrinterDriftIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+  }
+  .canon-hero-brochure {
+    position: absolute;
+    left: 8%;
+    top: 10%;
+    width: min(42%, 230px);
+    transform: rotate(-7deg);
+    border-radius: 18px;
+    box-shadow: 0 24px 52px -26px rgba(10, 40, 112, 0.48);
+    z-index: 2;
+    transform-origin: center bottom;
+    animation: canonBrochureDriftIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both;
+  }
+  .hero-stat-card {
+    position: absolute;
+    left: 8%;
+    bottom: 8%;
+    width: min(56%, 280px);
+    padding: 20px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(126, 167, 255, 0.34);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 38px -28px rgba(10, 40, 112, 0.48);
+    z-index: 2;
+  }
+  .hero-stat-card strong {
+    display: block;
+    color: var(--blue-800);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .hero-stat-card span { color: var(--ink-soft); font-size: 13.5px; line-height: 1.45; }
+
+  @keyframes canonSubtleRise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .canon-hero-copy,
+  .quick-links-panel,
+  .intro-copy,
+  .feature-pill,
+  .section-head,
+  .canon-award-detail,
+  .canon-resources-panel {
+    animation: canonSubtleRise 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .quick-links-panel { animation-delay: 0.12s; }
+  .feature-pill:nth-child(2),
+  .canon-award-detail:nth-child(2) { animation-delay: 0.05s; }
+  .feature-pill:nth-child(3),
+  .canon-award-detail:nth-child(3) { animation-delay: 0.1s; }
+  .feature-pill:nth-child(4) { animation-delay: 0.15s; }
+  @media (prefers-reduced-motion: reduce) {
+    .canon-hero-copy,
+    .quick-links-panel,
+    .intro-copy,
+    .feature-pill,
+    .section-head,
+    .canon-award-detail,
+    .canon-resources-panel {
+      animation: none;
+    }
+    .canon-hero-visual,
+    .canon-hero::after,
+    .canon-awards-stage,
+    .canon-awards-flyer,
+    .canon-awards-product,
+    .intro-band::before,
+    .canon-awards-resources::before {
+      animation: none;
+      transition: none;
+    }
+    .canon-product-card {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+    .canon-hero-printer,
+    .canon-hero-brochure {
+      animation: none;
+    }
+  }
+
+  .quick-links {
+    position: relative;
+    z-index: 4;
+    margin-top: clamp(-44px, -4vw, -28px);
+    margin-bottom: clamp(-45px, -4vw, -28px);
+    padding-bottom: 0;
+    background: transparent;
+  }
+  .quick-links-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(126, 167, 255, 0.3);
+    box-shadow: 0 24px 62px -44px rgba(10, 40, 112, 0.52);
+    backdrop-filter: blur(14px);
+  }
+  .quick-links-panel a {
+    padding: 11px 16px;
+    border-radius: 999px;
+    color: var(--blue-800);
+    background: rgba(31, 92, 245, 0.06);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    transition: transform 0.24s ease, background-color 0.24s ease, color 0.24s ease;
+  }
+  .quick-links-panel a:hover {
+    transform: translateY(-1px);
+    background: rgba(31, 92, 245, 0.12);
+    color: var(--blue-700);
+  }
+
+  .intro-band {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(112px, 11vw, 146px) 0 clamp(58px, 7vw, 84px);
+    background:
+      linear-gradient(180deg, rgba(248, 250, 255, 0.28) 0%, rgba(238, 244, 255, 0.16) 100%);
+  }
+  .intro-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("canon-imageforce-lifestyle-bg.png") center / cover no-repeat;
+    transform: translateX(2%) scale(1);
+    transform-origin: center right;
+    transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+  .intro-band::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(31, 92, 245, 0.04) 34%, rgba(31, 92, 245, 0.1) 62%, rgba(31, 92, 245, 0.2) 100%),
+      linear-gradient(90deg, transparent 0%, transparent 54%, rgba(248, 250, 255, 0.26) 74%, rgba(248, 250, 255, 0.52) 100%),
+      linear-gradient(90deg, rgba(248, 250, 255, 0.98) 0%, rgba(248, 250, 255, 0.9) 34%, rgba(248, 250, 255, 0.36) 62%, rgba(248, 250, 255, 0) 100%);
+    pointer-events: none;
+  }
+  .intro-band.is-inview::before {
+    transform: translateX(-1%) scale(1.1);
+  }
+  .intro-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: clamp(32px, 5vw, 66px);
+    align-items: center;
+  }
+  .intro-copy h2,
+  .section-head h2 {
+    font-size: clamp(2.35rem, 5.2vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    margin: 18px 0 20px;
+  }
+  .intro-copy h2 em,
+  .section-head h2 em {
+    font-style: normal;
+    color: var(--blue-600);
+  }
+  .intro-copy p,
+  .section-head p {
+    color: rgba(26, 40, 74, 0.72);
+    font-size: clamp(16px, 1.35vw, 19px);
+    line-height: 1.62;
+  }
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .feature-pill {
+    min-height: 150px;
+    padding: 26px;
+    border-radius: 26px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 248, 255, 0.72));
+    border: 1px solid rgba(126, 167, 255, 0.26);
+    box-shadow: 0 18px 42px -34px rgba(10, 40, 112, 0.48);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .feature-pill:hover {
+    transform: translateY(-3px);
+    border-color: rgba(126, 167, 255, 0.38);
+    box-shadow: 0 24px 52px -40px rgba(10, 40, 112, 0.55);
+  }
+  .feature-pill strong {
+    display: block;
+    color: var(--blue-800);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .feature-pill span { color: var(--ink-soft); line-height: 1.48; }
+
+  .product-section {
+    position: relative;
+    padding: clamp(74px, 9vw, 116px) 0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(126, 167, 255, 0.22), transparent 28%),
+      linear-gradient(180deg, #eef4ff 0%, #f8faff 100%);
+    overflow: hidden;
+  }
+  .product-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.16) 0%, transparent 22%, transparent 68%, rgba(5, 22, 74, 0.22) 100%);
+    opacity: 0.42;
+    pointer-events: none;
+  }
+  .product-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  .section-head {
+    max-width: 820px;
+    margin: 0 auto clamp(38px, 5vw, 58px);
+    text-align: center;
+  }
+  .canon-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(18px, 2.6vw, 28px);
+    perspective: 1200px;
+  }
+  @keyframes canonProductCardDealIn {
+    from {
+      opacity: 0;
+      transform: translateY(34px) rotateX(7deg) scale(0.94);
+      filter: saturate(0.82);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0) scale(1);
+      filter: saturate(1);
+    }
+  }
+  .canon-product-card {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 80% 0%, rgba(31, 92, 245, 0.15), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 248, 255, 0.76));
+    border: 1px solid rgba(126, 167, 255, 0.28);
+    box-shadow: 0 24px 56px -42px rgba(10, 40, 112, 0.55);
+    opacity: 0;
+    transform: translateY(34px) rotateX(7deg) scale(0.94);
+    transform-origin: center bottom;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  }
+  .product-section.is-inview .canon-product-card {
+    animation: canonProductCardDealIn 0.78s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .product-section.is-inview .canon-product-card:nth-child(1) { animation-delay: 0.02s; }
+  .product-section.is-inview .canon-product-card:nth-child(2) { animation-delay: 0.08s; }
+  .product-section.is-inview .canon-product-card:nth-child(3) { animation-delay: 0.14s; }
+  .product-section.is-inview .canon-product-card:nth-child(4) { animation-delay: 0.2s; }
+  .product-section.is-inview .canon-product-card:nth-child(5) { animation-delay: 0.26s; }
+  .product-section.is-inview .canon-product-card:nth-child(6) { animation-delay: 0.32s; }
+  .canon-product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 36px 72px -46px rgba(10, 40, 112, 0.68);
+  }
+  .canon-card-visual {
+    position: relative;
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .canon-card-visual::before {
+    content: "";
+    position: absolute;
+    inset: 36px 28px auto;
+    height: 120px;
+    border-radius: 999px;
+    background: rgba(126, 167, 255, 0.18);
+    filter: blur(28px);
+    z-index: 0;
+  }
+  .canon-card-visual img {
+    position: relative;
+    z-index: 1;
+    max-height: 190px;
+    object-fit: contain;
+    filter: drop-shadow(0 22px 22px rgba(10, 40, 112, 0.18));
+  }
+  #office-printers .canon-card-visual img {
+    max-height: 155px;
+  }
+  #multifunction-printers .canon-card-visual img {
+    max-height: 165px;
+  }
+  #production-printers .canon-card-visual img {
+    max-height: 232px;
+    max-width: 112%;
+  }
+  #canon-toner .canon-card-visual img {
+    max-height: 185px;
+  }
+  .canon-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 26px 28px;
+  }
+  .canon-card-kicker {
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(31, 92, 245, 0.08);
+    color: var(--blue-700);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .canon-card-body h3 {
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .canon-card-body p {
+    color: rgba(26, 40, 74, 0.72);
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .canon-card-cta.cta.cta-primary.cta-pill-arrow {
+    margin-top: auto;
+    align-self: flex-start;
+    min-height: 54px;
+    padding: 10px 64px 10px 24px;
+    font-size: 14px;
+  }
+  .canon-catalogue-row {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(28px, 4vw, 44px);
+  }
+
+  .canon-awards-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(82px, 10vw, 136px) 0 clamp(54px, 7vw, 84px);
+    background:
+      radial-gradient(circle at 14% 14%, rgba(126, 167, 255, 0.28), transparent 30%),
+      radial-gradient(circle at 90% 12%, rgba(31, 92, 245, 0.18), transparent 28%),
+      linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+  }
+  .canon-awards-stage {
+    position: relative;
+    overflow: hidden;
+    border-radius: clamp(34px, 4vw, 56px);
+    background:
+      radial-gradient(circle at 75% 18%, rgba(185, 208, 255, 0.24), transparent 32%),
+      radial-gradient(circle at 18% 88%, rgba(31, 92, 245, 0.28), transparent 28%),
+      linear-gradient(135deg, #061a4a 0%, #0a2870 44%, #1f5cf5 100%);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 42px 100px -64px rgba(6, 22, 58, 0.9);
+    opacity: 0;
+    transform: translateY(18px);
+    filter: saturate(0.9);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .canon-awards-section.is-inview .canon-awards-stage {
+    opacity: 1;
+    transform: translateY(1.3px);
+    filter: saturate(0.993);
+  }
+  .canon-awards-section.is-inview.is-past .canon-awards-stage {
+    transform: translateY(0);
+    filter: saturate(1);
+  }
+  .canon-awards-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: radial-gradient(circle at 60% 50%, rgba(0, 0, 0, 0.78), transparent 72%);
+    -webkit-mask-image: radial-gradient(circle at 60% 50%, rgba(0, 0, 0, 0.78), transparent 72%);
+    pointer-events: none;
+  }
+  .canon-awards-stage-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+    padding: clamp(32px, 6vw, 72px);
+  }
+  .canon-awards-eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 22px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .canon-awards-copy h2 {
+    max-width: 10.5ch;
+    margin-bottom: 16px;
+    color: #fff;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.075em;
+    padding-bottom: 0.12em;
+    overflow: visible;
+  }
+  .canon-awards-copy h2 em {
+    display: block;
+    font-style: normal;
+    padding-bottom: 0.075em;
+    margin-bottom: -0.075em;
+    background: linear-gradient(120deg, #b9d0ff, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .canon-awards-copy p {
+    max-width: 60ch;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: clamp(16px, 1.35vw, 19px);
+    line-height: 1.66;
+  }
+  .canon-awards-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: clamp(28px, 4vw, 42px);
+  }
+  .canon-awards-proof {
+    min-height: 132px;
+    padding: 18px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .canon-awards-proof strong {
+    display: block;
+    color: #fff;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    margin-bottom: 10px;
+  }
+  .canon-awards-proof span {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .canon-awards-art {
+    position: relative;
+    min-height: min(58vw, 620px);
+    display: grid;
+    place-items: center;
+  }
+  .canon-awards-orbit {
+    position: absolute;
+    inset: 7% 5% 8% 1%;
+    border-radius: 44px;
+    background:
+      radial-gradient(circle at 52% 50%, rgba(255, 255, 255, 0.18), transparent 34%),
+      linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    transform: rotate(-4deg);
+  }
+  .canon-awards-flyer {
+    position: relative;
+    width: min(82.8%, 483px);
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 24px;
+    transform: rotate(-1.5deg) translateY(-2%);
+    box-shadow:
+      0 34px 74px -34px rgba(0, 0, 0, 0.78),
+      0 0 0 1px rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transform: rotate(-4deg) translateY(6%) translateX(-18px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
+      transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+  }
+  .canon-awards-section.is-inview .canon-awards-flyer {
+    opacity: 1;
+    transform: rotate(-1.675deg) translateY(-1.44%) translateX(-1.3px);
+  }
+  .canon-awards-section.is-inview.is-past .canon-awards-flyer {
+    transform: rotate(-1.5deg) translateY(-2%) translateX(0);
+  }
+  .canon-awards-product {
+    position: absolute;
+    right: -1%;
+    bottom: 0;
+    width: min(58%, 430px);
+    filter: drop-shadow(0 32px 30px rgba(0, 0, 0, 0.34));
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+      transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  }
+  .canon-awards-section.is-inview .canon-awards-product {
+    opacity: 1;
+    transform: translateX(2.1px);
+  }
+  .canon-awards-section.is-inview.is-past .canon-awards-product {
+    transform: translateX(0);
+  }
+  .canon-awards-badge {
+    position: absolute;
+    left: 0;
+    bottom: 7%;
+    display: grid;
+    gap: 4px;
+    max-width: 210px;
+    padding: 18px 20px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--blue-900);
+    box-shadow: 0 24px 42px -28px rgba(0, 0, 0, 0.55);
+  }
+  .canon-awards-badge strong {
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+  .canon-awards-badge span {
+    color: rgba(10, 40, 112, 0.7);
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.35;
+  }
+  .canon-awards-details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2.4vw, 24px);
+    margin-top: clamp(24px, 3.5vw, 36px);
+  }
+  .canon-award-detail {
+    padding: clamp(22px, 3vw, 30px);
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(126, 167, 255, 0.18), transparent 34%),
+      rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(126, 167, 255, 0.24);
+    box-shadow: 0 24px 60px -48px rgba(10, 40, 112, 0.45);
+  }
+  .canon-award-detail h3 {
+    color: var(--ink);
+    font-size: clamp(1.2rem, 1.75vw, 1.55rem);
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+  }
+  .canon-award-detail p {
+    color: rgba(26, 40, 74, 0.72);
+    font-size: 15px;
+    line-height: 1.56;
+  }
+  .canon-awards-link-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: clamp(26px, 4vw, 42px);
+  }
+  .canon-awards-link-row a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(31, 92, 245, 0.08);
+    border: 1px solid rgba(126, 167, 255, 0.24);
+    color: var(--blue-700);
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .canon-awards-link-row a:hover {
+    background: rgba(31, 92, 245, 0.14);
+    color: var(--blue-800);
+  }
+  .canon-awards-resources {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(72px, 8vw, 108px) 0;
+    background:
+      radial-gradient(circle at 86% 18%, rgba(126, 167, 255, 0.16), transparent 30%),
+      linear-gradient(180deg, #f8faff 0%, #eef4ff 100%);
+  }
+  .canon-awards-resources::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(72%, 980px);
+    background: url("canon-support-bg.png") center right / cover no-repeat;
+    opacity: 0.48;
+    filter: grayscale(1) saturate(0) contrast(0.9);
+    transform: translateX(2%) scale(1);
+    transform-origin: center right;
+    transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.1) 14%, rgba(0, 0, 0, 0.34) 30%, rgba(0, 0, 0, 0.72) 48%, #000 62%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.1) 14%, rgba(0, 0, 0, 0.34) 30%, rgba(0, 0, 0, 0.72) 48%, #000 62%, #000 100%);
+  }
+  .canon-awards-resources.is-inview::before {
+    transform: translateX(-0.79%) scale(1.093);
+  }
+  .canon-awards-resources.is-inview.is-past::before {
+    transform: translateX(-1%) scale(1.1);
+  }
+  .canon-awards-resources::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, transparent 0%, transparent 44%, rgba(31, 92, 245, 0.08) 66%, rgba(31, 92, 245, 0.2) 100%),
+      linear-gradient(90deg, rgba(248, 250, 255, 1) 0%, rgba(248, 250, 255, 0.94) 36%, rgba(248, 250, 255, 0.34) 62%, rgba(248, 250, 255, 0.1) 100%);
+    pointer-events: none;
+  }
+  .canon-awards-resources .container {
+    position: relative;
+    z-index: 1;
+  }
+  .canon-resources-panel {
+    max-width: 620px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  .canon-resources-panel h3 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+  .canon-resources-panel p {
+    color: rgba(26, 40, 74, 0.72);
+    line-height: 1.6;
+    margin-bottom: 22px;
+    max-width: 70ch;
+  }
+  .canon-resources-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    min-height: 60px;
+    width: fit-content;
+    padding: 10px 74px 10px 28px;
+    border-radius: 999px;
+    background: var(--blue-600);
+    border: 1px solid var(--blue-700);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 16px 36px -18px rgba(10, 40, 112, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  }
+  .canon-resources-cta::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.96) var(--cta-pill-chevron-blue-700) calc(50% + 2px) 50% / 50% auto no-repeat;
+    box-shadow: 0 10px 24px -14px rgba(15, 56, 158, 0.95);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .canon-resources-cta:hover {
+    transform: translateY(-2px);
+    background: var(--blue-700);
+    box-shadow: 0 22px 44px -20px rgba(10, 40, 112, 0.62);
+  }
+  .canon-resources-cta:hover::after {
+    transform: translateY(-50%);
+    background-color: #fff;
+  }
 
   .cta-section {
-    padding: clamp(72px, 10vw, 120px) 0;
+    padding: 120px 0;
     background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 60%, var(--blue-900) 100%);
     color: var(--white);
     text-align: center;
     overflow: hidden;
     position: relative;
+    --cta-letter-bg-size: 159%;
+    --cta-letter-bg-y: 44%;
+    --cta-letter-x: -0.75%;
+    --cta-letter-rotate: -13deg;
+    --cta-letter-scale: 1.16;
+    --cta-watermark-left: 66%;
+    --cta-watermark-scale: 1;
   }
   .cta-section::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -16% -12%;
     background-image: url("automation-one-footer-bg.png");
-    background-size: cover;
-    background-position: left 40%;
+    background-size: var(--cta-letter-bg-size) auto;
+    background-position: left var(--cta-letter-bg-y);
     background-repeat: no-repeat;
     opacity: 0.92;
     mix-blend-mode: soft-light;
+    transform: translate3d(var(--cta-letter-x), 0, 0) rotate(var(--cta-letter-rotate)) scale(var(--cta-letter-scale));
+    transform-origin: 28% 50%;
     pointer-events: none;
     z-index: 0;
     -webkit-mask-image: linear-gradient(
@@ -785,9 +1575,9 @@
   }
   .cta-watermark {
     position: absolute;
-    left: 66%;
+    left: var(--cta-watermark-left);
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
     height: calc(100% + 56px);
     width: auto;
     max-width: min(1100px, 92vw);
@@ -798,12 +1588,18 @@
     pointer-events: none;
     z-index: 2;
   }
-  .cta-section .container { position: relative; z-index: 3; }
+  .cta-section .container {
+    position: relative;
+    z-index: 3;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
   .cta-section h2 {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(28px, 4.2vw, 48px);
-    line-height: 1.08;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.02;
     letter-spacing: -0.03em;
     color: var(--white);
     margin-bottom: 18px;
@@ -824,54 +1620,154 @@
     margin: 0 auto 36px;
     line-height: 1.55;
   }
-  .cta-section .cta-row { justify-content: center; margin-bottom: 32px; }
-  .cta-section .phone-row {
-    display: inline-flex;
+  .cta-section .cta-row {
+    display: flex;
     flex-wrap: wrap;
-    gap: 28px;
-    padding: 16px 32px;
-    border: none;
-    border-radius: 999px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
-    background:
-      radial-gradient(118% 90% at 44% 12%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 58%),
-      radial-gradient(102% 80% at 50% 104%, rgba(8, 28, 72, 0.09) 0%, transparent 58%),
-      rgba(255, 255, 255, 0.05);
-    box-shadow:
-      inset 0 1px 6px rgba(255, 255, 255, 0.12),
-      inset 0 -5px 12px rgba(6, 22, 58, 0.07),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 32px;
   }
-  .cta-section .phone-row:hover {
-    transform: scale(1.005);
-    background:
-      radial-gradient(118% 90% at 44% 11%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.045) 42%, transparent 58%),
-      radial-gradient(102% 80% at 50% 104%, rgba(8, 28, 72, 0.07) 0%, transparent 58%),
-      rgba(255, 255, 255, 0.058);
-    box-shadow:
-      inset 0 1px 7px rgba(255, 255, 255, 0.14),
-      inset 0 -5px 13px rgba(6, 22, 58, 0.06),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.07);
-  }
-  .cta-section .phone-row:active {
-    transform: scale(0.998);
-    box-shadow:
-      inset 0 3px 9px rgba(6, 22, 58, 0.1),
-      inset 0 1px 5px rgba(255, 255, 255, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  }
-  .cta-section .phone-row a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
+  .cta-section .cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease, color .25s ease;
+    font-family: var(--font-body);
   }
-  .cta-section .phone-row a:hover { color: #b9d0ff; }
+  .cta-section .cta-primary {
+    background: var(--white);
+    color: var(--blue-700);
+    box-shadow: 0 18px 40px -16px rgba(0,0,0,0.45);
+  }
+  .cta-section .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px -16px rgba(0,0,0,0.55);
+  }
+  .cta-section .cta-secondary {
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .cta-section .cta-secondary:hover {
+    background: rgba(255,255,255,0.16);
+    border-color: var(--white);
+  }
+  .cta-section .cta svg { width: 18px; height: 18px; }
+  .cta-section .cta.cta-primary.cta-pill-arrow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 14px 74px 14px 28px;
+    background: rgba(243, 247, 255, 0.98);
+    color: var(--blue-800);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 16px 36px -18px rgba(10, 40, 112, 0.5);
+  }
+  .cta-section .cta.cta-primary.cta-pill-arrow::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: block;
+    background-color: var(--blue-600);
+    background-image: var(--cta-pill-chevron-white);
+    background-repeat: no-repeat;
+    background-position: calc(50% + 2px) 50%;
+    background-size: 50% auto;
+    box-shadow: 0 10px 24px -14px rgba(15, 56, 158, 0.95);
+  }
+  .cta-section .cta.cta-primary.cta-pill-arrow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 20px 40px -18px rgba(10, 40, 112, 0.58);
+    background: #ffffff;
+  }
+  .cta-section .cta.cta-primary.cta-pill-arrow:hover::after {
+    background-color: var(--blue-700);
+  }
+  .cta-section .cta-contact-bar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .cta-contact-bar .cta-contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .cta-contact-bar .cta-contact-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+  .cta-contact-bar .cta-contact-icon:hover {
+    color: #b9d0ff;
+  }
+  .cta-contact-bar .cta-contact-divider {
+    width: 1px;
+    height: 30px;
+    margin: 0 16px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.38);
+  }
+  .cta-contact-bar .cta-contact-phone {
+    color: rgba(255, 255, 255, 0.94);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+  .cta-contact-bar .cta-contact-phone:hover {
+    color: #b9d0ff;
+  }
+  @media (max-width: 560px) {
+    .cta-section .cta-contact-bar {
+      flex-wrap: nowrap;
+      max-width: 100%;
+    }
+    .cta-contact-bar .cta-contact-icon {
+      width: 32px;
+      height: 32px;
+    }
+    .cta-contact-bar .cta-contact-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+    .cta-contact-bar .cta-contact-divider {
+      height: 22px;
+      margin: 0 8px;
+    }
+    .cta-contact-bar .cta-contact-phone {
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+  }
 
   footer {
     position: relative;
@@ -944,14 +1840,8 @@
     opacity: 1;
     -webkit-text-fill-color: currentColor;
   }
-  .foot-brand .logo-text .name {
-    font-size: 24px;
-    line-height: 1.02;
-  }
-  .foot-brand .logo-text .sub {
-    font-size: 13px;
-    letter-spacing: 0.09em;
-  }
+  .foot-brand .logo-text .name { font-size: 24px; line-height: 1.02; }
+  .foot-brand .logo-text .sub { font-size: 13px; letter-spacing: 0.09em; }
   .foot-brand p {
     font-size: 14px;
     line-height: 1.6;
@@ -1017,13 +1907,51 @@
     border-color: var(--blue-500);
     transform: translateY(-2px);
   }
+
+  @media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .canon-hero-grid,
+    .intro-grid,
+    .canon-awards-stage-grid,
+    .canon-awards-details {
+      grid-template-columns: 1fr;
+    }
+    .canon-awards-copy h2 { max-width: 12ch; }
+    .canon-awards-art { min-height: 520px; }
+    .canon-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @media (max-width: 980px) {
+    .cta-section { padding: 80px 0; }
+    .cta-section .container { padding: 0 22px; }
     .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   }
-  @media (max-width: 560px) {
-    .foot-grid { grid-template-columns: 1fr; }
+  @media (min-width: 561px) and (max-width: 1024px) {
+    .cta-section { padding: 96px 0; }
+    .cta-section .container { padding: 0 32px; }
   }
-
+  @media (max-width: 640px) {
+    .logo-text .name { font-size: 24px; }
+    .logo-text .sub { font-size: 13px; }
+    .canon-hero { padding-top: 24px; }
+    .canon-hero-grid { gap: 32px; }
+    .canon-hero h1 { max-width: 10ch; }
+    .canon-hero-visual { min-height: 430px; border-radius: 30px; }
+    .canon-hero-printer { width: 106%; right: -18%; }
+    .canon-hero-brochure { width: 42%; left: 7%; top: 9%; }
+    .hero-stat-card { width: 78%; }
+    .feature-list,
+    .canon-product-grid,
+    .canon-awards-proof-grid,
+    .foot-grid {
+      grid-template-columns: 1fr;
+    }
+    .canon-awards-stage-grid { padding: 26px; }
+    .canon-awards-art { min-height: 420px; }
+    .canon-awards-flyer { width: min(92%, 380px); border-radius: 18px; }
+    .canon-awards-product { width: 68%; right: -12%; }
+    .canon-awards-badge { left: -4%; bottom: 2%; }
+    .foot-bottom { flex-direction: column; }
+  }
   .sticky-bar {
     position: fixed;
     left: 50%;
@@ -1236,11 +2164,11 @@
       --tablet-h-nav-pad-x: clamp(20px, 3.5vw, 32px);
     }
 
-    body.contact-page .site-header {
+    body.canon-page .site-header {
       --tablet-h-logo-gap: clamp(4px, 0.55vw, 7px);
       --tablet-h-btn-stack-h: calc(var(--tablet-h-btn-height) * 2 + var(--tablet-h-actions-gap));
     }
-    body.contact-page .site-header .nav {
+    body.canon-page .site-header .nav {
       position: relative;
       padding-top: clamp(14px, 2vw, 20px);
       padding-left: var(--tablet-h-nav-pad-x);
@@ -1248,11 +2176,11 @@
       align-items: center;
       gap: clamp(8px, 1.2vw, 12px);
     }
-    body.contact-page .site-header .logo-mark-wrap {
+    body.canon-page .site-header .logo-mark-wrap {
       --nav-logo-mark-height: var(--tablet-h-logo-mark);
       transform: none;
     }
-    body.contact-page .site-header .nav .logo {
+    body.canon-page .site-header .nav .logo {
       align-items: flex-start;
       gap: var(--tablet-h-logo-gap);
       margin-top: 0;
@@ -1261,7 +2189,7 @@
       width: auto;
       max-width: 52%;
     }
-    body.contact-page .site-header .nav .logo-text {
+    body.canon-page .site-header .nav .logo-text {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -1269,15 +2197,15 @@
       line-height: 1.08;
       min-width: 0;
     }
-    body.contact-page .site-header .nav .logo-text .name {
+    body.canon-page .site-header .nav .logo-text .name {
       font-size: var(--tablet-h-logo-name);
       line-height: 1.05;
     }
-    body.contact-page .site-header .nav .logo-text .sub {
+    body.canon-page .site-header .nav .logo-text .sub {
       font-size: var(--tablet-h-logo-sub);
       line-height: 1.2;
     }
-    body.contact-page .site-header .nav-actions {
+    body.canon-page .site-header .nav-actions {
       display: grid;
       grid-template-columns: auto auto;
       grid-template-rows: auto auto;
@@ -1290,7 +2218,7 @@
       padding-right: 0;
       margin-left: auto;
     }
-    body.contact-page .site-header .nav-actions .cta.cta-primary.cta-pill-arrow {
+    body.canon-page .site-header .nav-actions .cta.cta-primary.cta-pill-arrow {
       grid-column: 1;
       grid-row: 1;
       order: unset;
@@ -1300,12 +2228,12 @@
       padding: 0 var(--tablet-h-cta-pad-r) 0 var(--tablet-h-cta-pad-l);
       line-height: 1;
     }
-    body.contact-page .site-header .nav-actions .cta.cta-primary.cta-pill-arrow::after {
+    body.canon-page .site-header .nav-actions .cta.cta-primary.cta-pill-arrow::after {
       width: var(--tablet-h-cta-arrow);
       height: var(--tablet-h-cta-arrow);
       right: var(--tablet-h-cta-arrow-right);
     }
-    body.contact-page .site-header .nav-actions .btn-ghost {
+    body.canon-page .site-header .nav-actions .btn-ghost {
       grid-column: 1;
       grid-row: 2;
       order: unset;
@@ -1319,7 +2247,7 @@
       line-height: 1;
       white-space: nowrap;
     }
-    body.contact-page .site-header .nav-actions .quote-award-link {
+    body.canon-page .site-header .nav-actions .quote-award-link {
       display: block !important;
       grid-column: 2;
       grid-row: 1 / span 2;
@@ -1333,7 +2261,7 @@
       z-index: 1;
       line-height: 0;
     }
-    body.contact-page .site-header .nav-actions .quote-award-logo {
+    body.canon-page .site-header .nav-actions .quote-award-logo {
       display: block;
       height: var(--tablet-h-btn-stack-h);
       width: auto;
@@ -1341,19 +2269,11 @@
       object-fit: contain;
     }
 
-    body.contact-page .contact-hero {
+    body.canon-page .canon-hero {
       padding-top: clamp(100px, 24vw, 128px);
     }
-
-    .contact-hero { padding: 72px 0 56px; }
-    .contact-hero h1 { font-size: clamp(36px, 6vw, 52px); }
-
-    @media (min-width: 768px) {
-      .contact-form .row2 { grid-template-columns: 1fr 1fr; }
-    }
-
-    .foot-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
   }
+
 
   /* REQUEST A QUOTE — side drawer */
   body.quote-drawer-open { overflow: hidden; }
@@ -1489,282 +2409,67 @@
   }
 
   /* Subpage header: one ink for icon (mask) + wordmark */
-  body.contact-page .site-header a.logo,
-  body.contact-page .site-header a.logo .logo-text,
-  body.contact-page .site-header a.logo .logo-text .name,
-  body.contact-page .site-header a.logo .logo-text .sub {
+  body.canon-page .site-header a.logo,
+  body.canon-page .site-header a.logo .logo-text,
+  body.canon-page .site-header a.logo .logo-text .name,
+  body.canon-page .site-header a.logo .logo-text .sub {
     color: #2b4593 !important;
     -webkit-text-fill-color: #2b4593 !important;
     opacity: 1 !important;
   }
 
 
-/* ---------- PAGE TRANSITION (photocopier scan) ---------- */
-html { background-color: #ffffff; }
-.page-transition {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  pointer-events: none;
-  overflow: hidden;
-  background: linear-gradient(180deg, #1c40a8 0%, #061a4a 100%);
-  clip-path: inset(0 0 0 0%);
-  -webkit-clip-path: inset(0 0 0 0%);
-  will-change: clip-path;
-}
-.page-transition.is-finished { display: none; }
-.page-transition.is-cover-out::before {
-  opacity: 0 !important;
-  animation: none;
-}
-.page-transition::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(180deg, #4f6fd8 0%, #1c40a8 100%);
-  opacity: 0;
-  pointer-events: none;
-}
-.page-transition.is-cover-in::before {
-  animation: pt-light-fade 0.36s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-@keyframes pt-light-fade {
-  0%   { opacity: 1; }
-  100% { opacity: 0; }
-}
 
-.page-transition .pt-grid {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  isolation: isolate;
-}
-/* Faded AO mark — same asset as CTA banner; grows while blue overlay is visible */
-.page-transition .pt-watermark {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 0;
-  height: min(168vh, 158vw);
-  width: auto;
-  max-width: none;
-  object-fit: contain;
-  opacity: 0.04;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(var(--pt-wm-scale, 1)) translateZ(0);
-  transform-origin: center center;
-  will-change: transform;
-  transition: none;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-.page-transition .pt-logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  isolation: isolate;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.94) translateZ(0);
-  opacity: 0;
-  transition: opacity 0.06s ease, transform 0.08s cubic-bezier(0.16, 1, 0.3, 1);
-  color: #ffffff;
-  will-change: opacity, transform;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: geometricPrecision;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.page-transition .pt-mark-wrap {
-  display: block;
-  line-height: 0;
-  width: 100%;
-}
-.page-transition .pt-logo .pt-mark {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-}
-.page-transition .pt-logo .pt-text {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: max-content;
-  max-width: 100%;
-  margin: 0 auto;
-  gap: 2px;
-  line-height: 1.05;
-  color: #ffffff;
-  text-shadow: 0 1px 8px rgba(6, 26, 74, 0.22);
-}
-.page-transition .pt-logo .pt-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(28px, 3.4vw, 40px);
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: #ffffff;
-  text-align: left;
-  white-space: nowrap;
-}
-.page-transition .pt-logo .pt-sub {
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.05;
-  opacity: 0.9;
-  color: #ffffff;
-  text-align: right;
-  white-space: nowrap;
-}
-.page-transition.is-covered .pt-logo,
-.page-transition.is-cover-in .pt-logo,
-.page-transition.is-cover-out .pt-logo {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1) translateZ(0);
-}
-.page-transition.is-cover-in .pt-logo {
-  transition-delay: 0.025s, 0.025s;
-}
-.page-transition.is-cover-out .pt-logo .pt-text {
-  text-shadow: none;
-}
-.page-transition .pt-cell {
-  position: absolute;
-  z-index: 0;
-  border-radius: 50%;
-  background-color: #3868f7;
-  background-image: radial-gradient(circle at 32% 28%,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.02) 38%,
-      rgba(0, 0, 0, 0.025) 78%,
-      rgba(0, 0, 0, 0.06) 100%);
-  translate: var(--tx, -150vw) var(--ty, 150vh);
-  scale: 0;
-  will-change: translate, scale;
-  pointer-events: none;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  outline: none;
-}
-.page-transition.is-covered .pt-cell { translate: 0 0; scale: var(--s, 1.5); }
-.page-transition.is-cover-in .pt-cell {
-  animation: pt-translate-in 0.36s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-             pt-grow 0.36s cubic-bezier(0.34, 1.45, 0.6, 1) forwards;
-  animation-delay: 0s;
-}
-@keyframes pt-grow {
-  0%   { scale: calc(var(--s, 1.5) * 0.50); }
-  55%  { scale: calc(var(--s, 1.5) * 1.08); }
-  80%  { scale: calc(var(--s, 1.5) * 0.97); }
-  100% { scale: var(--s, 1.5); }
-}
-@keyframes pt-translate-in {
-  0% { translate: var(--tx, -150vw) var(--ty, 150vh); }
-  100% { translate: 0 0; }
-}
 
-/* Photocopier light — one clean left-to-right swipe */
-.pt-scan-bar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 58px;
-  background: #ffffff;
-  z-index: 1000000;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateX(0);
-  will-change: transform, opacity;
-  box-shadow:
-    0 0 28px 8px rgba(255, 255, 255, 0.75),
-    0 0 12px 3px rgba(255, 255, 255, 0.9);
-}
-.pt-scan-bar.is-sweeping {
-  opacity: 1;
-}
-/* Even glow — fades into the revealed page on the left */
-.pt-scan-bar::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 100%;
-  width: 120px;
-  background: linear-gradient(to left,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(255, 255, 255, 0.55) 38%,
-      rgba(255, 255, 255, 0.22) 68%,
-      rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
-}
-/* Even glow — fades into the blue on the right */
-.pt-scan-bar::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 100%;
-  width: 120px;
-  background: linear-gradient(to right,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(255, 255, 255, 0.55) 38%,
-      rgba(255, 255, 255, 0.22) 68%,
-      rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .page-transition { display: none !important; }
-  .pt-scan-bar { display: none !important; }
-  html { background-color: transparent; }
-}
-/* Final CTA banner animation synced with homepage */
-.cta-section {
-  --cta-letter-bg-size: 159%;
-  --cta-letter-bg-y: 44%;
-  --cta-letter-x: -0.75%;
-  --cta-letter-rotate: -13deg;
-  --cta-letter-scale: 1.16;
-  --cta-watermark-left: 66%;
-  --cta-watermark-scale: 1;
-}
-.cta-section::after {
-  inset: -16% -12%;
-  background-size: var(--cta-letter-bg-size) auto;
-  background-position: left var(--cta-letter-bg-y);
-  transform: translate3d(var(--cta-letter-x), 0, 0) rotate(var(--cta-letter-rotate)) scale(var(--cta-letter-scale));
-  transform-origin: 28% 50%;
-}
-.cta-watermark {
-  left: var(--cta-watermark-left);
-  transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
-}
+
+  /* ---------- XEROX PAGE OVERRIDES ---------- */
+  body.xerox-page .canon-logo-pill img { height: 24px; }
+  body.xerox-page .canon-logo-pill { text-decoration: none; }
+  body.xerox-page .canon-hero-visual .hero-bg { object-position: center; opacity: 0.62; }
+  body.xerox-page .canon-hero-printer { width: min(82%, 520px); right: 2%; bottom: 8%; }
+  body.xerox-page .canon-hero-brochure { width: min(38%, 210px); left: 8%; top: 9%; }
+  body.xerox-page .quick-links-panel a:first-child { text-transform: none; }
+  body.xerox-page .intro-band::before { background-image: url("xerox-versalink-lifestyle-bg.png"); }
+  body.xerox-page .canon-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 960px; margin: 0 auto; }
+  body.xerox-page .canon-product-card { min-height: 430px; }
+  body.xerox-page #office-printers .canon-card-visual img,
+  body.xerox-page #large-format-printers .canon-card-visual img { max-height: 170px; }
+  body.xerox-page #multifunction-printers .canon-card-visual img { max-height: 188px; border-radius: 14px; }
+  body.xerox-page #xerox-toner .canon-card-visual img { max-height: 172px; }
+  body.xerox-page .canon-awards-flyer { width: min(78%, 420px); }
+  body.xerox-page .canon-awards-product { width: min(50%, 350px); right: 0; }
+  body.xerox-page .canon-awards-badge strong { font-size: 22px; letter-spacing: -0.04em; }
+  body.xerox-page .canon-awards-resources::before { background-image: url("xerox-support-bg.png"); }
+  @media (max-width: 1024px) {
+    body.xerox-page .canon-product-grid { grid-template-columns: 1fr; }
+  }
+
+
+
+  /* ---------- LEXMARK PAGE OVERRIDES ---------- */
+  body.lexmark-page .canon-logo-pill { text-decoration: none; }
+  body.lexmark-page .canon-logo-pill img { height: 26px; }
+  body.lexmark-page .canon-hero-visual .hero-bg { object-position: center; opacity: 0.64; }
+  body.lexmark-page .canon-hero-printer { width: min(82%, 520px); right: 0; bottom: 8%; }
+  body.lexmark-page .canon-hero-brochure { width: min(38%, 210px); left: 8%; top: 9%; }
+  body.lexmark-page .quick-links-panel a:first-child { text-transform: none; }
+  body.lexmark-page .intro-band::before { background-image: url("lexmark-xc4140-lifestyle-bg.png"); }
+  body.lexmark-page .canon-product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1160px; margin: 0 auto; }
+  body.lexmark-page .canon-product-card { min-height: 430px; }
+  body.lexmark-page #office-printers .canon-card-visual img { max-height: 160px; }
+  body.lexmark-page #multifunction-printers .canon-card-visual img { max-height: 188px; border-radius: 14px; }
+  body.lexmark-page #lexmark-toner .canon-card-visual img { max-height: 180px; }
+  body.lexmark-page .canon-awards-flyer { width: min(78%, 420px); }
+  body.lexmark-page .canon-awards-product { width: min(52%, 360px); right: 0; }
+  body.lexmark-page .canon-awards-badge strong { font-size: 22px; letter-spacing: -0.04em; }
+  body.lexmark-page .canon-awards-resources::before { background-image: url("lexmark-support-bg.png"); }
+  @media (max-width: 1180px) {
+    body.lexmark-page .canon-product-grid { grid-template-columns: 1fr; max-width: 760px; }
+  }
+
 </style>
-<link rel="stylesheet" href="ao-logo-lockup.css">
 </head>
-<body class="contact-page">
-<div id="page-transition" class="page-transition" aria-hidden="true">
-  <div class="pt-grid" id="pt-grid"></div>
-  <img class="pt-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" decoding="async" fetchpriority="low" />
-  <div class="pt-logo" aria-hidden="true">
-    <span class="pt-mark-wrap" aria-hidden="true"><img class="pt-mark" src="ao-nav-logo.png" width="416" height="288" alt="" decoding="sync" fetchpriority="high" /></span>
-    <span class="pt-text">
-        <span class="pt-name">Automation&nbsp;One</span>
-        <span class="pt-sub">Business&nbsp;Systems</span>
-      </span>
-  </div>
-</div>
-<div id="pt-scan-bar" class="pt-scan-bar" aria-hidden="true"></div>
-
-
+<body class="canon-page lexmark-page">
 <header class="site-header">
   <nav class="nav">
     <a href="automation-one-homepage-6.html" class="logo">
@@ -1791,162 +2496,196 @@ html { background-color: #ffffff; }
   </nav>
 </header>
 
-<section class="contact-hero">
-  <div class="container">
-    <span class="section-eyebrow">Contact</span>
-    <h1>Contact our team</h1>
-    <div class="lead">
-      <p>Thank you for considering Automation One. Whether you require product info, technical assistance, toner, supplies or general advice, our team is ready to help.</p>
-      <p>Please see our locations and contact details below.</p>
+<main>
+  <section class="canon-hero">
+    <div class="container canon-hero-grid">
+      <div class="canon-hero-copy">
+        <a class="canon-logo-pill" href="automation-one-lexmark.html" aria-label="Lexmark products page">
+          <img src="solution-brochures/logos/lexmark.png" alt="Lexmark" width="180" height="54" />
+          <span>Authorized Dealer</span>
+        </a>
+        <h1>Lexmark for every <em>business workflow.</em></h1>
+        <p class="canon-hero-lead">Automation One helps Vancouver and Metro Vancouver teams choose, deploy, supply, and support Lexmark office printers, multifunction printers, and genuine toner programs. Lexmark delivers business imaging technology for teams that need performance, reliability, and practical document workflows.</p>
+        <div class="canon-hero-actions">
+          <a href="https://calendly.com/bachtem-automationone/30min" class="cta cta-secondary" target="_blank" rel="noopener noreferrer">Request a Lexmark Recommendation</a>
+          <a href="#lexmark-products" class="cta cta-primary cta-pill-arrow">Explore Lexmark Products</a>
+        </div>
+      </div>
+      <div class="canon-hero-visual" aria-label="Lexmark business products">
+        <img class="hero-bg" src="lexmark-xc4140-lifestyle-bg.png" alt="" aria-hidden="true" />
+        <img class="canon-hero-brochure" src="solution-brochures/lexmark-xc4140.png" alt="Lexmark XC4140 brochure" />
+        <img class="canon-hero-printer" src="lexmark-office-printer.png" alt="Lexmark office printer" />
+        <div class="hero-stat-card">
+          <strong>Lexmark technology, Automation One support.</strong>
+          <span>Right-sized recommendations, delivery, networking, training, supplies, and local response after install.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="quick-links">
+    <div class="container">
+      <nav class="quick-links-panel" aria-label="Lexmark product sections">
+        <a href="#lexmark-workflow">Lexmark Workflow</a>
+        <a href="#office-printers">Office Printers</a>
+        <a href="#multifunction-printers">Multifunction Printers</a>
+        <a href="#lexmark-toner">Toner &amp; Supplies</a>
+        <a href="#lexmark-support">Support</a>
+      </nav>
     </div>
   </div>
-</section>
 
-<section class="band band--tint" id="vancouver">
-  <div class="container">
-    <h2><a href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743">Vancouver head office</a></h2>
-    <div class="channel-grid" aria-label="Vancouver contact methods">
-      <div class="channel-card">
-        <h3>Call now</h3>
-        <p><a href="tel:+16042556622">604.255.6622</a></p>
+  <section class="intro-band" id="lexmark-workflow">
+    <div class="container intro-grid">
+      <div class="intro-copy">
+        <span class="section-eyebrow">Discover Lexmark</span>
+        <h2>Higher-performance printing for <em>business teams.</em></h2>
+        <p>Lexmark offers business and enterprise imaging technology for organizations of every size, combining dependable printers, multifunction products, software, solutions, and services that help teams save time and money.</p>
       </div>
-      <div class="channel-card">
-        <h3>Fax</h3>
-        <p>604.255.7744</p>
-      </div>
-      <div class="channel-card">
-        <h3>Email</h3>
-        <p><a href="mailto:info@automationone.ca">info@automationone.ca</a></p>
-      </div>
-      <div class="channel-card">
-        <h3>Meet us</h3>
-        <p>1365 Boundary Rd., Vancouver, BC V5K 4T9</p>
+      <div class="feature-list">
+        <div class="feature-pill"><strong>Business imaging</strong><span>Lexmark printers and multifunction products help teams handle everyday output, colour documents, scanning, and workflow needs.</span></div>
+        <div class="feature-pill"><strong>Built to last</strong><span>Compact printers and all-in-ones are designed for small and medium businesses that need practical reliability.</span></div>
+        <div class="feature-pill"><strong>Secure workflows</strong><span>Lexmark devices support controlled, efficient document handling for teams that care about productivity and information protection.</span></div>
+        <div class="feature-pill"><strong>Local deployment</strong><span>Automation One installs, networks, trains, supplies, and supports your Lexmark fleet from Vancouver.</span></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="band" id="vancouver-form">
-  <div class="container split">
-    <div>
-      <h2>Get in touch with our Vancouver team</h2>
-      <form class="contact-form" id="form-vancouver" data-office="Vancouver" autocomplete="on">
-        <div class="row2">
-          <div class="field">
-            <label for="van-first">First name</label>
-            <input id="van-first" name="firstName" type="text" placeholder="First name" />
-          </div>
-          <div class="field">
-            <label for="van-last">Last name</label>
-            <input id="van-last" name="lastName" type="text" placeholder="Last name" />
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label for="van-phone">Phone <span aria-hidden="true">*</span></label>
-            <input id="van-phone" name="phone" type="tel" placeholder="Phone" required />
-          </div>
-          <div class="field">
-            <label for="van-email">Email <span aria-hidden="true">*</span></label>
-            <input id="van-email" name="email" type="email" placeholder="Email" required />
-          </div>
-        </div>
-        <div class="field">
-          <label for="van-msg">Message</label>
-          <textarea id="van-msg" name="message" rows="5" placeholder="Message"></textarea>
-        </div>
-        <button type="submit">Send</button>
-        <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:info@automationone.ca">info@automationone.ca</a>. To use the live site form instead, visit <a href="https://automationone.ca/contact/">automationone.ca/contact</a>.</p>
-      </form>
-    </div>
-    <div>
-      <div class="map-frame">
-        <iframe loading="lazy" src="https://maps.google.com/maps?q=1365%20Boundary%20Road%20Vancouver%2C%20BC%2C%20Canada%20V5K%204T9&amp;t=m&amp;z=11&amp;output=embed&amp;iwloc=near" title="1365 Boundary Road Vancouver, BC V5K 4T9"></iframe>
+  <section class="product-section" id="lexmark-products">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Lexmark product lineup</span>
+        <h2>Every Lexmark category your business <em>depends on.</em></h2>
+        <p>Lexmark business products cover everyday office printing, multifunction work hubs, and genuine toner and supplies. Automation One helps you match the right Lexmark platform to your team, volume, and workflow.</p>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="band band--tint" id="burnaby">
-  <div class="container">
-    <h2><a href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.2715037,-123.0207332,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d345c4be47:0x402e91058e71c12b!8m2!3d49.2715037!4d-123.0185392">Burnaby office (appointment only)</a></h2>
-    <div class="channel-grid" aria-label="Burnaby contact methods">
-      <div class="channel-card">
-        <h3>Call now</h3>
-        <p><a href="tel:+16042558951">604.255.8951</a></p>
-      </div>
-      <div class="channel-card">
-        <h3>Fax</h3>
-        <p>604.255.7744</p>
-      </div>
-      <div class="channel-card">
-        <h3>Email</h3>
-        <p><a href="mailto:info@automationone.ca">info@automationone.ca</a></p>
-      </div>
-      <div class="channel-card">
-        <h3>Meet us</h3>
-        <p>1440 Ingleton Ave., Burnaby, BC V5C 4L7</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="canon-product-grid">
+        <article class="canon-product-card" id="office-printers">
+          <div class="canon-card-visual"><img src="lexmark-office-printer.png" alt="Lexmark office printer" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-body">
+            <span class="canon-card-kicker">Office Printers</span>
+            <h3>Reliable Lexmark printers for everyday output.</h3>
+            <p>Lexmark office printers support teams that need crisp documents, dependable everyday performance, and efficient black-and-white or colour output.</p>
+            <a href="automation-one-products.html#catalog" class="canon-card-cta cta cta-primary cta-pill-arrow">Discover More</a>
+          </div>
+        </article>
 
-<section class="band" id="burnaby-form">
-  <div class="container split">
-    <div>
-      <div class="map-frame">
-        <iframe loading="lazy" src="https://maps.google.com/maps?q=1440%20Ingleton%20Avenue%2C%20Burnaby%2C%20BC%20V5C%204L7&amp;t=m&amp;z=11&amp;output=embed&amp;iwloc=near" title="1440 Ingleton Avenue, Burnaby, BC V5C 4L7"></iframe>
+        <article class="canon-product-card" id="multifunction-printers">
+          <div class="canon-card-visual"><img src="solution-brochures/lexmark-xc4140.png" alt="Lexmark multifunction printer brochure" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-body">
+            <span class="canon-card-kicker">Multifunction Printers</span>
+            <h3>Print, copy, scan, and workflow tools in one device.</h3>
+            <p>Lexmark multifunction products are built for business teams that need productivity, reliability, scanning, and simple device control from one office platform.</p>
+            <a href="automation-one-products.html#catalog" class="canon-card-cta cta cta-primary cta-pill-arrow">Discover More</a>
+          </div>
+        </article>
+
+        <article class="canon-product-card" id="lexmark-toner">
+          <div class="canon-card-visual"><img src="lexmark-toner-supplies.svg" alt="Lexmark toner and supplies" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-body">
+            <span class="canon-card-kicker">Toner &amp; Supplies</span>
+            <h3>Genuine Lexmark supplies for dependable uptime.</h3>
+            <p>Genuine Lexmark toner and supplies help protect output quality, device reliability, and day-to-day fleet performance.</p>
+            <a href="automation-one-toner.html" class="canon-card-cta cta cta-primary cta-pill-arrow">Discover More</a>
+          </div>
+        </article>
+      </div>
+      <div class="canon-catalogue-row">
+        <a href="automation-one-products.html" class="cta cta-pill-arrow-blue">Full Catalogue</a>
       </div>
     </div>
-    <div>
-      <h2>Get in touch with our Burnaby team</h2>
-      <form class="contact-form" id="form-burnaby" data-office="Burnaby" autocomplete="on">
-        <div class="row2">
-          <div class="field">
-            <label for="bb-first">First name</label>
-            <input id="bb-first" name="firstName" type="text" placeholder="First name" />
-          </div>
-          <div class="field">
-            <label for="bb-last">Last name</label>
-            <input id="bb-last" name="lastName" type="text" placeholder="Last name" />
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label for="bb-phone">Phone <span aria-hidden="true">*</span></label>
-            <input id="bb-phone" name="phone" type="tel" placeholder="Phone" required />
-          </div>
-          <div class="field">
-            <label for="bb-email">Email <span aria-hidden="true">*</span></label>
-            <input id="bb-email" name="email" type="email" placeholder="Email" required />
-          </div>
-        </div>
-        <div class="field">
-          <label for="bb-msg">Message</label>
-          <textarea id="bb-msg" name="message" rows="5" placeholder="Message"></textarea>
-        </div>
-        <button type="submit">Send</button>
-        <p class="form-hint">Same as Vancouver: this builds a draft in your mail app. Live Elementor forms remain on <a href="https://automationone.ca/contact/">automationone.ca/contact</a>.</p>
-      </form>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="cta-section">
-  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" />
+  <section class="canon-awards-section" id="lexmark-solutions">
+    <div class="container">
+      <div class="canon-awards-stage" aria-label="Lexmark workplace technology">
+        <div class="canon-awards-stage-grid">
+          <div class="canon-awards-copy">
+            <span class="canon-awards-eyebrow">Business Imaging</span>
+            <h2>Lexmark helps business <em>go further.</em></h2>
+            <p>Lexmark printing and imaging products, software, solutions, and services are built to help organizations work efficiently, reduce friction, and keep document processes moving.</p>
+
+            <div class="canon-awards-proof-grid" aria-label="Lexmark technology highlights">
+              <div class="canon-awards-proof"><strong>Print</strong><span>Dependable business output for small teams and larger workgroups.</span></div>
+              <div class="canon-awards-proof"><strong>Scan</strong><span>Multifunction workflows for document capture and everyday routing.</span></div>
+              <div class="canon-awards-proof"><strong>Local</strong><span>Automation One handles recommendation, deployment, supply, and service.</span></div>
+            </div>
+          </div>
+
+          <div class="canon-awards-art">
+            <div class="canon-awards-orbit" aria-hidden="true"></div>
+            <img class="canon-awards-flyer" src="solution-brochures/lexmark-xc4140.png" alt="Lexmark XC4140 brochure" loading="lazy" decoding="async" />
+            <img class="canon-awards-product" src="lexmark-office-printer.png" alt="Lexmark office printer" loading="lazy" decoding="async" />
+            <div class="canon-awards-badge">
+              <strong>Lexmark</strong>
+              <span>Business imaging with Automation One local support.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="canon-awards-details" aria-label="Lexmark product strengths">
+        <article class="canon-award-detail">
+          <h3>Office Printers</h3>
+          <p>Lexmark office printers support everyday business output with reliable print performance and efficient operation.</p>
+        </article>
+        <article class="canon-award-detail">
+          <h3>Multifunction Printers</h3>
+          <p>Lexmark multifunction products combine printing, scanning, copying, and workflow tools for active business teams.</p>
+        </article>
+        <article class="canon-award-detail">
+          <h3>Toner &amp; Supplies</h3>
+          <p>Genuine Lexmark supplies help keep print quality consistent and devices running as expected.</p>
+        </article>
+      </div>
+
+      <div class="canon-awards-link-row">
+        <a href="https://www.lexmark.com/en_us/printers.html" target="_blank" rel="noopener noreferrer">View Lexmark Printers</a>
+        <a href="https://www.lexmark.com/en_us/support/downloads.html" target="_blank" rel="noopener noreferrer">Open Lexmark Support</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="canon-awards-resources" id="lexmark-support" aria-labelledby="lexmark-resources-title">
+    <div class="container">
+      <div class="canon-resources-panel">
+        <span class="section-eyebrow">Lexmark Support</span>
+        <h3 id="lexmark-resources-title">Drivers and Downloads</h3>
+        <p>Need Lexmark drivers, firmware, manuals, or support utilities? Go directly to Lexmark support to search by product and download the right files for your device.</p>
+        <a class="canon-resources-cta" href="https://www.lexmark.com/en_us/support/downloads.html" target="_blank" rel="noopener noreferrer">Open Drivers &amp; Downloads</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="cta-section" id="resources">
+  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="container">
     <h2>Ready to take <em>your business to the next level?</em></h2>
     <p>Tell us a bit about your office and we'll send back a no-pressure recommendation, usually within one business day.</p>
 
     <div class="cta-row">
-      <a href="automation-one-homepage-6.html" class="cta cta-secondary">Book a Demo</a>
+      <a href="https://calendly.com/bachtem-automationone/30min" class="cta cta-secondary" target="_blank" rel="noopener noreferrer">
+        Book a Consultation
+      </a>
       <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
     </div>
 
-    <div class="phone-row">
-      <a href="tel:6042556622">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        604.255.6622
+    <div class="cta-contact-bar" aria-label="Contact us">
+      <a
+        href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743"
+        class="cta-contact-icon"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Vancouver office in Google Maps"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </a>
+      <span class="cta-contact-divider" aria-hidden="true"></span>
+      <a href="tel:+16042556622" class="cta-contact-phone">604-255-6622</a>
+      <span class="cta-contact-divider" aria-hidden="true"></span>
+      <a href="mailto:info@automationone.ca" class="cta-contact-icon" aria-label="Email info@automationone.ca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
   </div>
@@ -2048,7 +2787,7 @@ html { background-color: #ffffff; }
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="automation-one-homepage-6.html" class="logo">
+        <a href="index.html" class="logo">
           <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
@@ -2123,6 +2862,9 @@ html { background-color: #ffffff; }
         </a>
         <a href="#" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.34 2.69.93 3.36.62 4.14.32 4.9.12 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.13C21.32 1.34 20.65.93 19.86.62 19.1.32 18.22.12 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+        </a>
+        <a href="#" aria-label="X / Twitter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
       </div>
     </div>
@@ -2281,7 +3023,7 @@ html { background-color: #ffffff; }
 
       if (file.indexOf('contact') !== -1) {
         target = contact;
-      } else if (file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1) {
+      } else if (file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1 || file.indexOf('canon') !== -1 || file.indexOf('xerox') !== -1 || file.indexOf('lexmark') !== -1 || file.indexOf('automation-one-fp') !== -1 || file.indexOf('ideal-mbm') !== -1) {
         target = offer;
       } else if (file.indexOf('what-we-do') !== -1 || file.indexOf('about') !== -1 || file.indexOf('testimonials') !== -1) {
         target = who;
@@ -2374,33 +3116,6 @@ html { background-color: #ffffff; }
     });
   })();
 
-  function wireContactForm(form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const office = form.getAttribute("data-office") || "Automation One";
-      const fd = new FormData(form);
-      const first = (fd.get("firstName") || "").toString().trim();
-      const last = (fd.get("lastName") || "").toString().trim();
-      const phone = (fd.get("phone") || "").toString().trim();
-      const email = (fd.get("email") || "").toString().trim();
-      const message = (fd.get("message") || "").toString().trim();
-      const name = [first, last].filter(Boolean).join(" ");
-      const lines = [
-        "Office: " + office,
-        name ? "Name: " + name : null,
-        "Phone: " + phone,
-        "Email: " + email,
-        "",
-        message || "(no message body)",
-      ].filter(Boolean);
-      const subject = encodeURIComponent("Website contact — " + office);
-      const body = encodeURIComponent(lines.join("\n"));
-      window.location.href = "mailto:info@automationone.ca?subject=" + subject + "&body=" + body;
-    });
-  }
-  wireContactForm(document.getElementById("form-vancouver"));
-  wireContactForm(document.getElementById("form-burnaby"));
-
   (function initQuoteDrawer() {
     var overlay = document.getElementById('quote-drawer-overlay');
     var drawer = document.getElementById('quote-drawer');
@@ -2483,297 +3198,45 @@ html { background-color: #ffffff; }
     }
   })();
 </script>
-
-<script src="ao-logo-lockup.js"></script>
 <script>
-  (function initPageTransition() {
-    var overlay = document.getElementById('page-transition');
-    var grid = document.getElementById('pt-grid');
-    var scanBar = document.getElementById('pt-scan-bar');
-    if (!overlay || !grid || !scanBar) return;
-    var ptWatermark = document.querySelector('.pt-watermark');
-    var ptMark = document.querySelector('.pt-logo .pt-mark');
-    var hdrLogo = document.querySelector('.site-header .logo-mark, .nav .logo .logo-mark');
-    if (ptMark && hdrLogo) {
-      var hiSrc = hdrLogo.currentSrc || hdrLogo.getAttribute('src');
-      if (hiSrc) ptMark.src = hiSrc;
-    }
-    function syncPtLogoLockup() {
-      if (window.syncAoLogoLockups) window.syncAoLogoLockups();
-    }
-    if (ptMark) {
-      if (ptMark.complete) syncPtLogoLockup();
-      else ptMark.addEventListener('load', syncPtLogoLockup, { once: true });
-    } else {
-      syncPtLogoLockup();
-    }
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(syncPtLogoLockup);
-    }
-    window.addEventListener('resize', syncPtLogoLockup);
-    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm && rm.matches) {
-      overlay.classList.add('is-finished');
+  (function initCanonScrollTransitions() {
+    var targets = document.querySelectorAll('.canon-awards-section, .intro-band, .canon-awards-resources, .product-section');
+    var pastTargets = document.querySelectorAll('.canon-awards-section, .canon-awards-resources');
+    if (!targets.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach(function (target) { target.classList.add('is-inview', 'is-past'); });
       return;
     }
-
-    var SHADES = ['#3055c8', '#3258cc', '#2b50c0', '#3863d2', '#2e54c5', '#3760ce'];
-
-    var COVER_IN_MS = 360;
-    var SCAN_MS = 480;
-    var LOGO_FADE_MS = 50;
-
-    var wmRafId = null;
-    var blueVisibleStart = 0;
-    var wmBlueDurationMs = 0;
-    var WM_SCALE_MIN = 1;
-    var WM_SCALE_MAX = 2.75;
-    var PT_WM_RESUME_KEY = 'pt-wm-resume-linear';
-
-    function ptNavTotalMs() { return COVER_IN_MS + SCAN_MS; }
-
-    function setWatermarkScale(s) {
-      if (ptWatermark) ptWatermark.style.setProperty('--pt-wm-scale', String(s));
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(function (target) { target.classList.add('is-inview', 'is-past'); });
+      return;
     }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-inview');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.24, rootMargin: '0px 0px -12% 0px' });
+    targets.forEach(function (target) { observer.observe(target); });
 
-    function setWatermarkFromScanProgress(progress) {
-      var p = Math.max(0, Math.min(1, progress));
-      setWatermarkScale(WM_SCALE_MIN + (WM_SCALE_MAX - WM_SCALE_MIN) * p);
+    var ticking = false;
+    function updatePastState() {
+      ticking = false;
+      var triggerY = (window.innerHeight || document.documentElement.clientHeight || 1) * 0.28;
+      pastTargets.forEach(function (target) {
+        var rect = target.getBoundingClientRect();
+        target.classList.toggle('is-past', rect.top < triggerY);
+      });
     }
-
-    function readWatermarkResumeLinear() {
-      var resume = 0;
-      try {
-        var saved = sessionStorage.getItem(PT_WM_RESUME_KEY);
-        sessionStorage.removeItem(PT_WM_RESUME_KEY);
-        resume = saved ? parseFloat(saved) : 0;
-      } catch (err) {}
-      if (isNaN(resume) || resume < 0) resume = 0;
-      if (resume > 1) resume = 1;
-      return resume;
+    function requestPastState() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updatePastState);
     }
-
-    function saveWatermarkResumeLinear() {
-      if (!blueVisibleStart) return;
-      var elapsed = performance.now() - blueVisibleStart;
-      var overallLinear = Math.min(1, elapsed / ptNavTotalMs());
-      try { sessionStorage.setItem(PT_WM_RESUME_KEY, String(overallLinear)); } catch (err) {}
-    }
-
-    function tickWatermarkCoverIn() {
-      if (!ptWatermark || overlay.classList.contains('is-finished')) {
-        wmRafId = null;
-        return;
-      }
-      var elapsed = performance.now() - blueVisibleStart;
-      var overallLinear = Math.min(1, elapsed / ptNavTotalMs());
-      setWatermarkFromScanProgress(ptEase(overallLinear));
-      if (elapsed < COVER_IN_MS) wmRafId = requestAnimationFrame(tickWatermarkCoverIn);
-    }
-
-    function startWatermarkGrow() {
-      blueVisibleStart = performance.now();
-      setWatermarkFromScanProgress(ptEase(0));
-      if (wmRafId) cancelAnimationFrame(wmRafId);
-      wmRafId = requestAnimationFrame(tickWatermarkCoverIn);
-    }
-
-    function stopWatermarkGrow() {
-      if (wmRafId) { cancelAnimationFrame(wmRafId); wmRafId = null; }
-      blueVisibleStart = 0;
-      wmBlueDurationMs = 0;
-    }
-
-    function buildGrid() {
-      grid.innerHTML = '';
-      var w = window.innerWidth;
-      var h = window.innerHeight;
-      var minDim = Math.min(w, h);
-      var size = Math.max(110, Math.min(180, Math.floor(minDim / 5)));
-      var cols = Math.ceil(w / size) + 1;
-      var rows = Math.ceil(h / size) + 1;
-      var maxDiag = (cols - 1) + (rows - 1) || 1;
-      var midCol = (cols - 1) / 2;
-      var html = '';
-      for (var r = 0; r < rows; r++) {
-        for (var c = 0; c < cols; c++) {
-          var d = (c + r) / maxDiag;
-          var shade = SHADES[(Math.random() * SHADES.length) | 0];
-          var scale = (0.90 + Math.random() * 0.55).toFixed(2);
-          // Every cell shares one off-screen origin and fans out.
-          var cellXvw = (c * size) / w * 100;
-          var cellYvh = (r * size) / h * 100;
-          var tx = (-30 - cellXvw).toFixed(1);
-          var ty = (115 - cellYvh).toFixed(1);
-          html += '<span class="pt-cell" style="' +
-            'left:' + (c * size) + 'px;' +
-            'top:' + (r * size) + 'px;' +
-            'width:' + size + 'px;' +
-            'height:' + size + 'px;' +
-            'background-color:' + shade + ';' +
-            '--s:' + scale + ';' +
-            '--tx:' + tx + 'vw;' +
-            '--ty:' + ty + 'vh;' +
-            '--d:' + d.toFixed(3) + ';"></span>';
-        }
-      }
-      grid.innerHTML = html;
-    }
-
-
-    // ---- INITIAL REVEAL ----
-    // 1) Cells already cover the screen + logo fades into view.
-    // 2) After the logo settles, fire the photocopier scan: clip-path
-    //    wipes the overlay (cells + logo) from left to right, while a
-    //    bright vertical light bar sweeps across in sync.
-    var ptRafId = null;
-    var PT_BAR_W = 58;
-    var ptRevealDone = false;
-
-    function ptEase(t) {
-      if (t <= 0) return 0;
-      if (t >= 1) return 1;
-      var x1 = 0.55, y1 = 0, x2 = 0.45, y2 = 1;
-      var cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
-      var cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
-      function sampleX(u) { return ((ax * u + bx) * u + cx) * u; }
-      function sampleY(u) { return ((ay * u + by) * u + cy) * u; }
-      var u = t;
-      for (var i = 0; i < 10; i++) {
-        var err = sampleX(u) - t;
-        if (Math.abs(err) < 1e-5) break;
-        var d = (3 * ax * u + 2 * bx) * u + cx;
-        if (Math.abs(d) < 1e-6) break;
-        u -= err / d;
-      }
-      return sampleY(u);
-    }
-
-    function applyScanFrame(eased) {
-      var w = window.innerWidth;
-      var travel = Math.max(0, w - PT_BAR_W);
-      var barLeft = eased * travel;
-      var clipPct = Math.min(100, ((barLeft + PT_BAR_W) / w) * 100);
-      var clip = 'inset(0 0 0 ' + clipPct + '%)';
-      overlay.style.clipPath = clip;
-      overlay.style.webkitClipPath = clip;
-      scanBar.style.transform = 'translateX(' + barLeft + 'px)';
-    }
-
-    function finishScanReveal() {
-      if (ptRevealDone) return;
-      ptRevealDone = true;
-      setWatermarkFromScanProgress(1);
-      stopWatermarkGrow();
-      if (ptRafId) { cancelAnimationFrame(ptRafId); ptRafId = null; }
-      overlay.style.clipPath = 'inset(0 0 0 100%)';
-      overlay.style.webkitClipPath = 'inset(0 0 0 100%)';
-      scanBar.style.opacity = '0';
-      scanBar.classList.remove('is-sweeping');
-      overlay.classList.add('is-finished');
-      overlay.classList.remove('is-cover-out');
-      scanBar.style.transform = 'translateX(' + Math.max(0, window.innerWidth - PT_BAR_W) + 'px)';
-    }
-
-    function startScanReveal() {
-      ptRevealDone = false;
-      if (ptRafId) { cancelAnimationFrame(ptRafId); ptRafId = null; }
-      if (wmRafId) { cancelAnimationFrame(wmRafId); wmRafId = null; }
-      overlay.classList.remove('is-cover-out', 'is-finished');
-      scanBar.classList.remove('is-sweeping');
-      overlay.style.clipPath = 'inset(0 0 0 0%)';
-      overlay.style.webkitClipPath = 'inset(0 0 0 0%)';
-      scanBar.style.transform = 'translateX(0)';
-      scanBar.style.opacity = '1';
-      void overlay.offsetWidth;
-      overlay.classList.add('is-cover-out');
-      scanBar.classList.add('is-sweeping');
-      var resumeLinear = readWatermarkResumeLinear();
-      setWatermarkFromScanProgress(ptEase(resumeLinear));
-      var t0 = performance.now();
-      function frame(now) {
-        if (ptRevealDone) return;
-        var scanT = Math.min(1, (now - t0) / SCAN_MS);
-        var overallLinear = resumeLinear + (1 - resumeLinear) * scanT;
-        var eased = ptEase(overallLinear);
-        setWatermarkFromScanProgress(eased);
-        applyScanFrame(ptEase(scanT));
-        scanBar.style.opacity = '1';
-        if (scanT < 1) {
-          ptRafId = requestAnimationFrame(frame);
-        } else {
-          finishScanReveal();
-        }
-      }
-      ptRafId = requestAnimationFrame(frame);
-      setTimeout(finishScanReveal, SCAN_MS + 80);
-    }
-
-    overlay.classList.add('is-covered');
-    syncPtLogoLockup();
-    startScanReveal();
-
-    // ---- RESIZE ----
-    var resizeTimer;
-    window.addEventListener('resize', function () {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () { if (grid.children.length > 0) buildGrid(); }, 150);
-    });
-
-    // ---- COVER-IN ON INTERNAL LINK CLICK ----
-    document.addEventListener('click', function (e) {
-      if (e.defaultPrevented || e.button !== 0) return;
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      var link = e.target.closest && e.target.closest('a[href]');
-      if (!link) return;
-      var href = link.getAttribute('href') || '';
-      if (!href) return;
-      if (href.charAt(0) === '#') return;
-      if (href.indexOf('mailto:') === 0) return;
-      if (href.indexOf('tel:') === 0) return;
-      if (href.indexOf('javascript:') === 0) return;
-      if (link.target && link.target !== '_self') return;
-      if (link.hasAttribute('download')) return;
-      if (link.classList.contains('js-open-quote-drawer')) return;
-      if (link.dataset && link.dataset.noTransition !== undefined) return;
-
-      var url;
-      try { url = new URL(link.href, window.location.href); } catch (_) { return; }
-      if (url.origin !== window.location.origin) return;
-      // Same-document navigation (just an anchor or query) — skip transition
-      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
-
-      e.preventDefault();
-      scanBar.classList.remove('is-sweeping');
-      scanBar.style.opacity = '0';
-      overlay.style.clipPath = '';
-      overlay.style.webkitClipPath = '';
-      overlay.classList.remove('is-finished', 'is-cover-out', 'is-covered');
-      stopWatermarkGrow();
-      // force reflow so animation restarts cleanly
-      void overlay.offsetWidth;
-      overlay.classList.add('is-cover-in');
-      syncPtLogoLockup();
-      startWatermarkGrow();
-      setTimeout(function () {
-        saveWatermarkResumeLinear();
-        window.location.href = url.href;
-      }, COVER_IN_MS);
-    });
-
-    // ---- BFCACHE / PAGESHOW: replay reveal if the page is restored from history ----
-    window.addEventListener('pageshow', function (e) {
-      if (!e.persisted) return;
-      grid.innerHTML = '';
-      scanBar.classList.remove('is-sweeping');
-      scanBar.style.opacity = '0';
-      overlay.style.clipPath = '';
-      overlay.style.webkitClipPath = '';
-      overlay.classList.remove('is-finished', 'is-cover-in', 'is-cover-out');
-      overlay.classList.add('is-covered');
-      syncPtLogoLockup();
-      startScanReveal();
-    });
+    updatePastState();
+    window.addEventListener('scroll', requestPastState, { passive: true });
+    window.addEventListener('resize', requestPastState);
   })();
 </script>
 </body>
