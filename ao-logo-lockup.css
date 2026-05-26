@@ -66,3 +66,67 @@
 .page-transition.is-cover-out .pt-logo .pt-mark {
   filter: brightness(0) invert(1);
 }
+
+/* Homepage tablet header: keep the logo text as one proportional lockup. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  body.home-page .site-header .nav .logo {
+    display: inline-flex !important;
+    justify-self: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: auto !important;
+    max-width: min(100%, 520px) !important;
+    min-width: 0 !important;
+    flex: none !important;
+  }
+
+  body.home-page .site-header .nav .logo .logo-mark-wrap {
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    height: var(--tablet-h-logo-mark, clamp(36px, 5.4vw, 50px)) !important;
+    line-height: 0 !important;
+  }
+
+  body.home-page .site-header .nav .logo .logo-mark {
+    display: block !important;
+    height: var(--tablet-h-logo-mark, clamp(36px, 5.4vw, 50px)) !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  body.home-page .site-header .nav .logo-text {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--tablet-h-logo-name-sub-gap, clamp(3px, 0.45vw, 6px)) !important;
+    width: max-content !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+
+  body.home-page .site-header .nav .logo-text .name {
+    display: block !important;
+    width: auto !important;
+    font-size: var(--tablet-h-logo-name, clamp(21px, 3vw, 30px)) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.02em !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+  }
+
+  body.home-page .site-header .nav .logo-text .sub {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: calc(var(--tablet-h-logo-name, clamp(21px, 3vw, 30px)) * 0.53) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.03em !important;
+    white-space: nowrap !important;
+    text-align: right !important;
+    opacity: 0.92 !important;
+    transform: none !important;
+  }
+}
