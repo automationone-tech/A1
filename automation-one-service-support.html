@@ -1354,8 +1354,75 @@ html { background-color: #ffffff; }
   left: var(--cta-watermark-left);
   transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
 }
+
+/* ---------- CANON-SYNCED SHARED CTA / FOOTER ---------- */
+.cta-section .cta-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.cta-section .cta-contact-bar {
+  margin: 26px auto 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(6, 26, 74, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.cta-section .cta-contact-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.cta-section .cta-contact-icon:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.cta-section .cta-contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+.cta-section .cta-contact-phone {
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.cta-section .cta-contact-phone:hover { color: #b9d0ff; }
+.cta-section .cta-contact-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+@media (max-width: 560px) {
+  .cta-section .cta-contact-bar {
+    gap: 10px;
+    padding: 8px 10px;
+  }
+  .cta-section .cta-contact-divider { height: 18px; }
+}
+
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
+<link rel="stylesheet" href="ao-subpage-mobile-header.css">
 </head>
 <body class="subpage service-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -1386,7 +1453,7 @@ html { background-color: #ffffff; }
     </a>
     <ul class="nav-links" hidden></ul>
     <div class="nav-actions">
-      <a href="automation-one-service-support.html" class="btn btn-ghost">Remote Support</a>
+      <a href="#" class="btn btn-ghost">Remote Support</a>
       <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
       <a href="https://www.ccaward.com/award-winners/vancouver/best-office-equipment/automation-one-business-systems-inc/" class="quote-award-link" target="_blank" rel="noopener noreferrer" aria-label="Automation One on Consumer Choice Award – Vancouver Best Office Equipment">
         <img class="quote-award-logo" src="service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
@@ -1402,7 +1469,7 @@ html { background-color: #ffffff; }
     <span class="section-eyebrow reveal">Service &amp; Support</span>
     <h1 class="reveal">Service you can <em>count on,</em><br/>every business day.</h1>
     <div class="lead reveal">
-      <p>We've held the Vancouver Consumer Choice Award for 22 consecutive years and an A+ Better Business Bureau rating because our service desk picks up the phone, our technicians are factory-trained, and our trucks are stocked.</p>
+      <p>We've held the Vancouver Consumer Choice Award for 24 consecutive years and an A+ Better Business Bureau rating because our service desk picks up the phone, our technicians are factory-trained, and our trucks are stocked.</p>
       <p>Average response time of <strong>90 minutes</strong>. Maximum response time guaranteed at <strong>4 hours</strong>. The lowest in the industry.</p>
     </div>
     <div class="hero-cta-row reveal">
@@ -1531,12 +1598,12 @@ html { background-color: #ffffff; }
       <div class="stat">
         <span class="num">22<small style="font-size:0.5em">yrs</small></span>
         <div class="label">Consumer Choice Award</div>
-        <p>The only Vancouver winner of the Best Office Equipment award &mdash; 22 years running.</p>
+        <p>The only Vancouver winner of the Best Office Equipment award &mdash; 24 years running.</p>
       </div>
       <div class="stat">
         <span class="num">A+</span>
         <div class="label">Better Business Bureau</div>
-        <p>Four decades of trusted relationships have earned us an A+ rating since the BBB began grading.</p>
+        <p>Over 45 years of trusted relationships have earned us an A+ rating since the BBB began grading.</p>
       </div>
     </div>
   </div>
@@ -1575,19 +1642,34 @@ html { background-color: #ffffff; }
 
 
 
-<section class="cta-section">
-  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" />
+<section class="cta-section" id="resources">
+  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="container">
     <h2>Ready to take <em>your business to the next level?</em></h2>
     <p>Tell us a bit about your office and we'll send back a no-pressure recommendation, usually within one business day.</p>
+
     <div class="cta-row">
-      <a href="automation-one-contact.html" class="cta cta-secondary">Talk to our team</a>
+      <a href="https://calendly.com/bachtem-automationone/30min" class="cta cta-secondary" target="_blank" rel="noopener noreferrer">
+        Book a Consultation
+      </a>
       <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
     </div>
-    <div class="phone-row">
-      <a href="tel:6042556622">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        604.255.6622
+
+    <div class="cta-contact-bar" aria-label="Contact us">
+      <a
+        href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743"
+        class="cta-contact-icon"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Vancouver office in Google Maps"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </a>
+      <span class="cta-contact-divider" aria-hidden="true"></span>
+      <a href="tel:+16042556622" class="cta-contact-phone">604-255-6622</a>
+      <span class="cta-contact-divider" aria-hidden="true"></span>
+      <a href="mailto:info@automationone.ca" class="cta-contact-icon" aria-label="Email info@automationone.ca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
   </div>
@@ -1689,7 +1771,7 @@ html { background-color: #ffffff; }
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="automation-one-homepage-6.html" class="logo">
+        <a href="index.html" class="logo">
           <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
@@ -1697,10 +1779,17 @@ html { background-color: #ffffff; }
           </span>
         </a>
         <p>Vancouver's locally owned printing and office equipment leader since 1981. Independent, multi-brand, and always on call.</p>
-        <div class="foot-addr"><strong>Vancouver Head Office</strong>1365 Boundary Rd., Vancouver, BC V5K 4T9</div>
+        <div class="foot-addr">
+          <strong>Vancouver Head Office</strong>
+          1365 Boundary Rd., Vancouver, BC V5K 4T9
+        </div>
         <br>
-        <div class="foot-addr"><strong>Burnaby Office (by appt.)</strong>1440 Ingleton Ave., Burnaby, BC V5C 4L7</div>
+        <div class="foot-addr">
+          <strong>Burnaby Office (by appt.)</strong>
+          1440 Ingleton Ave., Burnaby, BC V5C 4L7
+        </div>
       </div>
+
       <div class="foot-col">
         <h6>Products</h6>
         <ul>
@@ -1712,42 +1801,56 @@ html { background-color: #ffffff; }
           <li><a href="automation-one-products.html#catalog">Shredders</a></li>
         </ul>
       </div>
+
       <div class="foot-col">
         <h6>Brands</h6>
         <ul>
-          <li><a href="automation-one-products.html#catalog">Canon</a></li>
-          <li><a href="automation-one-products.html#catalog">Xerox</a></li>
-          <li><a href="automation-one-products.html#catalog">Lexmark</a></li>
-          <li><a href="automation-one-products.html#catalog">Francotyp Postalia</a></li>
-          <li><a href="automation-one-products.html#catalog">Ideal MBM</a></li>
+          <li><a href="automation-one-canon.html">Canon</a></li>
+          <li><a href="automation-one-xerox.html">Xerox</a></li>
+          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
+          <li><a href="automation-one-fp.html">Francotyp Postalia</a></li>
+          <li><a href="automation-one-ideal-mbm.html">Ideal MBM</a></li>
         </ul>
       </div>
+
       <div class="foot-col">
         <h6>Service</h6>
         <ul>
-          <li><a href="automation-one-service-support.html">Service &amp; Support</a></li>
+          <li><a href="automation-one-service-support.html">Service Request</a></li>
           <li><a href="automation-one-toner.html">Order Toner</a></li>
           <li><a href="automation-one-service-support.html#managed-print">Managed Print</a></li>
           <li><a href="automation-one-resources.html">Forms &amp; Links</a></li>
           <li><a href="automation-one-resources.html#manufacturer-support">Manufacturer Support</a></li>
         </ul>
       </div>
+
       <div class="foot-col">
         <h6>Company</h6>
         <ul>
           <li><a href="automation-one-about.html">About &amp; History</a></li>
           <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
           <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
           <li><a href="automation-one-contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
+
     <div class="foot-bottom">
-      <div class="copy">&copy; 2026 Automation One Business Systems Inc. &middot; All rights reserved &middot; Privacy &middot; Terms</div>
+      <div class="copy">© 2026 Automation One Business Systems Inc. · All rights reserved · Privacy · Terms</div>
       <div class="socials">
-        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zM20 19h-3v-5.6c0-1.34-.03-3.06-1.87-3.06s-2.16 1.46-2.16 2.97v5.69h-3v-10h2.88v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.6z"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6C1.6 4.4.8 5.2.5 6.2 0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.34 2.69.93 3.36.62 4.14.32 4.9.12 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.13C21.32 1.34 20.65.93 19.86.62 19.1.32 18.22.12 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+        <a href="#" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zM20 19h-3v-5.6c0-1.34-.03-3.06-1.87-3.06s-2.16 1.46-2.16 2.97v5.69h-3v-10h2.88v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.6z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6C1.6 4.4.8 5.2.5 6.2 0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.34 2.69.93 3.36.62 4.14.32 4.9.12 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.13C21.32 1.34 20.65.93 19.86.62 19.1.32 18.22.12 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+        </a>
+        <a href="#" aria-label="X / Twitter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
       </div>
     </div>
   </div>
