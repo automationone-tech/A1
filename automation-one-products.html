@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#1547d1" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#1547d1" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f389e" />
+<meta name="color-scheme" content="light dark" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <title>Products &amp; Solutions | Automation One Vancouver</title>
 <meta name="description" content="Browse office printers, production systems, scanners, mailing equipment, and shredders from Canon, Xerox, Lexmark, and more. Authorized Automation One dealer in Vancouver, BC." />
@@ -1735,24 +1738,148 @@
     box-shadow: 0 22px 44px -26px rgba(10, 40, 112, 0.42);
   }
   .product-card-visual {
-    height: 160px;
+    height: 192px;
     display: grid;
     place-items: center;
     background: linear-gradient(165deg, #eef3ff 0%, #fafbff 100%);
     padding: 12px;
   }
   .product-card-visual img {
-    max-height: 130px;
+    max-height: 158px;
     width: auto;
-    max-width: 92%;
+    max-width: 104%;
     object-fit: contain;
   }
+
+  .product-card.product-card--photo-xl .product-card-visual img:not(.product-award-badge) {
+    max-height: 190px;
+    max-width: 118%;
+    transform: scale(1.14);
+    transform-origin: center center;
+  }
+
+  .product-card-visual { position: relative; }
+
+  .product-card-visual::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    bottom: 14px;
+    width: 150px;
+    height: 150px;
+    background: url("ao-nav-logo.png") left bottom / contain no-repeat;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 1;
+    filter: drop-shadow(0 10px 18px rgba(10, 40, 112, 0.16));
+  }
+  .product-card-visual > img:not(.product-award-badge) {
+    position: relative;
+    z-index: 2;
+  }
+  .product-award-badge {
+    position: absolute;
+    right: 9px;
+    bottom: 8px;
+    width: 54px;
+    height: auto;
+    z-index: 3;
+    filter: drop-shadow(0 8px 10px rgba(10, 40, 112, 0.22));
+    pointer-events: none;
+  }
+  .product-award-badge.is-line-year { width: 58px; }
+  .product-award-badge.is-pick { width: 56px; }
+
+  .product-award-badge.is-a4-colour { width: 58px; }
+  .product-award-badge.is-pick { right: 70px; }
+
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-a4-colour,
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-pick {
+    width: 48px;
+  }
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-pick {
+    right: 58px;
+  }
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-a4-colour {
+    right: 8px;
+  }
+
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-a4-colour,
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-pick {
+    width: 48px;
+    bottom: 8px;
+  }
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-a4-colour {
+    right: 8px;
+  }
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-pick {
+    right: 56px;
+  }
+
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-a4-colour,
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-pick {
+    width: auto;
+    height: 46px;
+    max-width: none;
+    object-fit: contain;
+  }
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-a4-colour {
+    right: 8px;
+    z-index: 3;
+  }
+  .product-card[data-name="canon imageforce c1333f"] .product-award-badge.is-pick {
+    right: 38px;
+    z-index: 4;
+  }
+
+  .product-card[data-name="canon color imageclass x mf1333c"] .product-award-badge.is-pick {
+    right: 9px;
+    bottom: 8px;
+    width: 56px;
+  }
+
+  .product-card[data-name="canon color imageclass x mf1333c"] .product-card-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px 12px;
+  }
+
+  .product-card[data-name="canon color imageclass x mf1333c"] .product-card-visual img:not(.product-award-badge) {
+    display: block;
+    max-height: 204px;
+    max-width: 118%;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: center center;
+    transform: scale(1.24) translate(-3px, 4px);
+    transform-origin: center center;
+  }
+
   .product-card-body { padding: 18px 18px 20px; flex: 1; display: flex; flex-direction: column; }
   .product-card-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 10px;
+  }
+
+  .product-card-meta {
+    align-items: center;
+  }
+  .product-colour-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+  .product-colour-symbol img {
+    display: block;
+    width: auto;
+    height: 25px;
+    object-fit: contain;
   }
   .product-tag {
     font-size: 11px;
@@ -1764,12 +1891,123 @@
     background: rgba(21, 71, 209, 0.1);
     color: var(--blue-700);
   }
+  .brand-logo-img {
+    display: block;
+    width: auto;
+    object-fit: contain;
+  }
+  .filter-chip .brand-logo-img {
+    max-width: 92px;
+    max-height: 26px;
+  }
+  .filter-chip[data-value="canon"] .brand-logo-img { max-width: 96px; }
+  .filter-chip[data-value="xerox"] .brand-logo-img { max-width: 92px; }
+  .filter-chip[data-value="lexmark"] .brand-logo-img { max-width: 106px; }
+  .filter-chip[data-value="fp"] .brand-logo-img { max-width: 60px; }
+  .filter-chip[data-value="ideal"] .brand-logo-img { max-width: 94px; }
+  .product-tag.brand-logo-tag {
+    display: inline-flex;
+    min-height: 22px;
+    min-width: 0;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+  .product-tag.brand-logo-tag .brand-logo-img {
+    max-width: 82px;
+    max-height: 19px;
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="all"].is-active {
+    box-shadow: 0 13px 32px -10px rgba(10, 40, 112, 0.75), 0 3px 10px -3px rgba(10, 40, 112, 0.14);
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="all"].is-active:hover {
+    box-shadow: 0 15px 34px -10px rgba(10, 40, 112, 0.8), 0 4px 12px -3px rgba(10, 40, 112, 0.18);
+  }
+  .filter-chip.brand-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 35px;
+    padding: 5px 13px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    box-shadow: 0 16px 38px -12px rgba(10, 40, 112, 0.72), 0 3px 10px -3px rgba(10, 40, 112, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .filter-chip.brand-filter-chip:hover {
+    transform: translateY(-1px);
+    background: #ffffff;
+    border-color: rgba(126, 167, 255, 0.95);
+    box-shadow: 0 18px 40px -12px rgba(10, 40, 112, 0.76), 0 4px 12px -3px rgba(10, 40, 112, 0.16);
+    color: var(--blue-800);
+  }
+  .filter-chip.brand-filter-chip.is-active {
+    background: #ffffff;
+    border: 2px solid var(--blue-600);
+    box-shadow: 0 0 0 3px rgba(21, 71, 209, 0.41), 0 18px 40px -12px rgba(10, 40, 112, 0.74), 0 4px 12px -3px rgba(10, 40, 112, 0.14);
+    color: var(--blue-800);
+  }
+  .filter-chips[data-filter="brand"] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 8px;
+    row-gap: 9px;
+    align-items: stretch;
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="all"],
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="canon"],
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="xerox"],
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="lexmark"] {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+  .filter-chips[data-filter="brand"] .brand-filter-chip .brand-logo-img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 19px;
+    object-fit: contain;
+    object-position: center center;
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="canon"] .brand-logo-img {
+    max-height: 18px;
+    max-width: 84px;
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="xerox"] .brand-logo-img {
+    max-height: 17px;
+    max-width: 78px;
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="lexmark"] .brand-logo-img {
+    max-height: 18px;
+    max-width: 93px;
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="fp"] .brand-logo-img {
+    max-height: 22px;
+    max-width: 56px;
+  }
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="ideal"] .brand-logo-img {
+    max-height: 26px;
+    max-width: 73px;
+  }
   .product-card h3 {
     font-family: var(--font-display);
     font-size: 16px;
     line-height: 1.25;
     color: var(--blue-900);
     margin-bottom: 8px;
+  }
+  .product-card .reg-mark {
+    font-size: 0.62em;
+    line-height: 0;
+    position: relative;
+    top: -0.45em;
+    margin-left: 0.04em;
+    letter-spacing: 0;
+    font-weight: 400;
   }
   .product-card-spec {
     font-size: 13px;
@@ -1782,6 +2020,41 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+  }
+  .product-card-actions .btn-view-details {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 58px;
+    padding: 12px 76px 12px 24px;
+    border-radius: 999px;
+    background: rgba(243, 247, 255, 0.98);
+    color: var(--blue-900);
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    box-shadow: 0 16px 36px -22px rgba(10, 40, 112, 0.5);
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+  }
+  .product-card-actions .btn-view-details::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    transform: translateY(-50%);
+    background: var(--blue-600) var(--cta-pill-chevron-white) calc(50% + 2px) 50% / 50% auto no-repeat;
+  }
+  .product-card-actions .btn-view-details:hover {
+    transform: translateY(-1px);
+    background: #fff;
+    box-shadow: 0 22px 44px -26px rgba(10, 40, 112, 0.62);
   }
   .product-card-actions .btn-quote {
     flex: 1;
@@ -2471,11 +2744,11 @@ html { background-color: #ffffff; }
           <span class="filter-group-label">Brand</span>
           <div class="filter-chips" data-filter="brand">
             <button type="button" class="filter-chip is-active" data-value="all">All</button>
-            <button type="button" class="filter-chip" data-value="canon">Canon</button>
-            <button type="button" class="filter-chip" data-value="xerox">Xerox</button>
-            <button type="button" class="filter-chip" data-value="lexmark">Lexmark</button>
-            <button type="button" class="filter-chip" data-value="fp">FP</button>
-            <button type="button" class="filter-chip" data-value="ideal">Ideal.MBM</button>
+            <button type="button" class="filter-chip brand-filter-chip" data-value="canon" aria-label="Canon"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></button>
+            <button type="button" class="filter-chip brand-filter-chip" data-value="xerox" aria-label="Xerox"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></button>
+            <button type="button" class="filter-chip brand-filter-chip" data-value="lexmark" aria-label="Lexmark"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></button>
+            <button type="button" class="filter-chip brand-filter-chip" data-value="fp" aria-label="FP"><img class="brand-logo-img" src="brand-logo-fp.png?v=2" alt="FP" /></button>
+            <button type="button" class="filter-chip brand-filter-chip" data-value="ideal" aria-label="Ideal.MBM"><img class="brand-logo-img" src="brand-logo-ideal.png?v=7" alt="Ideal.MBM" /></button>
           </div>
         </div>
         <div class="filter-group">
@@ -2516,7 +2789,7 @@ html { background-color: #ffffff; }
         <div class="catalog-toolbar">
           <div>
             <h2>Featured equipment</h2>
-            <p class="catalog-count" id="catalog-count">Showing 20 devices</p>
+            <p class="catalog-count" id="catalog-count">Showing 46 devices</p>
           </div>
           <div class="catalog-sort">
             <label>
@@ -2529,343 +2802,758 @@ html { background-color: #ffffff; }
           </div>
         </div>
         <div class="product-grid" id="product-grid">
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="36-45" data-name="canon imagerunner advance dx c3930i">
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="56-75" data-name="xerox altalink c8270">
         <div class="product-card-visual">
-          <img src="imageforce-c5100.png" alt="" loading="lazy" decoding="async" />
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Canon</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
           </div>
-          <h3>Canon imageRUNNER ADVANCE DX C3930i</h3>
-          <p class="product-card-spec">Colour MFP · Print, copy, scan, fax</p>
+          <h3>AltaLink<span class="reg-mark">®</span> C8270</h3>
+          <p class="product-card-spec">A3 | 70 ppm BW | 70 ppm Colour</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Canon imageRUNNER ADVANCE DX C3930i">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8270.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="56-75" data-name="canon imagerunner advance dx c5750i">
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="46-55" data-name="xerox altalink c8255">
         <div class="product-card-visual">
-          <img src="imageforce-c5100.png" alt="" loading="lazy" decoding="async" />
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Canon</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
           </div>
-          <h3>Canon imageRUNNER ADVANCE DX C5750i</h3>
-          <p class="product-card-spec">Enterprise colour · High-volume office</p>
+          <h3>AltaLink<span class="reg-mark">®</span> C8255</h3>
+          <p class="product-card-spec">A3 | 55 ppm BW | 55 ppm Colour</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Canon imageRUNNER ADVANCE DX C5750i">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8255.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="36-45" data-name="xerox altalink c8245">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8245</h3>
+          <p class="product-card-spec">A3 | 45 ppm BW | 45 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8245.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox altalink c8235">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8235</h3>
+          <p class="product-card-spec">A3 | 35 ppm BW | 35 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8235.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox altalink c8230">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8230</h3>
+          <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8230.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="21-35" data-name="xerox versalink b7135">
+        <div class="product-card-visual">
+          <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>VersaLink<span class="reg-mark">®</span> B7135</h3>
+          <p class="product-card-spec">A3 | 35 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-versalink-b7135.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="21-35" data-name="xerox versalink b7130">
+        <div class="product-card-visual">
+          <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>VersaLink<span class="reg-mark">®</span> B7130</h3>
+          <p class="product-card-spec">A3 | 30 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-versalink-b7130.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="21-35" data-name="xerox versalink b7125">
+        <div class="product-card-visual">
+          <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>VersaLink<span class="reg-mark">®</span> B7125</h3>
+          <p class="product-card-spec">A3 | 25 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-versalink-b7125.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox versalink c7130">
+        <div class="product-card-visual">
+          <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>VersaLink<span class="reg-mark">®</span> C7130</h3>
+          <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-versalink-c7130.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox versalink c7125">
+        <div class="product-card-visual">
+          <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>VersaLink<span class="reg-mark">®</span> C7125</h3>
+          <p class="product-card-spec">A3 | 25 ppm BW | 25 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-versalink-c7125.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox versalink c7120">
+        <div class="product-card-visual">
+          <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>VersaLink<span class="reg-mark">®</span> C7120</h3>
+          <p class="product-card-spec">Tabloid | 20 ppm BW | 20 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-versalink-c7120.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="printer" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon imageforce c1333p">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c1333p-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C1333P</h3>
+          <p class="product-card-spec">A4 | 35 ppm BW | 35 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c1333p.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon imageforce c1333f">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c1333f-front.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-pick" src="canon-bli-pick-award-2026.png" alt="BLI 2026 Pick Award" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C1333F</h3>
+          <p class="product-card-spec">A4 | 35 ppm BW | 35 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c1333.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="36-45" data-name="canon color imageclass x mf1333c">
+        <div class="product-card-visual">
+          <img src="canon-imageclass-x-mf1333c-front.png?v=canon" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-pick" src="canon-bli-pick-award-2026.png" alt="BLI 2026 Pick Award" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageCLASS X MF1333C</h3>
+          <p class="product-card-spec">Legal | 35 ppm BW | 35 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageclass-x-mf1333c.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner c3326i">
+        <div class="product-card-visual">
+          <img src="canon-color-imagerunner-c3326i-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageRUNNER C3326i</h3>
+          <p class="product-card-spec">A3 | 26 ppm BW | 26 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-c3326i.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner advance dx c3926i">
+        <div class="product-card-visual">
+          <img src="canon-color-iradvdx-c3926i-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageRUNNER ADVANCE DX C3926i</h3>
+          <p class="product-card-spec">A3 | 26 ppm BW | 26 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-advance-dx-c3926i.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner advance dx c3930i">
+        <div class="product-card-visual">
+          <img src="canon-color-iradvdx-c3930i-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageRUNNER ADVANCE DX C3930i</h3>
+          <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-advance-dx-c3930i.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner advance dx c3935i">
+        <div class="product-card-visual">
+          <img src="canon-color-iradvdx-c3935i-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageRUNNER ADVANCE DX C3935i</h3>
+          <p class="product-card-spec">A3 | 35 ppm BW | 35 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-advance-dx-c3935i.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="46-55" data-name="canon imageforce c3150">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c3150-front.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C3150</h3>
+          <p class="product-card-spec">A3 | 50 ppm BW | 50 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c3150.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="36-45" data-name="canon imageforce c5140">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c5140-pod.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C5140</h3>
+          <p class="product-card-spec">A3 | 40 ppm BW | 40 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5140.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="46-55" data-name="canon imageforce c5150">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c5150-pod.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C5150</h3>
+          <p class="product-card-spec">A3 | 50 ppm BW | 50 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5150.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="56-75" data-name="canon imageforce c5160">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c5160-pod.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C5160</h3>
+          <p class="product-card-spec">A3 | 60 ppm BW | 60 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5160.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="56-75" data-name="canon imageforce c5170">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c5170-pod.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C5170</h3>
+          <p class="product-card-spec">A3 | 70 ppm BW | 70 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5170.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="56-75" data-name="canon imageforce c7165">
+        <div class="product-card-visual">
+          <img src="canon-imageforce-c7165-brochure-copier-transparent.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imageFORCE C7165</h3>
+          <p class="product-card-spec">A3 | 65 ppm BW | 65 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c7165.html">View Details</a>
           </div>
         </div>
       </article>
       <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="46-55" data-name="canon imagerunner advance dx 4945i">
         <div class="product-card-visual">
-          <img src="lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imagerunner-advance-dx-4945i-slant.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Canon</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Canon imageRUNNER ADVANCE DX 4945i</h3>
-          <p class="product-card-spec">Monochrome MFP · Secure document workflow</p>
+          <h3>imageRUNNER ADVANCE DX 4945i</h3>
+          <p class="product-card-spec">A3 | 45 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Canon imageRUNNER ADVANCE DX 4945i">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imagerunner-advance-dx-4945i.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="76+" data-name="canon imagepress c910">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="21-35" data-name="canon imagerunner advance dx 4925i">
         <div class="product-card-visual">
-          <img src="canon-iprc910-production.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imagerunner-advance-dx-4925i-slant.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Canon</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Canon imagePRESS C910</h3>
-          <p class="product-card-spec">Production press · Premium colour quality</p>
+          <h3>imageRUNNER ADVANCE DX 4925i</h3>
+          <p class="product-card-spec">A3 | 25 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Canon imagePRESS C910">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imagerunner-advance-dx-4925i.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="canon" data-category="large-format" data-color="colour" data-speed="76+" data-name="canon imageprograf tx-4000">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="21-35" data-name="canon imagerunner advance dx 4935i">
         <div class="product-card-visual">
-          <img src="canon-large-format-printer.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imagerunner-advance-dx-4935i-slant.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Canon</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Canon imagePROGRAF TX-4000</h3>
-          <p class="product-card-spec">Large format · Technical & CAD output</p>
+          <h3>imageRUNNER ADVANCE DX 4935i</h3>
+          <p class="product-card-spec">A3 | 35 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Canon imagePROGRAF TX-4000">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imagerunner-advance-dx-4935i.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="canon" data-category="scanners" data-color="mono" data-speed="76+" data-name="canon imageformula dr-g2140">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="36-45" data-name="canon imageforce 1440f">
         <div class="product-card-visual">
-          <img src="document-scanners-transparent.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-1440f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Canon</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Canon imageFORMULA DR-G2140</h3>
-          <p class="product-card-spec">Production scanner · High-speed capture</p>
+          <h3>imageFORCE 1440F</h3>
+          <p class="product-card-spec">A4 | 42 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Canon imageFORMULA DR-G2140">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-1440.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="76+" data-name="xerox altalink c8170">
+      <article class="product-card" data-product-type="printer" data-brand="canon" data-category="office" data-color="mono" data-speed="36-45" data-name="canon imageforce 1440p">
         <div class="product-card-visual">
-          <img src="imageforce-c5100.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-1440p-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Xerox</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Xerox AltaLink C8170</h3>
-          <p class="product-card-spec">Smart workplace MFP · ConnectKey</p>
+          <h3>imageFORCE 1440P</h3>
+          <p class="product-card-spec">A4 | 42 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Xerox AltaLink C8170">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-1440p.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="76+" data-name="xerox altalink b8270">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="46-55" data-name="canon imageforce 6155">
         <div class="product-card-visual">
-          <img src="lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-6155-finisher.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Xerox</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Xerox AltaLink B8270</h3>
-          <p class="product-card-spec">Monochrome AltaLink · Enterprise reliability</p>
+          <h3>imageFORCE 6155</h3>
+          <p class="product-card-spec">A3 | 55 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Xerox AltaLink B8270">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-6155.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="56-75" data-name="xerox versalink c7030">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="56-75" data-name="canon imageforce 6160">
         <div class="product-card-visual">
-          <img src="imageforce-c5100.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-6160-finisher.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Xerox</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Xerox VersaLink C7030</h3>
-          <p class="product-card-spec">VersaLink colour · App-enabled workflow</p>
+          <h3>imageFORCE 6160</h3>
+          <p class="product-card-spec">A3 | 60 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Xerox VersaLink C7030">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-6160.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="colour" data-speed="76+" data-name="xerox primelink c9070">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="56-75" data-name="canon imageforce 6170">
         <div class="product-card-visual">
-          <img src="canon-iprc910-production.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-6170-finisher.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Xerox</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Xerox PrimeLink C9070</h3>
-          <p class="product-card-spec">Production colour · Graphic arts ready</p>
+          <h3>imageFORCE 6170</h3>
+          <p class="product-card-spec">A3 | 70 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Xerox PrimeLink C9070">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-6170.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="printer" data-brand="xerox" data-category="home-office" data-color="mono" data-speed="36-45" data-name="xerox versalink b615">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="46-55" data-name="canon imageforce 520f">
         <div class="product-card-visual">
-          <img src="xerox-home-office-transparent.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-520f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Xerox</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Xerox VersaLink B615</h3>
-          <p class="product-card-spec">Compact mono MFP · Small team ready</p>
+          <h3>imageFORCE 520F</h3>
+          <p class="product-card-spec">A4 | 55 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Xerox VersaLink B615">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-520.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="colour" data-speed="56-75" data-name="lexmark xc9235">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="56-75" data-name="canon imageforce 610f">
         <div class="product-card-visual">
-          <img src="lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-610f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Lexmark</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Lexmark XC9235</h3>
-          <p class="product-card-spec">Colour laser MFP · Fleet management</p>
+          <h3>imageFORCE 610F</h3>
+          <p class="product-card-spec">A4 | 65 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Lexmark XC9235">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-610.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="mono" data-speed="56-75" data-name="lexmark xm7370">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="56-75" data-name="canon imageforce 710f">
         <div class="product-card-visual">
-          <img src="lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-710f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Lexmark</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Lexmark XM7370</h3>
-          <p class="product-card-spec">Monochrome MFP · Security built in</p>
+          <h3>imageFORCE 710F</h3>
+          <p class="product-card-spec">A4 | 75 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Lexmark XM7370">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-710.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="colour" data-speed="36-45" data-name="lexmark xc4140">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="21-35" data-name="canon imageforce c331f">
         <div class="product-card-visual">
-          <img src="lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-c331f-front.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Lexmark</span>
-            <span class="product-tag">Colour</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
           </div>
-          <h3>Lexmark XC4140</h3>
-          <p class="product-card-spec">Mid-volume colour · Touchscreen control</p>
+          <h3>imageFORCE C331F</h3>
+          <p class="product-card-spec">A4 | 34 ppm BW | 34 ppm Colour</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Lexmark XC4140">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c331.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="printer" data-brand="lexmark" data-category="home-office" data-color="mono" data-speed="21-35" data-name="lexmark m1246">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="36-45" data-name="canon imageforce c431f">
         <div class="product-card-visual">
-          <img src="xerox-home-office-transparent.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-c431f-front.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Lexmark</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
           </div>
-          <h3>Lexmark M1246</h3>
-          <p class="product-card-spec">Desktop mono · Efficient everyday print</p>
+          <h3>imageFORCE C431F</h3>
+          <p class="product-card-spec">A4 | 45 ppm BW | 45 ppm Colour</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Lexmark M1246">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c431.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="fp" data-category="mailing" data-color="mono" data-speed="21-35" data-name="francotyp postalia postbase 65">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="46-55" data-name="canon imageforce c521f">
         <div class="product-card-visual">
-          <img src="postbase-mailing-solutions.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-c521f-front.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">FP</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
           </div>
-          <h3>Francotyp Postalia PostBase 65</h3>
-          <p class="product-card-spec">Postage meter · Mailing automation</p>
+          <h3>imageFORCE C521F</h3>
+          <p class="product-card-spec">A4 | 55 ppm BW | 55 ppm Colour</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Francotyp Postalia PostBase 65">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c521.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="fp" data-category="folder-inserters" data-color="mono" data-speed="46-55" data-name="francotyp postalia fpi 4700">
+      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="56-75" data-name="canon imageforce c611f">
         <div class="product-card-visual">
-          <img src="folder-inserter-transparent.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-c611f-front.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">FP</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
           </div>
-          <h3>Francotyp Postalia FPi 4700</h3>
-          <p class="product-card-spec">Folder inserter · High-volume mailroom</p>
+          <h3>imageFORCE C611F</h3>
+          <p class="product-card-spec">A4 | 65 ppm BW | 65 ppm Colour</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Francotyp Postalia FPi 4700">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c611.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="ideal" data-category="shredders" data-color="mono" data-speed="36-45" data-name="ideal.mbm destroyit 4005">
+      <article class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="76+" data-name="canon imageforce 8186">
         <div class="product-card-visual">
-          <img src="ideal-shredder-product.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-8186-front-full.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Ideal.MBM</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Ideal.MBM Destroyit 4005</h3>
-          <p class="product-card-spec">Cross-cut shredder · Department security</p>
+          <h3>imageFORCE 8186</h3>
+          <p class="product-card-spec">A3 | 86 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Ideal.MBM Destroyit 4005">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-8186.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="ideal" data-category="shredders" data-color="mono" data-speed="76+" data-name="ideal.mbm destroyit 5009">
+      <article class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="76+" data-name="canon imageforce 8195">
         <div class="product-card-visual">
-          <img src="ideal-shredder-product.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-8195-front-full.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Ideal.MBM</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Ideal.MBM Destroyit 5009</h3>
-          <p class="product-card-spec">High-capacity shredder · Centralized destroy</p>
+          <h3>imageFORCE 8195</h3>
+          <p class="product-card-spec">A3 | 95 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Ideal.MBM Destroyit 5009">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-8195.html">View Details</a>
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="ideal" data-category="office" data-color="mono" data-speed="21-35" data-name="ideal.mbm 407a">
+      <article class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="76+" data-name="canon imageforce 8105">
         <div class="product-card-visual">
-          <img src="folder-inserter-transparent.png" alt="" loading="lazy" decoding="async" />
+          <img src="canon-imageforce-8105-front-full.png" alt="" loading="lazy" decoding="async" />
+          <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
         </div>
         <div class="product-card-body">
           <div class="product-card-meta">
-            <span class="product-tag">Ideal.MBM</span>
-            <span class="product-tag">Mono</span>
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
           </div>
-          <h3>Ideal.MBM 407A</h3>
-          <p class="product-card-spec">Paper folder · Mailroom finishing</p>
+          <h3>imageFORCE 8105</h3>
+          <p class="product-card-spec">A3 | 105 ppm</p>
           <div class="product-card-actions">
-            <button type="button" class="btn-quote js-open-quote-drawer" data-product="Ideal.MBM 407A">Get quote</button>
-            <a class="btn-details" href="https://automationone.ca/products/" target="_blank" rel="noopener noreferrer">Full catalog</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-8105.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="56-75" data-name="canon imagepress v700">
+        <div class="product-card-visual">
+          <img src="canon-imagepress-v700-standalone.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imagePRESS V700</h3>
+          <p class="product-card-spec">Production | 70 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v700.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="76+" data-name="canon imagepress v800">
+        <div class="product-card-visual">
+          <img src="canon-imagepress-v800-standalone.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imagePRESS V800</h3>
+          <p class="product-card-spec">Production | 81 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v800.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="76+" data-name="canon imagepress v900">
+        <div class="product-card-visual">
+          <img src="canon-imagepress-v900-standalone.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imagePRESS V900</h3>
+          <p class="product-card-spec">Production | 90 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v900.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="76+" data-name="canon imagepress v1000">
+        <div class="product-card-visual">
+          <img src="canon-imagepress-v1000-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>imagePRESS V1000</h3>
+          <p class="product-card-spec">Production | 100 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v1000.html">View Details</a>
           </div>
         </div>
       </article>
@@ -3371,14 +4059,14 @@ html { background-color: #ffffff; }
     var countEl = document.getElementById('catalog-count');
     var emptyEl = document.getElementById('catalog-empty');
     var sortEl = document.getElementById('catalog-sort');
-    var state = { brand: 'all', category: 'all', color: 'all', speed: 'all', q: '' };
+    var state = { brands: null, category: 'all', color: 'all', speed: 'all', q: '' };
 
     function applyFilters() {
       var q = state.q.trim().toLowerCase();
       var visible = 0;
       cards.forEach(function (card) {
         var ok = true;
-        if (state.brand !== 'all' && card.dataset.brand !== state.brand) ok = false;
+        if (state.brands && state.brands.indexOf(card.dataset.brand) === -1) ok = false;
         if (state.category !== 'all') {
           var cat = state.category;
           var cardCat = card.dataset.category || '';
@@ -3410,10 +4098,43 @@ html { background-color: #ffffff; }
       cards.forEach(function (c) { grid.appendChild(c); });
     }
 
+    function handleBrandFilterClick(group, chip) {
+      var val = chip.getAttribute('data-value');
+      var allChip = group.querySelector('.filter-chip[data-value="all"]');
+      var brandChips = group.querySelectorAll('.brand-filter-chip');
+
+      if (val === 'all') {
+        state.brands = null;
+        if (allChip) allChip.classList.add('is-active');
+        brandChips.forEach(function (c) { c.classList.remove('is-active'); });
+        return;
+      }
+
+      if (allChip) allChip.classList.remove('is-active');
+      chip.classList.toggle('is-active');
+
+      var selected = [];
+      brandChips.forEach(function (c) {
+        if (c.classList.contains('is-active')) selected.push(c.getAttribute('data-value'));
+      });
+
+      if (selected.length === 0) {
+        state.brands = null;
+        if (allChip) allChip.classList.add('is-active');
+      } else {
+        state.brands = selected;
+      }
+    }
+
     document.querySelectorAll('.filter-chips').forEach(function (group) {
       var key = group.getAttribute('data-filter');
       group.querySelectorAll('.filter-chip').forEach(function (chip) {
         chip.addEventListener('click', function () {
+          if (key === 'brand') {
+            handleBrandFilterClick(group, chip);
+            applyFilters();
+            return;
+          }
           group.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('is-active'); });
           chip.classList.add('is-active');
           state[key === 'color' ? 'color' : key] = chip.getAttribute('data-value');
@@ -3432,10 +4153,17 @@ html { background-color: #ffffff; }
     var clearBtn = document.getElementById('filter-clear');
     if (clearBtn) {
       clearBtn.addEventListener('click', function () {
-        state = { brand: 'all', category: 'all', color: 'all', speed: 'all', q: '' };
+        state = { brands: null, category: 'all', color: 'all', speed: 'all', q: '' };
         if (search) search.value = '';
-        document.querySelectorAll('.filter-chip').forEach(function (c) {
-          c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
+        document.querySelectorAll('.filter-chips').forEach(function (group) {
+          var key = group.getAttribute('data-filter');
+          group.querySelectorAll('.filter-chip').forEach(function (c) {
+            if (key === 'brand') {
+              c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
+            } else {
+              c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
+            }
+          });
         });
         applyFilters();
       });
@@ -3516,6 +4244,10 @@ html { background-color: #ffffff; }
     var grid = document.getElementById('pt-grid');
     var scanBar = document.getElementById('pt-scan-bar');
     if (!overlay || !grid || !scanBar) return;
+    if (!document.body.classList.contains('home-page')) {
+      overlay.classList.add('is-finished');
+      return;
+    }
     var ptWatermark = document.querySelector('.pt-watermark');
     var ptMark = document.querySelector('.pt-logo .pt-mark');
     var hdrLogo = document.querySelector('.site-header .logo-mark, .nav .logo .logo-mark');
@@ -3542,10 +4274,22 @@ html { background-color: #ffffff; }
       return;
     }
 
+    var PT_INITIAL_SEEN_KEY = 'ao-page-transition-initial-seen';
+    function hasSeenInitialTransition() {
+      try { return sessionStorage.getItem(PT_INITIAL_SEEN_KEY) === '1'; } catch (err) { return false; }
+    }
+    function markInitialTransitionSeen() {
+      try { sessionStorage.setItem(PT_INITIAL_SEEN_KEY, '1'); } catch (err) {}
+    }
+    if (hasSeenInitialTransition()) {
+      overlay.classList.add('is-finished');
+      return;
+    }
+
     var SHADES = ['#3055c8', '#3258cc', '#2b50c0', '#3863d2', '#2e54c5', '#3760ce'];
 
     var COVER_IN_MS = 360;
-    var SCAN_MS = 480;
+    var SCAN_MS = 600;
     var LOGO_FADE_MS = 50;
 
     var wmRafId = null;
@@ -3734,6 +4478,7 @@ html { background-color: #ffffff; }
       setTimeout(finishScanReveal, SCAN_MS + 80);
     }
 
+    markInitialTransitionSeen();
     overlay.classList.add('is-covered');
     syncPtLogoLockup();
     startScanReveal();
@@ -3745,8 +4490,10 @@ html { background-color: #ffffff; }
       resizeTimer = setTimeout(function () { if (grid.children.length > 0) buildGrid(); }, 150);
     });
 
-    // ---- COVER-IN ON INTERNAL LINK CLICK ----
-    document.addEventListener('click', function (e) {
+    // ---- INTERNAL LINK CLICKS ----
+    // Keep navigation instant; the blue scan is reserved for the first site load only.
+    var ENABLE_INTERNAL_LINK_TRANSITIONS = false;
+    if (ENABLE_INTERNAL_LINK_TRANSITIONS) document.addEventListener('click', function (e) {
       if (e.defaultPrevented || e.button !== 0) return;
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       var link = e.target.closest && e.target.closest('a[href]');
@@ -3789,6 +4536,10 @@ html { background-color: #ffffff; }
     // ---- BFCACHE / PAGESHOW: replay reveal if the page is restored from history ----
     window.addEventListener('pageshow', function (e) {
       if (!e.persisted) return;
+      if (hasSeenInitialTransition()) {
+        overlay.classList.add('is-finished');
+        return;
+      }
       grid.innerHTML = '';
       scanBar.classList.remove('is-sweeping');
       scanBar.style.opacity = '0';

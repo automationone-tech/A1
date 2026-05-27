@@ -2066,6 +2066,10 @@ html { background-color: #ffffff; }
     var grid = document.getElementById('pt-grid');
     var scanBar = document.getElementById('pt-scan-bar');
     if (!overlay || !grid || !scanBar) return;
+    if (!document.body.classList.contains('home-page')) {
+      overlay.classList.add('is-finished');
+      return;
+    }
     var ptWatermark = document.querySelector('.pt-watermark');
     var ptMark = document.querySelector('.pt-logo .pt-mark');
     var hdrLogo = document.querySelector('.site-header .logo-mark, .nav .logo .logo-mark');
@@ -2092,10 +2096,22 @@ html { background-color: #ffffff; }
       return;
     }
 
+    var PT_INITIAL_SEEN_KEY = 'ao-page-transition-initial-seen';
+    function hasSeenInitialTransition() {
+      try { return sessionStorage.getItem(PT_INITIAL_SEEN_KEY) === '1'; } catch (err) { return false; }
+    }
+    function markInitialTransitionSeen() {
+      try { sessionStorage.setItem(PT_INITIAL_SEEN_KEY, '1'); } catch (err) {}
+    }
+    if (hasSeenInitialTransition()) {
+      overlay.classList.add('is-finished');
+      return;
+    }
+
     var SHADES = ['#3055c8', '#3258cc', '#2b50c0', '#3863d2', '#2e54c5', '#3760ce'];
 
     var COVER_IN_MS = 360;
-    var SCAN_MS = 480;
+    var SCAN_MS = 600;
     var LOGO_FADE_MS = 50;
 
     var wmRafId = null;
@@ -2284,6 +2300,7 @@ html { background-color: #ffffff; }
       setTimeout(finishScanReveal, SCAN_MS + 80);
     }
 
+    markInitialTransitionSeen();
     overlay.classList.add('is-covered');
     syncPtLogoLockup();
     startScanReveal();
@@ -2295,8 +2312,10 @@ html { background-color: #ffffff; }
       resizeTimer = setTimeout(function () { if (grid.children.length > 0) buildGrid(); }, 150);
     });
 
-    // ---- COVER-IN ON INTERNAL LINK CLICK ----
-    document.addEventListener('click', function (e) {
+    // ---- INTERNAL LINK CLICKS ----
+    // Keep navigation instant; the blue scan is reserved for the first site load only.
+    var ENABLE_INTERNAL_LINK_TRANSITIONS = false;
+    if (ENABLE_INTERNAL_LINK_TRANSITIONS) document.addEventListener('click', function (e) {
       if (e.defaultPrevented || e.button !== 0) return;
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       var link = e.target.closest && e.target.closest('a[href]');
@@ -2339,6 +2358,10 @@ html { background-color: #ffffff; }
     // ---- BFCACHE / PAGESHOW: replay reveal if the page is restored from history ----
     window.addEventListener('pageshow', function (e) {
       if (!e.persisted) return;
+      if (hasSeenInitialTransition()) {
+        overlay.classList.add('is-finished');
+        return;
+      }
       grid.innerHTML = '';
       scanBar.classList.remove('is-sweeping');
       scanBar.style.opacity = '0';

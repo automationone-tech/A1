@@ -1298,7 +1298,7 @@ footer .container {
     padding: 14px 14px 13px;
   }
   .end-modal { padding: 18px; }
-  .end-card {
+.end-card {
     max-height: calc(100svh - 36px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -1356,7 +1356,7 @@ footer .container {
     background-size: 46% auto;
   }
   .site-header .nav-actions .btn-ghost {
-    display: inline-flex;
+  display: inline-flex;
     order: 2;
     padding: 7px 13px;
     font-size: 11px;
@@ -1396,7 +1396,7 @@ footer .container {
   .hud .hit-count {
     justify-self: start;
     padding: 6px 10px;
-    font-size: 12px;
+  font-size: 12px;
   }
   .fs-toggle {
     bottom: 12px;
@@ -1417,7 +1417,7 @@ footer .container {
     font-size: 15px;
     line-height: 1;
     letter-spacing: 0;
-    font-weight: 900;
+  font-weight: 900;
   }
   .banner p {
     display: none;
@@ -1443,8 +1443,8 @@ footer .container {
   .end-card h2 { font-size: clamp(28px, 10vw, 40px); }
   .end-card p {
     margin: 12px auto 16px;
-    font-size: 14px;
-  }
+  font-size: 14px;
+}
   .end-actions {
     flex-direction: column;
     align-items: stretch;
@@ -1619,19 +1619,19 @@ footer .container {
         <h1>Printer <span>Bash.</span></h1>
         <p class="lede">Roll the cold-open: a fed-up office worker pitches their dead printer out the second-storey window. It tumbles, hits the parking lot, and your turn begins. Spacebar swings the bat. Pulverize it.</p>
       </div>
-      <div class="hero-actions">
+        <div class="hero-actions">
         <a class="cta cta-secondary" href="automation-one-contact.html">Skip to Quote</a>
+        </div>
       </div>
-    </div>
   </section>
 
   <section class="game-section">
     <div class="game-shell" id="game">
       <canvas id="stage"></canvas>
       <div class="hud" aria-hidden="true">
-        <div class="progress" aria-label="Destruction progress"><span id="progress-bar"></span></div>
-        <div class="hit-count"><span id="hit-count">0</span> hits</div>
-      </div>
+            <div class="progress" aria-label="Destruction progress"><span id="progress-bar"></span></div>
+            <div class="hit-count"><span id="hit-count">0</span> hits</div>
+          </div>
       <button class="fs-toggle" type="button" id="fs-toggle" aria-label="Toggle fullscreen">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg>
         <span id="fs-toggle-label">Fullscreen</span>
@@ -1640,18 +1640,18 @@ footer .container {
       <div class="banner" id="banner">
         <h2 id="banner-title">Get ready.</h2>
         <p id="banner-text">The printer is about to drop. When the smashing starts, hit <span class="key">SPACEBAR</span> to hit the machine.</p>
-      </div>
+        </div>
 
       <div class="flash" id="flash" aria-hidden="true"></div>
 
-      <div class="end-modal" role="dialog" aria-modal="true" aria-labelledby="end-title">
-        <div class="end-card">
+        <div class="end-modal" role="dialog" aria-modal="true" aria-labelledby="end-title">
+          <div class="end-card">
           <button class="end-close" type="button" id="end-close" aria-label="Close result modal">&times;</button>
           <span class="end-logo-mark" aria-hidden="true"></span>
           <span class="badge">Old Printer Neutralized</span>
           <h2 id="end-title">Time for a machine that actually works!</h2>
           <p>You finished it in <strong><span id="final-hits">0</span> hits</strong>. Let Automation One recommend a quiet, reliable replacement before the next office meltdown.</p>
-          <div class="end-actions">
+            <div class="end-actions">
             <a class="cta cta-primary cta-pill-arrow js-open-quote-drawer" href="#request-quote">Request a Quote</a>
             <button class="cta cta-danger" type="button" id="play-again">Play Again</button>
           </div>
@@ -1659,10 +1659,10 @@ footer .container {
             <strong class="disclaimer-title">Disclaimer</strong>
             For entertainment purposes only. Do not throw, hit, kick, or otherwise destroy office equipment in real life. Improper disposal of electronics is hazardous and may violate local laws. Have a tired printer? Automation One will pick it up and recycle it responsibly — please call us instead.
           </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
   <div class="notes">Fictional printer violence. Real printer relief.</div>
 </main>
@@ -1697,8 +1697,8 @@ footer .container {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
 <script>
   (function initFinalCtaLetterPan() {
@@ -1807,7 +1807,7 @@ footer .container {
         <div class="foot-addr">
           <strong>Vancouver Head Office</strong>
           1365 Boundary Rd., Vancouver, BC V5K 4T9
-        </div>
+  </div>
         <br>
         <div class="foot-addr">
           <strong>Burnaby Office (by appt.)</strong>

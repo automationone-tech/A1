@@ -2157,6 +2157,17 @@
     -webkit-clip-path: circle(150vmax at 50% 45%);
     will-change: clip-path, opacity;
   }
+  .brands-scene-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(92% 72% at 50% 32%, rgba(126, 167, 255, 0.22), transparent 62%),
+      linear-gradient(160deg, rgba(10, 40, 112, 0.54), rgba(31, 92, 245, 0.42) 48%, rgba(6, 26, 74, 0.5));
+    mix-blend-mode: color;
+  }
   .brands-scene-photo-video {
     position: absolute;
     inset: 0;
@@ -2167,7 +2178,7 @@
     display: block;
     pointer-events: none;
     /* Strong cool blue + lifted luminance vs source footage */
-    filter: hue-rotate(-68deg) saturate(0.78) contrast(1.02) brightness(1.12);
+    filter: hue-rotate(-78deg) saturate(0.92) contrast(1.04) brightness(1.08);
   }
   .brands-scene-inner {
     position: relative;
@@ -3750,7 +3761,7 @@
     filter: blur(8px);
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete)::before {
-    animation: servicePhotoResolve 1700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: servicePhotoResolve 1050ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   .service-stats.is-service-intro-pending:not(.is-service-intro-complete) .section-head .section-eyebrow,
   .service-stats.is-service-intro-pending:not(.is-service-intro-complete) .section-head h2,
@@ -3760,25 +3771,25 @@
     transform: translateY(24px);
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .section-head .section-eyebrow {
-    animation: serviceCopyReveal 780ms cubic-bezier(0.16, 1, 0.3, 1) 90ms both;
+    animation: serviceCopyReveal 520ms cubic-bezier(0.16, 1, 0.3, 1) 40ms both;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .section-head h2 {
-    animation: serviceCopyReveal 920ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
+    animation: serviceCopyReveal 620ms cubic-bezier(0.16, 1, 0.3, 1) 110ms both;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .section-head p {
-    animation: serviceCopyReveal 860ms cubic-bezier(0.16, 1, 0.3, 1) 430ms both;
+    animation: serviceCopyReveal 580ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .service-trust-row span {
-    animation: serviceChipReveal 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: serviceChipReveal 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .service-trust-row span:nth-child(1) {
-    animation-delay: 620ms;
+    animation-delay: 330ms;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .service-trust-row span:nth-child(2) {
-    animation-delay: 760ms;
+    animation-delay: 430ms;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .service-trust-row span:nth-child(3) {
-    animation-delay: 900ms;
+    animation-delay: 530ms;
   }
   .service-stats.is-service-intro-pending:not(.is-service-intro-complete) .service-stats-panel {
     opacity: 0;
@@ -3787,7 +3798,7 @@
     filter: blur(10px);
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .service-stats-panel {
-    animation: servicePanelReveal 1150ms cubic-bezier(0.16, 1, 0.3, 1) 760ms both;
+    animation: servicePanelReveal 760ms cubic-bezier(0.16, 1, 0.3, 1) 430ms both;
   }
   .service-stats.is-service-intro-pending:not(.is-service-intro-complete) .stat-card {
     opacity: 0;
@@ -3795,29 +3806,29 @@
     transform-origin: center top;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .stat-card {
-    animation: serviceCardCascade 820ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: serviceCardCascade 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .stat-card:nth-child(1) {
-    animation-delay: 1180ms;
+    animation-delay: 760ms;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .stat-card:nth-child(2) {
-    animation-delay: 1300ms;
+    animation-delay: 840ms;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .stat-card:nth-child(3) {
-    animation-delay: 1420ms;
+    animation-delay: 920ms;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .stat-card:nth-child(4) {
-    animation-delay: 1540ms;
+    animation-delay: 1000ms;
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .stat-card:nth-child(5) {
-    animation-delay: 1660ms;
+    animation-delay: 1080ms;
   }
   .service-stats.is-service-intro-pending:not(.is-service-intro-complete) .service-stats-cta {
     opacity: 0;
     transform: translateY(18px);
   }
   .service-stats.is-service-intro-active:not(.is-service-intro-complete) .service-stats-cta {
-    animation: serviceCopyReveal 720ms cubic-bezier(0.16, 1, 0.3, 1) 1900ms both;
+    animation: serviceCopyReveal 520ms cubic-bezier(0.16, 1, 0.3, 1) 1250ms both;
   }
   @keyframes servicePhotoResolve {
     from {
@@ -6998,7 +7009,7 @@ html { background-color: #ffffff; }
       window.setTimeout(() => {
         section.classList.remove('is-service-intro-pending', 'is-service-intro-active');
         section.classList.add('is-service-intro-complete');
-      }, 2850);
+      }, 1900);
     };
 
     if (!('IntersectionObserver' in window)) {
@@ -8802,8 +8813,8 @@ html { background-color: #ffffff; }
       syncBrandsRevealGeometry();
       const st = ScrollTrigger.getById('brands-reveal');
       const p = st ? st.progress : 0;
-      applyBlueRevealClip(p);
       applyHeadlineFontRem(p);
+      applyBlueRevealClip(p);
       applyProductsHandoff(p);
       scene.classList.add('brands-scene--headlines-ready');
     };
@@ -8874,15 +8885,15 @@ html { background-color: #ffffff; }
           syncBrandsRevealGeometry();
           const st = ScrollTrigger.getById('brands-reveal');
           if (st) {
-            applyBlueRevealClip(st.progress);
             applyHeadlineFontRem(st.progress);
+            applyBlueRevealClip(st.progress);
             applyProductsHandoff(st.progress);
           }
         },
         onUpdate: (self) => {
           const p = self.progress;
-          applyBlueRevealClip(p);
           applyHeadlineFontRem(p);
+          applyBlueRevealClip(p);
           applyProductsHandoff();
         },
         onLeave: () => {
@@ -8895,8 +8906,8 @@ html { background-color: #ffffff; }
       },
     });
 
-    applyBlueRevealClip(0);
     applyHeadlineFontRem(0);
+    applyBlueRevealClip(0);
     applyProductsHandoff(0);
 
     const waitBrandsFonts = () => {
@@ -8950,8 +8961,8 @@ html { background-color: #ffffff; }
           syncBrandsRevealGeometry();
           const st = ScrollTrigger.getById('brands-reveal');
           if (st) {
-            applyBlueRevealClip(st.progress);
             applyHeadlineFontRem(st.progress);
+            applyBlueRevealClip(st.progress);
             applyProductsHandoff(st.progress);
           }
         } catch (e) {}
@@ -8967,8 +8978,8 @@ html { background-color: #ffffff; }
           ScrollTrigger.refresh();
           const st = ScrollTrigger.getById('brands-reveal');
           if (st) {
-            applyBlueRevealClip(st.progress);
             applyHeadlineFontRem(st.progress);
+            applyBlueRevealClip(st.progress);
             applyProductsHandoff(st.progress);
           }
         } catch (e) {}
@@ -9377,6 +9388,10 @@ html { background-color: #ffffff; }
     var grid = document.getElementById('pt-grid');
     var scanBar = document.getElementById('pt-scan-bar');
     if (!overlay || !grid || !scanBar) return;
+    if (!document.body.classList.contains('home-page')) {
+      overlay.classList.add('is-finished');
+      return;
+    }
     var ptWatermark = document.querySelector('.pt-watermark');
     var ptMark = document.querySelector('.pt-logo .pt-mark');
     var hdrLogo = document.querySelector('.site-header .logo-mark, .nav .logo .logo-mark');
@@ -9403,10 +9418,11 @@ html { background-color: #ffffff; }
       return;
     }
 
+
     var SHADES = ['#3055c8', '#3258cc', '#2b50c0', '#3863d2', '#2e54c5', '#3760ce'];
 
     var COVER_IN_MS = 360;
-    var SCAN_MS = 480;
+    var SCAN_MS = 820;
     var LOGO_FADE_MS = 50;
 
     var wmRafId = null;
@@ -9606,8 +9622,10 @@ html { background-color: #ffffff; }
       resizeTimer = setTimeout(function () { if (grid.children.length > 0) buildGrid(); }, 150);
     });
 
-    // ---- COVER-IN ON INTERNAL LINK CLICK ----
-    document.addEventListener('click', function (e) {
+    // ---- INTERNAL LINK CLICKS ----
+    // Keep navigation instant; the blue scan is reserved for homepage load/return only.
+    var ENABLE_INTERNAL_LINK_TRANSITIONS = false;
+    if (ENABLE_INTERNAL_LINK_TRANSITIONS) document.addEventListener('click', function (e) {
       if (e.defaultPrevented || e.button !== 0) return;
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       var link = e.target.closest && e.target.closest('a[href]');
