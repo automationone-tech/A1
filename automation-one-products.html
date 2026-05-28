@@ -3877,7 +3877,7 @@ html { background-color: #ffffff; }
           <span class="visually-hidden">Sort</span>
           <select id="catalog-sort" aria-label="Sort products">
             <option value="name">Name A–Z</option>
-            <option value="brand">Brand</option>
+            <option value="brand" selected>Brand</option>
           </select>
         </label>
       </div>
@@ -6000,7 +6000,7 @@ html { background-color: #ffffff; }
 
     function sortCards() {
       if (!grid) return;
-      var mode = sortEl ? sortEl.value : 'name';
+      var mode = sortEl ? sortEl.value : 'brand';
       var cmpOpts = { sensitivity: 'base', numeric: true };
       cards.sort(function (a, b) {
         var titleA = getCardTitle(a);
