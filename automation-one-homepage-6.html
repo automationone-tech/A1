@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="fonts-jeton.css">
+<script src="automation-one-homepage-videos.js"></script>
 <style>
   :root {
     --blue-50:  #eef4ff;
@@ -97,10 +98,11 @@
   .hero::after {
     content: "";
     position: absolute; inset: 0;
+    z-index: 0;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     pointer-events: none;
     mix-blend-mode: overlay;
-    opacity: .9;
+    opacity: .55;
   }
 
   .hero-video {
@@ -109,8 +111,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     z-index: 1;
-    opacity: 0.26;
+    opacity: 0.48;
     pointer-events: none;
     -webkit-mask-image: linear-gradient(
       90deg,
@@ -140,7 +143,7 @@
   /* Tablet + desktop: stronger fade to the left, fuller video on the right */
   @media (min-width: 561px) {
     .hero-video {
-      opacity: 0.36;
+      opacity: 0.58;
       -webkit-mask-image: linear-gradient(
         90deg,
         hsl(0 0% 0% / 0) 0%,
@@ -2553,9 +2556,11 @@
   }
   /* No JS / no advanced motion: ordinary static section */
   .brands-scene:not(.brands-scene--animating) .brands-scene-matte,
-  .brands-scene:not(.brands-scene--animating) .brands-scene-photo,
   .brands-scene:not(.brands-scene--animating) .brands-scene-logo {
     display: none;
+  }
+  .brands-scene-photo {
+    display: block;
   }
   .brands-scene:not(.brands-scene--animating) .brands-scene-pin {
     min-height: 0;
@@ -2570,10 +2575,26 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
+  /* Static fallback when scroll animation is unavailable (no GSAP / reduced motion) */
+  .brands-scene.brands-scene--static-fallback .brands-scene-matte,
+  .brands-scene.brands-scene--static-fallback .brands-h2-blue-cover,
+  .brands-scene.brands-scene--static-fallback .brands-scene-logo {
+    display: none !important;
+  }
+  .brands-scene.brands-scene--static-fallback .brands-scene-photo {
+    display: block !important;
+    clip-path: circle(150vmax at 50% 45%);
+    -webkit-clip-path: circle(150vmax at 50% 45%);
+    opacity: 0.4;
+  }
+  .brands-scene.brands-scene--static-fallback .brands-scene-pin {
+    min-height: 100vh;
+    padding: clamp(120px, 14vw, 176px) 0 clamp(96px, 12vw, 132px);
+  }
   @media (prefers-reduced-motion: reduce) {
-    .brands-scene-matte,
-    .brands-scene-photo,
-    .brands-scene-logo {
+    .brands-scene:not(.brands-scene--static-fallback) .brands-scene-matte,
+    .brands-scene:not(.brands-scene--static-fallback) .brands-scene-photo,
+    .brands-scene:not(.brands-scene--static-fallback) .brands-scene-logo {
       display: none !important;
     }
     .brands-scene-pin {
@@ -3198,6 +3219,7 @@
   .solutions-printer-img--shredders,
   .solutions-printer-img--document-scanners,
   .solutions-printer-img--folder-inserters,
+  .solutions-printer-img--cutters,
   .solutions-printer-img--digital-solutions {
     position: absolute;
     inset: 0;
@@ -3215,6 +3237,7 @@
   .solutions-printer-img--shredders,
   .solutions-printer-img--document-scanners,
   .solutions-printer-img--folder-inserters,
+  .solutions-printer-img--cutters,
   .solutions-printer-img--digital-solutions {
     object-fit: contain;
     filter: none;
@@ -3379,6 +3402,7 @@
   .solutions-printer[data-active-photo="default"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="default"] .solutions-printer-img--document-scanners,
   .solutions-printer[data-active-photo="default"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="default"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="default"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3398,6 +3422,7 @@
   .solutions-printer[data-active-photo="office"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="office"] .solutions-printer-img--document-scanners,
   .solutions-printer[data-active-photo="office"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="office"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="office"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3417,6 +3442,7 @@
   .solutions-printer[data-active-photo="home-office"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="home-office"] .solutions-printer-img--document-scanners,
   .solutions-printer[data-active-photo="home-office"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="home-office"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="home-office"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3436,6 +3462,7 @@
   .solutions-printer[data-active-photo="production"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="production"] .solutions-printer-img--document-scanners,
   .solutions-printer[data-active-photo="production"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="production"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="production"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3455,6 +3482,7 @@
   .solutions-printer[data-active-photo="large-format"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="large-format"] .solutions-printer-img--document-scanners,
   .solutions-printer[data-active-photo="large-format"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="large-format"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="large-format"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3474,6 +3502,7 @@
   .solutions-printer[data-active-photo="mailing"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="mailing"] .solutions-printer-img--document-scanners,
   .solutions-printer[data-active-photo="mailing"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="mailing"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="mailing"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3493,7 +3522,28 @@
   .solutions-printer[data-active-photo="shredders"] .solutions-printer-img--mailing,
   .solutions-printer[data-active-photo="shredders"] .solutions-printer-img--document-scanners,
   .solutions-printer[data-active-photo="shredders"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="shredders"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="shredders"] .solutions-printer-img--digital-solutions {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--cutters {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--default {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--office,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--home-office,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--production,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--large-format,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--mailing,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--shredders,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--document-scanners,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="cutters"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
   }
@@ -3512,6 +3562,7 @@
   .solutions-printer[data-active-photo="document-scanners"] .solutions-printer-img--mailing,
   .solutions-printer[data-active-photo="document-scanners"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="document-scanners"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="document-scanners"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="document-scanners"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3531,6 +3582,7 @@
   .solutions-printer[data-active-photo="folder-inserters"] .solutions-printer-img--mailing,
   .solutions-printer[data-active-photo="folder-inserters"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="folder-inserters"] .solutions-printer-img--document-scanners,
+  .solutions-printer[data-active-photo="folder-inserters"] .solutions-printer-img--cutters,
   .solutions-printer[data-active-photo="folder-inserters"] .solutions-printer-img--digital-solutions {
     opacity: 0;
     transform: scale(1.06);
@@ -3550,7 +3602,8 @@
   .solutions-printer[data-active-photo="digital-solutions"] .solutions-printer-img--mailing,
   .solutions-printer[data-active-photo="digital-solutions"] .solutions-printer-img--shredders,
   .solutions-printer[data-active-photo="digital-solutions"] .solutions-printer-img--document-scanners,
-  .solutions-printer[data-active-photo="digital-solutions"] .solutions-printer-img--folder-inserters {
+  .solutions-printer[data-active-photo="digital-solutions"] .solutions-printer-img--folder-inserters,
+  .solutions-printer[data-active-photo="digital-solutions"] .solutions-printer-img--cutters {
     opacity: 0;
     transform: scale(1.06);
   }
@@ -4854,17 +4907,7 @@
     position: relative;
     padding: 80px 0 32px;
     color: rgba(26, 40, 74, 0.82);
-    background-color: #eae7dc;
-    /* Letter photo moved to .cta-section::above (final CTA banner) */
-    background-image: linear-gradient(
-      165deg,
-      rgba(252, 251, 247, 0.93) 0%,
-      rgba(248, 246, 240, 0.82) 50%,
-      rgba(232, 236, 242, 0.58) 100%
-    );
-    background-size: cover;
-    background-position: 0 0;
-    background-repeat: no-repeat;
+    background: var(--blue-50, #eef4ff);
   }
   footer .container {
     position: relative;
@@ -6612,6 +6655,7 @@ html { background-color: #ffffff; }
 }
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
+<link rel="stylesheet" href="automation-one-cta.css">
 </head>
 <body class="home-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -6631,9 +6675,35 @@ html { background-color: #ffffff; }
 <section class="hero">
   <div class="blob blob-a"></div>
   <div class="blob blob-b"></div>
-  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
-    <source src="hero-printer-loop.mp4?v=5clips" type="video/mp4" />
+  <video
+    class="hero-video"
+    src="hero-printer-loop.mp4?v=9clips-7491"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto"
+  >
+    <source src="hero-printer-loop.mp4?v=9clips-7491" type="video/mp4" />
   </video>
+  <script>
+  (function (v) {
+    if (!v || v.tagName !== 'VIDEO') return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    function play() {
+      var p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+    v.addEventListener('loadeddata', play, { once: true });
+    v.addEventListener('canplay', play, { once: true });
+    play();
+  })(document.currentScript.previousElementSibling);
+  </script>
 
   <!-- SITE HEADER -->
   <header class="site-header">
@@ -6847,12 +6917,15 @@ html { background-color: #ffffff; }
      =================================================== -->
 <section class="brands" id="about">
   <div class="brands-scene">
+    <script>document.currentScript.parentElement.classList.add('brands-scene--static-fallback');</script>
     <div class="brands-scene-pin">
       <div class="brands-scene-matte" aria-hidden="true"></div>
       <div class="brands-scene-photo" aria-hidden="true">
         <video
           class="brands-scene-photo-video"
+          src="brands-scene-bg.mp4"
           muted
+          loop
           playsinline
           webkit-playsinline
           preload="auto"
@@ -6860,10 +6933,7 @@ html { background-color: #ffffff; }
           disableremoteplayback
           aria-hidden="true"
         >
-          <source
-            src="_users_19277174-bfea-44a4-8aa6-4eaa8a1e9bca_generated_194dbc24-70e6-4d43-a9a8-a2411b77ce0c_generated_video.MP4"
-            type="video/mp4"
-          />
+          <source src="brands-scene-bg.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="brands-scene-inner">
@@ -6981,13 +7051,14 @@ html { background-color: #ffffff; }
       <div class="solutions-printer" data-active-photo="default" aria-hidden="true">
         <img class="solutions-printer-img solutions-printer-img--default" src="imageforce-c5100.png" alt="" />
         <img class="solutions-printer-img solutions-printer-img--office" src="lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--home-office" src="xerox-home-office-transparent.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--home-office" src="lexmark-xc2326-main.png" alt="" loading="lazy" decoding="async" />
         <img class="solutions-printer-img solutions-printer-img--production" src="canon-iprc910-production.png" alt="" loading="lazy" decoding="async" />
         <img class="solutions-printer-img solutions-printer-img--large-format" src="canon-large-format-printer.png" alt="" loading="lazy" decoding="async" />
         <img class="solutions-printer-img solutions-printer-img--mailing" src="postbase-mailing-solutions.png" alt="" loading="lazy" decoding="async" />
         <img class="solutions-printer-img solutions-printer-img--shredders" src="ideal-shredder-product.png" alt="" loading="lazy" decoding="async" />
         <img class="solutions-printer-img solutions-printer-img--document-scanners" src="document-scanners-transparent.png?v=restore1" alt="" decoding="async" />
         <img class="solutions-printer-img solutions-printer-img--folder-inserters" src="folder-inserter-transparent.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--cutters" src="triumph-6655-cutter-transparent.png" alt="" loading="lazy" decoding="async" />
         <div class="solutions-printer-img solutions-printer-img--digital-solutions digital-solutions-cloud" aria-hidden="true">
           <span class="digital-logo-orb digital-logo-orb--uniflow"><img src="solution-brochures/digital-logos/uniflow-crop.png" alt="" loading="lazy" decoding="async" /></span>
           <span class="digital-logo-orb digital-logo-orb--pharos"><img src="solution-brochures/digital-logos/pharos-uniprint-crop.png" alt="" loading="lazy" decoding="async" /></span>
@@ -7002,10 +7073,11 @@ html { background-color: #ffffff; }
           <li class="solutions-item">Office Printers</li>
           <li class="solutions-item">Multifunction Printers</li>
           <li class="solutions-item">Production Printers</li>
-          <li class="solutions-item">Large Format Printers</li>
+          <li class="solutions-item">Wide-Format</li>
           <li class="solutions-item">Document Scanners</li>
+          <li class="solutions-item">Cutters</li>
           <li class="solutions-item">Shredders</li>
-          <li class="solutions-item">Mailing Solutions</li>
+          <li class="solutions-item">Postage Meters</li>
           <li class="solutions-item">Folder Inserters</li>
           <li class="solutions-item">Home Office</li>
           <li class="solutions-item">Digital Solutions</li>
@@ -7067,11 +7139,12 @@ html { background-color: #ffffff; }
     const OFFICE_LABEL = 'Office Printers';
     const HOME_OFFICE_LABEL = 'Home Office';
     const PRODUCTION_LABEL = 'Production Printers';
-    const LARGE_FORMAT_LABEL = 'Large Format Printers';
-    const MAILING_LABEL = 'Mailing Solutions';
+    const LARGE_FORMAT_LABEL = 'Wide-Format';
+    const MAILING_LABEL = 'Postage Meters';
     const DOCUMENT_SCANNERS_LABEL = 'Document Scanners';
     const FOLDER_INSERTERS_LABEL = 'Folder Inserters';
     const SHREDDERS_LABEL = 'Shredders';
+    const CUTTERS_LABEL = 'Cutters';
     const DIGITAL_SOLUTIONS_LABEL = 'Digital Solutions';
 
     function photoModeForLabel(label) {
@@ -7083,6 +7156,7 @@ html { background-color: #ffffff; }
       if (label === FOLDER_INSERTERS_LABEL) return 'folder-inserters';
       if (label === MAILING_LABEL) return 'mailing';
       if (label === SHREDDERS_LABEL) return 'shredders';
+      if (label === CUTTERS_LABEL) return 'cutters';
       if (label === DIGITAL_SOLUTIONS_LABEL) return 'digital-solutions';
       return 'default';
     }
@@ -8872,13 +8946,11 @@ html { background-color: #ffffff; }
     const blueShift = document.querySelector('.brands-h2-blue-shift');
     const h2Final = document.querySelector('.brands-scene-h2--final');
     const h2Blue = document.querySelector('.brands-scene-h2--on-blue');
-    const inkLines = h2Final.querySelectorAll('.brands-h2-line');
     const eyebrow = document.querySelector('.brands-scene-copy .section-eyebrow');
     const pEl = document.querySelector('.brands-scene-copy p');
     const brandRow = document.querySelector('.brands-scene-inner .brand-row');
     const productsBanner = document.querySelector('.products-banner');
     const handoffSpacer = document.querySelector('.products-banner-handoff-spacer');
-    if (!root || !scene || !pin || !matte || !blueCoverClip || !h2Final || !h2Blue || !inkLines.length || !blueShift) return;
 
     const releaseBrandRowInline = () => {
       if (!brandRow) return;
@@ -8887,6 +8959,7 @@ html { background-color: #ffffff; }
     };
 
     const clearMatteClipStyle = () => {
+      if (!matte || !blueCoverClip) return;
       matte.style.removeProperty('clip-path');
       matte.style.removeProperty('-webkit-clip-path');
       if (photo) {
@@ -8905,6 +8978,31 @@ html { background-color: #ffffff; }
         el.style.removeProperty('mask-repeat');
       });
     };
+
+    const enableBrandsStaticFallback = () => {
+      if (!scene) return;
+      scene.classList.add('brands-scene--static-fallback');
+      releaseBrandRowInline();
+      clearMatteClipStyle();
+      if (productsBanner) {
+        productsBanner.classList.remove('is-brands-handoff-swoop');
+        productsBanner.classList.remove('is-collapsed-after-handoff');
+        productsBanner.style.removeProperty('transform');
+        productsBanner.style.removeProperty('--swoop-bulge');
+      }
+      if (handoffSpacer) handoffSpacer.style.height = '0px';
+      if (window.automationOneInitHomepageVideos) window.automationOneInitHomepageVideos();
+    };
+
+    if (!root || !scene || !pin || !matte || !blueCoverClip || !h2Final || !h2Blue || !blueShift) {
+      enableBrandsStaticFallback();
+      return;
+    }
+    const inkLines = h2Final.querySelectorAll('.brands-h2-line');
+    if (!inkLines.length) {
+      enableBrandsStaticFallback();
+      return;
+    }
 
     let anchorCx = 50;
     let anchorCy = 45;
@@ -8926,31 +9024,16 @@ html { background-color: #ffffff; }
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) {
-      releaseBrandRowInline();
-      clearMatteClipStyle();
-      if (productsBanner) {
-        productsBanner.classList.remove('is-brands-handoff-swoop');
-        productsBanner.classList.remove('is-collapsed-after-handoff');
-        productsBanner.style.removeProperty('transform');
-        productsBanner.style.removeProperty('--swoop-bulge');
-      }
-      if (handoffSpacer) handoffSpacer.style.height = '0px';
+      enableBrandsStaticFallback();
       return;
     }
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-      releaseBrandRowInline();
-      clearMatteClipStyle();
-      if (productsBanner) {
-        productsBanner.classList.remove('is-brands-handoff-swoop');
-        productsBanner.classList.remove('is-collapsed-after-handoff');
-        productsBanner.style.removeProperty('transform');
-        productsBanner.style.removeProperty('--swoop-bulge');
-      }
-      if (handoffSpacer) handoffSpacer.style.height = '0px';
+      enableBrandsStaticFallback();
       return;
     }
 
     gsap.registerPlugin(ScrollTrigger);
+    scene.classList.remove('brands-scene--static-fallback');
     scene.classList.add('brands-scene--animating');
 
     const brandsBgVideo = photo ? photo.querySelector('video') : null;
@@ -9562,40 +9645,7 @@ html { background-color: #ffffff; }
       });
     });
 
-    function wireVideo(v, opts) {
-      if (!v) return;
-      v.muted = true;
-      v.defaultMuted = true;
-      v.setAttribute('muted', '');
-      v.setAttribute('playsinline', '');
-      v.setAttribute('webkit-playsinline', '');
-      if (opts && opts.loop) v.loop = true;
-      var tryPlay = function () { v.play().catch(function () {}); };
-      v.addEventListener('loadeddata', tryPlay, { once: true });
-      tryPlay();
-      document.addEventListener('visibilitychange', function () {
-        if (!document.hidden) tryPlay();
-      });
-      if (opts && opts.ioRoot) {
-        var root = opts.ioRoot;
-        if ('IntersectionObserver' in window) {
-          new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) tryPlay();
-              else if (opts.pauseOffscreen) v.pause();
-            });
-          }, { threshold: 0.12, rootMargin: '8% 0px' }).observe(root);
-        }
-      }
-    }
-
-    wireVideo(document.querySelector('.hero-video'), { loop: true });
-
-    document.addEventListener('touchstart', function once() {
-      document.querySelectorAll('video').forEach(function (v) {
-        if (v.paused) v.play().catch(function () {});
-      });
-    }, { once: true, passive: true });
+    if (window.automationOneInitHomepageVideos) window.automationOneInitHomepageVideos();
   })();
 
   (function initQuoteDrawer() {

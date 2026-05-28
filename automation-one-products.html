@@ -9,7 +9,7 @@
 <meta name="color-scheme" content="light dark" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <title>Products &amp; Solutions | Automation One Vancouver</title>
-<meta name="description" content="Browse office printers, production systems, scanners, mailing equipment, and shredders from Canon, Xerox, Lexmark, and more. Authorized Automation One dealer in Vancouver, BC." />
+<meta name="description" content="Browse office printers, production systems, scanners, postage meters, and shredders from Canon, Xerox, Lexmark, and more. Authorized Automation One dealer in Vancouver, BC." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,6 +17,10 @@
 <style>
 
   :root {
+    --blue-50: #eef4ff;
+    --blue-100: #d9e6ff;
+    --blue-200: #b3ccff;
+    --blue-300: #7ea7ff;
     --blue-500: #1f5cf5;
     --blue-600: #1547d1;
     --blue-700: #0f389e;
@@ -541,12 +545,18 @@
       linear-gradient(165deg, #eef4ff 0%, var(--paper) 55%);
   }
   .section-eyebrow {
-    display: inline-block;
-    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgba(21, 71, 209, 0.08);
+    border: 1px solid rgba(21, 71, 209, 0.14);
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--blue-600);
+    color: var(--blue-700);
     margin-bottom: 16px;
   }
   h1 {
@@ -741,17 +751,26 @@
     text-align: center;
     overflow: hidden;
     position: relative;
+    --cta-letter-bg-size: 159%;
+    --cta-letter-bg-y: 44%;
+    --cta-letter-x: -0.75%;
+    --cta-letter-rotate: -13deg;
+    --cta-letter-scale: 1.16;
+    --cta-watermark-left: 66%;
+    --cta-watermark-scale: 1;
   }
   .cta-section::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -16% -12%;
     background-image: url("automation-one-footer-bg.png");
-    background-size: cover;
-    background-position: left 40%;
+    background-size: var(--cta-letter-bg-size) auto;
+    background-position: left var(--cta-letter-bg-y);
     background-repeat: no-repeat;
     opacity: 0.92;
     mix-blend-mode: soft-light;
+    transform: translate3d(var(--cta-letter-x), 0, 0) rotate(var(--cta-letter-rotate)) scale(var(--cta-letter-scale));
+    transform-origin: 28% 50%;
     pointer-events: none;
     z-index: 0;
     -webkit-mask-image: linear-gradient(
@@ -780,9 +799,9 @@
   }
   .cta-watermark {
     position: absolute;
-    left: 66%;
+    left: var(--cta-watermark-left);
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
     height: calc(100% + 56px);
     width: auto;
     max-width: min(1100px, 92vw);
@@ -796,10 +815,10 @@
   .cta-section .container { position: relative; z-index: 3; }
   .cta-section h2 {
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(28px, 4.2vw, 48px);
-    line-height: 1.08;
-    letter-spacing: -0.03em;
+    font-weight: 500;
+    font-synthesis: none;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.02;
     color: var(--white);
     margin-bottom: 18px;
     text-wrap: balance;
@@ -807,10 +826,8 @@
   .cta-section h2 em {
     font-style: normal;
     background: linear-gradient(120deg, #b9d0ff, var(--white));
-    -webkit-background-clip: text;
-    background-clip: text;
+    -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
   }
   .cta-section p {
     font-size: 18px;
@@ -820,68 +837,78 @@
     line-height: 1.55;
   }
   .cta-section .cta-row { justify-content: center; margin-bottom: 32px; }
-  .cta-section .phone-row {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 28px;
-    padding: 16px 32px;
-    border: none;
-    border-radius: 999px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
-    background:
-      radial-gradient(118% 90% at 44% 12%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 58%),
-      radial-gradient(102% 80% at 50% 104%, rgba(8, 28, 72, 0.09) 0%, transparent 58%),
-      rgba(255, 255, 255, 0.05);
-    box-shadow:
-      inset 0 1px 6px rgba(255, 255, 255, 0.12),
-      inset 0 -5px 12px rgba(6, 22, 58, 0.07),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-  }
-  .cta-section .phone-row:hover {
-    transform: scale(1.005);
-    background:
-      radial-gradient(118% 90% at 44% 11%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.045) 42%, transparent 58%),
-      radial-gradient(102% 80% at 50% 104%, rgba(8, 28, 72, 0.07) 0%, transparent 58%),
-      rgba(255, 255, 255, 0.058);
-    box-shadow:
-      inset 0 1px 7px rgba(255, 255, 255, 0.14),
-      inset 0 -5px 13px rgba(6, 22, 58, 0.06),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.07);
-  }
-  .cta-section .phone-row:active {
-    transform: scale(0.998);
-    box-shadow:
-      inset 0 3px 9px rgba(6, 22, 58, 0.1),
-      inset 0 1px 5px rgba(255, 255, 255, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  }
-  .cta-section .phone-row a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
+  .cta-section .cta-contact-bar {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
   }
-  .cta-section .phone-row a:hover { color: #b9d0ff; }
+  .cta-contact-bar .cta-contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .cta-contact-bar .cta-contact-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+  .cta-contact-bar .cta-contact-icon:hover {
+    color: #b9d0ff;
+  }
+  .cta-contact-bar .cta-contact-divider {
+    width: 1px;
+    height: 30px;
+    margin: 0 16px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.38);
+  }
+  .cta-contact-bar .cta-contact-phone {
+    color: rgba(255, 255, 255, 0.94);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+  .cta-contact-bar .cta-contact-phone:hover {
+    color: #b9d0ff;
+  }
+  @media (max-width: 560px) {
+    .cta-section .cta-contact-bar {
+      flex-wrap: nowrap;
+      max-width: 100%;
+    }
+    .cta-contact-bar .cta-contact-icon {
+      width: 32px;
+      height: 32px;
+    }
+    .cta-contact-bar .cta-contact-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+    .cta-contact-bar .cta-contact-divider {
+      height: 22px;
+      margin: 0 8px;
+    }
+    .cta-contact-bar .cta-contact-phone {
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+  }
 
   footer {
     position: relative;
     padding: 80px 0 32px;
     color: rgba(26, 40, 74, 0.82);
-    background-color: #eae7dc;
-    background-image: linear-gradient(
-      165deg,
-      rgba(252, 251, 247, 0.93) 0%,
-      rgba(248, 246, 240, 0.82) 50%,
-      rgba(232, 236, 242, 0.58) 100%
-    );
-    background-size: cover;
-    background-position: 0 0;
-    background-repeat: no-repeat;
+    background: var(--blue-50, #eef4ff);
   }
   footer .container {
     position: relative;
@@ -1366,17 +1393,52 @@
   .products-hero {
     position: relative;
     padding: clamp(48px, 8vh, 88px) 0 clamp(56px, 10vh, 96px);
-    background:
-      radial-gradient(120% 80% at 10% 0%, rgba(31, 92, 245, 0.22) 0%, transparent 55%),
-      radial-gradient(90% 70% at 100% 20%, rgba(15, 56, 158, 0.35) 0%, transparent 50%),
-      linear-gradient(165deg, #0a2870 0%, #0f389e 42%, #1547d1 100%);
     color: var(--white);
     overflow: hidden;
+  }
+  .products-hero,
+  .catalog-banner {
+    background:
+      radial-gradient(120% 80% at 15% 20%, rgba(31, 92, 245, 0.3) 0%, transparent 60%),
+      radial-gradient(90% 70% at 90% 90%, rgba(21, 71, 209, 0.2) 0%, transparent 63%),
+      linear-gradient(135deg, #1547d1 0%, #0f389e 52%, #0a2870 100%);
+  }
+  .products-hero::before,
+  .catalog-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+  }
+  .products-hero::after,
+  .catalog-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.36;
+    transform: scaleX(-1);
+  }
+  .products-hero-watermark {
+    position: absolute;
+    left: clamp(-36px, -2.5vw, -16px);
+    bottom: clamp(-32px, -3vw, -14px);
+    width: clamp(420px, 56vw, 680px);
+    height: auto;
+    opacity: 0.05;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
   }
   .products-hero .container { position: relative; z-index: 1; }
   .products-hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 0.935fr 1.065fr;
     gap: clamp(32px, 5vw, 64px);
     align-items: center;
   }
@@ -1395,7 +1457,7 @@
     font-size: clamp(16px, 2vw, 18px);
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.88);
-    max-width: 52ch;
+    max-width: 44ch;
     margin-bottom: 28px;
   }
   .products-hero-actions {
@@ -1404,29 +1466,98 @@
     gap: 12px;
     align-items: center;
   }
-  .products-hero-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+  .products-hero-visual {
+    position: relative;
+    width: 100%;
+    min-height: clamp(320px, 44vw, 520px);
+    margin: 0 0 0 auto;
+    padding: 0;
+    transform: scale(1.07065);
+    transform-origin: 58% 100%;
   }
-  .products-stat {
-    padding: 20px 18px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(12px);
-  }
-  .products-stat strong {
+  .products-hero-visual-back,
+  .products-hero-visual-mid,
+  .products-hero-visual-front {
+    position: absolute;
+    bottom: 0;
+    height: auto;
     display: block;
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 36px);
-    line-height: 1;
-    margin-bottom: 6px;
+    pointer-events: none;
+    user-select: none;
   }
-  .products-stat span {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.35;
+  .products-hero-visual-back {
+    right: 12%;
+    bottom: 72px;
+    width: min(90%, 568px);
+    z-index: 1;
+  }
+  .products-hero-visual-mid {
+    left: -22%;
+    bottom: -42px;
+    width: min(46%, 288px);
+    z-index: 2;
+  }
+  .products-hero-visual-front {
+    left: 30%;
+    bottom: 6px;
+    width: min(85%, 516px);
+    z-index: 3;
+  }
+  @keyframes productsHeroLogoSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(calc(-1 * clamp(72px, 11vw, 128px)));
+    }
+    to {
+      opacity: 0.05;
+      transform: translateX(0);
+    }
+  }
+  @keyframes productsHeroMachineSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(clamp(56px, 9vw, 108px));
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .products-hero.is-hero-intro-pending .products-hero-watermark {
+    opacity: 0;
+  }
+  .products-hero.is-hero-intro-pending .products-hero-visual-mid,
+  .products-hero.is-hero-intro-pending .products-hero-visual-front,
+  .products-hero.is-hero-intro-pending .products-hero-visual-back {
+    opacity: 0;
+  }
+  .products-hero.is-hero-intro-active .products-hero-watermark {
+    animation: productsHeroLogoSlideIn 0.74s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .products-hero.is-hero-intro-active .products-hero-visual-mid {
+    animation: productsHeroMachineSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  }
+  .products-hero.is-hero-intro-active .products-hero-visual-front {
+    animation: productsHeroMachineSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.46s forwards;
+  }
+  .products-hero.is-hero-intro-active .products-hero-visual-back {
+    animation: productsHeroMachineSlideIn 0.54s cubic-bezier(0.22, 1, 0.36, 1) 0.62s forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .products-hero.is-hero-intro-pending .products-hero-watermark {
+      opacity: 0.05;
+    }
+    .products-hero.is-hero-intro-pending .products-hero-visual-mid,
+    .products-hero.is-hero-intro-pending .products-hero-visual-front,
+    .products-hero.is-hero-intro-pending .products-hero-visual-back {
+      opacity: 1;
+    }
+    .products-hero.is-hero-intro-active .products-hero-watermark,
+    .products-hero.is-hero-intro-active .products-hero-visual-mid,
+    .products-hero.is-hero-intro-active .products-hero-visual-front,
+    .products-hero.is-hero-intro-active .products-hero-visual-back {
+      animation: none;
+    }
   }
   .products-trust {
     padding: 18px clamp(22px, 5vw, 48px);
@@ -1507,12 +1638,261 @@
       opacity: 0;
     }
   }
+  /* ====== PROOF / STATS BAND ====== */
+  .products-proof {
+    padding: clamp(40px, 6vw, 64px) 0;
+    background:
+      radial-gradient(120% 80% at 8% 0%, rgba(31, 92, 245, 0.07), transparent 56%),
+      radial-gradient(110% 70% at 100% 100%, rgba(126, 167, 255, 0.16), transparent 60%),
+      linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
+    border-bottom: 1px solid rgba(15, 56, 158, 0.08);
+  }
+  .products-proof-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(28px, 4vw, 44px);
+  }
+  .products-proof-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 10px 0 12px;
+  }
+  .products-proof-head h2 em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--blue-500), var(--blue-800));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .products-proof-head p {
+    color: rgba(11, 19, 48, 0.7);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 22px);
+  }
+  @media (max-width: 820px) {
+    .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  .proof-grid--brands {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(12px, 1.6vw, 20px);
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    .proof-grid--brands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  .proof-card--brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    height: 100%;
+    padding: clamp(18px, 2.4vw, 24px) clamp(18px, 2vw, 24px) clamp(20px, 2.6vw, 28px);
+    text-decoration: none;
+    transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+  }
+  .proof-brand-photo {
+    display: block;
+    width: 100%;
+    height: clamp(148px, 12vw, 172px);
+    flex: 0 0 clamp(148px, 12vw, 172px);
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(160deg, rgba(217,230,255,0.6), rgba(255,255,255,0.95));
+    box-shadow: 0 12px 28px -18px rgba(10, 40, 112, 0.45);
+    position: relative;
+  }
+  .proof-brand-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .proof-card--brand:hover .proof-brand-photo img {
+    transform: scale(1.05);
+  }
+  .proof-card--brand:hover {
+    transform: translateY(-3px);
+    border-color: rgba(31, 92, 245, 0.42);
+    box-shadow: 0 30px 60px -30px rgba(10, 40, 112, 0.5);
+  }
+  .proof-card--brand:focus-visible {
+    outline: 3px solid var(--blue-500);
+    outline-offset: 3px;
+  }
+  .proof-brand-logo {
+    position: relative;
+    display: block;
+    width: auto;
+    max-width: 80%;
+    height: 52px;
+    min-height: 52px;
+    max-height: 52px;
+    margin-inline: auto;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.24s ease, filter 0.24s ease;
+    filter: saturate(0.92);
+  }
+  .proof-card--brand:hover .proof-brand-logo {
+    transform: scale(1.04);
+    filter: saturate(1.05);
+  }
+  .proof-brand-logo--canon  { max-width: 70%; }
+  .proof-brand-logo--xerox  { max-width: 70%; }
+  .proof-brand-logo--lexmark{ max-width: 80%; }
+  .proof-brand-logo--fp     { max-width: 56%; }
+  .proof-brand-logo--ideal  { max-width: 74%; }
+  .proof-brand-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: auto;
+    min-height: 46px;
+    padding: 10px 52px 10px 18px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--blue-900);
+    border: 1px solid rgba(15, 56, 158, 0.08);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    box-shadow:
+      0 2px 6px rgba(10, 40, 112, 0.08),
+      0 10px 24px -8px rgba(10, 40, 112, 0.28),
+      0 18px 40px -16px rgba(10, 40, 112, 0.22);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+  }
+  .proof-brand-cta::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    transform: translateY(-50%);
+    background: var(--blue-600) var(--cta-pill-chevron-white) calc(50% + 2px) 50% / 50% auto no-repeat;
+    transition: background-color 0.22s ease, transform 0.22s ease;
+  }
+  .proof-card--brand:hover .proof-brand-cta {
+    transform: translateY(-1px);
+    background: #fff;
+    color: var(--blue-900);
+    box-shadow:
+      0 4px 10px rgba(10, 40, 112, 0.1),
+      0 14px 32px -8px rgba(10, 40, 112, 0.34),
+      0 24px 48px -14px rgba(10, 40, 112, 0.28);
+  }
+  .proof-card--brand:hover .proof-brand-cta::after {
+    background-color: var(--blue-700);
+  }
+  .proof-card {
+    position: relative;
+    padding: 26px 22px 24px;
+    border-radius: 22px;
+    background:
+      radial-gradient(120% 80% at 8% 0%, rgba(255,255,255,0.95), rgba(255,255,255,0.55) 60%),
+      linear-gradient(160deg, rgba(217,230,255,0.62), rgba(255,255,255,0.94));
+    border: 1px solid rgba(126, 167, 255, 0.34);
+    box-shadow: 0 22px 50px -36px rgba(10, 40, 112, 0.5);
+    overflow: hidden;
+  }
+  .proof-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 90% 8%, rgba(31, 92, 245, 0.12), transparent 50%);
+    pointer-events: none;
+  }
+  .proof-card > * { position: relative; }
+  .proof-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    background: linear-gradient(140deg, var(--blue-600), var(--blue-800));
+    color: #fff;
+    margin-bottom: 14px;
+    box-shadow: 0 12px 22px -10px rgba(10, 40, 112, 0.6);
+  }
+  .proof-icon svg { width: 22px; height: 22px; }
+  .proof-stat {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.4vw, 42px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--blue-800);
+    margin-bottom: 6px;
+  }
+  .proof-stat em {
+    font-style: normal;
+    font-size: 0.55em;
+    color: var(--blue-600);
+    margin-left: 2px;
+    letter-spacing: 0.04em;
+    vertical-align: 6px;
+  }
+  .proof-label {
+    display: block;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .proof-sub {
+    display: block;
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(11, 19, 48, 0.62);
+  }
+
   .products-categories {
+    position: relative;
     padding: 72px 0 48px;
-    background: var(--paper);
+    background:
+      radial-gradient(82% 70% at 18% 15%, rgba(126, 167, 255, 0.22), transparent 58%),
+      linear-gradient(135deg, #f8faff 0%, #eef4ff 48%, #e8f0ff 100%);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .products-categories::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(248, 250, 255, 1) 0%, rgba(248, 250, 255, 0.98) 42%, rgba(248, 250, 255, 0.74) 64%, rgba(248, 250, 255, 0.08) 100%),
+      linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  @media (min-width: 1200px) {
+    .products-categories::after {
+      background:
+        linear-gradient(90deg, rgba(248, 250, 255, 1) 0%, rgba(248, 250, 255, 0.99) 48%, rgba(248, 250, 255, 0.84) 68%, rgba(248, 250, 255, 0.3) 86%, rgba(248, 250, 255, 0) 100%),
+        linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
+    }
+  }
+  .products-categories .container {
+    position: relative;
+    z-index: 1;
   }
   .section-head-inline {
-    max-width: 720px;
+    max-width: none;
     margin-bottom: 40px;
   }
   .section-head-inline h2 {
@@ -1522,18 +1902,17 @@
     color: var(--ink);
     margin: 12px 0 14px;
   }
+  .section-head-inline h2 em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--blue-500), var(--blue-800));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
   .section-head-inline p {
     color: rgba(11, 19, 48, 0.72);
     line-height: 1.6;
     font-size: 16px;
-  }
-  .section-eyebrow {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--blue-600);
   }
   .category-grid {
     display: grid;
@@ -1564,17 +1943,173 @@
     border-color: rgba(31, 92, 245, 0.25);
   }
   .category-card-visual {
-    height: 140px;
+    position: relative;
+    overflow: hidden;
+    height: 172px;
     display: grid;
     place-items: center;
-    background: linear-gradient(180deg, #eef3ff 0%, #f8faff 100%);
-    padding: 16px;
+    background: linear-gradient(180deg, var(--blue-300) 0%, var(--blue-200) 52%, var(--blue-100) 100%);
+    padding: 0 8px 10px;
+  }
+  .category-card-visual::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    bottom: -14px;
+    width: 188px;
+    height: 188px;
+    background: url("ao-nav-logo.png") left bottom / contain no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .category-card-visual > img,
+  .category-card-visual > .digital-solutions-cloud {
+    position: relative;
+    z-index: 2;
   }
   .category-card-visual img {
     max-height: 110px;
     width: auto;
     max-width: 90%;
     object-fit: contain;
+  }
+  .category-card-visual--production,
+  .category-card-visual--wide-format {
+    place-items: center;
+  }
+  .category-card-visual--production img {
+    display: block;
+    margin-inline: auto;
+    height: 158px;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: center center;
+    transform: translateY(-8px) scale(1.34);
+    transform-origin: center center;
+  }
+  .category-card-visual--wide-format img {
+    display: block;
+    margin-inline: auto;
+    height: 158px;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: center center;
+    transform: translateY(10px) scale(1.12);
+    transform-origin: center center;
+  }
+  .category-card-visual--digital-solutions {
+    position: relative;
+    overflow: hidden;
+    padding: 0 8px 10px;
+  }
+  .category-card-visual--digital-solutions .digital-solutions-cloud {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
+  .category-card-visual--digital-solutions .digital-solutions-cloud::before {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 10%;
+    bottom: 5%;
+    height: 18%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(2, 15, 52, 0.34) 0%, transparent 70%);
+    filter: blur(8px);
+    opacity: 0.72;
+    pointer-events: none;
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb {
+    position: absolute;
+    left: var(--orb-x);
+    top: var(--orb-y);
+    width: var(--orb-size);
+    height: var(--orb-size);
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9) 64%, rgba(235, 241, 255, 0.96) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 14px 24px -16px rgba(3, 14, 48, 0.72);
+    color: var(--blue-800);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--orb-font, 10px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb span {
+    display: block;
+    transform: translateY(1px);
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb img {
+    display: block;
+    width: var(--orb-img-w, 78%);
+    max-height: var(--orb-img-h, 58%);
+    max-width: none;
+    height: auto;
+    object-fit: contain;
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb--uniflow {
+    --orb-x: 48%;
+    --orb-y: 21%;
+    --orb-size: 42px;
+    --orb-font: 11px;
+    --orb-img-w: 88%;
+    color: #0a2870;
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb--pharos {
+    --orb-x: 25%;
+    --orb-y: 40%;
+    --orb-size: 34px;
+    --orb-font: 8px;
+    --orb-img-w: 88%;
+    color: #1547d1;
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb--vera {
+    --orb-x: 72%;
+    --orb-y: 39%;
+    --orb-size: 32px;
+    --orb-font: 9px;
+    --orb-img-w: 86%;
+    color: #1f5cf5;
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb--therefore {
+    --orb-x: 37%;
+    --orb-y: 66%;
+    --orb-size: 50px;
+    --orb-font: 7px;
+    --orb-img-w: 88%;
+    color: #071331;
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb--kofax {
+    --orb-x: 63%;
+    --orb-y: 68%;
+    --orb-size: 34px;
+    --orb-font: 8px;
+    --orb-img-w: 88%;
+    color: #0f389e;
+  }
+  .category-card-visual--digital-solutions .digital-logo-orb--more {
+    --orb-x: 82%;
+    --orb-y: 61%;
+    --orb-size: 26px;
+    --orb-font: 7px;
+    color: var(--blue-700);
   }
   .category-card-body {
     padding: 18px 20px 22px;
@@ -1589,17 +2124,376 @@
     color: var(--blue-800);
     margin-bottom: 8px;
   }
+  .category-card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .category-card-title-row h3 {
+    margin-bottom: 0;
+  }
+  .category-colour-symbol {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+  .category-colour-symbol img {
+    display: block;
+    width: auto;
+    height: 28px;
+    object-fit: contain;
+  }
   .category-card p {
     font-size: 14px;
     line-height: 1.5;
     color: rgba(11, 19, 48, 0.65);
     flex: 1;
   }
-  .category-card-cta {
-    margin-top: 14px;
+  .category-card {
+    position: relative;
+  }
+  .category-card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 22px -10px rgba(10, 40, 112, 0.6);
+  }
+  .category-card-badge::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+  }
+  .category-card-badge.is-new {
+    background: linear-gradient(135deg, #14b87a, #0d8a59);
+  }
+
+  /* ====== ACTIVE FILTER CHIPS BAR ====== */
+  .active-filters {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.94), rgba(238,243,255,0.92));
+    border: 1px solid rgba(126, 167, 255, 0.36);
+    box-shadow: 0 14px 32px -28px rgba(10, 40, 112, 0.45);
+  }
+  .active-filters.is-visible { display: flex; }
+  .active-filters-list {
+    display: contents;
+  }
+  .active-filters-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(11, 19, 48, 0.6);
+    margin-right: 4px;
+  }
+  .active-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px 7px 12px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--blue-800);
+    border: 1px solid rgba(15, 56, 158, 0.18);
     font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 6px 14px -10px rgba(10, 40, 112, 0.32);
+  }
+  .active-filter-chip .active-filter-x {
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(21, 71, 209, 0.12);
+    color: var(--blue-700);
+    font-size: 12px;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .active-filter-chip .active-filter-x:hover {
+    background: var(--blue-600);
+    color: #fff;
+  }
+  .active-filters-clear {
+    margin-left: auto;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--blue-700);
     font-weight: 700;
-    color: var(--blue-600);
+    font-size: 13px;
+    border: 1px solid rgba(15, 56, 158, 0.2);
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .active-filters-clear:hover {
+    background: var(--blue-600);
+    color: #fff;
+    border-color: var(--blue-600);
+  }
+
+  /* ====== HELP ME CHOOSE BAND ====== */
+  .help-band {
+    padding: clamp(56px, 7vw, 84px) 0;
+    background:
+      radial-gradient(120% 60% at 0% 0%, rgba(31, 92, 245, 0.08), transparent 55%),
+      linear-gradient(180deg, var(--paper) 0%, var(--white) 100%);
+  }
+  .help-band-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(26px, 4vw, 38px);
+  }
+  .help-band-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.4vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 10px 0 10px;
+  }
+  .help-band-head h2 em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--blue-500), var(--blue-800));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .help-band-head p {
+    color: rgba(11, 19, 48, 0.7);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 22px);
+  }
+  @media (max-width: 820px) {
+    .help-grid { grid-template-columns: 1fr; }
+  }
+  .help-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 28px 28px;
+    border-radius: 24px;
+    text-decoration: none;
+    color: inherit;
+    background: var(--white);
+    border: 1px solid rgba(15, 56, 158, 0.1);
+    box-shadow: 0 24px 50px -34px rgba(10, 40, 112, 0.4);
+    overflow: hidden;
+    transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+  }
+  .help-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 25px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 50%, rgba(31, 92, 245, 0.35));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.24s ease;
+    pointer-events: none;
+  }
+  .help-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(31, 92, 245, 0.32);
+    box-shadow: 0 30px 60px -30px rgba(10, 40, 112, 0.55);
+  }
+  .help-card:hover::before { opacity: 1; }
+  .help-card-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(140deg, var(--blue-600), var(--blue-800));
+    color: #fff;
+    margin-bottom: 18px;
+    box-shadow: 0 14px 26px -10px rgba(10, 40, 112, 0.55);
+  }
+  .help-card-icon svg { width: 26px; height: 26px; }
+  .help-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--blue-900);
+    margin-bottom: 10px;
+  }
+  .help-card p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(11, 19, 48, 0.72);
+    margin-bottom: 22px;
+    flex: 1;
+  }
+  .help-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--blue-700);
+    transition: gap 0.22s ease;
+  }
+  .help-card:hover .help-card-cta { gap: 12px; color: var(--blue-800); }
+  .help-card-cta svg { width: 16px; height: 16px; }
+
+  /* ====== TESTIMONIALS ====== */
+  .testimonials {
+    padding: clamp(56px, 7vw, 84px) 0;
+    background:
+      radial-gradient(120% 80% at 100% 0%, rgba(126, 167, 255, 0.18), transparent 56%),
+      linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
+    border-top: 1px solid rgba(15, 56, 158, 0.06);
+  }
+  .testimonials-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(26px, 4vw, 40px);
+  }
+  .testimonials-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.4vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 10px 0 10px;
+  }
+  .testimonials-head h2 em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--blue-500), var(--blue-800));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .testimonials-head p {
+    color: rgba(11, 19, 48, 0.7);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 22px);
+  }
+  @media (max-width: 900px) {
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+  .testimonial-card {
+    position: relative;
+    padding: 30px 28px 26px;
+    border-radius: 22px;
+    background: var(--white);
+    border: 1px solid rgba(15, 56, 158, 0.1);
+    box-shadow: 0 18px 44px -30px rgba(10, 40, 112, 0.42);
+    overflow: hidden;
+  }
+  .testimonial-card::before {
+    content: "\201C";
+    position: absolute;
+    top: -16px;
+    left: 14px;
+    font-family: var(--font-display);
+    font-size: 180px;
+    line-height: 1;
+    color: rgba(31, 92, 245, 0.1);
+    pointer-events: none;
+  }
+  .testimonial-stars {
+    display: inline-flex;
+    gap: 2px;
+    margin-bottom: 14px;
+    color: #f9b21f;
+    position: relative;
+  }
+  .testimonial-stars svg { width: 16px; height: 16px; }
+  .testimonial-quote {
+    position: relative;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .testimonial-meta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testimonial-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: linear-gradient(140deg, var(--blue-600), var(--blue-800));
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+  .testimonial-author {
+    display: block;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .testimonial-role {
+    display: block;
+    font-size: 12px;
+    color: rgba(11, 19, 48, 0.6);
+  }
+
+  /* ====== PRODUCT CARD IMAGE ZOOM ON HOVER ====== */
+  .product-card-visual img {
+    transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .product-card:hover .product-card-visual img {
+    transform: scale(1.06);
+  }
+
+  /* ====== CATEGORY CARD IMAGE ZOOM ON HOVER ====== */
+  .category-card-visual img {
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .category-card:hover .category-card-visual img {
+    transform: scale(1.04);
   }
   .products-catalog {
     padding: 48px 0 96px;
@@ -1614,7 +2508,13 @@
   .catalog-filters {
     position: sticky;
     top: 24px;
-    padding: 24px;
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding: 24px 22px 28px;
     border-radius: 20px;
     background: var(--white);
     border: 1px solid rgba(15, 56, 158, 0.1);
@@ -1628,6 +2528,24 @@
   }
   .filter-group { margin-bottom: 22px; }
   .filter-group:last-child { margin-bottom: 0; }
+  .filter-group-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+  }
+  .filter-group-toggle:focus-visible {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
   .filter-group legend,
   .filter-group-label {
     font-size: 11px;
@@ -1635,8 +2553,45 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: rgba(11, 19, 48, 0.55);
-    margin-bottom: 10px;
+    margin-bottom: 0;
     display: block;
+  }
+  .filter-group-chevron {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid rgba(11, 19, 48, 0.42);
+    border-bottom: 2px solid rgba(11, 19, 48, 0.42);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+  .filter-group.is-expanded .filter-group-chevron {
+    transform: rotate(-135deg);
+  }
+  .filter-group-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.22s ease;
+  }
+  .filter-group:not(.is-expanded) .filter-group-panel {
+    overflow: hidden;
+  }
+  .filter-group.is-expanded .filter-group-panel {
+    grid-template-rows: 1fr;
+    overflow: visible;
+  }
+  .filter-group-panel-inner {
+    min-height: 0;
+    overflow: hidden;
+    padding: 0;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.22s ease, padding 0.22s ease;
+  }
+  .filter-group.is-expanded .filter-group-panel-inner {
+    overflow: visible;
+    clip-path: none;
+    padding: 12px 8px 14px;
   }
   .filter-search {
     width: 100%;
@@ -1659,22 +2614,37 @@
     gap: 8px;
   }
   .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font: inherit;
     font-size: 13px;
     font-weight: 600;
-    padding: 8px 14px;
+    min-height: 35px;
+    padding: 5px 13px;
     border-radius: 999px;
-    border: 1px solid rgba(15, 56, 158, 0.16);
-    background: var(--paper);
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    background: #ffffff;
     color: var(--blue-800);
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 16px 38px -12px rgba(10, 40, 112, 0.72), 0 3px 10px -3px rgba(10, 40, 112, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
-  .filter-chip:hover { border-color: var(--blue-500); }
+  .filter-chip:hover {
+    transform: translateY(-1px);
+    background: #ffffff;
+    border-color: rgba(126, 167, 255, 0.95);
+    box-shadow: 0 18px 40px -12px rgba(10, 40, 112, 0.76), 0 4px 12px -3px rgba(10, 40, 112, 0.16);
+    color: var(--blue-800);
+  }
   .filter-chip.is-active {
-    background: var(--blue-600);
-    border-color: var(--blue-600);
-    color: var(--white);
+    background: #ffffff;
+    border: 2px solid var(--blue-600);
+    box-shadow: 0 0 0 3px rgba(21, 71, 209, 0.41), 0 18px 40px -12px rgba(10, 40, 112, 0.74), 0 4px 12px -3px rgba(10, 40, 112, 0.14);
+    color: var(--blue-800);
+  }
+  .filter-chip.is-active:hover {
+    box-shadow: 0 0 0 3px rgba(21, 71, 209, 0.41), 0 20px 42px -12px rgba(10, 40, 112, 0.78), 0 4px 12px -3px rgba(10, 40, 112, 0.16);
   }
   .filter-clear {
     width: 100%;
@@ -1690,19 +2660,66 @@
     cursor: pointer;
   }
   .filter-clear:hover { background: rgba(21, 71, 209, 0.08); }
-  .catalog-toolbar {
+  .catalog-banner {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 20px;
+    margin-bottom: clamp(28px, 4vw, 40px);
+    padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 36px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 50px -28px rgba(10, 40, 112, 0.58);
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
   }
-  .catalog-toolbar h2 {
+  .catalog-banner-copy {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    flex: 1 1 240px;
+  }
+  .catalog-banner .section-eyebrow {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 14px;
+  }
+  .catalog-banner-title {
     font-family: var(--font-display);
-    font-size: clamp(26px, 3vw, 36px);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: var(--white);
+    margin: 10px 0 8px;
+  }
+  .catalog-banner-title em {
+    font-style: normal;
+    color: #b9d0ff;
+  }
+  .catalog-banner .catalog-count {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 500;
+    margin: 0;
+  }
+  .catalog-banner .catalog-sort {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+  .catalog-banner .catalog-sort select {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: var(--white);
+    box-shadow: 0 10px 24px -16px rgba(10, 40, 112, 0.45);
+  }
+  .catalog-banner .catalog-sort select option {
     color: var(--ink);
-    letter-spacing: -0.02em;
+    background: var(--white);
   }
   .catalog-count {
     font-size: 14px;
@@ -1733,6 +2750,10 @@
     box-shadow: 0 14px 36px -28px rgba(10, 40, 112, 0.35);
     transition: transform 0.22s ease, box-shadow 0.22s ease;
   }
+  .product-card[hidden],
+  .product-card.is-filter-hidden {
+    display: none !important;
+  }
   .product-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 22px 44px -26px rgba(10, 40, 112, 0.42);
@@ -1741,7 +2762,7 @@
     height: 192px;
     display: grid;
     place-items: center;
-    background: linear-gradient(165deg, #eef3ff 0%, #fafbff 100%);
+    background: linear-gradient(165deg, var(--blue-300) 0%, var(--blue-200) 52%, var(--blue-100) 100%);
     padding: 12px;
   }
   .product-card-visual img {
@@ -1758,20 +2779,19 @@
     transform-origin: center center;
   }
 
-  .product-card-visual { position: relative; }
+  .product-card-visual { position: relative; overflow: hidden; }
 
   .product-card-visual::before {
     content: "";
     position: absolute;
-    left: 16px;
-    bottom: 14px;
-    width: 150px;
-    height: 150px;
+    left: -16px;
+    bottom: -14px;
+    width: 188px;
+    height: 188px;
     background: url("ao-nav-logo.png") left bottom / contain no-repeat;
-    opacity: 0.28;
+    opacity: 0.12;
     pointer-events: none;
     z-index: 1;
-    filter: drop-shadow(0 10px 18px rgba(10, 40, 112, 0.16));
   }
   .product-card-visual > img:not(.product-award-badge) {
     position: relative;
@@ -1919,37 +2939,12 @@
     max-width: 82px;
     max-height: 19px;
   }
-  .filter-chips[data-filter="brand"] .filter-chip[data-value="all"].is-active {
-    box-shadow: 0 13px 32px -10px rgba(10, 40, 112, 0.75), 0 3px 10px -3px rgba(10, 40, 112, 0.14);
-  }
-  .filter-chips[data-filter="brand"] .filter-chip[data-value="all"].is-active:hover {
-    box-shadow: 0 15px 34px -10px rgba(10, 40, 112, 0.8), 0 4px 12px -3px rgba(10, 40, 112, 0.18);
+  .filter-chips[data-filter="brand"] .filter-chip[data-value="all"] {
+    grid-column: 1 / -1;
+    justify-self: stretch;
   }
   .filter-chip.brand-filter-chip {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    min-height: 35px;
-    padding: 5px 13px;
-    border-radius: 999px;
-    background: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.58);
-    box-shadow: 0 16px 38px -12px rgba(10, 40, 112, 0.72), 0 3px 10px -3px rgba(10, 40, 112, 0.12);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-  .filter-chip.brand-filter-chip:hover {
-    transform: translateY(-1px);
-    background: #ffffff;
-    border-color: rgba(126, 167, 255, 0.95);
-    box-shadow: 0 18px 40px -12px rgba(10, 40, 112, 0.76), 0 4px 12px -3px rgba(10, 40, 112, 0.16);
-    color: var(--blue-800);
-  }
-  .filter-chip.brand-filter-chip.is-active {
-    background: #ffffff;
-    border: 2px solid var(--blue-600);
-    box-shadow: 0 0 0 3px rgba(21, 71, 209, 0.41), 0 18px 40px -12px rgba(10, 40, 112, 0.74), 0 4px 12px -3px rgba(10, 40, 112, 0.14);
-    color: var(--blue-800);
   }
   .filter-chips[data-filter="brand"] {
     display: grid;
@@ -1993,6 +2988,108 @@
     max-height: 26px;
     max-width: 73px;
   }
+  .filter-chips[data-filter="color"] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 8px;
+    row-gap: 9px;
+    align-items: stretch;
+  }
+  .filter-chips[data-filter="category"] {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 8px;
+    row-gap: 9px;
+    align-items: stretch;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="all"] {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="a4"] {
+    grid-column: 1 / span 2;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="legal"] {
+    grid-column: 3 / span 2;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="a3"] {
+    grid-column: 5 / span 2;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="printer"] {
+    grid-column: 1 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="mfp"] {
+    grid-column: 4 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="production"] {
+    grid-column: 1 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="large-format"] {
+    grid-column: 4 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="mailing"] {
+    grid-column: 1 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="folder-inserters"] {
+    grid-column: 4 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="cutters"] {
+    grid-column: 1 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="shredders"] {
+    grid-column: 4 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="scanners"] {
+    grid-column: 1 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="category"] .filter-chip[data-value="more"] {
+    grid-column: 4 / span 3;
+    width: 100%;
+  }
+  .filter-chips[data-filter="color"] .filter-chip[data-value="all"] {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+  .filter-chips[data-filter="speed"] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 8px;
+    row-gap: 9px;
+    align-items: stretch;
+  }
+  .filter-chips[data-filter="speed"] .filter-chip[data-value="all"] {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+  .filter-chips[data-filter="speed"] .filter-chip {
+    width: 100%;
+  }
+  .filter-chips[data-filter="color"] .colour-filter-chip {
+    width: 100%;
+    gap: 8px;
+  }
+  .filter-chip .colour-filter-symbol {
+    display: block;
+    width: auto;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
   .product-card h3 {
     font-family: var(--font-display);
     font-size: 16px;
@@ -2021,40 +3118,56 @@
     flex-wrap: wrap;
     gap: 8px;
   }
-  .product-card-actions .btn-view-details {
+  .product-card-actions .btn-view-details,
+  .category-card-body .btn-view-details {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    min-height: 58px;
-    padding: 12px 76px 12px 24px;
+    min-height: 46px;
+    margin-top: 14px;
+    padding: 10px 52px 10px 18px;
     border-radius: 999px;
-    background: rgba(243, 247, 255, 0.98);
+    background: #fff;
     color: var(--blue-900);
-    border: 1px solid rgba(255, 255, 255, 0.58);
-    box-shadow: 0 16px 36px -22px rgba(10, 40, 112, 0.5);
-    font-size: 17px;
+    border: 1px solid rgba(15, 56, 158, 0.08);
+    box-shadow:
+      0 2px 6px rgba(10, 40, 112, 0.08),
+      0 10px 24px -8px rgba(10, 40, 112, 0.28),
+      0 18px 40px -16px rgba(10, 40, 112, 0.22);
+    font-size: 14px;
     font-weight: 800;
     text-decoration: none;
     letter-spacing: 0.01em;
     transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
   }
-  .product-card-actions .btn-view-details::after {
+  .product-card-actions .btn-view-details::after,
+  .category-card-body .btn-view-details::after {
     content: "";
     position: absolute;
-    right: 8px;
+    right: 6px;
     top: 50%;
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
     border-radius: 999px;
     transform: translateY(-50%);
     background: var(--blue-600) var(--cta-pill-chevron-white) calc(50% + 2px) 50% / 50% auto no-repeat;
+    transition: background-color 0.22s ease, transform 0.22s ease;
   }
-  .product-card-actions .btn-view-details:hover {
+  .product-card-actions .btn-view-details:hover,
+  .category-card:hover .category-card-body .btn-view-details {
     transform: translateY(-1px);
     background: #fff;
-    box-shadow: 0 22px 44px -26px rgba(10, 40, 112, 0.62);
+    color: var(--blue-900);
+    box-shadow:
+      0 4px 10px rgba(10, 40, 112, 0.1),
+      0 14px 32px -8px rgba(10, 40, 112, 0.34),
+      0 24px 48px -14px rgba(10, 40, 112, 0.28);
+  }
+  .product-card-actions .btn-view-details:hover::after,
+  .category-card:hover .category-card-body .btn-view-details::after {
+    background-color: var(--blue-700);
   }
   .product-card-actions .btn-quote {
     flex: 1;
@@ -2116,6 +3229,10 @@
   }
   @media (max-width: 980px) {
     .products-hero-grid { grid-template-columns: 1fr; }
+    .products-hero-visual {
+      transform: none;
+      margin: 0 auto;
+    }
     .catalog-layout {
       display: block;
     }
@@ -2157,14 +3274,15 @@
     color: inherit;
     margin-bottom: 20px;
   }
-  body.products-page .products-categories h2,
-  body.products-page .catalog-toolbar h2 {
-    color: inherit;
-    margin-bottom: 14px;
+  body.products-page .catalog-banner-title {
+    color: var(--white);
+    margin-bottom: 0;
   }
   .products-hero .section-eyebrow {
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 0;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 14px;
   }
   .products-hero-actions .cta.cta-primary.cta-pill-arrow,
   .products-hero-actions .btn-ghost {
@@ -2180,14 +3298,26 @@
     height: 36px;
     right: 6px;
   }
-  .products-hero::after {
-    background-position: right -20px bottom -30px;
-    background-size: min(420px, 70vw);
-    opacity: 0.08;
-  }
   @media (max-width: 900px) {
-    .products-hero::after { display: none; }
-    .products-hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .products-hero-visual {
+      min-height: clamp(240px, 52vw, 340px);
+      width: min(100%, 420px);
+    }
+    .products-hero-visual-back {
+      right: 6%;
+      bottom: 52px;
+      width: min(88%, 357px);
+    }
+    .products-hero-visual-mid {
+      left: -18%;
+      bottom: -32px;
+      width: min(44%, 180px);
+    }
+    .products-hero-visual-front {
+      left: 20%;
+      bottom: 4px;
+      width: min(83%, 322px);
+    }
   }
   .products-catalog > .container {
     position: relative;
@@ -2197,10 +3327,6 @@
   }
   .catalog-main {
     min-width: 0;
-  }
-  .catalog-toolbar > div:first-child {
-    min-width: 0;
-    flex: 1 1 200px;
   }
   .product-grid {
     width: 100%;
@@ -2499,96 +3625,11 @@ html { background-color: #ffffff; }
   .pt-scan-bar { display: none !important; }
   html { background-color: transparent; }
 }
-/* Final CTA banner animation synced with homepage */
-.cta-section {
-  --cta-letter-bg-size: 159%;
-  --cta-letter-bg-y: 44%;
-  --cta-letter-x: -0.75%;
-  --cta-letter-rotate: -13deg;
-  --cta-letter-scale: 1.16;
-  --cta-watermark-left: 66%;
-  --cta-watermark-scale: 1;
-}
-.cta-section::after {
-  inset: -16% -12%;
-  background-size: var(--cta-letter-bg-size) auto;
-  background-position: left var(--cta-letter-bg-y);
-  transform: translate3d(var(--cta-letter-x), 0, 0) rotate(var(--cta-letter-rotate)) scale(var(--cta-letter-scale));
-  transform-origin: 28% 50%;
-}
-.cta-watermark {
-  left: var(--cta-watermark-left);
-  transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
-}
-
-/* ---------- CANON-SYNCED SHARED CTA / FOOTER ---------- */
-.cta-section .cta-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.cta-section .cta-contact-bar {
-  margin: 26px auto 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(6, 26, 74, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.cta-section .cta-contact-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.92);
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-.cta-section .cta-contact-icon:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-}
-.cta-section .cta-contact-icon svg {
-  width: 22px;
-  height: 22px;
-}
-.cta-section .cta-contact-phone {
-  color: rgba(255, 255, 255, 0.94);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-}
-.cta-section .cta-contact-phone:hover { color: #b9d0ff; }
-.cta-section .cta-contact-divider {
-  width: 1px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.18);
-  flex-shrink: 0;
-}
-@media (max-width: 560px) {
-  .cta-section .cta-contact-bar {
-    gap: 10px;
-    padding: 8px 10px;
-  }
-  .cta-section .cta-contact-divider { height: 18px; }
-  }
 
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
+<link rel="stylesheet" href="automation-one-cta.css">
 </head>
 <body class="products-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -2627,22 +3668,43 @@ html { background-color: #ffffff; }
   </nav>
 </header>
 
-<section class="products-hero">
+<section class="products-hero is-hero-intro-pending">
+  <img class="products-hero-watermark" src="ao-nav-logo-ffffff.png" width="416" height="288" alt="" aria-hidden="true" decoding="async" />
   <div class="container">
     <div class="products-hero-grid">
       <div>
         <span class="section-eyebrow">Products &amp; Solutions</span>
-        <h1>Commercial &amp; business printers for <em>Vancouver</em></h1>
-        <p class="products-hero-lead">Authorized Canon, Xerox, Lexmark, Francotyp Postalia, and Ideal.MBM dealer since 1981. Find the right device by category, brand, speed, or colour—then talk to a local specialist who knows your workflow.</p>
+        <h1>The right fit for your business.</h1>
+        <p class="products-hero-lead">Authorized Canon, Xerox, Lexmark, Francotyp Postalia, and Ideal.MBM dealer. Discover what we have to offer by brand, or office equipment category. See below for our catalogue.</p>
         <div class="products-hero-actions">
-          <a href="#catalog" class="cta cta-primary cta-pill-arrow">Browse Catalogue</a>
+          <a href="#catalog" class="cta cta-primary cta-pill-arrow">Skip to Catalogue</a>
         </div>
       </div>
-      <div class="products-hero-stats">
-        <div class="products-stat"><strong>190+</strong><span>Models from leading brands</span></div>
-        <div class="products-stat"><strong>5</strong><span>Authorized manufacturer partners</span></div>
-        <div class="products-stat"><strong>44+</strong><span>Years serving Metro Vancouver</span></div>
-        <div class="products-stat"><strong>Local</strong><span>Install, service &amp; toner support</span></div>
+      <div class="products-hero-visual" aria-label="Commercial printers">
+        <img
+          class="products-hero-visual-back"
+          src="products-hero-wide-format-printer.png?v=9"
+          alt="Canon PRO-4600S wide-format printer"
+          width="720"
+          height="541"
+          decoding="async"
+        />
+        <img
+          class="products-hero-visual-mid"
+          src="postbase-mailing-solutions.png"
+          alt="Francotyp Postalia postage meter"
+          width="580"
+          height="580"
+          decoding="async"
+        />
+        <img
+          class="products-hero-visual-front"
+          src="products-hero-xerox-altalink.png?v=1"
+          alt="Xerox AltaLink multifunction printer"
+          width="599"
+          height="457"
+          decoding="async"
+        />
       </div>
     </div>
   </div>
@@ -2671,61 +3733,129 @@ html { background-color: #ffffff; }
   </div>
 </section>
 
+<section class="products-proof" aria-label="Why Automation One">
+  <div class="container">
+    <div class="products-proof-head">
+      <span class="section-eyebrow">Why Automation One</span>
+      <h2>The local team Vancouver offices <em>actually trust.</em></h2>
+      <p>Independent. Multi-brand. Locally owned. We don't sell you the device the rep had on quota — we match the right fit, then stand behind it.</p>
+    </div>
+    <div class="proof-grid proof-grid--brands">
+      <a class="proof-card proof-card--brand" href="automation-one-canon.html" aria-label="Canon products">
+        <span class="proof-brand-photo">
+          <img src="canon-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--canon" src="brand-logo-canon.png" alt="Canon" loading="lazy" decoding="async" />
+        <span class="proof-brand-cta">Discover More</span>
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-xerox.html" aria-label="Xerox products">
+        <span class="proof-brand-photo">
+          <img src="xerox-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--xerox" src="brand-logo-xerox.png" alt="Xerox" loading="lazy" decoding="async" />
+        <span class="proof-brand-cta">Discover More</span>
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-lexmark.html" aria-label="Lexmark products">
+        <span class="proof-brand-photo">
+          <img src="lexmark-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--lexmark" src="brand-logo-lexmark.png" alt="Lexmark" loading="lazy" decoding="async" />
+        <span class="proof-brand-cta">Discover More</span>
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-fp.html" aria-label="Francotyp Postalia products">
+        <span class="proof-brand-photo">
+          <img src="fp-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--fp" src="brand-logo-fp.png" alt="Francotyp Postalia" loading="lazy" decoding="async" />
+        <span class="proof-brand-cta">Discover More</span>
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-ideal-mbm.html" aria-label="Ideal.MBM products">
+        <span class="proof-brand-photo">
+          <img src="ideal-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--ideal" src="brand-logo-ideal.png" alt="Ideal.MBM" loading="lazy" decoding="async" />
+        <span class="proof-brand-cta">Discover More</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="products-categories" id="categories">
   <div class="container">
     <div class="section-head-inline">
       <span class="section-eyebrow">Find your perfect fit</span>
-      <h2>Every category your office depends on</h2>
+      <h2>Every category your office <em>depends on</em>.</h2>
       <p>From everyday multifunction devices to production presses, mailroom equipment, and secure shredding—curated for Vancouver businesses.</p>
     </div>
     <div class="category-grid">
       <a class="category-card" href="#catalog" data-filter-category="office-printers">
         <div class="category-card-visual"><img src="lexmark-office-printer.png" alt="" /></div>
-        <div class="category-card-body"><h3>Office Printers</h3><p>Reliable laser printers for everyday document output.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-body"><h3>Printers</h3><p>Reliable laser printers for everyday document output.</p><span class="btn-view-details">View Devices</span></div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="multifunction">
         <div class="category-card-visual"><img src="imageforce-c5100.png" alt="" /></div>
-        <div class="category-card-body"><h3>Multifunction Printers</h3><p>Print, copy, scan, and fax in one connected device.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-body"><h3>Multifunction</h3><p>Print, copy, scan, and fax in one connected device.</p><span class="btn-view-details">View Devices</span></div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="mono" data-filter-by="color">
-        <div class="category-card-visual"><img src="lexmark-office-printer.png" alt="" /></div>
-        <div class="category-card-body"><h3>Monochrome Printers</h3><p>Cost-efficient black-and-white printing for high-volume text.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-visual"><img src="xerox-altalink-c8230-main-transparent.png" alt="" /></div>
+        <div class="category-card-body">
+          <div class="category-card-title-row">
+            <h3>Monochrome (BW)</h3>
+            <span class="category-colour-symbol" aria-hidden="true"><img src="catalog-symbol-mono.png" alt="" decoding="async" /></span>
+          </div>
+          <p>Cost-efficient black-and-white printing for high-volume text.</p><span class="btn-view-details">View Devices</span>
+        </div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="colour" data-filter-by="color">
-        <div class="category-card-visual"><img src="imageforce-c5100.png" alt="" /></div>
-        <div class="category-card-body"><h3>Colour Printers</h3><p>Vivid colour for client-facing materials and marketing.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-visual"><img src="canon-color-imagerunner-c3326i-transparent.png" alt="" /></div>
+        <div class="category-card-body">
+          <div class="category-card-title-row">
+            <h3>Colour</h3>
+            <span class="category-colour-symbol" aria-hidden="true"><img src="catalog-symbol-colour.png" alt="" decoding="async" /></span>
+          </div>
+          <p>Vivid colour for client-facing materials and marketing.</p><span class="btn-view-details">View Devices</span>
+        </div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="production">
-        <div class="category-card-visual"><img src="canon-iprc910-production.png" alt="" /></div>
-        <div class="category-card-body"><h3>Production print</h3><p>High-volume colour and graphic production systems.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-visual category-card-visual--production"><img src="canon-iprc910-production.png" alt="" /></div>
+        <div class="category-card-body"><h3>Production</h3><p>High-volume colour and graphic production systems.</p><span class="btn-view-details">View Devices</span></div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="large-format">
-        <div class="category-card-visual"><img src="canon-large-format-printer.png" alt="" /></div>
-        <div class="category-card-body"><h3>Large format</h3><p>Technical, CAD, and wide-format output.</p><span class="category-card-cta">View devices →</span></div>
-      </a>
-      <a class="category-card" href="#catalog" data-filter-category="scanners">
-        <div class="category-card-visual"><img src="document-scanners-transparent.png" alt="" /></div>
-        <div class="category-card-body"><h3>Document scanners</h3><p>Digitize archives and automate capture workflows.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-visual category-card-visual--wide-format"><img src="canon-large-format-printer.png" alt="" /></div>
+        <div class="category-card-body"><h3>Wide-Format</h3><p>Technical, CAD, and wide-format output.</p><span class="btn-view-details">View Devices</span></div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="mailing">
         <div class="category-card-visual"><img src="postbase-mailing-solutions.png" alt="" /></div>
-        <div class="category-card-body"><h3>Mailing solutions</h3><p>Postage meters and outbound mail automation.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-body"><h3>Postage Meters</h3><p>Outbound mail automation with metered postage.</p><span class="btn-view-details">View Devices</span></div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="folder-inserters">
         <div class="category-card-visual"><img src="folder-inserter-transparent.png" alt="" /></div>
-        <div class="category-card-body"><h3>Folder inserters</h3><p>Fold, insert, and seal at mailroom speed.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-body"><h3>Folder Inserters</h3><p>Fold, insert, and seal at mailroom speed.</p><span class="btn-view-details">View Devices</span></div>
+      </a>
+      <a class="category-card" href="#catalog" data-filter-category="cutters">
+        <div class="category-card-visual"><img src="triumph-6655-cutter-transparent.png" alt="" /></div>
+        <div class="category-card-body"><h3>Cutters</h3><p>Precise paper cutting for office, print room, and production finishing.</p><span class="btn-view-details">View Devices</span></div>
       </a>
       <a class="category-card" href="#catalog" data-filter-category="shredders">
         <div class="category-card-visual"><img src="ideal-shredder-product.png" alt="" /></div>
-        <div class="category-card-body"><h3>Shredders</h3><p>Secure destruction for compliance and privacy.</p><span class="category-card-cta">View devices →</span></div>
+        <div class="category-card-body"><h3>Shredders</h3><p>Secure destruction for compliance and privacy.</p><span class="btn-view-details">View Devices</span></div>
       </a>
-      <a class="category-card" href="#catalog" data-filter-category="home-office">
-        <div class="category-card-visual"><img src="xerox-home-office-transparent.png" alt="" /></div>
-        <div class="category-card-body"><h3>Home &amp; small office</h3><p>Compact devices without compromising capability.</p><span class="category-card-cta">View devices →</span></div>
+      <a class="category-card" href="#catalog" data-filter-category="scanners">
+        <div class="category-card-visual"><img src="document-scanners-transparent.png" alt="" /></div>
+        <div class="category-card-body"><h3>Document Scanners</h3><p>Digitize archives and automate capture workflows.</p><span class="btn-view-details">View Devices</span></div>
       </a>
-      <a class="category-card" href="#catalog" data-filter-category="digital">
-        <div class="category-card-visual"><img src="digital-solutions-logos-transparent.png" alt="" /></div>
-        <div class="category-card-body"><h3>Digital solutions</h3><p>Workflow, cloud print, and document management.</p><span class="category-card-cta">View devices →</span></div>
+      <a class="category-card" href="automation-one-digital-solutions.html">
+        <div class="category-card-visual category-card-visual--digital-solutions" aria-hidden="true">
+          <div class="digital-solutions-cloud">
+            <span class="digital-logo-orb digital-logo-orb--uniflow"><img src="solution-brochures/digital-logos/uniflow-crop.png" alt="" decoding="async" /></span>
+            <span class="digital-logo-orb digital-logo-orb--pharos"><img src="solution-brochures/digital-logos/pharos-uniprint-crop.png" alt="" decoding="async" /></span>
+            <span class="digital-logo-orb digital-logo-orb--vera"><img src="solution-brochures/digital-logos/vera-crop.png" alt="" decoding="async" /></span>
+            <span class="digital-logo-orb digital-logo-orb--therefore"><img src="solution-brochures/digital-logos/therefore-crop.png" alt="" decoding="async" /></span>
+            <span class="digital-logo-orb digital-logo-orb--kofax"><img src="solution-brochures/digital-logos/kofax-capture-crop.png" alt="" decoding="async" /></span>
+            <span class="digital-logo-orb digital-logo-orb--more"><span>&amp; More</span></span>
+          </div>
+        </div>
+        <div class="category-card-body"><h3>Digital Solutions</h3><p>Workflow, cloud print, and document management.</p><span class="btn-view-details">View Solutions</span></div>
       </a>
     </div>
   </div>
@@ -2736,73 +3866,566 @@ html { background-color: #ffffff; }
   <div class="container">
     <button type="button" class="filter-toggle-mobile" id="filter-toggle" aria-expanded="false">Filters &amp; search</button>
     <div class="filters-backdrop" id="filters-backdrop" aria-hidden="true"></div>
+    <div class="catalog-banner">
+      <div class="catalog-banner-copy">
+        <span class="section-eyebrow">Browse &amp; refine</span>
+        <h2 class="catalog-banner-title">Catalogue</h2>
+        <p class="catalog-count" id="catalog-count">Showing 80 devices</p>
+      </div>
+      <div class="catalog-sort">
+        <label>
+          <span class="visually-hidden">Sort</span>
+          <select id="catalog-sort" aria-label="Sort products">
+            <option value="name">Name A–Z</option>
+            <option value="brand">Brand</option>
+          </select>
+        </label>
+      </div>
+    </div>
     <div class="catalog-layout">
       <aside class="catalog-filters" id="catalog-filters" aria-label="Filter products">
         <h3>Refine results</h3>
         <input type="search" class="filter-search" id="product-search" placeholder="Search by model name…" autocomplete="off" />
-        <div class="filter-group">
-          <span class="filter-group-label">Brand</span>
-          <div class="filter-chips" data-filter="brand">
+        <div class="filter-group is-expanded">
+          <button type="button" class="filter-group-toggle" aria-expanded="true">
+            <span class="filter-group-label">Brand</span>
+            <span class="filter-group-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="filter-group-panel">
+            <div class="filter-group-panel-inner">
+              <div class="filter-chips" data-filter="brand">
             <button type="button" class="filter-chip is-active" data-value="all">All</button>
             <button type="button" class="filter-chip brand-filter-chip" data-value="canon" aria-label="Canon"><img class="brand-logo-img" src="brand-logo-canon.png" alt="Canon" /></button>
             <button type="button" class="filter-chip brand-filter-chip" data-value="xerox" aria-label="Xerox"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></button>
             <button type="button" class="filter-chip brand-filter-chip" data-value="lexmark" aria-label="Lexmark"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></button>
             <button type="button" class="filter-chip brand-filter-chip" data-value="fp" aria-label="FP"><img class="brand-logo-img" src="brand-logo-fp.png?v=2" alt="FP" /></button>
             <button type="button" class="filter-chip brand-filter-chip" data-value="ideal" aria-label="Ideal.MBM"><img class="brand-logo-img" src="brand-logo-ideal.png?v=7" alt="Ideal.MBM" /></button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="filter-group">
-          <span class="filter-group-label">Category</span>
-          <div class="filter-chips" data-filter="category">
+        <div class="filter-group is-expanded">
+          <button type="button" class="filter-group-toggle" aria-expanded="true">
+            <span class="filter-group-label">Category</span>
+            <span class="filter-group-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="filter-group-panel">
+            <div class="filter-group-panel-inner">
+              <div class="filter-chips" data-filter="category">
             <button type="button" class="filter-chip is-active" data-value="all">All</button>
-            <button type="button" class="filter-chip" data-value="office">Office</button>
-            <button type="button" class="filter-chip" data-value="production">Production</button>
-            <button type="button" class="filter-chip" data-value="large-format">Large format</button>
-            <button type="button" class="filter-chip" data-value="scanners">Scanners</button>
-            <button type="button" class="filter-chip" data-value="mailing">Mailing</button>
-            <button type="button" class="filter-chip" data-value="shredders">Shredders</button>
-            <button type="button" class="filter-chip" data-value="home-office">Small office</button>
+            <button type="button" class="filter-chip" data-value="a4" data-category-kind="media">A4</button>
+            <button type="button" class="filter-chip" data-value="legal" data-category-kind="media">Legal</button>
+            <button type="button" class="filter-chip" data-value="a3" data-category-kind="media">A3</button>
+            <button type="button" class="filter-chip" data-value="printer" data-category-kind="type">Printers</button>
+            <button type="button" class="filter-chip" data-value="mfp" data-category-kind="type">Multifunction</button>
+            <button type="button" class="filter-chip" data-value="production" data-category-kind="segment">Production</button>
+            <button type="button" class="filter-chip" data-value="large-format" data-category-kind="segment">Wide-Format</button>
+            <button type="button" class="filter-chip" data-value="mailing" data-category-kind="segment">Postage Meters</button>
+            <button type="button" class="filter-chip" data-value="folder-inserters" data-category-kind="segment">Folder-Inserters</button>
+            <button type="button" class="filter-chip" data-value="cutters" data-category-kind="segment">Cutters</button>
+            <button type="button" class="filter-chip" data-value="shredders" data-category-kind="segment">Shredders</button>
+            <button type="button" class="filter-chip" data-value="scanners" data-category-kind="segment">Scanners</button>
+            <button type="button" class="filter-chip" data-value="more" data-category-kind="segment">More</button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="filter-group">
-          <span class="filter-group-label">Colour</span>
-          <div class="filter-chips" data-filter="color">
+        <div class="filter-group is-expanded">
+          <button type="button" class="filter-group-toggle" aria-expanded="true">
+            <span class="filter-group-label">Colour</span>
+            <span class="filter-group-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="filter-group-panel">
+            <div class="filter-group-panel-inner">
+              <div class="filter-chips" data-filter="color">
             <button type="button" class="filter-chip is-active" data-value="all">All</button>
-            <button type="button" class="filter-chip" data-value="colour">Colour</button>
-            <button type="button" class="filter-chip" data-value="mono">Monochrome</button>
+            <button type="button" class="filter-chip colour-filter-chip" data-value="mono" aria-label="BW">
+              <img class="colour-filter-symbol" src="catalog-symbol-mono.png" alt="" aria-hidden="true" />
+              <span>BW</span>
+            </button>
+            <button type="button" class="filter-chip colour-filter-chip" data-value="colour" aria-label="Colour">
+              <img class="colour-filter-symbol" src="catalog-symbol-colour.png" alt="" aria-hidden="true" />
+              <span>Colour</span>
+            </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="filter-group">
-          <span class="filter-group-label">Print speed</span>
-          <div class="filter-chips" data-filter="speed">
+        <div class="filter-group is-expanded">
+          <button type="button" class="filter-group-toggle" aria-expanded="true">
+            <span class="filter-group-label">Print speed</span>
+            <span class="filter-group-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="filter-group-panel">
+            <div class="filter-group-panel-inner">
+              <div class="filter-chips" data-filter="speed">
             <button type="button" class="filter-chip is-active" data-value="all">Any</button>
-            <button type="button" class="filter-chip" data-value="21-35">21–35 ppm</button>
-            <button type="button" class="filter-chip" data-value="36-45">36–45 ppm</button>
-            <button type="button" class="filter-chip" data-value="46-55">46–55 ppm</button>
-            <button type="button" class="filter-chip" data-value="56-75">56–75 ppm</button>
-            <button type="button" class="filter-chip" data-value="76+">76+ ppm</button>
+            <button type="button" class="filter-chip" data-value="up-to-34">&le; 34 ppm</button>
+            <button type="button" class="filter-chip" data-value="35-54">35 to 54 ppm</button>
+            <button type="button" class="filter-chip" data-value="55-74">55 to 74 ppm</button>
+            <button type="button" class="filter-chip" data-value="75-plus">&ge; 75 ppm</button>
+              </div>
+            </div>
           </div>
         </div>
         <button type="button" class="filter-clear" id="filter-clear">Clear all filters</button>
       </aside>
       <div class="catalog-main">
-        <div class="catalog-toolbar">
-          <div>
-            <h2>Featured equipment</h2>
-            <p class="catalog-count" id="catalog-count">Showing 46 devices</p>
-          </div>
-          <div class="catalog-sort">
-            <label>
-              <span class="visually-hidden">Sort</span>
-              <select id="catalog-sort" aria-label="Sort products">
-                <option value="name">Name A–Z</option>
-                <option value="brand">Brand</option>
-              </select>
-            </label>
-          </div>
+        <div class="active-filters" id="active-filters" aria-label="Active filters">
+          <span class="active-filters-label">Filtered by</span>
+          <div class="active-filters-list" id="active-filters-list"></div>
+          <button type="button" class="active-filters-clear" id="active-filters-clear">Clear all</button>
         </div>
         <div class="product-grid" id="product-grid">
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="56-75" data-name="xerox altalink c8270">
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="mono" data-speed="75-plus" data-name="xerox primelink b9136">
+        <div class="product-card-visual">
+          <img src="xerox-primelink-b9100-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>PrimeLink<span class="reg-mark">®</span> B9136</h3>
+          <p class="product-card-spec">A3+ | 136 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9136.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="mono" data-speed="75-plus" data-name="xerox primelink b9125">
+        <div class="product-card-visual">
+          <img src="xerox-primelink-b9100-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>PrimeLink<span class="reg-mark">®</span> B9125</h3>
+          <p class="product-card-spec">A3+ | 125 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9125.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="mono" data-speed="75-plus" data-name="xerox primelink b9110">
+        <div class="product-card-visual">
+          <img src="xerox-primelink-b9100-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>PrimeLink<span class="reg-mark">®</span> B9110</h3>
+          <p class="product-card-spec">A3+ | 110 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9110.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="mono" data-speed="75-plus" data-name="xerox primelink b9100">
+        <div class="product-card-visual">
+          <img src="xerox-primelink-b9100-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>PrimeLink<span class="reg-mark">®</span> B9100</h3>
+          <p class="product-card-spec">A3+ | 100 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9100.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="colour" data-speed="75-plus" data-name="xerox primelink c9281">
+        <div class="product-card-visual">
+          <img src="xerox-primelink-c9265-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>PrimeLink<span class="reg-mark">®</span> C9281</h3>
+          <p class="product-card-spec">A3+ | 81 ppm BW | 81 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-primelink-c9281.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="colour" data-speed="75-plus" data-name="xerox primelink c9275">
+        <div class="product-card-visual">
+          <img src="xerox-primelink-c9265-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>PrimeLink<span class="reg-mark">®</span> C9275</h3>
+          <p class="product-card-spec">A3+ | 75 ppm BW | 75 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-primelink-c9275.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="colour" data-speed="55-74" data-name="xerox primelink c9265">
+        <div class="product-card-visual">
+          <img src="xerox-primelink-c9265-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>PrimeLink<span class="reg-mark">®</span> C9265</h3>
+          <p class="product-card-spec">A3+ | 65 ppm BW | 65 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-primelink-c9265.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="printer" data-brand="lexmark" data-category="office" data-color="mono" data-speed="55-74" data-name="lexmark m5270">
+        <div class="product-card-visual">
+          <img src="lexmark-m5270-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>M5270</h3>
+          <p class="product-card-spec">A4/Legal | 70 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-m5270.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="mono" data-speed="55-74" data-name="lexmark xm7370">
+        <div class="product-card-visual">
+          <img src="lexmark-xm7355-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>XM7370</h3>
+          <p class="product-card-spec">A4/Legal | 70 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xm7370.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="mono" data-speed="55-74" data-name="lexmark xm7355">
+        <div class="product-card-visual">
+          <img src="lexmark-xm7355-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>XM7355</h3>
+          <p class="product-card-spec">A4/Legal | 55 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xm7355.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="mono" data-speed="55-74" data-name="lexmark xm5365">
+        <div class="product-card-visual">
+          <img src="lexmark-xm5365-main.png?v=2" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>XM5365</h3>
+          <p class="product-card-spec">A4/Legal | 65 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xm5365.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="printer" data-brand="lexmark" data-category="office" data-color="mono" data-speed="55-74" data-name="lexmark m5255">
+        <div class="product-card-visual">
+          <img src="lexmark-m5255-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>M5255</h3>
+          <p class="product-card-spec">A4/Legal | 55 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-m5255.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="mono" data-speed="35-54" data-name="lexmark xm3350br">
+        <div class="product-card-visual">
+          <img src="lexmark-xm3350-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>XM3350BR</h3>
+          <p class="product-card-spec">A4 | 50 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xm3350br.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4" class="product-card" data-product-type="printer" data-brand="lexmark" data-category="office" data-color="mono" data-speed="35-54" data-name="lexmark m3350">
+        <div class="product-card-visual">
+          <img src="lexmark-m3350-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>M3350</h3>
+          <p class="product-card-spec">A4 | 50 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-m3350.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="printer" data-brand="lexmark" data-category="office" data-color="colour" data-speed="35-54" data-name="lexmark c4342">
+        <div class="product-card-visual">
+          <img src="lexmark-c4342-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>C4342</h3>
+          <p class="product-card-spec">A4/Legal | 42 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-c4342.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="colour" data-speed="35-54" data-name="lexmark xc4342">
+        <div class="product-card-visual">
+          <img src="lexmark-xc4342-main.png?v=4" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>XC4342</h3>
+          <p class="product-card-spec">A4/Legal | 42 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xc4342.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="printer" data-brand="lexmark" data-category="office" data-color="colour" data-speed="35-54" data-name="lexmark c4352">
+        <div class="product-card-visual">
+          <img src="lexmark-c4352-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>C4352</h3>
+          <p class="product-card-spec">A4/Legal | 52 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-c4352.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="colour" data-speed="35-54" data-name="lexmark xc4352">
+        <div class="product-card-visual">
+          <img src="lexmark-xc4352-main.png?v=4" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>XC4352</h3>
+          <p class="product-card-spec">A4/Legal | 52 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xc4352.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="colour" data-speed="35-54" data-name="lexmark xc2335">
+        <div class="product-card-visual">
+          <img src="lexmark-xc2335-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>XC2335</h3>
+          <p class="product-card-spec">A4/Legal | 35 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xc2335.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="colour" data-speed="up-to-34" data-name="lexmark xc2326">
+        <div class="product-card-visual">
+          <img src="lexmark-xc2326-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>XC2326</h3>
+          <p class="product-card-spec">A4/Legal | 26 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xc2326.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="mono" data-speed="35-54" data-name="lexmark xm1342">
+        <div class="product-card-visual">
+          <img src="lexmark-xm1342-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>XM1342</h3>
+          <p class="product-card-spec">A4 | 42 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xm1342.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="lexmark" data-category="office" data-color="mono" data-speed="35-54" data-name="lexmark xm3142">
+        <div class="product-card-visual">
+          <img src="lexmark-xm3142-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>XM3142</h3>
+          <p class="product-card-spec">A4 | 42 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-xm3142.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a4" class="product-card" data-product-type="printer" data-brand="lexmark" data-category="office" data-color="mono" data-speed="35-54" data-name="lexmark m1342">
+        <div class="product-card-visual">
+          <img src="lexmark-m1342-main.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-lexmark.png?v=2" alt="Lexmark" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>M1342</h3>
+          <p class="product-card-spec">A4 | 42 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-lexmark-m1342.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="55-74" data-name="xerox altalink c8170">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8170</h3>
+          <p class="product-card-spec">A3 | 70 ppm BW | 70 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8170.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="55-74" data-name="xerox altalink c8155">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8155</h3>
+          <p class="product-card-spec">A3 | 55 ppm BW | 55 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8155.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="35-54" data-name="xerox altalink c8145">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8145</h3>
+          <p class="product-card-spec">A3 | 45 ppm BW | 45 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8145.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="35-54" data-name="xerox altalink c8135">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8135</h3>
+          <p class="product-card-spec">A3 | 35 ppm BW | 35 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8135.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="up-to-34" data-name="xerox altalink c8130">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-colour.png" alt="Colour" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> C8130</h3>
+          <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8130.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="55-74" data-name="xerox altalink c8270">
         <div class="product-card-visual">
           <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2818,7 +4441,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="46-55" data-name="xerox altalink c8255">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="55-74" data-name="xerox altalink c8255">
         <div class="product-card-visual">
           <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2834,7 +4457,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="36-45" data-name="xerox altalink c8245">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="35-54" data-name="xerox altalink c8245">
         <div class="product-card-visual">
           <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2850,7 +4473,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox altalink c8235">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="35-54" data-name="xerox altalink c8235">
         <div class="product-card-visual">
           <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2866,7 +4489,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox altalink c8230">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="up-to-34" data-name="xerox altalink c8230">
         <div class="product-card-visual">
           <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2882,7 +4505,103 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="21-35" data-name="xerox versalink b7135">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="35-54" data-name="xerox altalink b8145">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> B8145</h3>
+          <p class="product-card-spec">A3 | 45 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8145.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="55-74" data-name="xerox altalink b8155">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> B8155</h3>
+          <p class="product-card-spec">A3 | 55 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8155.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="55-74" data-name="xerox altalink b8170">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> B8170</h3>
+          <p class="product-card-spec">A3 | 72 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8170.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="35-54" data-name="xerox altalink b8245">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> B8245</h3>
+          <p class="product-card-spec">A3 | 45 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8245.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="55-74" data-name="xerox altalink b8255">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> B8255</h3>
+          <p class="product-card-spec">A3 | 55 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8255.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="55-74" data-name="xerox altalink b8270">
+        <div class="product-card-visual">
+          <img src="xerox-altalink-c8230-main-transparent.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img class="brand-logo-img" src="brand-logo-xerox.png" alt="Xerox" /></span>
+            <span class="product-colour-symbol"><img src="catalog-symbol-mono.png" alt="Monochrome" /></span>
+          </div>
+          <h3>AltaLink<span class="reg-mark">®</span> B8270</h3>
+          <p class="product-card-spec">A3 | 72 ppm</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8270.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="35-54" data-name="xerox versalink b7135">
         <div class="product-card-visual">
           <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2898,7 +4617,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="21-35" data-name="xerox versalink b7130">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="up-to-34" data-name="xerox versalink b7130">
         <div class="product-card-visual">
           <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2914,7 +4633,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="21-35" data-name="xerox versalink b7125">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="mono" data-speed="up-to-34" data-name="xerox versalink b7125">
         <div class="product-card-visual">
           <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2930,7 +4649,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox versalink c7130">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="up-to-34" data-name="xerox versalink c7130">
         <div class="product-card-visual">
           <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2946,7 +4665,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox versalink c7125">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="up-to-34" data-name="xerox versalink c7125">
         <div class="product-card-visual">
           <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2962,7 +4681,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="21-35" data-name="xerox versalink c7120">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="xerox" data-category="office" data-color="colour" data-speed="up-to-34" data-name="xerox versalink c7120">
         <div class="product-card-visual">
           <img src="xerox-versalink-c7120-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2978,7 +4697,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="printer" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon imageforce c1333p">
+      <article data-media="a4" class="product-card" data-product-type="printer" data-brand="canon" data-category="office" data-color="colour" data-speed="35-54" data-name="canon imageforce c1333p">
         <div class="product-card-visual">
           <img src="canon-imageforce-c1333p-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -2994,7 +4713,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon imageforce c1333f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="35-54" data-name="canon imageforce c1333f">
         <div class="product-card-visual">
           <img src="canon-imageforce-c1333f-front.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
@@ -3012,7 +4731,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="36-45" data-name="canon color imageclass x mf1333c">
+      <article data-media="a4 legal" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="35-54" data-name="canon color imageclass x mf1333c">
         <div class="product-card-visual">
           <img src="canon-imageclass-x-mf1333c-front.png?v=canon" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-pick" src="canon-bli-pick-award-2026.png" alt="BLI 2026 Pick Award" loading="lazy" decoding="async" />
@@ -3029,7 +4748,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner c3326i">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="up-to-34" data-name="canon color imagerunner c3326i">
         <div class="product-card-visual">
           <img src="canon-color-imagerunner-c3326i-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3045,7 +4764,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner advance dx c3926i">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="up-to-34" data-name="canon color imagerunner advance dx c3926i">
         <div class="product-card-visual">
           <img src="canon-color-iradvdx-c3926i-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3061,7 +4780,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner advance dx c3930i">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="up-to-34" data-name="canon color imagerunner advance dx c3930i">
         <div class="product-card-visual">
           <img src="canon-color-iradvdx-c3930i-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3077,7 +4796,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="21-35" data-name="canon color imagerunner advance dx c3935i">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="35-54" data-name="canon color imagerunner advance dx c3935i">
         <div class="product-card-visual">
           <img src="canon-color-iradvdx-c3935i-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3093,7 +4812,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="46-55" data-name="canon imageforce c3150">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="35-54" data-name="canon imageforce c3150">
         <div class="product-card-visual">
           <img src="canon-imageforce-c3150-front.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3110,7 +4829,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="36-45" data-name="canon imageforce c5140">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="35-54" data-name="canon imageforce c5140">
         <div class="product-card-visual">
           <img src="canon-imageforce-c5140-pod.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3127,7 +4846,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="46-55" data-name="canon imageforce c5150">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="35-54" data-name="canon imageforce c5150">
         <div class="product-card-visual">
           <img src="canon-imageforce-c5150-pod.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3144,7 +4863,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="56-75" data-name="canon imageforce c5160">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="55-74" data-name="canon imageforce c5160">
         <div class="product-card-visual">
           <img src="canon-imageforce-c5160-pod.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3161,7 +4880,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="56-75" data-name="canon imageforce c5170">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="55-74" data-name="canon imageforce c5170">
         <div class="product-card-visual">
           <img src="canon-imageforce-c5170-pod.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3178,7 +4897,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="56-75" data-name="canon imageforce c7165">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="colour" data-speed="55-74" data-name="canon imageforce c7165">
         <div class="product-card-visual">
           <img src="canon-imageforce-c7165-brochure-copier-transparent.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3195,7 +4914,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="46-55" data-name="canon imagerunner advance dx 4945i">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="35-54" data-name="canon imagerunner advance dx 4945i">
         <div class="product-card-visual">
           <img src="canon-imagerunner-advance-dx-4945i-slant.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3211,7 +4930,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="21-35" data-name="canon imagerunner advance dx 4925i">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="up-to-34" data-name="canon imagerunner advance dx 4925i">
         <div class="product-card-visual">
           <img src="canon-imagerunner-advance-dx-4925i-slant.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3227,7 +4946,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="21-35" data-name="canon imagerunner advance dx 4935i">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="35-54" data-name="canon imagerunner advance dx 4935i">
         <div class="product-card-visual">
           <img src="canon-imagerunner-advance-dx-4935i-slant.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3243,7 +4962,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="36-45" data-name="canon imageforce 1440f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="35-54" data-name="canon imageforce 1440f">
         <div class="product-card-visual">
           <img src="canon-imageforce-1440f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3259,7 +4978,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="printer" data-brand="canon" data-category="office" data-color="mono" data-speed="36-45" data-name="canon imageforce 1440p">
+      <article data-media="a4" class="product-card" data-product-type="printer" data-brand="canon" data-category="office" data-color="mono" data-speed="35-54" data-name="canon imageforce 1440p">
         <div class="product-card-visual">
           <img src="canon-imageforce-1440p-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3275,7 +4994,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="46-55" data-name="canon imageforce 6155">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="55-74" data-name="canon imageforce 6155">
         <div class="product-card-visual">
           <img src="canon-imageforce-6155-finisher.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3292,7 +5011,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="56-75" data-name="canon imageforce 6160">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="55-74" data-name="canon imageforce 6160">
         <div class="product-card-visual">
           <img src="canon-imageforce-6160-finisher.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3309,7 +5028,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="56-75" data-name="canon imageforce 6170">
+      <article data-media="a3" class="product-card" data-product-type="mfp" data-brand="canon" data-category="office" data-color="mono" data-speed="55-74" data-name="canon imageforce 6170">
         <div class="product-card-visual">
           <img src="canon-imageforce-6170-finisher.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3326,7 +5045,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="46-55" data-name="canon imageforce 520f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="55-74" data-name="canon imageforce 520f">
         <div class="product-card-visual">
           <img src="canon-imageforce-520f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3342,7 +5061,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="56-75" data-name="canon imageforce 610f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="55-74" data-name="canon imageforce 610f">
         <div class="product-card-visual">
           <img src="canon-imageforce-610f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3358,7 +5077,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="56-75" data-name="canon imageforce 710f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="mono" data-speed="75-plus" data-name="canon imageforce 710f">
         <div class="product-card-visual">
           <img src="canon-imageforce-710f-front.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3374,7 +5093,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="21-35" data-name="canon imageforce c331f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="up-to-34" data-name="canon imageforce c331f">
         <div class="product-card-visual">
           <img src="canon-imageforce-c331f-front.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
@@ -3391,7 +5110,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="36-45" data-name="canon imageforce c431f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="35-54" data-name="canon imageforce c431f">
         <div class="product-card-visual">
           <img src="canon-imageforce-c431f-front.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
@@ -3408,7 +5127,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="46-55" data-name="canon imageforce c521f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="55-74" data-name="canon imageforce c521f">
         <div class="product-card-visual">
           <img src="canon-imageforce-c521f-front.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
@@ -3425,7 +5144,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="56-75" data-name="canon imageforce c611f">
+      <article data-media="a4" class="product-card" data-product-type="mfp" data-brand="canon" data-category="home-office" data-color="colour" data-speed="55-74" data-name="canon imageforce c611f">
         <div class="product-card-visual">
           <img src="canon-imageforce-c611f-front.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-a4-colour" src="canon-bli-a4-colour-consistency-2024-2026.png" alt="BLI 2024-2026 A4 Colour Consistency" loading="lazy" decoding="async" />
@@ -3442,7 +5161,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="76+" data-name="canon imageforce 8186">
+      <article data-media="a3" class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="75-plus" data-name="canon imageforce 8186">
         <div class="product-card-visual">
           <img src="canon-imageforce-8186-front-full.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3459,7 +5178,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="76+" data-name="canon imageforce 8195">
+      <article data-media="a3" class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="75-plus" data-name="canon imageforce 8195">
         <div class="product-card-visual">
           <img src="canon-imageforce-8195-front-full.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3476,7 +5195,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="76+" data-name="canon imageforce 8105">
+      <article data-media="a3" class="product-card product-card--photo-xl" data-product-type="other" data-brand="canon" data-category="production" data-color="mono" data-speed="75-plus" data-name="canon imageforce 8105">
         <div class="product-card-visual">
           <img src="canon-imageforce-8105-front-full.png" alt="" loading="lazy" decoding="async" />
           <img class="product-award-badge is-line-year" src="canon-bli-a3-line-of-year-2026.png" alt="BLI 2026 A3 Line of the Year" loading="lazy" decoding="async" />
@@ -3493,7 +5212,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="56-75" data-name="canon imagepress v700">
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="55-74" data-name="canon imagepress v700">
         <div class="product-card-visual">
           <img src="canon-imagepress-v700-standalone.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3509,7 +5228,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="76+" data-name="canon imagepress v800">
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="75-plus" data-name="canon imagepress v800">
         <div class="product-card-visual">
           <img src="canon-imagepress-v800-standalone.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3525,7 +5244,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="76+" data-name="canon imagepress v900">
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="75-plus" data-name="canon imagepress v900">
         <div class="product-card-visual">
           <img src="canon-imagepress-v900-standalone.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3541,7 +5260,7 @@ html { background-color: #ffffff; }
           </div>
         </div>
       </article>
-      <article class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="76+" data-name="canon imagepress v1000">
+      <article data-media="a3" class="product-card" data-product-type="other" data-brand="canon" data-category="production" data-color="colour" data-speed="75-plus" data-name="canon imagepress v1000">
         <div class="product-card-visual">
           <img src="canon-imagepress-v1000-main-transparent.png" alt="" loading="lazy" decoding="async" />
         </div>
@@ -3722,7 +5441,7 @@ html { background-color: #ffffff; }
           <li><a href="automation-one-products.html#catalog">Multifunction</a></li>
           <li><a href="automation-one-products.html#catalog">Production</a></li>
           <li><a href="automation-one-products.html#catalog">Large Format</a></li>
-          <li><a href="automation-one-products.html#catalog">Mailing Solutions</a></li>
+          <li><a href="automation-one-products.html#catalog">Postage Meters</a></li>
           <li><a href="automation-one-products.html#catalog">Shredders</a></li>
         </ul>
       </div>
@@ -4059,14 +5778,195 @@ html { background-color: #ffffff; }
     var countEl = document.getElementById('catalog-count');
     var emptyEl = document.getElementById('catalog-empty');
     var sortEl = document.getElementById('catalog-sort');
-    var state = { brands: null, category: 'all', color: 'all', speed: 'all', q: '' };
+    var state = { brands: null, mediaFilters: null, typeFilters: null, segmentFilters: null, category: 'all', color: 'all', speedFilters: null, q: '' };
+
+    function cardSupportsMedia(card, media) {
+      var mediaAttr = (card.dataset.media || '').trim().split(/\s+/).filter(Boolean);
+      if (mediaAttr.length) return mediaAttr.indexOf(media) !== -1;
+      var specEl = card.querySelector('.product-card-spec');
+      if (!specEl) return false;
+      var mediaText = specEl.textContent.split('|')[0].trim();
+      if (media === 'a4') return /\bA4\b/.test(mediaText);
+      if (media === 'legal') return /\bLegal\b/.test(mediaText);
+      if (media === 'a3') return /\bA3\+?\b/.test(mediaText);
+      return true;
+    }
+
+    function cardMatchesSegment(card, segment) {
+      var cardCat = card.dataset.category || '';
+      var specEl = card.querySelector('.product-card-spec');
+      var mediaText = specEl ? specEl.textContent.split('|')[0].trim() : '';
+      if (segment === 'production') return cardCat === 'production';
+      if (segment === 'large-format') return cardCat === 'large-format' || /^Tabloid\b/.test(mediaText);
+      if (segment === 'mailing') return cardCat === 'mailing';
+      if (segment === 'folder-inserters') return cardCat === 'folder-inserters';
+      if (segment === 'cutters') return cardCat === 'cutters';
+      if (segment === 'shredders') return cardCat === 'shredders';
+      if (segment === 'scanners') return cardCat === 'scanners';
+      if (segment === 'more') {
+        return cardCat === 'home-office' || cardCat === 'digital' || cardCat === 'other';
+      }
+      return true;
+    }
+
+    function cardMatchesSpeed(card, speed) {
+      return (card.dataset.speed || '') === speed;
+    }
+
+    function cardMatchesAnySpeed(card, filters) {
+      for (var i = 0; i < filters.length; i++) {
+        if (cardMatchesSpeed(card, filters[i])) return true;
+      }
+      return false;
+    }
+
+    function cardMatchesProductType(card, productType) {
+      var cardType = card.dataset.productType || '';
+      var cardCat = card.dataset.category || '';
+      if (productType === 'printer') return cardType === 'printer';
+      if (productType === 'mfp') return cardType === 'mfp' || cardCat === 'production';
+      return cardType === productType;
+    }
+
+    function cardMatchesAnyMedia(card, filters) {
+      for (var i = 0; i < filters.length; i++) {
+        if (cardSupportsMedia(card, filters[i])) return true;
+      }
+      return false;
+    }
+
+    function cardMatchesAnyProductType(card, filters) {
+      for (var i = 0; i < filters.length; i++) {
+        if (cardMatchesProductType(card, filters[i])) return true;
+      }
+      return false;
+    }
+
+    function cardMatchesAnySegment(card, filters) {
+      for (var i = 0; i < filters.length; i++) {
+        if (cardMatchesSegment(card, filters[i])) return true;
+      }
+      return false;
+    }
+
+    function syncCategoryFilterChips(group) {
+      if (!group) return;
+      var allChip = group.querySelector('.filter-chip[data-value="all"]');
+      var hasFilters = state.mediaFilters || state.typeFilters || state.segmentFilters;
+
+      if (!hasFilters) {
+        group.querySelectorAll('.filter-chip').forEach(function (c) {
+          c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
+        });
+        return;
+      }
+
+      if (allChip) allChip.classList.remove('is-active');
+      group.querySelectorAll('.filter-chip').forEach(function (c) {
+        var val = c.getAttribute('data-value');
+        var kind = c.getAttribute('data-category-kind');
+        if (val === 'all') {
+          c.classList.remove('is-active');
+          return;
+        }
+        var active = false;
+        if (kind === 'media' && state.mediaFilters) active = state.mediaFilters.indexOf(val) !== -1;
+        if (kind === 'type' && state.typeFilters) active = state.typeFilters.indexOf(val) !== -1;
+        if (kind === 'segment' && state.segmentFilters) active = state.segmentFilters.indexOf(val) !== -1;
+        c.classList.toggle('is-active', active);
+      });
+    }
+
+    var FILTER_LABELS = {
+      a4: 'A4', legal: 'Legal', a3: 'A3',
+      printer: 'Printers', mfp: 'Multifunction',
+      production: 'Production', 'large-format': 'Wide-Format',
+      mailing: 'Postage Meters', 'folder-inserters': 'Folder-Inserters',
+      cutters: 'Cutters', shredders: 'Shredders',
+      scanners: 'Scanners', more: 'More',
+      mono: 'Black & White', colour: 'Colour',
+      'up-to-34': '≤ 34 ppm', '35-54': '35–54 ppm',
+      '55-74': '55–74 ppm', '75-plus': '≥ 75 ppm',
+      canon: 'Canon', xerox: 'Xerox', lexmark: 'Lexmark',
+      fp: 'FP', ideal: 'Ideal.MBM'
+    };
+
+    function renderActiveFilters() {
+      var bar = document.getElementById('active-filters');
+      var list = document.getElementById('active-filters-list');
+      if (!bar || !list) return;
+      var chips = [];
+      if (state.brands) {
+        state.brands.forEach(function (b) {
+          chips.push({ label: FILTER_LABELS[b] || b, group: 'brand', value: b });
+        });
+      }
+      if (state.mediaFilters) {
+        state.mediaFilters.forEach(function (v) { chips.push({ label: FILTER_LABELS[v] || v, group: 'category', value: v }); });
+      }
+      if (state.typeFilters) {
+        state.typeFilters.forEach(function (v) { chips.push({ label: FILTER_LABELS[v] || v, group: 'category', value: v }); });
+      }
+      if (state.segmentFilters) {
+        state.segmentFilters.forEach(function (v) { chips.push({ label: FILTER_LABELS[v] || v, group: 'category', value: v }); });
+      }
+      if (state.category && state.category !== 'all') {
+        chips.push({ label: FILTER_LABELS[state.category] || state.category, group: 'category', value: state.category });
+      }
+      if (state.color && state.color !== 'all') {
+        chips.push({ label: FILTER_LABELS[state.color] || state.color, group: 'color', value: state.color });
+      }
+      if (state.speedFilters) {
+        state.speedFilters.forEach(function (v) { chips.push({ label: FILTER_LABELS[v] || v, group: 'speed', value: v }); });
+      }
+      if (state.q && state.q.trim()) {
+        chips.push({ label: '"' + state.q.trim() + '"', group: 'search' });
+      }
+      list.innerHTML = '';
+      chips.forEach(function (chip) {
+        var el = document.createElement('span');
+        el.className = 'active-filter-chip';
+        el.innerHTML = chip.label + ' <button type="button" class="active-filter-x" aria-label="Remove ' + chip.label + '">✕</button>';
+        el.querySelector('.active-filter-x').addEventListener('click', function () {
+          removeActiveFilter(chip);
+        });
+        list.appendChild(el);
+      });
+      bar.classList.toggle('is-visible', chips.length > 0);
+    }
+
+    function removeActiveFilter(chip) {
+      var sourceChip;
+      if (chip.group === 'search') {
+        state.q = '';
+        var search = document.getElementById('product-search');
+        if (search) search.value = '';
+      } else if (chip.group === 'brand') {
+        sourceChip = document.querySelector('.filter-chips[data-filter="brand"] .filter-chip[data-value="' + chip.value + '"]');
+        if (sourceChip) sourceChip.click();
+      } else if (chip.group === 'category') {
+        sourceChip = document.querySelector('.filter-chips[data-filter="category"] .filter-chip[data-value="' + chip.value + '"]');
+        if (sourceChip) sourceChip.click();
+      } else if (chip.group === 'color') {
+        sourceChip = document.querySelector('.filter-chips[data-filter="color"] .filter-chip[data-value="' + chip.value + '"]');
+        if (sourceChip) sourceChip.click();
+        else { state.color = 'all'; }
+      } else if (chip.group === 'speed') {
+        sourceChip = document.querySelector('.filter-chips[data-filter="speed"] .filter-chip[data-value="' + chip.value + '"]');
+        if (sourceChip) sourceChip.click();
+      }
+      applyFilters();
+    }
 
     function applyFilters() {
       var q = state.q.trim().toLowerCase();
       var visible = 0;
       cards.forEach(function (card) {
         var ok = true;
-        if (state.brands && state.brands.indexOf(card.dataset.brand) === -1) ok = false;
+        if (state.brands && state.brands.indexOf((card.dataset.brand || '').toLowerCase()) === -1) ok = false;
+        if (state.mediaFilters && !cardMatchesAnyMedia(card, state.mediaFilters)) ok = false;
+        if (state.typeFilters && !cardMatchesAnyProductType(card, state.typeFilters)) ok = false;
+        if (state.segmentFilters && !cardMatchesAnySegment(card, state.segmentFilters)) ok = false;
         if (state.category !== 'all') {
           var cat = state.category;
           var cardCat = card.dataset.category || '';
@@ -4074,26 +5974,43 @@ html { background-color: #ffffff; }
           if (cat === 'office-printers') {
             if (cardType !== 'printer') ok = false;
           } else if (cat === 'multifunction') {
-            if (cardType !== 'mfp') ok = false;
+            if (!cardMatchesProductType(card, 'mfp')) ok = false;
           } else if (cardCat !== cat) {
             ok = false;
           }
         }
         if (state.color !== 'all' && card.dataset.color !== state.color) ok = false;
-        if (state.speed !== 'all' && card.dataset.speed !== state.speed) ok = false;
+        if (state.speedFilters && !cardMatchesAnySpeed(card, state.speedFilters)) ok = false;
         if (q && card.dataset.name.indexOf(q) === -1) ok = false;
         card.hidden = !ok;
+        card.classList.toggle('is-filter-hidden', !ok);
         if (ok) visible++;
       });
       if (countEl) countEl.textContent = 'Showing ' + visible + ' device' + (visible === 1 ? '' : 's');
       if (emptyEl) emptyEl.classList.toggle('is-visible', visible === 0);
+      renderActiveFilters();
+      sortCards();
+    }
+
+    function getCardTitle(card) {
+      var h3 = card.querySelector('h3');
+      if (!h3) return (card.dataset.name || '').trim();
+      return h3.textContent.replace(/\s+/g, ' ').trim();
     }
 
     function sortCards() {
+      if (!grid) return;
       var mode = sortEl ? sortEl.value : 'name';
+      var cmpOpts = { sensitivity: 'base', numeric: true };
       cards.sort(function (a, b) {
-        if (mode === 'brand') return (a.dataset.brand || '').localeCompare(b.dataset.brand || '');
-        return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        var titleA = getCardTitle(a);
+        var titleB = getCardTitle(b);
+        if (mode === 'brand') {
+          var brandCmp = (a.dataset.brand || '').localeCompare(b.dataset.brand || '', undefined, cmpOpts);
+          if (brandCmp !== 0) return brandCmp;
+          return titleA.localeCompare(titleB, undefined, cmpOpts);
+        }
+        return titleA.localeCompare(titleB, undefined, cmpOpts);
       });
       cards.forEach(function (c) { grid.appendChild(c); });
     }
@@ -4126,12 +6043,86 @@ html { background-color: #ffffff; }
       }
     }
 
+    function handleCategoryFilterClick(group, chip) {
+      var val = chip.getAttribute('data-value');
+      var allChip = group.querySelector('.filter-chip[data-value="all"]');
+
+      if (val === 'all') {
+        state.mediaFilters = null;
+        state.typeFilters = null;
+        state.segmentFilters = null;
+        state.category = 'all';
+        group.querySelectorAll('.filter-chip').forEach(function (c) {
+          c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
+        });
+        return;
+      }
+
+      state.category = 'all';
+      if (allChip) allChip.classList.remove('is-active');
+      chip.classList.toggle('is-active');
+
+      function collect(kind, stateKey) {
+        var selected = [];
+        group.querySelectorAll('[data-category-kind="' + kind + '"]').forEach(function (c) {
+          if (c.classList.contains('is-active')) selected.push(c.getAttribute('data-value'));
+        });
+        state[stateKey] = selected.length ? selected : null;
+      }
+
+      collect('media', 'mediaFilters');
+      collect('type', 'typeFilters');
+      collect('segment', 'segmentFilters');
+
+      if (!state.mediaFilters && !state.typeFilters && !state.segmentFilters) {
+        if (allChip) allChip.classList.add('is-active');
+      }
+    }
+
+    function handleSpeedFilterClick(group, chip) {
+      var val = chip.getAttribute('data-value');
+      var allChip = group.querySelector('.filter-chip[data-value="all"]');
+      var speedChips = group.querySelectorAll('.filter-chip:not([data-value="all"])');
+
+      if (val === 'all') {
+        state.speedFilters = null;
+        if (allChip) allChip.classList.add('is-active');
+        speedChips.forEach(function (c) { c.classList.remove('is-active'); });
+        return;
+      }
+
+      if (allChip) allChip.classList.remove('is-active');
+      chip.classList.toggle('is-active');
+
+      var selected = [];
+      speedChips.forEach(function (c) {
+        if (c.classList.contains('is-active')) selected.push(c.getAttribute('data-value'));
+      });
+
+      if (selected.length === 0) {
+        state.speedFilters = null;
+        if (allChip) allChip.classList.add('is-active');
+      } else {
+        state.speedFilters = selected;
+      }
+    }
+
     document.querySelectorAll('.filter-chips').forEach(function (group) {
       var key = group.getAttribute('data-filter');
       group.querySelectorAll('.filter-chip').forEach(function (chip) {
         chip.addEventListener('click', function () {
           if (key === 'brand') {
             handleBrandFilterClick(group, chip);
+            applyFilters();
+            return;
+          }
+          if (key === 'category') {
+            handleCategoryFilterClick(group, chip);
+            applyFilters();
+            return;
+          }
+          if (key === 'speed') {
+            handleSpeedFilterClick(group, chip);
             applyFilters();
             return;
           }
@@ -4150,24 +6141,20 @@ html { background-color: #ffffff; }
       });
     }
     if (sortEl) sortEl.addEventListener('change', function () { sortCards(); });
-    var clearBtn = document.getElementById('filter-clear');
-    if (clearBtn) {
-      clearBtn.addEventListener('click', function () {
-        state = { brands: null, category: 'all', color: 'all', speed: 'all', q: '' };
-        if (search) search.value = '';
-        document.querySelectorAll('.filter-chips').forEach(function (group) {
-          var key = group.getAttribute('data-filter');
-          group.querySelectorAll('.filter-chip').forEach(function (c) {
-            if (key === 'brand') {
-              c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
-            } else {
-              c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
-            }
-          });
+    function clearAllFilters() {
+      state = { brands: null, mediaFilters: null, typeFilters: null, segmentFilters: null, category: 'all', color: 'all', speedFilters: null, q: '' };
+      if (search) search.value = '';
+      document.querySelectorAll('.filter-chips').forEach(function (group) {
+        group.querySelectorAll('.filter-chip').forEach(function (c) {
+          c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
         });
-        applyFilters();
       });
+      applyFilters();
     }
+    var clearBtn = document.getElementById('filter-clear');
+    if (clearBtn) clearBtn.addEventListener('click', clearAllFilters);
+    var topClearBtn = document.getElementById('active-filters-clear');
+    if (topClearBtn) topClearBtn.addEventListener('click', clearAllFilters);
 
     document.querySelectorAll('[data-filter-category]').forEach(function (link) {
       link.addEventListener('click', function (e) {
@@ -4176,28 +6163,49 @@ html { background-color: #ffffff; }
         if (!cat) return;
         e.preventDefault();
         if (filterBy === 'color') {
+          state.mediaFilters = null;
+          state.typeFilters = null;
+          state.segmentFilters = null;
           state.category = 'all';
           state.color = cat;
-          document.querySelectorAll('.filter-chips[data-filter="category"] .filter-chip').forEach(function (c) {
-            c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
-          });
+          syncCategoryFilterChips(document.querySelector('.filter-chips[data-filter="category"]'));
           document.querySelectorAll('.filter-chips[data-filter="color"] .filter-chip').forEach(function (c) {
             c.classList.toggle('is-active', c.getAttribute('data-value') === cat);
           });
         } else {
-          state.category = cat;
           state.color = 'all';
           document.querySelectorAll('.filter-chips[data-filter="color"] .filter-chip').forEach(function (c) {
             c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
           });
           var group = document.querySelector('.filter-chips[data-filter="category"]');
-          if (group) {
-            group.querySelectorAll('.filter-chip').forEach(function (c) {
-              var val = c.getAttribute('data-value');
-              var match = val === cat || (cat === 'office-printers' && val === 'office') || (cat === 'multifunction' && val === 'office');
-              c.classList.toggle('is-active', match);
-            });
+          state.mediaFilters = null;
+          state.typeFilters = null;
+          state.segmentFilters = null;
+          state.category = 'all';
+          if (cat === 'office-printers') {
+            state.typeFilters = ['printer'];
+          } else if (cat === 'multifunction') {
+            state.typeFilters = ['mfp'];
+          } else if (cat === 'production') {
+            state.segmentFilters = ['production'];
+          } else if (cat === 'large-format') {
+            state.segmentFilters = ['large-format'];
+          } else if (cat === 'mailing') {
+            state.segmentFilters = ['mailing'];
+          } else if (cat === 'folder-inserters') {
+            state.segmentFilters = ['folder-inserters'];
+          } else if (cat === 'cutters') {
+            state.segmentFilters = ['cutters'];
+          } else if (cat === 'shredders') {
+            state.segmentFilters = ['shredders'];
+          } else if (cat === 'scanners') {
+            state.segmentFilters = ['scanners'];
+          } else if (cat === 'more') {
+            state.segmentFilters = ['more'];
+          } else {
+            state.category = cat;
           }
+          syncCategoryFilterChips(group);
         }
         applyFilters();
         document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
@@ -4210,6 +6218,15 @@ html { background-color: #ffffff; }
         if (msg && !msg.value.trim()) {
           msg.value = 'Interested in: ' + btn.getAttribute('data-product');
         }
+      });
+    });
+
+    document.querySelectorAll('.filter-group-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var group = btn.closest('.filter-group');
+        if (!group) return;
+        var expanded = group.classList.toggle('is-expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       });
     });
 
@@ -4231,12 +6248,10 @@ html { background-color: #ffffff; }
       if (backdrop) backdrop.addEventListener('click', closePanel);
     }
 
-    sortCards();
     applyFilters();
   })();
 
 </script>
-
 <script src="ao-logo-lockup.js"></script>
 <script>
   (function initPageTransition() {
@@ -4549,6 +6564,28 @@ html { background-color: #ffffff; }
       overlay.classList.add('is-covered');
       syncPtLogoLockup();
       startScanReveal();
+    });
+  })();
+</script>
+
+<script>
+  (function initProductsHeroIntro() {
+    var hero = document.querySelector('.products-hero');
+    if (!hero) return;
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (rm && rm.matches) {
+      hero.classList.remove('is-hero-intro-pending');
+      hero.classList.add('is-hero-intro-complete');
+      return;
+    }
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        hero.classList.add('is-hero-intro-active');
+        window.setTimeout(function () {
+          hero.classList.remove('is-hero-intro-pending', 'is-hero-intro-active');
+          hero.classList.add('is-hero-intro-complete');
+        }, 1300);
+      });
     });
   })();
 </script>
