@@ -571,23 +571,7 @@ p { color: #3d4666; line-height: 1.6; }
   object-position: center;
   padding: clamp(8px, 1.2vw, 14px);
 }
-.proof-grid--brands .proof-brand-photo--lexmark img {
-  transform: scale(1.15);
-  object-position: center top;
-  padding: clamp(0px, 0.2vw, 2px) clamp(4px, 0.5vw, 8px) clamp(6px, 0.8vw, 10px);
-}
 .proof-card--brand:hover .proof-brand-photo img { transform: scale(1.05); }
-.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--lexmark img {
-  transform: scale(1.2);
-}
-.proof-grid--brands .proof-brand-photo--fp img {
-  transform: scale(0.9);
-  object-position: center top;
-  padding: clamp(2px, 0.4vw, 4px) clamp(10px, 1.4vw, 16px) clamp(12px, 1.6vw, 18px);
-}
-.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--fp img {
-  transform: scale(0.945);
-}
 .proof-card--brand:hover {
   transform: translateY(-3px);
   border-color: rgba(31, 92, 245, 0.42);
@@ -771,6 +755,38 @@ p { color: #3d4666; line-height: 1.6; }
   z-index: 1;
   object-position: center top;
   padding: clamp(0px, 0.2vw, 2px) clamp(8px, 1.2vw, 14px) clamp(10px, 1.4vw, 16px);
+}
+.proof-grid--brands .proof-brand-photo--xerox img {
+  object-position: center bottom;
+  padding-top: 0;
+  padding-bottom: clamp(32px, 3.8vw, 46px);
+}
+.proof-grid--brands .proof-brand-photo--lexmark img {
+  object-position: center bottom;
+  padding-top: 0;
+  padding-bottom: clamp(22px, 2.8vw, 36px);
+  transform: scale(1.15);
+  padding-left: clamp(4px, 0.5vw, 8px);
+  padding-right: clamp(4px, 0.5vw, 8px);
+}
+.proof-grid--brands .proof-brand-photo--fp img {
+  object-position: center bottom;
+  padding-top: 0;
+  padding-bottom: clamp(38px, 4.4vw, 52px);
+  transform: scale(0.9);
+  padding-left: clamp(10px, 1.4vw, 16px);
+  padding-right: clamp(10px, 1.4vw, 16px);
+}
+.proof-grid--brands .proof-brand-photo--ideal img {
+  object-position: center bottom;
+  padding-top: 0;
+  padding-bottom: clamp(8px, 1.2vw, 18px);
+}
+.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--lexmark img {
+  transform: scale(1.2);
+}
+.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--fp img {
+  transform: scale(0.945);
 }
 .proof-card {
   position: relative;
@@ -1909,7 +1925,7 @@ html { background-color: #ffffff; }
         <img class="proof-brand-logo proof-brand-logo--canon" src="brand-logo-canon.png" alt="Canon" loading="lazy" decoding="async" />
       </a>
       <a class="proof-card proof-card--brand" href="automation-one-xerox.html" aria-label="Xerox products">
-        <span class="proof-brand-photo proof-brand-photo--toner">
+        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--xerox">
           <img src="service-stats/xerox-toners-cartoon.svg" alt="Xerox toner and supplies" loading="lazy" decoding="async" />
         </span>
         <img class="proof-brand-logo proof-brand-logo--xerox" src="brand-logo-xerox.png" alt="Xerox" loading="lazy" decoding="async" />
@@ -1927,7 +1943,7 @@ html { background-color: #ffffff; }
         <img class="proof-brand-logo proof-brand-logo--fp" src="brand-logo-fp.png" alt="Francotyp Postalia" loading="lazy" decoding="async" />
       </a>
       <a class="proof-card proof-card--brand" href="automation-one-ideal-mbm.html" aria-label="Ideal.MBM products">
-        <span class="proof-brand-photo proof-brand-photo--toner">
+        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--ideal">
           <img src="ideal-mbm-shredder-bags.png" alt="Ideal.MBM DestroyIt custom fit shred bags" loading="lazy" decoding="async" />
         </span>
         <img class="proof-brand-logo proof-brand-logo--ideal" src="brand-logo-ideal.png" alt="Ideal.MBM" loading="lazy" decoding="async" />
