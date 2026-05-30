@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Automation One — Brand Guidelines (4 pages).
+"""Automation One — Brand Guidelines (6 pages).
 
-A tight, premium 4-page identity guide:
+A tight, premium 6-page identity guide:
   1. Cover
-  2. Logo
-  3. Colour
-  4. Typography
+  2. Logo — stacked lockup & wordmark (primary & secondary)
+  3. Logo — reverse wordmarks & marks
+  4. Colour
+  5. Logo — slogans
+  6. Typography
 """
 
 from __future__ import annotations
@@ -39,6 +41,7 @@ OUTPUT_SITE = BASE / "Automation-One-Brand-Guidelines.pdf"
 OUTPUT_DOWNLOADS = Path.home() / "Downloads" / "Automation-One-Brand-Guidelines.pdf"
 
 LOGO_PRIMARY = BASE / "ao-nav-logo-primary.png"   # brand blue mark
+LOGO_BLUE_800 = BASE / "ao-nav-logo-0a2870.png"   # Blue 800 mark
 LOGO_BLUE_900 = BASE / "ao-nav-logo-061a4a.png"   # Blue 900 mark
 LOGO_REVERSE = BASE / "ao-nav-logo-ffffff.png"    # white mark
 LOGO_BLACK = BASE / "ao-nav-logo-000000.png"      # mono black mark
@@ -46,6 +49,19 @@ LOCKUP_STACKED_PRIMARY = BASE / "ao-logo-lockup-stacked-primary.png"
 LOCKUP_STACKED_WHITE = BASE / "ao-logo-lockup-stacked-white.png"
 LOCKUP_HORIZONTAL_PRIMARY = BASE / "ao-logo-lockup-horizontal-primary.png"
 LOCKUP_HORIZONTAL_BLUE500 = BASE / ".pdf-cache" / "horizontal-lockup-blue500.png"
+LOCKUP_HORIZONTAL_BLUE800 = BASE / ".pdf-cache" / "horizontal-lockup-blue800.png"
+LOCKUP_HORIZONTAL_WHITE = BASE / ".pdf-cache" / "horizontal-lockup-white.png"
+LOCKUP_STACKED_BASE = BASE / ".pdf-cache" / "stacked-lockup-base.png"
+LOCKUP_STACKED_BLUE500 = BASE / ".pdf-cache" / "stacked-lockup-blue500.png"
+LOCKUP_STACKED_BLUE800 = BASE / ".pdf-cache" / "stacked-lockup-blue800.png"
+FONT_DISPLAY_SEMI = FONTS_DIR / "SequelSans-DisplaySemi.BFge39nV.ttf"
+FONT_DISPLAY_MED = FONTS_DIR / "SequelSans-DisplayMedium.BYsR-9NK.ttf"
+STACKED_SUB_Y0 = 1720
+STACKED_SUB_Y1 = 1875
+STACKED_SUB_RIGHT = 1935
+STACKED_SUB_SIZE = 145
+STACKED_NAME_INK = (49, 80, 171)
+STACKED_BG = (248, 250, 255)
 LOCKUP_ASPECT = 685 / 704  # stacked lockup height / width (reference proportions)
 LOCKUP_H_ASPECT = 136 / 636  # horizontal lockup height / width (reference screenshot)
 LOCKUP_COVER_WHITE = BASE / ".pdf-cache" / "cover-lockup-white-on-black.png"
@@ -169,31 +185,36 @@ def draw_radial_glow(c: canvas_mod.Canvas, cx: float, cy: float, max_r: float,
         c.circle(cx, cy, max_r * t, stroke=0, fill=1)
 
 
-def ensure_blue900_logo() -> Path:
-    """Build Blue 900 mark asset from the primary mark."""
-    if LOGO_BLUE_900.exists() or Image is None or not LOGO_PRIMARY.exists():
-        return LOGO_BLUE_900
-    im = Image.open(LOGO_PRIMARY).convert("RGBA")
+def _recolor_mark(src: Path, dest: Path, hex_color: str) -> Path:
+    """Recolour a mark PNG to a single palette colour."""
+    if dest.exists() or Image is None or not src.exists():
+        return dest
+    im = Image.open(src).convert("RGBA")
     px = im.load()
-    tr, tg, tb = hex_to_rgb("#061a4a")
+    tr, tg, tb = hex_to_rgb(hex_color)
     for y in range(im.size[1]):
         for x in range(im.size[0]):
             r, g, b, a = px[x, y]
             if a < 16:
                 continue
             px[x, y] = (tr, tg, tb, a)
-    im.save(LOGO_BLUE_900)
-    return LOGO_BLUE_900
+    im.save(dest)
+    return dest
 
 
-def build_horizontal_lockup_blue500() -> Path | None:
-    """Reference horizontal lockup → Blue 500, preserving original stroke weight."""
-    src = LOCKUP_HORIZONTAL_PRIMARY
-    if not src.exists() or Image is None:
-        return None
+def ensure_blue800_logo() -> Path:
+    """Build Blue 800 mark asset from the primary mark."""
+    return _recolor_mark(LOGO_PRIMARY, LOGO_BLUE_800, "#0a2870")
 
-    im = Image.open(src).convert("RGBA")
-    tr, tg, tb = hex_to_rgb("#1f5cf5")
+
+def ensure_blue900_logo() -> Path:
+    """Build Blue 900 mark asset from the primary mark."""
+    return _recolor_mark(LOGO_PRIMARY, LOGO_BLUE_900, "#061a4a")
+
+
+def _recolor_lockup_rgba(im: "Image.Image", hex_color: str) -> "Image.Image":
+    """Soft recolour for lockup PNGs — preserves anti-aliased stroke weight."""
+    tr, tg, tb = hex_to_rgb(hex_color)
     bg = (248.0, 250.0, 255.0)
     core = (49.0, 68.0, 142.0)
     max_dist = math.sqrt(sum((c - b) ** 2 for c, b in zip(core, bg)))
@@ -211,16 +232,703 @@ def build_horizontal_lockup_blue500() -> Path | None:
             if alpha < 6:
                 continue
             op[x, y] = (tr, tg, tb, alpha)
+    return out
 
+
+def _repair_stacked_subline(im: "Image.Image") -> "Image.Image":
+    """Re-render Business Systems at Medium weight (lighter than baked Semi)."""
+    from PIL import ImageDraw, ImageFont
+
+    px = im.load()
+    w, h = im.size
+    for y in range(STACKED_SUB_Y0, STACKED_SUB_Y1 + 1):
+        for x in range(w):
+            px[x, y] = (*STACKED_BG, 255)
+
+    if not FONT_DISPLAY_MED.exists():
+        return im
+
+    font = ImageFont.truetype(str(FONT_DISPLAY_MED), STACKED_SUB_SIZE)
+    text = "Business Systems"
+    bbox = font.getbbox(text)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    tx = STACKED_SUB_RIGHT - tw - bbox[0]
+    ty = 1731 + (1860 - 1731 + 1 - th) // 2 - bbox[1]
+
+    layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(layer).text((tx, ty), text, fill=(*STACKED_NAME_INK, 255), font=font)
+    return Image.alpha_composite(im.convert("RGBA"), layer)
+
+
+def build_stacked_lockup_base() -> Path | None:
+    """Stacked reference with corrected subline weight."""
+    src = LOCKUP_STACKED_PRIMARY
+    if not src.exists() or Image is None:
+        return None
+    if LOCKUP_STACKED_BASE.exists() and LOCKUP_STACKED_BASE.stat().st_mtime >= src.stat().st_mtime:
+        return LOCKUP_STACKED_BASE
+
+    im = _repair_stacked_subline(Image.open(src).convert("RGBA"))
+    LOCKUP_STACKED_BASE.parent.mkdir(exist_ok=True)
+    im.save(LOCKUP_STACKED_BASE)
+    return LOCKUP_STACKED_BASE
+
+
+def build_stacked_lockup(hex_color: str, dest: Path) -> Path | None:
+    """Stacked lockup → target colour."""
+    base = build_stacked_lockup_base()
+    if not base or Image is None:
+        return None
+
+    out = _recolor_lockup_rgba(Image.open(base).convert("RGBA"), hex_color)
     out = out.resize((out.width * 2, out.height * 2), Image.LANCZOS)
-    LOCKUP_HORIZONTAL_BLUE500.parent.mkdir(exist_ok=True)
-    out.save(LOCKUP_HORIZONTAL_BLUE500)
-    return LOCKUP_HORIZONTAL_BLUE500
+    dest.parent.mkdir(exist_ok=True)
+    out.save(dest)
+    return dest
+
+
+def build_stacked_lockup_blue500() -> Path | None:
+    return build_stacked_lockup("#1f5cf5", LOCKUP_STACKED_BLUE500)
+
+
+def build_stacked_lockup_blue800() -> Path | None:
+    return build_stacked_lockup("#0a2870", LOCKUP_STACKED_BLUE800)
+
+
+def build_horizontal_lockup(hex_color: str, dest: Path) -> Path | None:
+    """Reference horizontal lockup → target colour, preserving stroke weight."""
+    src = LOCKUP_HORIZONTAL_PRIMARY
+    if not src.exists() or Image is None:
+        return None
+
+    out = _recolor_lockup_rgba(Image.open(src).convert("RGBA"), hex_color)
+    out = out.resize((out.width * 2, out.height * 2), Image.LANCZOS)
+    dest.parent.mkdir(exist_ok=True)
+    out.save(dest)
+    return dest
+
+
+def build_horizontal_lockup_blue500() -> Path | None:
+    return build_horizontal_lockup("#1f5cf5", LOCKUP_HORIZONTAL_BLUE500)
+
+
+def build_horizontal_lockup_blue800() -> Path | None:
+    return build_horizontal_lockup("#0a2870", LOCKUP_HORIZONTAL_BLUE800)
+
+
+def build_horizontal_lockup_white() -> Path | None:
+    return build_horizontal_lockup("#ffffff", LOCKUP_HORIZONTAL_WHITE)
 
 
 def horizontal_lockup_size(h: float) -> tuple[float, float]:
     """Width and height from reference horizontal lockup aspect ratio."""
     return h / LOCKUP_H_ASPECT, h
+
+
+def stacked_lockup_size(h: float) -> tuple[float, float]:
+    """Width and height from reference stacked lockup aspect ratio."""
+    return h / LOCKUP_ASPECT, h
+
+
+def _fit_stacked_height(max_width: float, max_height: float) -> float:
+    """Stacked lockup height that fits inside a box."""
+    by_width = max_width * LOCKUP_ASPECT
+    return min(max_height, by_width)
+
+
+def _content_width() -> float:
+    return PAGE_W - 2 * MARGIN
+
+
+def _content_bottom() -> float:
+    """Lowest y for body content (above footer band)."""
+    return MARGIN + 24 * mm
+
+
+def _fit_lockup_height(max_width: float, max_height: float) -> float:
+    """Lockup height that fits inside a box while preserving aspect ratio."""
+    by_width = max_width * LOCKUP_H_ASPECT
+    return min(max_height, by_width)
+
+
+def _centered_x(content_w: float) -> float:
+    return MARGIN + (_content_width() - content_w) / 2
+
+
+def _draw_horizontal_lockup(c: canvas_mod.Canvas, path: Path | None,
+                            x: float, y: float, h: float, *, white: bool = False) -> float:
+    """Draw a horizontal lockup; returns rendered width."""
+    w, _ = horizontal_lockup_size(h)
+    if path and path.exists():
+        if white:
+            c.setFillColor(WHITE)
+        c.drawImage(str(path), x, y, w, h, mask="auto")
+    return w
+
+
+def _draw_stacked_lockup(c: canvas_mod.Canvas, path: Path | None,
+                         x: float, y: float, h: float) -> float:
+    """Draw a stacked lockup; returns rendered width."""
+    w, _ = stacked_lockup_size(h)
+    if path and path.exists():
+        c.drawImage(str(path), x, y, w, h, mask="auto")
+    return w
+
+
+def _draw_clear_space_cage(c: canvas_mod.Canvas, cage_x: float, cage_y: float,
+                           cage_w: float, cage_h: float, *, show_labels: bool = True,
+                           label_center_y: float | None = None) -> None:
+    c.setStrokeColor(BLUE_300)
+    c.setDash(2, 2)
+    c.setLineWidth(0.8)
+    c.rect(cage_x, cage_y, cage_w, cage_h, stroke=1, fill=0)
+    c.setDash()
+
+    for cx_, cy_ in [(cage_x, cage_y), (cage_x + cage_w, cage_y),
+                     (cage_x, cage_y + cage_h), (cage_x + cage_w, cage_y + cage_h)]:
+        c.setFillColor(BLUE_500)
+        c.circle(cx_, cy_, 1.4, stroke=0, fill=1)
+
+    if show_labels:
+        if label_center_y is not None:
+            label_y = label_center_y + 2 * mm
+        else:
+            label_y = cage_y + cage_h + 1.5 * mm
+        c.setFillColor(BLUE_700)
+        c.setFont(FONT_MED, 8)
+        c.drawCentredString(cage_x + cage_w / 2, label_y, "CLEAR SPACE")
+        c.setFillColor(TEXT_SOFT)
+        c.setFont(FONT_BOOK, 8)
+        c.drawCentredString(cage_x + cage_w / 2, label_y - 4 * mm,
+                            "X  =  1/2 mark height")
+
+
+def _wrap_text_lines(text: str, font: str, size: float, max_width: float) -> list[str]:
+    """Wrap text to fit a maximum line width."""
+    words = text.split()
+    if not words:
+        return []
+    lines: list[str] = []
+    current: list[str] = []
+    for word in words:
+        trial = " ".join(current + [word])
+        if pdfmetrics.stringWidth(trial, font, size) <= max_width:
+            current.append(word)
+        else:
+            if current:
+                lines.append(" ".join(current))
+            current = [word]
+    if current:
+        lines.append(" ".join(current))
+    return lines
+
+
+def _font_descender(font: str, font_size: float) -> float:
+    """Distance below baseline to bottom of glyphs (positive, in points)."""
+    face = pdfmetrics.getFont(font).face
+    return abs(face.descent) / 1000.0 * font_size
+
+
+def _info_line_height(font_size: float) -> float:
+    return font_size * 0.36 * mm + 0.75 * mm
+
+
+def _info_box_height(
+    num_lines: int,
+    font_size: float,
+    *,
+    font: str = FONT_BOOK,
+    pad_top: float = 3.5 * mm,
+    pad_bottom: float = 0.8 * mm,
+) -> float:
+    """Tight vertical height for a wrapped info box (matches _draw_info_box line metrics)."""
+    line_h = _info_line_height(font_size)
+    if num_lines <= 0:
+        return pad_top + pad_bottom
+    return pad_top + (num_lines - 1) * line_h + _font_descender(font, font_size) + pad_bottom
+
+
+def _draw_info_box(
+    c: canvas_mod.Canvas,
+    x: float,
+    y: float,
+    w: float,
+    h: float,
+    lines: list[str] | None = None,
+    *,
+    text: str | None = None,
+    font_size: float = 9.5,
+    full_width: bool = False,
+    pad_x: float = 5 * mm,
+    pad_top: float = 3.5 * mm,
+    pad_bottom: float = 0.8 * mm,
+) -> None:
+    """Light bordered callout for usage or legal notes."""
+    text_w = w - 2 * pad_x
+    font = FONT_BOOK
+
+    if text is not None:
+        content_lines = _wrap_text_lines(text, font, font_size, text_w)
+    elif full_width and lines:
+        content_lines = []
+        for line in lines:
+            content_lines.extend(_wrap_text_lines(line, font, font_size, text_w))
+    else:
+        content_lines = lines or []
+
+    c.setFillColor(WHITE)
+    c.rect(x, y, w, h, stroke=0, fill=1)
+    c.setStrokeColor(HexColor("#dbe5fc"))
+    c.setLineWidth(0.6)
+    c.rect(x, y, w, h, stroke=1, fill=0)
+    c.setFillColor(BLUE_900)
+    c.setFont(font, font_size)
+    line_h = _info_line_height(font_size)
+    ty = y + h - pad_top
+    for line in content_lines:
+        c.drawString(x + pad_x, ty, line)
+        ty -= line_h
+
+
+def _draw_section_kicker(c: canvas_mod.Canvas, y: float, label: str) -> None:
+    """Small-caps section label in Blue 800."""
+    c.setFillColor(BLUE_800)
+    c.setFont(FONT_MED, 8)
+    c.drawString(MARGIN, y, label)
+
+
+def _draw_lockup_label(c: canvas_mod.Canvas, x: float, y: float, role: str,
+                       colour_name: str, hex_code: str, *, align: str = "left") -> None:
+    c.setFillColor(BLUE_700)
+    c.setFont(FONT_MED, 8)
+    line1 = role.upper()
+    line2 = f"{colour_name}  ·  {hex_code}"
+    if align == "right":
+        c.drawRightString(x, y, line1)
+        c.setFillColor(TEXT_SOFT)
+        c.setFont(FONT_BOOK, 8)
+        c.drawRightString(x, y - 4.5 * mm, line2)
+    elif align == "center":
+        c.drawCentredString(x, y, line1)
+        c.setFillColor(TEXT_SOFT)
+        c.setFont(FONT_BOOK, 8)
+        c.drawCentredString(x, y - 4.5 * mm, line2)
+    else:
+        c.drawString(x, y, line1)
+        c.setFillColor(TEXT_SOFT)
+        c.setFont(FONT_BOOK, 8)
+        c.drawString(x, y - 4.5 * mm, line2)
+
+
+def _draw_dual_colour_cage(
+    c: canvas_mod.Canvas,
+    *,
+    y_top: float,
+    block_h: float,
+    lockup_gap: float,
+    pad_ratio: float,
+    fit_height,
+    lockup_size,
+    draw_lockup,
+    primary_path: Path | None,
+    secondary_path: Path | None,
+    layout: str = "vertical",
+    label_col_w: float = 0,
+    label_x: float | None = None,
+    show_clear: bool = True,
+    min_bottom: float | None = None,
+    block_overhead: float | None = None,
+    clear_band: float | None = None,
+    kicker_offset: float | None = None,
+) -> float:
+    """Primary + secondary pair in a clear-space cage; returns y below section."""
+    label_h = 7 * mm if layout == "horizontal" else 0
+    if clear_band is None:
+        clear_band = 8 * mm if show_clear else 0
+    overhead = block_overhead if block_overhead is not None else 10 * mm
+    k_offset = kicker_offset if kicker_offset is not None else 3 * mm
+    max_cage_w = _content_width() - label_col_w
+
+    if layout == "horizontal":
+        max_lockup_w = (max_cage_w - lockup_gap - 8 * mm) / 2
+        max_lockup_h = block_h - overhead - label_h - clear_band
+        if min_bottom is not None:
+            floor_overhead = k_offset + label_h + clear_band + 6 * mm
+            by_floor = (y_top - floor_overhead - min_bottom) / (1 + 2 * pad_ratio)
+            max_lockup_h = min(max_lockup_h, by_floor)
+        lockup_h = fit_height(max_lockup_w, max(10 * mm, max_lockup_h))
+        lockup_w, _ = lockup_size(lockup_h)
+        pad = lockup_h * pad_ratio
+        inner_w = lockup_w * 2 + lockup_gap
+        cage_w = inner_w + pad * 2
+        cage_h = lockup_h + pad * 2
+        cage_x = _centered_x(cage_w)
+        cage_y = y_top - k_offset - cage_h - clear_band
+        lockup_y = cage_y + pad
+        primary_x = cage_x + pad
+        secondary_x = cage_x + pad + lockup_w + lockup_gap
+
+        _draw_clear_space_cage(
+            c, cage_x, cage_y, cage_w, cage_h, show_labels=show_clear,
+            label_center_y=y_top - clear_band / 2 if show_clear else None,
+        )
+        draw_lockup(c, primary_path, primary_x, lockup_y, lockup_h)
+        draw_lockup(c, secondary_path, secondary_x, lockup_y, lockup_h)
+
+        label_y = cage_y - 3 * mm
+        _draw_lockup_label(c, primary_x + lockup_w / 2, label_y,
+                           "Primary", "Blue 500", "#1f5cf5", align="center")
+        _draw_lockup_label(c, secondary_x + lockup_w / 2, label_y,
+                           "Secondary", "Blue 800", "#0a2870", align="center")
+        return cage_y - label_h
+    else:
+        max_lockup_h = (block_h - 14 * mm) / 2.8
+        lockup_h = fit_height(max_cage_w - 20 * mm, max(10 * mm, max_lockup_h))
+        lockup_w, _ = lockup_size(lockup_h)
+        pad = lockup_h * pad_ratio
+        inner_h = lockup_h * 2 + lockup_gap
+        cage_w = lockup_w + pad * 2
+        cage_h = inner_h + pad * 2
+        cage_x = MARGIN
+        cage_y = y_top - 6 * mm - cage_h
+        hero_x = cage_x + pad
+        primary_y = cage_y + pad + lockup_h + lockup_gap
+        secondary_y = cage_y + pad
+
+        _draw_clear_space_cage(c, cage_x, cage_y, cage_w, cage_h, show_labels=show_clear)
+        draw_lockup(c, primary_path, hero_x, primary_y, lockup_h)
+        draw_lockup(c, secondary_path, hero_x, secondary_y, lockup_h)
+
+        if label_x is not None:
+            _draw_lockup_label(c, label_x, primary_y + lockup_h * 0.35,
+                               "Primary", "Blue 500", "#1f5cf5", align="right")
+            _draw_lockup_label(c, label_x, secondary_y + lockup_h * 0.35,
+                               "Secondary", "Blue 800", "#0a2870", align="right")
+        return cage_y
+
+
+# ---------------------------------------------------------------------------
+# Page 2 — Logo (stacked lockup & wordmark)
+# ---------------------------------------------------------------------------
+
+def draw_logo_page(c: canvas_mod.Canvas) -> None:
+    c.setFillColor(PAPER)
+    c.rect(0, 0, PAGE_W, PAGE_H, stroke=0, fill=1)
+
+    y = draw_section_head(
+        c, 2, "Stacked lockup & wordmark",
+        "Blue 500 is primary. Blue 800 is secondary — same mark, two colourways.",
+    )
+
+    gap = 4 * mm
+    kicker_h = 2 * mm
+    note_font = 9.5
+    note_y0 = MARGIN + 14 * mm
+    lockup_gap = 8 * mm
+    content_w = _content_width()
+    mark_font = 8.5
+    mark_pad_x = 5 * mm
+    mark_text = (
+        "Our mark is a stylised AO that forms an infinity symbol — a new expression of Automation One "
+        "that stays true to our roots. The continuous loop represents lasting client relationships and "
+        "the limitless ways we help improve business workflows. Its seamless, interlocking form reflects "
+        "the synergistic efficiency our solutions and services deliver."
+    )
+    usage_text = (
+        "Use the stacked lockup for hero placements and the wordmark for navigation, headers, "
+        "and tight horizontal spaces — both share the same clear space."
+    )
+    mark_lines = _wrap_text_lines(
+        mark_text, FONT_BOOK, mark_font, content_w - 2 * mark_pad_x,
+    )
+    usage_lines = _wrap_text_lines(
+        usage_text, FONT_BOOK, note_font, content_w - 10 * mm,
+    )
+    mark_box_h = _info_box_height(len(mark_lines), mark_font)
+    note_h = _info_box_height(len(usage_lines), note_font)
+    body_floor = note_y0 + note_h + 2 * mm
+
+    body_top = y - 3 * mm
+    mark_section = kicker_h + mark_box_h + gap
+    lockup_area = body_top - body_floor - mark_section - kicker_h - gap - 2 * mm
+    stacked_block_h = lockup_area * 0.58
+    wordmark_block_h = lockup_area * 0.42
+
+    stacked_primary = build_stacked_lockup_blue500()
+    stacked_secondary = build_stacked_lockup_blue800()
+    wordmark_primary = build_horizontal_lockup_blue500()
+    wordmark_secondary = build_horizontal_lockup_blue800()
+
+    y_cursor = body_top
+    _draw_section_kicker(c, y_cursor, "THE MARK")
+    y_cursor -= kicker_h
+    _draw_info_box(
+        c, MARGIN, y_cursor - mark_box_h, content_w, mark_box_h,
+        text=mark_text, font_size=mark_font,
+    )
+    y_cursor -= mark_box_h + gap
+
+    _draw_section_kicker(c, y_cursor, "STACKED LOCKUP")
+    y_cursor -= kicker_h
+    y_top = y_cursor
+    stacked_bottom = _draw_dual_colour_cage(
+        c,
+        y_top=y_top,
+        block_h=stacked_block_h,
+        lockup_gap=lockup_gap,
+        pad_ratio=0.12,
+        fit_height=_fit_stacked_height,
+        lockup_size=stacked_lockup_size,
+        draw_lockup=_draw_stacked_lockup,
+        primary_path=stacked_primary,
+        secondary_path=stacked_secondary,
+        layout="horizontal",
+        block_overhead=1 * mm,
+        clear_band=5 * mm,
+        kicker_offset=0,
+    )
+    y_cursor = stacked_bottom - gap - 2 * mm
+
+    _draw_section_kicker(c, y_cursor, "WORDMARK")
+    y_cursor -= kicker_h + 3 * mm
+    y_top = y_cursor
+    _draw_dual_colour_cage(
+        c,
+        y_top=y_top,
+        block_h=wordmark_block_h,
+        lockup_gap=lockup_gap,
+        pad_ratio=0.24,
+        fit_height=_fit_lockup_height,
+        lockup_size=horizontal_lockup_size,
+        draw_lockup=_draw_horizontal_lockup,
+        primary_path=wordmark_primary,
+        secondary_path=wordmark_secondary,
+        layout="horizontal",
+        show_clear=False,
+        min_bottom=body_floor,
+        block_overhead=1 * mm,
+        kicker_offset=0,
+    )
+
+    _draw_info_box(
+        c, MARGIN, note_y0, content_w, note_h,
+        text=usage_text,
+        font_size=note_font,
+    )
+
+    page_meta(c, 2)
+    c.showPage()
+
+
+# ---------------------------------------------------------------------------
+# Page 3 — Logo reverse & mark variants
+# ---------------------------------------------------------------------------
+
+def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
+    c.setFillColor(PAPER)
+    c.rect(0, 0, PAGE_W, PAGE_H, stroke=0, fill=1)
+
+    y = draw_section_head(
+        c, 3, "Reverse wordmarks",
+        "White wordmarks on Blue 500 and Blue 800 backgrounds.",
+    )
+
+    white_path = build_horizontal_lockup_white()
+    panel_pad = 6 * mm
+    panel_label_h = 8 * mm
+    panel_gap = 8 * mm
+    content_w = _content_width()
+    marks_note_font = 9
+    marks_note_text = (
+        "Stacked lockups, wordmarks, and marks must appear only in the colour combinations "
+        "shown above, or in another combination drawn from the palette on the following page "
+        "with the written approval of Automation One Business Systems Inc."
+    )
+    marks_note_lines = _wrap_text_lines(
+        marks_note_text, FONT_BOOK, marks_note_font, content_w - 10 * mm,
+    )
+    marks_note_h = _info_box_height(len(marks_note_lines), marks_note_font)
+    base_y = MARGIN + 22 * mm
+    cell_h = 30 * mm
+    grid_gap = 12 * mm
+    marks_kicker_h = 6 * mm
+    panel_top = y - 12 * mm
+    panel_w = (_content_width() - panel_gap) / 2
+    avail = (panel_top - base_y - 28 * mm - marks_kicker_h - cell_h - grid_gap
+             - marks_note_h - 8 * mm)
+    max_lockup_w = panel_w - panel_pad * 2
+    max_lockup_h = avail - panel_pad * 2 - panel_label_h
+    lockup_h = _fit_lockup_height(max_lockup_w, max(14 * mm, max_lockup_h))
+    lockup_w, _ = horizontal_lockup_size(lockup_h)
+    panel_h = lockup_h + panel_pad * 2 + panel_label_h
+    panel_y = panel_top - panel_h
+
+    reverse_cells = [
+        ("Primary reverse", "Blue 500", "#1f5cf5", BLUE_500),
+        ("Secondary reverse", "Blue 800", "#0a2870", BLUE_800),
+    ]
+    for i, (role, colour_name, hex_code, bg) in enumerate(reverse_cells):
+        px = MARGIN + i * (panel_w + panel_gap)
+        c.setFillColor(bg)
+        c.rect(px, panel_y, panel_w, panel_h, stroke=0, fill=1)
+        lx = px + (panel_w - lockup_w) / 2
+        ly = panel_y + panel_pad + 2 * mm
+        _draw_horizontal_lockup(c, white_path, lx, ly, lockup_h, white=True)
+        c.setFillColor(WHITE)
+        c.setFont(FONT_MED, 8)
+        c.drawCentredString(px + panel_w / 2, panel_y + 3 * mm, role.upper())
+        c.setFont(FONT_BOOK, 7.5)
+        c.setFillColorRGB(1, 1, 1, alpha=0.82)
+        c.drawCentredString(px + panel_w / 2, panel_y + panel_h - 4 * mm,
+                            f"{colour_name}  ·  {hex_code}")
+
+    ensure_blue800_logo()
+    ensure_blue900_logo()
+    marks_top = panel_y - grid_gap
+    _draw_section_kicker(c, marks_top, "MARKS")
+
+    grid_top = marks_top - marks_kicker_h
+    gap = 4 * mm
+    cell_w = (_content_width() - 4 * gap) / 5
+    grid_bottom = grid_top - cell_h
+    if grid_bottom < base_y + 28 * mm + marks_note_h + 8 * mm:
+        grid_top = base_y + 28 * mm + marks_note_h + 8 * mm + cell_h
+    cells = [
+        ("Primary",           LOGO_PRIMARY,  WHITE,    BLUE_500,  HexColor("#dbe5fc"), BLUE_500),
+        ("Secondary",         LOGO_BLUE_800, WHITE,    BLUE_800,  HexColor("#dbe5fc"), BLUE_800),
+        ("Primary reverse",   LOGO_REVERSE,  BLUE_500, WHITE,     None,                WHITE),
+        ("Secondary reverse", LOGO_REVERSE,  BLUE_800, WHITE,     None,                WHITE),
+        ("Mono",              LOGO_BLACK,    WHITE,    BLUE_900,  HexColor("#dbe5fc"), BLUE_900),
+    ]
+    for i, (name, logo, bg, _border_fill, border, label_color) in enumerate(cells):
+        x = MARGIN + i * (cell_w + gap)
+        yy = grid_top - cell_h
+        c.setFillColor(bg)
+        c.rect(x, yy, cell_w, cell_h, stroke=0, fill=1)
+        if border:
+            c.setStrokeColor(border)
+            c.setLineWidth(0.6)
+            c.rect(x, yy, cell_w, cell_h, stroke=1, fill=0)
+        ratio = 288 / 416
+        mh = min(14 * mm, cell_h * 0.55)
+        mw = mh / ratio
+        if logo.exists():
+            c.setFillColor(WHITE)
+            c.drawImage(ImageReader(str(logo)),
+                        x + (cell_w - mw) / 2,
+                        yy + (cell_h - mh) / 2 + 4 * mm,
+                        mw, mh, mask="auto")
+        c.setFillColor(label_color)
+        c.setFont(FONT_MED, 7)
+        if "reverse" in name.lower():
+            parts = name.upper().split(" REVERSE")
+            c.drawCentredString(x + cell_w / 2, yy + 7 * mm, parts[0])
+            c.drawCentredString(x + cell_w / 2, yy + 3.5 * mm, "REVERSE")
+        else:
+            c.drawCentredString(x + cell_w / 2, yy + 5 * mm, name.upper())
+
+    marks_note_y = grid_top - cell_h - 6 * mm - marks_note_h
+    _draw_info_box(
+        c, MARGIN, marks_note_y, content_w, marks_note_h,
+        text=marks_note_text,
+        font_size=marks_note_font,
+    )
+
+    base_y = MARGIN + 22 * mm
+    half = (PAGE_W - 2 * MARGIN - 8 * mm) / 2
+
+    c.setFillColor(WHITE)
+    c.rect(MARGIN, base_y, half, 28 * mm, stroke=0, fill=1)
+    c.setStrokeColor(HexColor("#dbe5fc"))
+    c.setLineWidth(0.6)
+    c.rect(MARGIN, base_y, half, 28 * mm, stroke=1, fill=0)
+    c.setFillColor(BLUE_700)
+    c.setFont(FONT_MED, 8)
+    c.drawString(MARGIN + 6 * mm, base_y + 21 * mm, "MINIMUM SIZE")
+    c.setFillColor(BLUE_900)
+    c.setFont(FONT_MED, 11)
+    c.drawString(MARGIN + 6 * mm, base_y + 14 * mm,
+                 "Digital   ·   30 px wordmark height  /  50 px mark")
+    c.drawString(MARGIN + 6 * mm, base_y + 7 * mm,
+                 "Print       ·   10 pt wordmark             /  8 mm mark")
+
+    dx = MARGIN + half + 8 * mm
+    c.setFillColor(WHITE)
+    c.rect(dx, base_y, half, 28 * mm, stroke=0, fill=1)
+    c.setStrokeColor(HexColor("#dbe5fc"))
+    c.rect(dx, base_y, half, 28 * mm, stroke=1, fill=0)
+    c.setFillColor(BLUE_700)
+    c.setFont(FONT_MED, 8)
+    c.drawString(dx + 6 * mm, base_y + 21 * mm, "DON'T")
+    c.setFillColor(BLUE_900)
+    c.setFont(FONT_BOOK, 9.5)
+    donts = [
+        "Recolour the mark outside the approved palette.",
+        "Stretch, skew, rotate or add drop shadows.",
+        "Place the mark on busy imagery without a scrim.",
+    ]
+    for i, line in enumerate(donts):
+        c.drawString(dx + 6 * mm, base_y + 14 * mm - i * 5 * mm, "—  " + line)
+
+    page_meta(c, 3)
+    c.showPage()
+
+
+# ---------------------------------------------------------------------------
+# Page 5 — Slogans
+# ---------------------------------------------------------------------------
+
+def draw_slogans_page(c: canvas_mod.Canvas) -> None:
+    c.setFillColor(PAPER)
+    c.rect(0, 0, PAGE_W, PAGE_H, stroke=0, fill=1)
+
+    y = draw_section_head(
+        c, 5, "Slogans",
+        "Primary and secondary taglines for marketing, sales, and brand communications.",
+    )
+
+    card_gap = 10 * mm
+    card_h = 52 * mm
+    card_w = _content_width()
+    slogan_size = 20
+    primary_y = y - 18 * mm - card_h
+    secondary_y = primary_y - card_gap - card_h
+
+    slogans = (
+        (primary_y, "Primary slogan", "Business solutions made simple."),
+        (secondary_y, "Secondary slogan",
+         "One independent partner. Infinite possibilities."),
+    )
+    for card_y, role, slogan in slogans:
+        c.setFillColor(WHITE)
+        c.rect(MARGIN, card_y, card_w, card_h, stroke=0, fill=1)
+        c.setStrokeColor(HexColor("#dbe5fc"))
+        c.setLineWidth(0.6)
+        c.rect(MARGIN, card_y, card_w, card_h, stroke=1, fill=0)
+
+        c.setFillColor(BLUE_700)
+        c.setFont(FONT_MED, 8)
+        c.drawString(MARGIN + 8 * mm, card_y + card_h - 10 * mm, role.upper())
+        c.setFillColor(TEXT_SOFT)
+        c.setFont(FONT_BOOK, 8)
+        c.drawString(MARGIN + 8 * mm, card_y + card_h - 16 * mm, "Blue 800  ·  #0a2870")
+
+        c.setFillColor(BLUE_800)
+        c.setFont(FONT_MED, slogan_size)
+        c.drawString(MARGIN + 8 * mm, card_y + card_h / 2 - 4 * mm, slogan)
+
+    note_y = secondary_y - 14 * mm - 22 * mm
+    _draw_info_box(
+        c, MARGIN, note_y, card_w, 22 * mm,
+        [
+            "Use the primary slogan on hero placements, cover pages, and key brand moments.",
+            "The secondary slogan supports campaigns, proposals, and partner communications.",
+        ],
+        font_size=10,
+    )
+
+    page_meta(c, 5)
+    c.showPage()
 
 
 def build_cover_lockup_white(path: Path) -> Path | None:
@@ -247,7 +955,7 @@ def build_cover_lockup_white(path: Path) -> Path | None:
     return LOCKUP_COVER_WHITE
 
 
-def page_meta(c: canvas_mod.Canvas, label: str, page_num: int, *, dark: bool = False) -> None:
+def page_meta(c: canvas_mod.Canvas, page_num: int, *, dark: bool = False) -> None:
     """Footer + corner page meta on every interior page."""
     ink = WHITE if dark else BLUE_900
     soft = HexColor("#aac1ff") if dark else HexColor("#6478b5")
@@ -260,7 +968,7 @@ def page_meta(c: canvas_mod.Canvas, label: str, page_num: int, *, dark: bool = F
     c.drawString(MARGIN, MARGIN, "AUTOMATION ONE  ·  BRAND GUIDELINES")
     c.setFillColor(ink)
     c.setFont(FONT_MED, 8)
-    c.drawRightString(PAGE_W - MARGIN, MARGIN, f"{label.upper()}   ·   {page_num:02d}")
+    c.drawRightString(PAGE_W - MARGIN, MARGIN, str(page_num))
 
 
 # ---------------------------------------------------------------------------
@@ -294,7 +1002,9 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     lockup_h = lockup_w * LOCKUP_ASPECT
     lx = (PAGE_W - lockup_w) / 2
     ly = PAGE_H * 0.56 - lockup_h / 2
-    lockup_src = LOCKUP_STACKED_PRIMARY if LOCKUP_STACKED_PRIMARY.exists() else LOCKUP_STACKED_WHITE
+    lockup_src = build_stacked_lockup_base() or (
+        LOCKUP_STACKED_PRIMARY if LOCKUP_STACKED_PRIMARY.exists() else LOCKUP_STACKED_WHITE
+    )
     lockup_path = build_cover_lockup_white(lockup_src)
     if lockup_path:
         c.drawImage(str(lockup_path), lx, ly, lockup_w, lockup_h,
@@ -322,6 +1032,10 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     c.drawRightString(PAGE_W - MARGIN - 12 * mm, MARGIN + 11 * mm,
                       "INTERNAL USE   ·   © 2026 AUTOMATION ONE BUSINESS SYSTEMS INC.")
 
+    c.setFillColorRGB(1, 1, 1, alpha=0.68)
+    c.setFont(FONT_MED, 8)
+    c.drawString(MARGIN + 12 * mm, MARGIN + 4 * mm, "1")
+
     c.showPage()
 
 
@@ -329,29 +1043,22 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
 # Section header helper (interior pages)
 # ---------------------------------------------------------------------------
 
-def draw_section_head(c: canvas_mod.Canvas, num: str, label: str, title: str,
-                       subtitle: str) -> float:
+def draw_section_head(c: canvas_mod.Canvas, page_num: int, title: str,
+                      subtitle: str) -> float:
     y_top = PAGE_H - MARGIN - 10 * mm
+    title_x = MARGIN + 24 * mm
 
-    # Section number (large, light)
     c.setFillColor(BLUE_100)
     c.setFont(FONT_MED, 90)
-    c.drawString(MARGIN, y_top - 28 * mm, num)
+    c.drawString(MARGIN, y_top - 28 * mm, str(page_num))
 
-    # Section label
-    c.setFillColor(BLUE_700)
-    c.setFont(FONT_MED, 9)
-    c.drawString(MARGIN + 50 * mm, y_top - 6 * mm, label.upper())
-
-    # Title
     c.setFillColor(BLUE_900)
     c.setFont(FONT_MED, 32)
-    c.drawString(MARGIN + 50 * mm, y_top - 18 * mm, title)
+    c.drawString(title_x, y_top - 14 * mm, title)
 
-    # Subtitle
     c.setFillColor(TEXT_SOFT)
     c.setFont(FONT_BOOK, 11)
-    c.drawString(MARGIN + 50 * mm, y_top - 26 * mm, subtitle)
+    c.drawString(title_x, y_top - 22 * mm, subtitle)
 
     # Divider
     c.setStrokeColor(HexColor("#d3dcf2"))
@@ -362,143 +1069,14 @@ def draw_section_head(c: canvas_mod.Canvas, num: str, label: str, title: str,
 
 
 # ---------------------------------------------------------------------------
-# Page 2 — Logo
-# ---------------------------------------------------------------------------
-
-def draw_logo_page(c: canvas_mod.Canvas) -> None:
-    c.setFillColor(PAPER)
-    c.rect(0, 0, PAGE_W, PAGE_H, stroke=0, fill=1)
-
-    y = draw_section_head(c, "01", "Logo", "The mark",
-                          "Primary identity, clear-space and minimum sizes.")
-
-    # ---- Hero lockup with clear-space cage ----
-    lockup_h = 30 * mm
-    lockup_path = build_horizontal_lockup_blue500()
-    lockup_w, _ = horizontal_lockup_size(lockup_h)
-
-    pad = lockup_h * 0.5  # "X" = half lockup height
-    cage_w = lockup_w + pad * 2
-    cage_h = lockup_h + pad * 2
-    cage_x = MARGIN + (PAGE_W - 2 * MARGIN - cage_w) / 2
-    hero_x = cage_x + pad
-    hero_y = y - 28 * mm - cage_h + pad
-    cage_y = hero_y - pad
-
-    # Cage
-    c.setStrokeColor(BLUE_300)
-    c.setDash(2, 2)
-    c.setLineWidth(0.8)
-    c.rect(cage_x, cage_y, cage_w, cage_h, stroke=1, fill=0)
-    c.setDash()
-
-    # Primary lockup — reference image, all Blue 500
-    c.setFillColor(WHITE)
-    if lockup_path:
-        c.drawImage(str(lockup_path), hero_x, hero_y, lockup_w, lockup_h, mask="auto")
-
-    # Corner "X" markers + label
-    tick = pad
-    for cx_, cy_ in [(cage_x, cage_y), (cage_x + cage_w, cage_y),
-                     (cage_x, cage_y + cage_h), (cage_x + cage_w, cage_y + cage_h)]:
-        c.setFillColor(BLUE_500)
-        c.circle(cx_, cy_, 1.4, stroke=0, fill=1)
-
-    c.setFillColor(BLUE_700)
-    c.setFont(FONT_MED, 8)
-    c.drawString(cage_x, cage_y + cage_h + 3 * mm, "CLEAR SPACE")
-    c.setFillColor(TEXT_SOFT)
-    c.setFont(FONT_BOOK, 8)
-    c.drawRightString(cage_x + cage_w, cage_y + cage_h + 3 * mm,
-                       "X  =  1/2 mark height")
-
-    # ---- Variant row (4 across) ----
-    ensure_blue900_logo()
-    grid_top = cage_y - 12 * mm
-    gap = 5 * mm
-    cell_w = (PAGE_W - 2 * MARGIN - 3 * gap) / 4
-    cell_h = 32 * mm
-    cells = [
-        ("Primary",   LOGO_PRIMARY,    WHITE,    BLUE_500,  HexColor("#dbe5fc")),
-        ("Blue 900",  LOGO_BLUE_900,   WHITE,    BLUE_900,  HexColor("#dbe5fc")),
-        ("Reverse",   LOGO_REVERSE,    BLUE_800, WHITE,     None),
-        ("Mono",      LOGO_BLACK,      WHITE,    BLUE_900,  HexColor("#dbe5fc")),
-    ]
-    for i, (name, logo, bg, txt, border) in enumerate(cells):
-        x = MARGIN + i * (cell_w + gap)
-        yy = grid_top - cell_h
-        c.setFillColor(bg)
-        c.rect(x, yy, cell_w, cell_h, stroke=0, fill=1)
-        if border:
-            c.setStrokeColor(border)
-            c.setLineWidth(0.6)
-            c.rect(x, yy, cell_w, cell_h, stroke=1, fill=0)
-        # Mark only (no wordmark for these small chips)
-        ratio = 288 / 416
-        mh = 12 * mm
-        mw = mh / ratio
-        if logo.exists():
-            c.drawImage(ImageReader(str(logo)),
-                        x + (cell_w - mw) / 2,
-                        yy + (cell_h - mh) / 2 + 4 * mm,
-                        mw, mh, mask="auto")
-        # Label
-        c.setFillColor(txt if name != "Reverse" else WHITE)
-        c.setFont(FONT_MED, 8)
-        c.drawCentredString(x + cell_w / 2, yy + 5 * mm, name.upper())
-
-    # ---- Minimum sizes + don'ts ----
-    base_y = MARGIN + 22 * mm
-    half = (PAGE_W - 2 * MARGIN - 8 * mm) / 2
-
-    # Min sizes
-    c.setFillColor(WHITE)
-    c.rect(MARGIN, base_y, half, 28 * mm, stroke=0, fill=1)
-    c.setStrokeColor(HexColor("#dbe5fc"))
-    c.setLineWidth(0.6)
-    c.rect(MARGIN, base_y, half, 28 * mm, stroke=1, fill=0)
-
-    c.setFillColor(BLUE_700)
-    c.setFont(FONT_MED, 8)
-    c.drawString(MARGIN + 6 * mm, base_y + 21 * mm, "MINIMUM SIZE")
-    c.setFillColor(BLUE_900)
-    c.setFont(FONT_MED, 11)
-    c.drawString(MARGIN + 6 * mm, base_y + 14 * mm, "Digital   ·   30 px wordmark height  /  50 px mark")
-    c.drawString(MARGIN + 6 * mm, base_y + 7 * mm, "Print       ·   10 pt wordmark             /  8 mm mark")
-
-    # Don'ts
-    dx = MARGIN + half + 8 * mm
-    c.setFillColor(WHITE)
-    c.rect(dx, base_y, half, 28 * mm, stroke=0, fill=1)
-    c.setStrokeColor(HexColor("#dbe5fc"))
-    c.rect(dx, base_y, half, 28 * mm, stroke=1, fill=0)
-
-    c.setFillColor(BLUE_700)
-    c.setFont(FONT_MED, 8)
-    c.drawString(dx + 6 * mm, base_y + 21 * mm, "DON'T")
-    c.setFillColor(BLUE_900)
-    c.setFont(FONT_BOOK, 9.5)
-    donts = [
-        "Recolour the mark outside the approved palette.",
-        "Stretch, skew, rotate or add drop shadows.",
-        "Place the mark on busy imagery without a scrim.",
-    ]
-    for i, line in enumerate(donts):
-        c.drawString(dx + 6 * mm, base_y + 14 * mm - i * 5 * mm, "—  " + line)
-
-    page_meta(c, "Logo", 2)
-    c.showPage()
-
-
-# ---------------------------------------------------------------------------
-# Page 3 — Colour
+# Page 4 — Colour
 # ---------------------------------------------------------------------------
 
 def draw_colour_page(c: canvas_mod.Canvas) -> None:
     c.setFillColor(PAPER)
     c.rect(0, 0, PAGE_W, PAGE_H, stroke=0, fill=1)
 
-    y = draw_section_head(c, "02", "Colour", "Primary palette",
+    y = draw_section_head(c, 4, "Primary palette",
                           "A confident, single-hue system anchored by Blue 500.")
 
     # ---- Hero swatch: primary ----
@@ -610,19 +1188,19 @@ def draw_colour_page(c: canvas_mod.Canvas) -> None:
     c.drawString(MARGIN + 22 * mm, note_y + 1 * mm,
                  "60% Paper · 25% Blue 900 · 15% Blue 500. Reserve Blue 800/900 for hero surfaces.")
 
-    page_meta(c, "Colour", 3)
+    page_meta(c, 4)
     c.showPage()
 
 
 # ---------------------------------------------------------------------------
-# Page 4 — Typography
+# Page 6 — Typography
 # ---------------------------------------------------------------------------
 
 def draw_type_page(c: canvas_mod.Canvas) -> None:
     c.setFillColor(PAPER)
     c.rect(0, 0, PAGE_W, PAGE_H, stroke=0, fill=1)
 
-    y = draw_section_head(c, "03", "Typography", "Sequel Sans",
+    y = draw_section_head(c, 6, "Typography — Sequel Sans",
                           "Editorial, geometric, quietly confident.")
 
     # ---- Aa specimen ----
@@ -717,7 +1295,7 @@ def draw_type_page(c: canvas_mod.Canvas) -> None:
         c.drawRightString(PAGE_W - MARGIN, baseline + size * 0.30, role)
         ry -= max(size * 1.25, 11 * mm)
 
-    page_meta(c, "Typography", 4)
+    page_meta(c, 6)
     c.showPage()
 
 
@@ -736,7 +1314,9 @@ def build(path: Path) -> None:
 
     draw_cover(c)
     draw_logo_page(c)
+    draw_logo_reverse_page(c)
     draw_colour_page(c)
+    draw_slogans_page(c)
     draw_type_page(c)
 
     c.save()

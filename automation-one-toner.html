@@ -278,18 +278,95 @@ body.subpage .nav-actions .btn-ghost:hover {
     radial-gradient(120% 90% at 5% 20%, rgba(185, 208, 255, 0.45) 0%, transparent 55%),
     linear-gradient(165deg, #eef4ff 0%, var(--paper) 60%);
 }
+.subpage-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.62;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    hsl(0 0% 0% / 0) 0%,
+    hsl(0 0% 0% / 0.08) 18%,
+    hsl(0 0% 0% / 0.42) 42%,
+    hsl(0 0% 0% / 0.88) 62%,
+    hsl(0 0% 0% / 1) 78%,
+    hsl(0 0% 0% / 1) 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    hsl(0 0% 0% / 0) 0%,
+    hsl(0 0% 0% / 0.08) 18%,
+    hsl(0 0% 0% / 0.42) 42%,
+    hsl(0 0% 0% / 0.88) 62%,
+    hsl(0 0% 0% / 1) 78%,
+    hsl(0 0% 0% / 1) 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+@media (min-width: 561px) {
+  .subpage-hero-video {
+    opacity: 0.78;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0) 10%,
+      hsl(0 0% 0% / 0.12) 24%,
+      hsl(0 0% 0% / 0.55) 46%,
+      hsl(0 0% 0% / 0.95) 62%,
+      hsl(0 0% 0% / 1) 72%,
+      hsl(0 0% 0% / 1) 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0) 10%,
+      hsl(0 0% 0% / 0.12) 24%,
+      hsl(0 0% 0% / 0.55) 46%,
+      hsl(0 0% 0% / 0.95) 62%,
+      hsl(0 0% 0% / 1) 72%,
+      hsl(0 0% 0% / 1) 100%
+    );
+  }
+}
+.subpage-hero--video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248, 250, 255, 0.94) 0%,
+      rgba(248, 250, 255, 0.82) 28%,
+      rgba(238, 244, 255, 0.52) 48%,
+      rgba(238, 244, 255, 0.22) 68%,
+      rgba(238, 244, 255, 0.06) 100%
+    ),
+    radial-gradient(125% 90% at 88% 0%, rgba(106, 155, 255, 0.28) 0%, transparent 55%),
+    radial-gradient(120% 90% at 5% 20%, rgba(185, 208, 255, 0.42) 0%, transparent 55%);
+}
 .subpage-hero::before {
   content: "";
   position: absolute;
   inset: -20% -10% auto auto;
   width: 60vw; height: 60vw;
   max-width: 900px; max-height: 900px;
+  z-index: 1;
   background:
     radial-gradient(circle at 50% 50%, rgba(31, 92, 245, 0.12) 0%, transparent 65%);
   pointer-events: none;
   filter: blur(40px);
 }
-.subpage-hero .container { position: relative; z-index: 1; }
+.subpage-hero .container { position: relative; z-index: 2; }
 .section-eyebrow {
   display: inline-block;
   font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
@@ -442,6 +519,279 @@ p { color: #3d4666; line-height: 1.6; }
 .band--ink .card ul li::before { border-color: #b9d0ff; }
 .band--ink .card .icon { background: linear-gradient(135deg, #b9d0ff, var(--blue-400)); color: var(--blue-900); }
 
+/* Brand proof cards (Products & Solutions parity) */
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+}
+@media (max-width: 820px) {
+  .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.proof-grid--brands {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .proof-grid--brands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.proof-card--brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  height: 100%;
+  padding: clamp(18px, 2.4vw, 24px) clamp(18px, 2vw, 24px) clamp(20px, 2.6vw, 28px);
+  text-decoration: none;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+.proof-brand-photo {
+  display: block;
+  width: 100%;
+  height: clamp(148px, 12vw, 172px);
+  flex: 0 0 clamp(148px, 12vw, 172px);
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba(217,230,255,0.6), rgba(255,255,255,0.95));
+  box-shadow: 0 12px 28px -18px rgba(10, 40, 112, 0.45);
+  position: relative;
+}
+.proof-brand-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.proof-brand-photo--toner img {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(8px, 1.2vw, 14px);
+}
+.proof-grid--brands .proof-brand-photo--lexmark img {
+  transform: scale(1.15);
+  object-position: center top;
+  padding: clamp(0px, 0.2vw, 2px) clamp(4px, 0.5vw, 8px) clamp(6px, 0.8vw, 10px);
+}
+.proof-card--brand:hover .proof-brand-photo img { transform: scale(1.05); }
+.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--lexmark img {
+  transform: scale(1.2);
+}
+.proof-grid--brands .proof-brand-photo--fp img {
+  transform: scale(0.9);
+  object-position: center top;
+  padding: clamp(2px, 0.4vw, 4px) clamp(10px, 1.4vw, 16px) clamp(12px, 1.6vw, 18px);
+}
+.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--fp img {
+  transform: scale(0.945);
+}
+.proof-card--brand:hover {
+  transform: translateY(-3px);
+  border-color: rgba(31, 92, 245, 0.42);
+  box-shadow: 0 30px 60px -30px rgba(10, 40, 112, 0.5);
+}
+.proof-card--brand:focus-visible {
+  outline: 3px solid var(--blue-500);
+  outline-offset: 3px;
+}
+.proof-brand-logo {
+  position: relative;
+  display: block;
+  width: auto;
+  max-width: 80%;
+  height: 52px;
+  min-height: 52px;
+  max-height: 52px;
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.24s ease, filter 0.24s ease;
+  filter: saturate(0.92);
+}
+.proof-card--brand:hover .proof-brand-logo {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+.proof-brand-logo--canon   { max-width: 70%; }
+.proof-brand-logo--xerox   { max-width: 70%; }
+.proof-brand-logo--lexmark { max-width: 80%; }
+.proof-brand-logo--fp      { max-width: 56%; }
+.proof-brand-logo--ideal   { max-width: 74%; }
+.proof-brand-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: auto;
+  min-height: 46px;
+  padding: 10px 52px 10px 18px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--blue-900);
+  border: 1px solid rgba(15, 56, 158, 0.08);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 2px 6px rgba(10, 40, 112, 0.08),
+    0 10px 24px -8px rgba(10, 40, 112, 0.28),
+    0 18px 40px -16px rgba(10, 40, 112, 0.22);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+.proof-brand-cta::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: var(--blue-600) var(--cta-pill-chevron-white) calc(50% + 2px) 50% / 50% auto no-repeat;
+  transition: background-color 0.22s ease, transform 0.22s ease;
+}
+.proof-card--brand:hover .proof-brand-cta {
+  transform: translateY(-1px);
+  background: #fff;
+  color: var(--blue-900);
+  box-shadow:
+    0 4px 10px rgba(10, 40, 112, 0.1),
+    0 14px 32px -8px rgba(10, 40, 112, 0.34),
+    0 24px 48px -14px rgba(10, 40, 112, 0.28);
+}
+.proof-card--brand:hover .proof-brand-cta::after { background-color: var(--blue-700); }
+.toner-brands-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+.toner-brands-head {
+  text-align: center;
+  max-width: none;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+.toner-brands-head .section-eyebrow {
+  margin-bottom: 14px;
+}
+.toner-brands-head h2 {
+  margin-bottom: 0;
+}
+.toner-brands-head h2 em,
+.toner-request-head h2 em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--blue-500), var(--blue-700) 65%, var(--blue-900));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.toner-brands-block .proof-grid--brands {
+  width: 100%;
+}
+.toner-brands-dealer-line {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 32px);
+  width: 100%;
+  margin: clamp(24px, 3.2vw, 40px) 0 0;
+  font-size: clamp(14px, 1.4vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--blue-700);
+  white-space: nowrap;
+}
+.toner-brands-dealer-line::before,
+.toner-brands-dealer-line::after {
+  content: "";
+  flex: 1 1 0;
+  min-width: 0;
+  height: 2px;
+  background: var(--blue-600);
+  opacity: 0.9;
+}
+@media (max-width: 900px) {
+  .toner-brands-dealer-line {
+    font-size: clamp(11px, 2.4vw, 15px);
+    letter-spacing: 0.1em;
+    gap: clamp(12px, 2.8vw, 20px);
+  }
+}
+@media (max-width: 520px) {
+  .toner-brands-dealer-line {
+    font-size: clamp(9px, 2.2vw, 12px);
+    letter-spacing: 0.08em;
+    white-space: normal;
+    line-height: 1.25;
+  }
+}
+.proof-grid--brands .proof-card--brand {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  padding-top: clamp(6px, 0.8vw, 10px);
+}
+.proof-grid--brands .proof-card--brand::before {
+  display: none;
+}
+.proof-grid--brands .proof-card--brand:hover {
+  border-color: transparent;
+  box-shadow: none;
+}
+.proof-grid--brands .proof-brand-photo {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+.proof-grid--brands .proof-brand-photo--toner {
+  overflow: visible;
+}
+.proof-grid--brands .proof-brand-photo--toner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: clamp(36px, 4.5vw, 52px);
+  transform: translateX(-50%);
+  width: 76%;
+  height: clamp(10px, 1.1vw, 14px);
+  border-radius: 50%;
+  background: rgba(15, 56, 158, 0.11);
+  pointer-events: none;
+  z-index: 0;
+}
+.proof-grid--brands .proof-brand-photo--toner img {
+  position: relative;
+  z-index: 1;
+  object-position: center top;
+  padding: clamp(0px, 0.2vw, 2px) clamp(8px, 1.2vw, 14px) clamp(10px, 1.4vw, 16px);
+}
+.proof-card {
+  position: relative;
+  padding: 26px 22px 24px;
+  border-radius: 22px;
+  background:
+    radial-gradient(120% 80% at 8% 0%, rgba(255,255,255,0.95), rgba(255,255,255,0.55) 60%),
+    linear-gradient(160deg, rgba(217,230,255,0.62), rgba(255,255,255,0.94));
+  border: 1px solid rgba(126, 167, 255, 0.34);
+  box-shadow: 0 22px 50px -36px rgba(10, 40, 112, 0.5);
+  overflow: hidden;
+}
+.proof-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 90% 8%, rgba(31, 92, 245, 0.12), transparent 50%);
+  pointer-events: none;
+}
+.proof-card > * { position: relative; }
+
 /* Stat row */
 .stats-row {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -494,6 +844,112 @@ p { color: #3d4666; line-height: 1.6; }
 }
 @media (max-width: 900px) { .split-2 { grid-template-columns: 1fr; } }
 
+.toner-request-layout {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4.5vw, 52px);
+}
+.toner-request-supplies {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+.toner-request-supplies .product-stat {
+  padding: clamp(14px, 1.4vw, 16px) clamp(12px, 1.2vw, 14px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(126, 167, 255, 0.28);
+  box-shadow: 0 18px 38px -32px rgba(10, 40, 112, 0.5);
+  container-type: inline-size;
+  min-width: 0;
+}
+.toner-request-supplies .product-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--blue-700);
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.toner-request-supplies .product-stat > span {
+  display: block;
+  font-size: clamp(10px, 0.82vw, 12px);
+  line-height: 1.35;
+  color: #4a5274;
+  font-weight: 650;
+}
+@media (max-width: 640px) {
+  .toner-request-supplies {
+    grid-template-columns: 1fr;
+  }
+}
+.toner-request-side {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.5vw, 28px);
+}
+.toner-request-head {
+  text-align: center;
+  max-width: none;
+  margin-bottom: 0;
+}
+.toner-request-head .section-eyebrow {
+  margin-bottom: 14px;
+}
+.toner-request-head h2 {
+  margin-bottom: clamp(16px, 2vw, 22px);
+}
+.toner-request-head p {
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.6;
+  color: #3d4666;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+.toner-request-head p + p {
+  margin-top: 18px;
+}
+.toner-request-form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+  width: 100%;
+}
+.toner-request-photo {
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 56px -28px rgba(10, 40, 112, 0.45);
+}
+.toner-request-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.toner-request-form-wrap {
+  width: 100%;
+  max-width: min(640px, 100%);
+  margin-inline: auto;
+}
+.toner-request-form-row .toner-request-form-wrap {
+  max-width: none;
+  margin-inline: 0;
+}
+@media (max-width: 900px) {
+  .toner-request-form-row {
+    grid-template-columns: 1fr;
+  }
+  .toner-request-photo {
+    max-width: min(520px, 100%);
+    margin-inline: auto;
+  }
+}
+
 /* Form */
 .form-shell {
   background: var(--white);
@@ -506,16 +962,97 @@ p { color: #3d4666; line-height: 1.6; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
 }
 @media (max-width: 560px) { .form-shell .row2 { grid-template-columns: 1fr; } }
-.form-shell .field { margin-bottom: 14px; }
+.form-shell .field { margin-bottom: 16px; }
 .form-shell label {
   display: block; font-size: 13px; font-weight: 600;
-  color: var(--blue-800); margin-bottom: 6px;
+  color: var(--blue-800); margin-bottom: 8px;
+}
+.form-shell fieldset.field {
+  border: none;
+  margin: 0 0 16px;
+  padding: 0;
+  min-width: 0;
+}
+.form-shell legend {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-800);
+  margin-bottom: 10px;
+  padding: 0;
+}
+.form-shell .field-hint {
+  font-weight: 500;
+  color: #5a6488;
+}
+.form-color-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.form-check--full {
+  grid-column: 1 / -1;
+}
+.form-parts-field .form-parts-detail {
+  margin-bottom: 10px;
+}
+.form-parts-field .form-parts-detail.is-disabled label {
+  color: #8a93ad;
+}
+.form-parts-field .form-parts-detail.is-disabled input {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: rgba(245, 248, 255, 0.8);
+}
+.form-color-field.is-colors-na .form-check:not(.form-check--na) {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.form-shell .form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 56, 158, 0.14);
+  background: var(--paper);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3d4666;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+.form-shell .form-check:hover {
+  border-color: rgba(31, 92, 245, 0.35);
+  background: #fff;
+}
+.form-shell .form-check input {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 18px;
+  accent-color: var(--blue-600);
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+.form-shell .form-check input:focus {
+  box-shadow: none;
+}
+.form-shell .form-check:has(input:checked) {
+  border-color: var(--blue-500);
+  background: rgba(238, 244, 255, 0.92);
+  box-shadow: 0 0 0 1px rgba(31, 92, 245, 0.12);
 }
 .form-shell input,
 .form-shell textarea,
 .form-shell select {
-  width: 100%; font: inherit; font-size: 15px;
-  padding: 12px 14px; border-radius: 12px;
+  width: 100%; font: inherit; font-size: 16px;
+  padding: 14px 16px; border-radius: 12px;
   border: 1px solid rgba(15, 56, 158, 0.18);
   background: var(--paper); color: var(--ink);
   transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
@@ -729,57 +1266,7 @@ p { color: #3d4666; line-height: 1.6; }
   color: var(--blue-700);
 }
 
-/* ---------- CTA section ---------- */
-.cta-section {
-  padding: clamp(72px, 10vw, 120px) 0;
-  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 60%, var(--blue-900) 100%);
-  color: var(--white); text-align: center; overflow: hidden; position: relative;
-}
-.cta-section::after {
-  content: ""; position: absolute; inset: 0;
-  background-image: url("automation-one-footer-bg.png");
-  background-size: cover; background-position: left 40%;
-  background-repeat: no-repeat;
-  opacity: 0.92; mix-blend-mode: soft-light;
-  pointer-events: none; z-index: 0;
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.58) 68%, rgba(0,0,0,0) 92%);
-          mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.58) 68%, rgba(0,0,0,0) 92%);
-}
-.cta-section::before {
-  content: ""; position: absolute; inset: 0; z-index: 1;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 32%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.07) 0%, transparent 30%);
-}
-.cta-watermark {
-  position: absolute; left: 66%; top: 50%;
-  transform: translate(-50%, -50%);
-  height: calc(100% + 56px); width: auto;
-  max-width: min(1100px, 92vw); object-fit: contain;
-  opacity: 0.22; pointer-events: none; z-index: 2;
-}
-.cta-section .container { position: relative; z-index: 3; }
-.cta-section h2 {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(28px, 4.2vw, 48px); line-height: 1.08;
-  letter-spacing: -0.03em; color: var(--white);
-  margin-bottom: 18px; text-wrap: balance;
-}
-.cta-section h2 em {
-  font-style: normal;
-  background: linear-gradient(120deg, #b9d0ff, var(--white));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-}
-.cta-section p {
-  font-size: 18px; color: rgba(255,255,255,0.85);
-  max-width: 600px; margin: 0 auto 36px;
-  line-height: 1.55;
-}
-.cta-section .cta-row {
-  display: flex; flex-wrap: wrap; gap: 14px;
-  justify-content: center; margin-bottom: 32px;
-}
+/* CTA banner layout/animation: automation-one-cta.css (synced with homepage) */
 .cta-secondary {
   background: rgba(255,255,255,0.08); color: var(--white);
   border: 1.5px solid rgba(255,255,255,0.45);
@@ -787,23 +1274,6 @@ p { color: #3d4666; line-height: 1.6; }
   -webkit-backdrop-filter: blur(10px);
 }
 .cta-secondary:hover { background: rgba(255,255,255,0.16); border-color: var(--white); }
-.cta-section .phone-row {
-  display: inline-flex; flex-wrap: wrap; gap: 28px;
-  padding: 16px 32px; border-radius: 999px;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  background:
-    radial-gradient(118% 90% at 44% 12%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 58%),
-    rgba(255, 255, 255, 0.05);
-  box-shadow:
-    inset 0 1px 6px rgba(255, 255, 255, 0.12),
-    inset 0 -5px 12px rgba(6, 22, 58, 0.07),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-.cta-section .phone-row a {
-  color: var(--white); text-decoration: none; font-weight: 600;
-  font-size: 15px; display: inline-flex; align-items: center; gap: 8px;
-}
-.cta-section .phone-row a:hover { color: #b9d0ff; }
 
 /* ---------- FOOTER ---------- */
 footer {
@@ -1328,93 +1798,6 @@ html { background-color: #ffffff; }
   .pt-scan-bar { display: none !important; }
   html { background-color: transparent; }
 }
-/* Final CTA banner animation synced with homepage */
-.cta-section {
-  --cta-letter-bg-size: 159%;
-  --cta-letter-bg-y: 44%;
-  --cta-letter-x: -0.75%;
-  --cta-letter-rotate: -13deg;
-  --cta-letter-scale: 1.16;
-  --cta-watermark-left: 66%;
-  --cta-watermark-scale: 1;
-}
-.cta-section::after {
-  inset: -16% -12%;
-  background-size: var(--cta-letter-bg-size) auto;
-  background-position: left var(--cta-letter-bg-y);
-  transform: translate3d(var(--cta-letter-x), 0, 0) rotate(var(--cta-letter-rotate)) scale(var(--cta-letter-scale));
-  transform-origin: 28% 50%;
-}
-.cta-watermark {
-  left: var(--cta-watermark-left);
-  transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
-}
-
-/* ---------- CANON-SYNCED SHARED CTA / FOOTER ---------- */
-.cta-section .cta-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.cta-section .cta-contact-bar {
-  margin: 26px auto 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(6, 26, 74, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.cta-section .cta-contact-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.92);
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-.cta-section .cta-contact-icon:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-}
-.cta-section .cta-contact-icon svg {
-  width: 22px;
-  height: 22px;
-}
-.cta-section .cta-contact-phone {
-  color: rgba(255, 255, 255, 0.94);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-}
-.cta-section .cta-contact-phone:hover { color: #b9d0ff; }
-.cta-section .cta-contact-divider {
-  width: 1px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.18);
-  flex-shrink: 0;
-}
-@media (max-width: 560px) {
-  .cta-section .cta-contact-bar {
-    gap: 10px;
-    padding: 8px 10px;
-  }
-  .cta-section .cta-contact-divider { height: 18px; }
-}
-
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
@@ -1460,16 +1843,51 @@ html { background-color: #ffffff; }
 
 
 
-<section class="subpage-hero">
+<section class="subpage-hero subpage-hero--video">
+  <video
+    class="subpage-hero-video"
+    src="toner-hero-bg.mov"
+    autoplay
+    muted
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    aria-hidden="true"
+  >
+    <source src="toner-hero-bg.mov" type="video/quicktime" />
+  </video>
+  <script>
+  (function (v) {
+    if (!v || v.tagName !== 'VIDEO') return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.loop = false;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    function play() {
+      var p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+    v.addEventListener('loadeddata', play, { once: true });
+    v.addEventListener('canplay', play, { once: true });
+    v.addEventListener('ended', function () {
+      if (v.duration && isFinite(v.duration)) {
+        v.currentTime = Math.max(0, v.duration - 0.05);
+      }
+      v.pause();
+    });
+    play();
+  })(document.currentScript.previousElementSibling);
+  </script>
   <div class="container">
     <span class="section-eyebrow reveal">Toner &amp; Supplies</span>
-    <h1 class="reveal">Need toner?<br/><em>We've got you covered.</em></h1>
+    <h1 class="reveal">Need toner, parts or supplies?<br/><em>We've got you covered.</em></h1>
     <div class="lead reveal">
       <p>Order from our 15,000 sq.&nbsp;ft. of toner and parts inventory in Vancouver and Burnaby &mdash; the largest local stock of OEM cartridges for Canon, Xerox, Lexmark, FP and Ideal.MBM. Most orders ship the same day.</p>
     </div>
     <div class="hero-cta-row reveal">
-      <a href="#toner-request" class="cta cta-pill-arrow-blue">Request Toner</a>
-      <a href="tel:6042556622" class="cta cta-primary cta-pill-arrow">Call 604.255.6622</a>
+      <a href="#toner-request" class="cta cta-pill-arrow-blue">Skip to Request Toner &amp; Supplies Form</a>
     </div>
   </div>
 </section>
@@ -1478,79 +1896,111 @@ html { background-color: #ffffff; }
 
 <section class="band">
   <div class="container">
-    <div class="stats-row reveal">
-      <div class="stat">
-        <span class="num">15,000<small style="font-size:0.4em">&nbsp;sq.ft.</small></span>
-        <div class="label">Local inventory</div>
-        <p>Toner, parts, and equipment stocked across our Vancouver and Burnaby warehouses.</p>
+    <header class="band-head toner-brands-head reveal">
+      <span class="section-eyebrow">Need something urgently?</span>
+      <h2>What you need<br/><em>when you need it.</em></h2>
+    </header>
+    <div class="toner-brands-block reveal">
+      <div class="proof-grid proof-grid--brands">
+      <a class="proof-card proof-card--brand" href="automation-one-canon.html" aria-label="Canon products">
+        <span class="proof-brand-photo proof-brand-photo--toner">
+          <img src="canon-toner.png" alt="Canon imagePRESS toner cartridges" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--canon" src="brand-logo-canon.png" alt="Canon" loading="lazy" decoding="async" />
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-xerox.html" aria-label="Xerox products">
+        <span class="proof-brand-photo proof-brand-photo--toner">
+          <img src="service-stats/xerox-toners-cartoon.svg" alt="Xerox toner and supplies" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--xerox" src="brand-logo-xerox.png" alt="Xerox" loading="lazy" decoding="async" />
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-lexmark.html" aria-label="Lexmark products">
+        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--lexmark">
+          <img src="lexmark-toner-transparent.png" alt="Lexmark toner and supplies" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--lexmark" src="brand-logo-lexmark.png" alt="Lexmark" loading="lazy" decoding="async" />
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-fp.html" aria-label="Francotyp Postalia products">
+        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--fp">
+          <img src="fp-toner-transparent.png" alt="Francotyp Postalia PostBase Mini ink cartridges" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--fp" src="brand-logo-fp.png" alt="Francotyp Postalia" loading="lazy" decoding="async" />
+      </a>
+      <a class="proof-card proof-card--brand" href="automation-one-ideal-mbm.html" aria-label="Ideal.MBM products">
+        <span class="proof-brand-photo proof-brand-photo--toner">
+          <img src="ideal-mbm-shredder-bags.png" alt="Ideal.MBM DestroyIt custom fit shred bags" loading="lazy" decoding="async" />
+        </span>
+        <img class="proof-brand-logo proof-brand-logo--ideal" src="brand-logo-ideal.png" alt="Ideal.MBM" loading="lazy" decoding="async" />
+      </a>
       </div>
-      <div class="stat">
-        <span class="num">Same<small style="font-size:0.4em">&nbsp;day</small></span>
-        <div class="label">Most orders ship</div>
-        <p>Orders confirmed before noon are usually out our doors that afternoon.</p>
-      </div>
-      <div class="stat">
-        <span class="num">100%</span>
-        <div class="label">OEM cartridges only</div>
-        <p>We use original manufacturer supplies for predictable quality and to protect your warranty.</p>
-      </div>
-      <div class="stat">
-        <span class="num">5<small style="font-size:0.5em">brands</small></span>
-        <div class="label">Authorized dealer</div>
-        <p>Canon, Xerox, Lexmark, Francotyp Postalia, and Ideal.MBM &mdash; one supplier for all of them.</p>
-      </div>
+      <p class="toner-brands-dealer-line">Authorized Toner &amp; Supplies Dealer</p>
     </div>
   </div>
 </section>
 
 <section class="band band--tint" id="toner-request">
-  <div class="container split-2">
-    <div class="reveal">
-      <span class="section-eyebrow">Toner request form</span>
-      <h2>Tell us what to send. We'll handle the rest.</h2>
-      <p>Fill out the short form on the right &mdash; or call us locally in Metro Vancouver at <a href="tel:6042556622" style="color:var(--blue-700);font-weight:600;text-decoration:none;">604.255.6622</a>, or toll-free at <a href="tel:18886529922" style="color:var(--blue-700);font-weight:600;text-decoration:none;">1.888.652.9922</a>.</p>
-      <p style="margin-top:18px;">If you're not sure of your model number, snap a photo of the device's front panel and email it to <a href="mailto:info@automationone.ca" style="color:var(--blue-700);font-weight:600;text-decoration:none;">info@automationone.ca</a> &mdash; we'll figure it out.</p>
-
-      <div class="cards-grid cards-grid--3" style="margin-top:36px;">
-        <div class="card" style="padding:18px 22px;">
-          <h3 style="font-size:15px;margin:0 0 6px;">Color (CMYK)</h3>
-          <p style="font-size:13.5px;">Cyan, Magenta, Yellow and Black cartridges for color MFPs and production presses.</p>
-        </div>
-        <div class="card" style="padding:18px 22px;">
-          <h3 style="font-size:15px;margin:0 0 6px;">Mono toner</h3>
-          <p style="font-size:13.5px;">High-yield black cartridges for office, workgroup and high-volume mono devices.</p>
-        </div>
-        <div class="card" style="padding:18px 22px;">
-          <h3 style="font-size:15px;margin:0 0 6px;">Parts &amp; consumables</h3>
-          <p style="font-size:13.5px;">Drums, fusers, transfer belts, staples, waste containers &mdash; whatever's on the maintenance counter.</p>
-        </div>
-      </div>
-    </div>
-    <div class="reveal">
-      <form class="form-shell" id="toner-form" autocomplete="on">
-        <div class="row2">
-          <div class="field"><label for="tn-first">First name</label><input id="tn-first" name="firstName" type="text" placeholder="First name" /></div>
-          <div class="field"><label for="tn-last">Last name</label><input id="tn-last" name="lastName" type="text" placeholder="Last name" /></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="tn-phone">Phone <span aria-hidden="true">*</span></label><input id="tn-phone" name="phone" type="tel" placeholder="Phone" required /></div>
-          <div class="field"><label for="tn-email">Email <span aria-hidden="true">*</span></label><input id="tn-email" name="email" type="email" placeholder="Email" required /></div>
-        </div>
-        <div class="field"><label for="tn-company">Company</label><input id="tn-company" name="company" type="text" placeholder="Company name" /></div>
-        <div class="field"><label for="tn-model">Equipment brand &amp; model number <span aria-hidden="true">*</span></label><input id="tn-model" name="model" type="text" placeholder="e.g. Canon imageRUNNER C5560i" required /></div>
-        <div class="field">
-          <label>Colors needed (select all)</label>
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px 16px;padding-top:6px;">
-            <label style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#3d4666;"><input type="checkbox" name="color" value="Cyan" style="accent-color:var(--blue-600);"> Cyan</label>
-            <label style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#3d4666;"><input type="checkbox" name="color" value="Magenta" style="accent-color:var(--blue-600);"> Magenta</label>
-            <label style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#3d4666;"><input type="checkbox" name="color" value="Yellow" style="accent-color:var(--blue-600);"> Yellow</label>
-            <label style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#3d4666;"><input type="checkbox" name="color" value="Black" style="accent-color:var(--blue-600);"> Black</label>
+  <div class="container toner-request-layout">
+    <header class="band-head toner-request-head reveal">
+      <span class="section-eyebrow">Request Toner &amp; Supplies</span>
+      <h2>Tell us what to send.<br/><em>We'll handle the rest.</em></h2>
+      <p>Fill out the short form below &mdash; or call us in Metro Vancouver at <a href="tel:6042556622" style="color:var(--blue-700);font-weight:600;text-decoration:none;">604.255.6622</a>.</p>
+      <p>If you're not sure of your model number, snap a photo of the device's front panel and email it to <a href="mailto:toner@automationone.ca" style="color:var(--blue-700);font-weight:600;text-decoration:none;">toner@automationone.ca</a> &mdash; we'll figure it out.</p>
+    </header>
+    <div class="toner-request-form-row reveal">
+      <div class="toner-request-side">
+        <figure class="toner-request-photo">
+          <img src="toner-request-printer.png" alt="Technician replacing toner in a Xerox AltaLink C8155 at Automation One" width="1200" height="1200" loading="lazy" decoding="async" />
+        </figure>
+        <div class="toner-request-supplies" aria-label="Toner and supplies we stock">
+          <div class="product-stat">
+            <strong>CMYK</strong>
+            <span>Cyan, Magenta, Yellow and Black cartridges for color MFPs and production presses.</span>
+          </div>
+          <div class="product-stat">
+            <strong>Parts</strong>
+            <span>Drums, fusers, transfer belts, staples, waste containers and more.</span>
+          </div>
+          <div class="product-stat">
+            <strong>Supplies</strong>
+            <span>FP postage meter ink and Ideal.MBM shredder bags, staples, and consumables.</span>
           </div>
         </div>
-        <div class="field"><label for="tn-note">Additional info</label><textarea id="tn-note" name="note" rows="4" placeholder="Quantity, urgency, delivery instructions..."></textarea></div>
+      </div>
+      <div class="toner-request-form-wrap">
+      <form class="form-shell" id="toner-form" autocomplete="on">
+        <div class="row2">
+          <div class="field"><label for="tn-first">First name</label><input id="tn-first" name="firstName" type="text" autocomplete="given-name" placeholder="Jane" /></div>
+          <div class="field"><label for="tn-last">Last name</label><input id="tn-last" name="lastName" type="text" autocomplete="family-name" placeholder="Smith" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="tn-phone">Phone <span aria-hidden="true">*</span></label><input id="tn-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="604.555.1234" required /></div>
+          <div class="field"><label for="tn-email">Email <span aria-hidden="true">*</span></label><input id="tn-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required /></div>
+        </div>
+        <div class="field"><label for="tn-company">Company</label><input id="tn-company" name="company" type="text" autocomplete="organization" placeholder="Your company name" /></div>
+        <div class="field"><label for="tn-model">Equipment brand &amp; model number <span aria-hidden="true">*</span></label><input id="tn-model" name="model" type="text" placeholder="e.g. Canon imageRUNNER C5560i" required /></div>
+        <fieldset class="field form-color-field" id="tn-colors-field">
+          <legend>Colors needed <span class="field-hint">(select all that apply, or not applicable)</span></legend>
+          <div class="form-color-options">
+            <label class="form-check"><input type="checkbox" name="color" value="Cyan" /><span>Cyan</span></label>
+            <label class="form-check"><input type="checkbox" name="color" value="Magenta" /><span>Magenta</span></label>
+            <label class="form-check"><input type="checkbox" name="color" value="Yellow" /><span>Yellow</span></label>
+            <label class="form-check"><input type="checkbox" name="color" value="Black" /><span>Black</span></label>
+            <label class="form-check form-check--full form-check--na"><input type="checkbox" name="color" value="Not applicable" id="tn-color-na" /><span>Not applicable</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field form-parts-field" id="tn-parts-field">
+          <legend>Parts &amp; Supplies</legend>
+          <div class="field form-parts-detail" id="tn-parts-detail">
+            <label for="tn-parts">Describe the part(s) you need</label>
+            <input id="tn-parts" name="parts" type="text" placeholder="e.g. drum unit, fuser, waste toner bottle..." />
+          </div>
+          <label class="form-check form-check--full"><input type="checkbox" name="partsNa" value="Not applicable" id="tn-parts-na" /><span>Not applicable</span></label>
+        </fieldset>
+        <div class="field"><label for="tn-note">Additional info</label><textarea id="tn-note" name="note" rows="4" placeholder="Quantity, urgency, delivery address, or anything else we should know..."></textarea></div>
         <button type="submit">Send toner request</button>
-        <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:info@automationone.ca">info@automationone.ca</a>.</p>
+        <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:toner@automationone.ca">toner@automationone.ca</a>.</p>
       </form>
+      </div>
     </div>
   </div>
 </section>
@@ -1793,7 +2243,7 @@ html { background-color: #ffffff; }
       <div class="sticky-nav-dropdown" hidden>
         <a href="automation-one-products.html">Products &amp; Solutions</a>
         <a href="automation-one-service-support.html">Service &amp; Support</a>
-        <a href="automation-one-toner.html">Toner</a>
+        <a href="automation-one-toner.html">Toner &amp; Supplies</a>
         <a href="automation-one-resources.html">Resources</a>
       </div>
     </div>
@@ -1824,7 +2274,7 @@ html { background-color: #ffffff; }
     <span class="mobile-nav-label">What We Offer</span>
     <a href="automation-one-products.html" class="mobile-nav-sub">Products &amp; Solutions</a>
     <a href="automation-one-service-support.html" class="mobile-nav-sub">Service &amp; Support</a>
-    <a href="automation-one-toner.html" class="mobile-nav-sub">Toner</a>
+    <a href="automation-one-toner.html" class="mobile-nav-sub">Toner &amp; Supplies</a>
     <a href="automation-one-resources.html" class="mobile-nav-sub">Resources</a>
   </div>
   <div class="mobile-nav-group">
@@ -2029,6 +2479,48 @@ html { background-color: #ffffff; }
   (function () {
     var form = document.getElementById('toner-form');
     if (!form) return;
+
+    var colorsField = document.getElementById('tn-colors-field');
+    var colorNa = document.getElementById('tn-color-na');
+    var colorChecks = form.querySelectorAll('input[name="color"]:not(#tn-color-na)');
+    var partsInput = document.getElementById('tn-parts');
+    var partsNa = document.getElementById('tn-parts-na');
+    var partsDetail = document.getElementById('tn-parts-detail');
+
+    function syncColorNa() {
+      if (!colorsField || !colorNa) return;
+      colorsField.classList.toggle('is-colors-na', colorNa.checked);
+    }
+
+    function syncPartsNa() {
+      if (!partsInput || !partsNa || !partsDetail) return;
+      var disabled = partsNa.checked;
+      partsInput.disabled = disabled;
+      partsDetail.classList.toggle('is-disabled', disabled);
+      if (disabled) partsInput.value = '';
+    }
+
+    if (colorNa) {
+      colorNa.addEventListener('change', function () {
+        if (colorNa.checked) {
+          colorChecks.forEach(function (cb) { cb.checked = false; });
+        }
+        syncColorNa();
+      });
+    }
+    colorChecks.forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        if (cb.checked && colorNa) colorNa.checked = false;
+        syncColorNa();
+      });
+    });
+
+    if (partsNa) {
+      partsNa.addEventListener('change', syncPartsNa);
+      syncPartsNa();
+    }
+    syncColorNa();
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var fd = new FormData(form);
@@ -2039,7 +2531,11 @@ html { background-color: #ffffff; }
       var company = (fd.get('company') || '').toString().trim();
       var model = (fd.get('model') || '').toString().trim();
       var note = (fd.get('note') || '').toString().trim();
-      var colors = fd.getAll('color').join(', ');
+      var colors = fd.getAll('color');
+      var colorsText = colors.length ? colors.join(', ') : '(none specified)';
+      var partsText = partsNa && partsNa.checked
+        ? 'Not applicable'
+        : ((fd.get('parts') || '').toString().trim() || '(none specified)');
       var name = [first, last].filter(Boolean).join(' ');
       var lines = [
         'Request: Toner / supplies',
@@ -2048,13 +2544,14 @@ html { background-color: #ffffff; }
         'Phone: ' + phone,
         'Email: ' + email,
         'Equipment: ' + model,
-        colors ? 'Colors: ' + colors : 'Colors: (none specified)',
+        'Colors: ' + colorsText,
+        'Parts & Supplies: ' + partsText,
         '',
         note || '(no additional info)'
       ].filter(Boolean);
       var subject = encodeURIComponent('Website toner request');
       var body = encodeURIComponent(lines.join('\n'));
-      window.location.href = 'mailto:info@automationone.ca?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:toner@automationone.ca?subject=' + subject + '&body=' + body;
     });
   })();
 </script>

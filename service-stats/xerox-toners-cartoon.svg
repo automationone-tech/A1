@@ -28,8 +28,6 @@
     </pattern>
   </defs>
 
-  <ellipse cx="340" cy="363" rx="292" ry="34" fill="#0f389e" opacity="0.11"/>
-
   <g filter="url(#softShadow)" font-family="Arial, Helvetica, sans-serif">
     <!-- Yellow toner box -->
     <g transform="translate(24 72) rotate(-5 260 58)">
