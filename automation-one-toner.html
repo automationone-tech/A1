@@ -367,12 +367,6 @@ body.subpage .nav-actions .btn-ghost:hover {
   filter: blur(40px);
 }
 .subpage-hero .container { position: relative; z-index: 2; }
-.section-eyebrow {
-  display: inline-block;
-  font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--blue-600);
-  margin-bottom: 16px;
-}
 .subpage-hero h1 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -409,9 +403,7 @@ body.subpage .nav-actions .btn-ghost:hover {
 .band--tint { background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(238,244,255,0.55) 100%); }
 .band--ink { background: linear-gradient(165deg, #0a2870 0%, #0f389e 60%, #1547d1 100%); color: var(--white); }
 .band--ink h2, .band--ink h3 { color: var(--white); }
-.band--ink .section-eyebrow { color: #b9d0ff; }
 .band-head { max-width: 760px; margin-bottom: clamp(36px, 5vw, 56px); }
-.band-head .section-eyebrow { margin-bottom: 14px; }
 .band-head h2 { margin-bottom: 18px; }
 .band-head p {
   font-size: clamp(16px, 1.2vw, 18px); line-height: 1.6;
@@ -659,9 +651,6 @@ p { color: #3d4666; line-height: 1.6; }
   max-width: none;
   margin-bottom: clamp(28px, 4vw, 48px);
 }
-.toner-brands-head .section-eyebrow {
-  margin-bottom: 14px;
-}
 .toner-brands-head h2 {
   margin-bottom: 0;
 }
@@ -902,18 +891,72 @@ p { color: #3d4666; line-height: 1.6; }
     grid-template-columns: 1fr;
   }
 }
+.toner-request-shelf {
+  margin: 0;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(126, 167, 255, 0.22);
+  box-shadow: 0 18px 38px -32px rgba(10, 40, 112, 0.45);
+}
+.toner-request-shelf img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center bottom;
+}
 .toner-request-side {
   display: flex;
   flex-direction: column;
   gap: clamp(20px, 2.5vw, 28px);
 }
+@media (min-width: 901px) {
+  .toner-request-form-row {
+    align-items: stretch;
+  }
+  .toner-request-side {
+    height: 100%;
+    min-height: 0;
+  }
+  .toner-request-shelf {
+    margin-top: auto;
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .toner-request-shelf img {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center 52%;
+  }
+}
+@media (min-width: 1280px) {
+  .toner-request-shelf img {
+    object-position: center 50%;
+  }
+}
+@media (min-width: 1600px) {
+  .toner-request-shelf img {
+    object-position: center 50%;
+  }
+}
+@media (max-width: 900px) {
+  .toner-request-shelf {
+    display: none;
+  }
+}
 .toner-request-head {
   text-align: center;
   max-width: none;
   margin-bottom: 0;
-}
-.toner-request-head .section-eyebrow {
-  margin-bottom: 14px;
 }
 .toner-request-head h2 {
   margin-bottom: clamp(16px, 2vw, 22px);
@@ -973,6 +1016,16 @@ p { color: #3d4666; line-height: 1.6; }
   border-radius: 24px;
   padding: clamp(28px, 3vw, 44px);
   box-shadow: 0 30px 70px -32px rgba(10, 40, 112, 0.45);
+}
+.form-shell-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--blue-800);
+  margin: 0 0 clamp(20px, 2.5vw, 28px);
+  text-wrap: balance;
 }
 .form-shell .row2 {
   display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
@@ -1064,6 +1117,27 @@ p { color: #3d4666; line-height: 1.6; }
   background: rgba(238, 244, 255, 0.92);
   box-shadow: 0 0 0 1px rgba(31, 92, 245, 0.12);
 }
+.form-color-options .form-check:not(.form-check--na) {
+  overflow: visible;
+  padding-right: 12px;
+}
+.form-color-options .form-check:not(.form-check--na) > span:first-of-type {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.form-color-swatch {
+  display: block;
+  width: 38px;
+  height: 26px;
+  flex: 0 0 38px;
+  margin-left: auto;
+  object-fit: contain;
+  object-position: center;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
+  user-select: none;
+}
 .form-shell input,
 .form-shell textarea,
 .form-shell select {
@@ -1081,17 +1155,13 @@ p { color: #3d4666; line-height: 1.6; }
   box-shadow: 0 0 0 3px rgba(31, 92, 245, 0.15);
 }
 .form-shell textarea { resize: vertical; min-height: 120px; }
-.form-shell button[type="submit"] {
-  margin-top: 8px; width: 100%;
-  padding: 16px 22px; border: none; border-radius: 999px;
-  font: inherit; font-weight: 700; font-size: 15px;
-  letter-spacing: 0.04em; cursor: pointer;
-  color: var(--white);
-  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 100%);
-  box-shadow: 0 18px 36px -14px rgba(15, 56, 158, 0.7);
-  transition: transform 0.2s, box-shadow 0.2s;
+.form-shell button.cta.cta-pill-arrow-blue {
+  margin-top: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  -webkit-appearance: none;
+  appearance: none;
 }
-.form-shell button[type="submit"]:hover { transform: translateY(-1px); box-shadow: 0 24px 44px -16px rgba(15, 56, 158, 0.85); }
 .form-hint { margin-top: 14px; font-size: 13px; line-height: 1.5; color: #5a6488; }
 .form-hint a { color: var(--blue-700); font-weight: 600; }
 
@@ -1818,6 +1888,7 @@ html { background-color: #ffffff; }
 <link rel="stylesheet" href="ao-logo-lockup.css">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
+<link rel="stylesheet" href="ao-subpage-section-head.css">
 </head>
 <body class="subpage toner-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -1960,7 +2031,7 @@ html { background-color: #ffffff; }
       <span class="section-eyebrow">Request Toner &amp; Supplies</span>
       <h2>Tell us what to send.<br/><em>We'll handle the rest.</em></h2>
       <p>Fill out the short form below &mdash; or call us in Metro Vancouver at <a href="tel:6042556622" style="color:var(--blue-700);font-weight:600;text-decoration:none;">604.255.6622</a>.</p>
-      <p>If you're not sure of your model number, snap a photo of the device's front panel and email it to <a href="mailto:toner@automationone.ca" style="color:var(--blue-700);font-weight:600;text-decoration:none;">toner@automationone.ca</a> &mdash; we'll figure it out.</p>
+      <p>If you're not sure of your model number, snap us a photo of your device and email it to <a href="mailto:toner@automationone.ca" style="color:var(--blue-700);font-weight:600;text-decoration:none;">toner@automationone.ca</a> &mdash; we'll figure it out.</p>
     </header>
     <div class="toner-request-form-row reveal">
       <div class="toner-request-side">
@@ -1981,9 +2052,13 @@ html { background-color: #ffffff; }
             <span>FP postage meter ink and Ideal.MBM shredder bags, staples, and consumables.</span>
           </div>
         </div>
+        <figure class="toner-request-shelf">
+          <img src="toner-request-shelf-photo.png" alt="Lexmark toner cartridges stocked on warehouse shelves at Automation One" width="768" height="1024" loading="lazy" decoding="async" />
+        </figure>
       </div>
       <div class="toner-request-form-wrap">
       <form class="form-shell" id="toner-form" autocomplete="on">
+        <h2 class="form-shell-title">Request Toner &amp; Supplies Form</h2>
         <div class="row2">
           <div class="field"><label for="tn-first">First name</label><input id="tn-first" name="firstName" type="text" autocomplete="given-name" placeholder="Jane" /></div>
           <div class="field"><label for="tn-last">Last name</label><input id="tn-last" name="lastName" type="text" autocomplete="family-name" placeholder="Smith" /></div>
@@ -1992,15 +2067,15 @@ html { background-color: #ffffff; }
           <div class="field"><label for="tn-phone">Phone <span aria-hidden="true">*</span></label><input id="tn-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="604.555.1234" required /></div>
           <div class="field"><label for="tn-email">Email <span aria-hidden="true">*</span></label><input id="tn-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required /></div>
         </div>
-        <div class="field"><label for="tn-company">Company</label><input id="tn-company" name="company" type="text" autocomplete="organization" placeholder="Your company name" /></div>
+        <div class="field"><label for="tn-company">Company <span aria-hidden="true">*</span></label><input id="tn-company" name="company" type="text" autocomplete="organization" placeholder="Your company name" required /></div>
         <div class="field"><label for="tn-model">Equipment brand &amp; model number <span aria-hidden="true">*</span></label><input id="tn-model" name="model" type="text" placeholder="e.g. Canon imageRUNNER C5560i" required /></div>
         <fieldset class="field form-color-field" id="tn-colors-field">
           <legend>Colors needed <span class="field-hint">(select all that apply, or not applicable)</span></legend>
           <div class="form-color-options">
-            <label class="form-check"><input type="checkbox" name="color" value="Cyan" /><span>Cyan</span></label>
-            <label class="form-check"><input type="checkbox" name="color" value="Magenta" /><span>Magenta</span></label>
-            <label class="form-check"><input type="checkbox" name="color" value="Yellow" /><span>Yellow</span></label>
-            <label class="form-check"><input type="checkbox" name="color" value="Black" /><span>Black</span></label>
+            <label class="form-check"><input type="checkbox" name="color" value="Cyan" /><span>Cyan</span><img class="form-color-swatch" src="toner-mound-cyan.png" alt="" width="268" height="162" aria-hidden="true" decoding="async" /></label>
+            <label class="form-check"><input type="checkbox" name="color" value="Magenta" /><span>Magenta</span><img class="form-color-swatch" src="toner-mound-magenta.png" alt="" width="253" height="162" aria-hidden="true" decoding="async" /></label>
+            <label class="form-check"><input type="checkbox" name="color" value="Yellow" /><span>Yellow</span><img class="form-color-swatch" src="toner-mound-yellow.png" alt="" width="267" height="163" aria-hidden="true" decoding="async" /></label>
+            <label class="form-check"><input type="checkbox" name="color" value="Black" /><span>Black</span><img class="form-color-swatch" src="toner-mound-black.png" alt="" width="256" height="158" aria-hidden="true" decoding="async" /></label>
             <label class="form-check form-check--full form-check--na"><input type="checkbox" name="color" value="Not applicable" id="tn-color-na" /><span>Not applicable</span></label>
           </div>
         </fieldset>
@@ -2013,7 +2088,7 @@ html { background-color: #ffffff; }
           <label class="form-check form-check--full"><input type="checkbox" name="partsNa" value="Not applicable" id="tn-parts-na" /><span>Not applicable</span></label>
         </fieldset>
         <div class="field"><label for="tn-note">Additional info</label><textarea id="tn-note" name="note" rows="4" placeholder="Quantity, urgency, delivery address, or anything else we should know..."></textarea></div>
-        <button type="submit">Send toner request</button>
+        <button type="submit" class="cta cta-pill-arrow-blue">Submit Request</button>
         <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:toner@automationone.ca">toner@automationone.ca</a>.</p>
       </form>
       </div>
@@ -2487,6 +2562,32 @@ html { background-color: #ffffff; }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+
+<script>
+  (function syncTonerRequestShelfLayout() {
+    var side = document.querySelector('.toner-request-side');
+    var form = document.getElementById('toner-form');
+    if (!side || !form) return;
+
+    var mq = window.matchMedia('(min-width: 901px)');
+
+    function sync() {
+      if (!mq.matches) {
+        side.style.minHeight = '';
+        return;
+      }
+      side.style.minHeight = form.offsetHeight + 'px';
+    }
+
+    sync();
+    window.addEventListener('resize', sync, { passive: true });
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+    else mq.addListener(sync);
+    if (window.ResizeObserver) new ResizeObserver(sync).observe(form);
+    else window.addEventListener('load', sync);
   })();
 </script>
 

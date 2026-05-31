@@ -290,12 +290,6 @@ body.subpage .nav-actions .btn-ghost:hover {
   filter: blur(40px);
 }
 .subpage-hero .container { position: relative; z-index: 1; }
-.section-eyebrow {
-  display: inline-block;
-  font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--blue-600);
-  margin-bottom: 16px;
-}
 .subpage-hero h1 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -332,9 +326,7 @@ body.subpage .nav-actions .btn-ghost:hover {
 .band--tint { background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(238,244,255,0.55) 100%); }
 .band--ink { background: linear-gradient(165deg, #0a2870 0%, #0f389e 60%, #1547d1 100%); color: var(--white); }
 .band--ink h2, .band--ink h3 { color: var(--white); }
-.band--ink .section-eyebrow { color: #b9d0ff; }
 .band-head { max-width: 760px; margin-bottom: clamp(36px, 5vw, 56px); }
-.band-head .section-eyebrow { margin-bottom: 14px; }
 .band-head h2 { margin-bottom: 18px; }
 .band-head p {
   font-size: clamp(16px, 1.2vw, 18px); line-height: 1.6;
@@ -1419,6 +1411,7 @@ html { background-color: #ffffff; }
 <link rel="stylesheet" href="ao-logo-lockup.css">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
+<link rel="stylesheet" href="ao-subpage-section-head.css">
 </head>
 <body class="subpage resources-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -1480,7 +1473,7 @@ html { background-color: #ffffff; }
   <div class="container">
     <div class="band-head reveal">
       <span class="section-eyebrow">Downloads &amp; forms</span>
-      <h2>The papers we get asked for most.</h2>
+      <h2>The papers we get <em>asked for most.</em></h2>
       <p>Have a question that's not covered here? Email <a href="mailto:info@automationone.ca" style="color:var(--blue-700);font-weight:600;text-decoration:none;">info@automationone.ca</a> and we'll route you to the right specialist.</p>
     </div>
 
@@ -1523,7 +1516,7 @@ html { background-color: #ffffff; }
   <div class="container">
     <div class="band-head reveal">
       <span class="section-eyebrow">Manufacturer support</span>
-      <h2>Drivers, downloads &amp; product manuals.</h2>
+      <h2>Drivers, downloads &amp; <em>product manuals.</em></h2>
       <p>We're an authorized dealer for every brand below &mdash; but sometimes you need the factory drivers or a model-specific manual directly. These links land you in the right place.</p>
     </div>
     <div class="cards-grid cards-grid--3 reveal">
@@ -1565,7 +1558,7 @@ html { background-color: #ffffff; }
   <div class="container split-2">
     <div class="reveal">
       <span class="section-eyebrow">Before we arrive</span>
-      <h2>Network installation survey</h2>
+      <h2>Network installation <em>survey</em></h2>
       <p>Filling this out before an installation visit helps us bring exactly the right cables, drivers, and credentials. The more we know up front, the faster &mdash; and less disruptive &mdash; the install will be.</p>
       <p style="margin-top:18px;">Prefer paper? Email us and we'll send a printable PDF version of the survey.</p>
     </div>
@@ -1593,7 +1586,7 @@ html { background-color: #ffffff; }
   <div class="container split-2">
     <div class="reveal">
       <span class="section-eyebrow">Billable visits</span>
-      <h2>Billable confirmation request</h2>
+      <h2>Billable confirmation <em>request</em></h2>
       <p>For work outside your service contract &mdash; rentals, moves, training, or end-of-life pickups &mdash; we always confirm scope and PO before dispatch. Use this form to start the paperwork.</p>
     </div>
     <div class="reveal">

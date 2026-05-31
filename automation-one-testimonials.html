@@ -1734,10 +1734,42 @@ body.testimonials-page .cta-contact-bar .cta-contact-phone {
     }
   }
 
+/* Mid-page section banners — synced with ao-subpage-section-head.css */
+body.testimonials-page .band-head h2,
+body.testimonials-page .band .split-2 h2 {
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-synthesis: none;
+  font-size: clamp(33px, 4.5vw, 55px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+body.testimonials-page .band:not(.band--ink) .band-head h2 em,
+body.testimonials-page .band:not(.band--ink) .split-2 h2 em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--blue-500), var(--blue-700) 65%, var(--blue-900));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+body.testimonials-page .band--ink .split-2 h2 em {
+  font-style: normal;
+  background: linear-gradient(120deg, #636bf8 0%, #96a8ff 45%, #e6ebff 78%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
+<link rel="stylesheet" href="ao-subpage-section-head.css">
 </head>
 <body class="subpage canon-page testimonials-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -1799,7 +1831,7 @@ body.testimonials-page .cta-contact-bar .cta-contact-phone {
   <div class="container">
     <div class="band-head reveal">
       <span class="section-eyebrow">In their own words</span>
-      <h2>From clients across Vancouver &amp; beyond.</h2>
+      <h2>From clients across <em>Vancouver &amp; beyond.</em></h2>
       <p>Real reviews from offices and businesses we serve every day. If you're already a customer, we'd love to hear from you &mdash; scroll down for the easiest way to add your voice.</p>
     </div>
 
@@ -1902,7 +1934,7 @@ body.testimonials-page .cta-contact-bar .cta-contact-phone {
     <div class="split-2">
       <div class="reveal">
         <span class="section-eyebrow">Already a customer?</span>
-        <h2>We'd love your feedback.</h2>
+        <h2>We'd love <em>your feedback.</em></h2>
         <p>Reviews are the lifeblood of a family business with over 45 years of history. If we've earned it, share your experience &mdash; on Google, on the Consumer Choice site, or right here. We read every word.</p>
         <div class="hero-cta-row" style="margin-top:28px;">
           <a href="https://www.google.com/search?q=Automation+One+Business+Systems+Vancouver+reviews" class="cta cta-primary cta-pill-arrow" target="_blank" rel="noopener noreferrer">Leave a Review</a>
