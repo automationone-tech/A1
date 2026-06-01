@@ -749,9 +749,13 @@ p { color: #3d4666; line-height: 1.6; }
 .brand-chip strong { font-size: 14px; font-weight: 600; }
 
 /* Testimonial cards */
+.testimonial-grid-wrap {
+  container-type: inline-size;
+  container-name: testimonials;
+}
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(20px, 2.5vw, 32px);
 }
 .t-card {
@@ -808,6 +812,19 @@ p { color: #3d4666; line-height: 1.6; }
   font-size: 13px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--blue-700);
+}
+@container testimonials (max-width: 1023px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .testimonial-grid .t-card.t-card--vanprint {
+    display: none;
+  }
+}
+@container testimonials (max-width: 671px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- CTA section ---------- */
@@ -1835,6 +1852,7 @@ body.testimonials-page .band--ink .split-2 h2 em {
       <p>Real reviews from offices and businesses we serve every day. If you're already a customer, we'd love to hear from you &mdash; scroll down for the easiest way to add your voice.</p>
     </div>
 
+    <div class="testimonial-grid-wrap">
     <div class="testimonial-grid">
       <article class="t-card reveal">
         <div class="t-logo-bar">
@@ -1916,7 +1934,7 @@ body.testimonials-page .band--ink .split-2 h2 em {
         <div class="t-cite">&mdash; Church Staff</div>
       </article>
 
-      <article class="t-card reveal">
+      <article class="t-card t-card--vanprint reveal">
         <div class="t-logo-bar">
           <img src="testimonial-logos/logo-vanprint.png" alt="VanPrint" loading="lazy" />
           <span class="t-name">VanPrint</span>
@@ -1925,6 +1943,7 @@ body.testimonials-page .band--ink .split-2 h2 em {
         <p class="t-quote">A1 is the best printing and copier service provider in the whole lower mainland and been using them for over 20 years. Highly recommend.</p>
         <div class="t-cite">&mdash; The VanPrint Team</div>
       </article>
+    </div>
     </div>
   </div>
 </section>

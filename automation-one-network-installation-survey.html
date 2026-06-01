@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#1547d1" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<title>Toner & Supplies | Automation One</title>
-<meta name="description" content="Order toner, drums and consumables for Canon, Xerox, Lexmark, FP and Ideal.MBM devices from our 15,000 sq. ft. local inventory in Vancouver and Burnaby." />
+<title>Network Installation Survey | Automation One</title>
+<meta name="description" content="Complete the Automation One network installation survey before your delivery date — customer details, network communication, drivers, and scanning requirements." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -278,16 +278,21 @@ body.subpage .nav-actions .btn-ghost:hover {
     radial-gradient(120% 90% at 5% 20%, rgba(185, 208, 255, 0.45) 0%, transparent 55%),
     linear-gradient(165deg, #eef4ff 0%, var(--paper) 60%);
 }
-.subpage-hero-video {
+.subpage-hero-photo {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  right: 0;
+  left: auto;
+  width: auto;
+  height: 108%;
+  min-height: 100%;
+  max-width: min(52vw, 720px);
+  transform: translateY(-50%);
   object-fit: cover;
   object-position: center center;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.62;
+  opacity: 0.58;
   -webkit-mask-image: linear-gradient(
     90deg,
     hsl(0 0% 0% / 0) 0%,
@@ -312,8 +317,9 @@ body.subpage .nav-actions .btn-ghost:hover {
   mask-repeat: no-repeat;
 }
 @media (min-width: 561px) {
-  .subpage-hero-video {
-    opacity: 0.78;
+  .subpage-hero-photo {
+    opacity: 0.72;
+    max-width: min(46vw, 720px);
     -webkit-mask-image: linear-gradient(
       90deg,
       hsl(0 0% 0% / 0) 0%,
@@ -336,7 +342,66 @@ body.subpage .nav-actions .btn-ghost:hover {
     );
   }
 }
-.subpage-hero--video::after {
+.resources-page .subpage-hero-photo {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform: none;
+  object-fit: unset;
+  object-position: right center;
+  opacity: 0.52;
+}
+@media (min-width: 561px) {
+  .resources-page .subpage-hero-photo {
+    opacity: 0.62;
+  }
+}
+@media (max-width: 560px) {
+  .resources-page .subpage-hero-photo {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 0;
+    height: 118%;
+    width: auto;
+    transform: translateX(-62%);
+    transform-origin: bottom center;
+    object-fit: cover;
+    object-position: 46% bottom;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0.28) 20%,
+      hsl(0 0% 0% / 0.72) 46%,
+      hsl(0 0% 0% / 0.98) 66%,
+      hsl(0 0% 0% / 1) 82%,
+      hsl(0 0% 0% / 1) 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0.28) 20%,
+      hsl(0 0% 0% / 0.72) 46%,
+      hsl(0 0% 0% / 0.98) 66%,
+      hsl(0 0% 0% / 1) 82%,
+      hsl(0 0% 0% / 1) 100%
+    );
+  }
+}
+.resources-page .subpage-hero--photo::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248, 250, 255, 0.94) 0%,
+      rgba(248, 250, 255, 0.82) 28%,
+      rgba(238, 244, 255, 0.52) 48%,
+      rgba(238, 244, 255, 0.22) 68%,
+      rgba(238, 244, 255, 0.06) 100%
+    );
+}
+.subpage-hero--photo::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -366,7 +431,11 @@ body.subpage .nav-actions .btn-ghost:hover {
   pointer-events: none;
   filter: blur(40px);
 }
+.subpage-hero--photo::before {
+  z-index: 2;
+}
 .subpage-hero .container { position: relative; z-index: 2; }
+.subpage-hero--photo .container { z-index: 3; }
 .subpage-hero h1 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -396,14 +465,6 @@ body.subpage .nav-actions .btn-ghost:hover {
 }
 @media (max-width: 600px) {
   .subpage-hero h1 { font-size: clamp(34px, 9vw, 48px); }
-  .subpage-hero .hero-cta-row .cta.cta-pill-arrow-blue {
-    font-size: calc(15px - 1pt);
-  }
-}
-@media (max-width: 480px) {
-  .subpage-hero .hero-cta-row .cta.cta-pill-arrow-blue {
-    font-size: calc(15px - 1.25pt);
-  }
 }
 
 /* ---------- GENERIC BANDS / CARDS / TYPOGRAPHY ---------- */
@@ -487,6 +548,77 @@ p { color: #3d4666; line-height: 1.6; }
   box-shadow: 0 14px 28px -14px rgba(31, 92, 245, 0.6);
 }
 .card .icon svg { width: 24px; height: 24px; }
+#manufacturer-support .card .brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  margin-bottom: 14px;
+}
+#manufacturer-support .card .brand-logo {
+  display: block;
+  width: auto;
+  height: 52px;
+  max-height: 52px;
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center center;
+  filter: saturate(0.92);
+  transition: transform 0.22s ease, filter 0.22s ease;
+}
+#manufacturer-support .card:hover .brand-logo {
+  transform: scale(1.03);
+  filter: saturate(1.05);
+}
+#manufacturer-support .card .brand-logo--canon,
+#manufacturer-support .card .brand-logo--xerox {
+  height: 36px;
+  max-height: 36px;
+  max-width: 48%;
+}
+#manufacturer-support .card .brand-logo--lexmark {
+  height: 38px;
+  max-height: 38px;
+  max-width: 54%;
+}
+#manufacturer-support .card .brand-logo--fp { max-width: 56%; }
+#manufacturer-support .card .brand-logo--ideal { max-width: 74%; }
+#manufacturer-support .card {
+  text-align: center;
+}
+#manufacturer-support .card:not(.card--help) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+#manufacturer-support .card:not(.card--help) p {
+  flex: 1;
+}
+#manufacturer-support .card .cta.cta-primary.cta-pill-arrow {
+  font-size: 14px;
+  padding: 12px 68px 12px 24px;
+}
+#manufacturer-support .card .cta.cta-primary.cta-pill-arrow::after {
+  width: 38px;
+  height: 38px;
+}
+#manufacturer-support .card--help {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+#manufacturer-support .card--help h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#manufacturer-support .card--help p {
+  margin: 0;
+}
 .card h3 { margin-bottom: 10px; }
 .card p { font-size: 15.5px; line-height: 1.6; color: #4a5478; }
 .card ul {
@@ -518,534 +650,6 @@ p { color: #3d4666; line-height: 1.6; }
 .band--ink .card ul li { color: rgba(255, 255, 255, 0.82); }
 .band--ink .card ul li::before { border-color: #b9d0ff; }
 .band--ink .card .icon { background: linear-gradient(135deg, #b9d0ff, var(--blue-400)); color: var(--blue-900); }
-
-/* Brand proof cards (Products & Solutions parity) */
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 22px);
-}
-@media (max-width: 820px) {
-  .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-.proof-grid--brands {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(12px, 1.6vw, 20px);
-  align-items: stretch;
-}
-@media (max-width: 900px) {
-  .proof-grid--brands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  /* Centre lone last brand (Ideal.MBM) between Lexmark & FP */
-  .proof-grid--brands .proof-card--brand:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    width: calc((100% - clamp(12px, 1.6vw, 20px)) / 2);
-    justify-self: center;
-  }
-}
-.proof-card--brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 14px;
-  height: 100%;
-  padding: clamp(18px, 2.4vw, 24px) clamp(18px, 2vw, 24px) clamp(20px, 2.6vw, 28px);
-  text-decoration: none;
-  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
-}
-.proof-brand-photo {
-  display: block;
-  width: 100%;
-  height: clamp(148px, 12vw, 172px);
-  flex: 0 0 clamp(148px, 12vw, 172px);
-  border-radius: 14px;
-  overflow: hidden;
-  background: linear-gradient(160deg, rgba(217,230,255,0.6), rgba(255,255,255,0.95));
-  box-shadow: 0 12px 28px -18px rgba(10, 40, 112, 0.45);
-  position: relative;
-}
-.proof-brand-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-.proof-brand-photo--toner img {
-  object-fit: contain;
-  object-position: center;
-  padding: clamp(8px, 1.2vw, 14px);
-}
-.proof-card--brand:hover .proof-brand-photo img { transform: scale(1.05); }
-.proof-card--brand:hover {
-  transform: translateY(-3px);
-  border-color: rgba(31, 92, 245, 0.42);
-  box-shadow: 0 30px 60px -30px rgba(10, 40, 112, 0.5);
-}
-.proof-card--brand:focus-visible {
-  outline: 3px solid var(--blue-500);
-  outline-offset: 3px;
-}
-.proof-brand-logo {
-  position: relative;
-  display: block;
-  width: auto;
-  max-width: 80%;
-  height: 52px;
-  min-height: 52px;
-  max-height: 52px;
-  margin-inline: auto;
-  object-fit: contain;
-  object-position: center;
-  transition: transform 0.24s ease, filter 0.24s ease;
-  filter: saturate(0.92);
-}
-.proof-card--brand:hover .proof-brand-logo {
-  transform: scale(1.04);
-  filter: saturate(1.05);
-}
-.proof-brand-logo--canon   { max-width: 70%; }
-.proof-brand-logo--xerox   { max-width: 70%; }
-.proof-brand-logo--lexmark { max-width: 80%; }
-.proof-brand-logo--fp      { max-width: 56%; }
-.proof-brand-logo--ideal   { max-width: 74%; }
-.proof-brand-cta {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  margin-top: auto;
-  min-height: 46px;
-  padding: 10px 52px 10px 18px;
-  border-radius: 999px;
-  background: #fff;
-  color: var(--blue-900);
-  border: 1px solid rgba(15, 56, 158, 0.08);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  box-shadow:
-    0 2px 6px rgba(10, 40, 112, 0.08),
-    0 10px 24px -8px rgba(10, 40, 112, 0.28),
-    0 18px 40px -16px rgba(10, 40, 112, 0.22);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
-}
-.proof-brand-cta::after {
-  content: "";
-  position: absolute;
-  right: 6px;
-  top: 50%;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  transform: translateY(-50%);
-  background: var(--blue-600) var(--cta-pill-chevron-white) calc(50% + 2px) 50% / 50% auto no-repeat;
-  transition: background-color 0.22s ease, transform 0.22s ease;
-}
-.proof-card--brand:hover .proof-brand-cta {
-  transform: translateY(-1px);
-  background: #fff;
-  color: var(--blue-900);
-  box-shadow:
-    0 4px 10px rgba(10, 40, 112, 0.1),
-    0 14px 32px -8px rgba(10, 40, 112, 0.34),
-    0 24px 48px -14px rgba(10, 40, 112, 0.28);
-}
-.proof-card--brand:hover .proof-brand-cta::after { background-color: var(--blue-700); }
-.toner-brands-block {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-}
-#toner-brands {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    radial-gradient(82% 70% at 18% 15%, rgba(126, 167, 255, 0.22), transparent 58%),
-    linear-gradient(135deg, #f8fbff 0%, #eef4ff 48%, #e8f0ff 100%);
-}
-#toner-brands::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(248, 251, 255, 1) 0%, rgba(248, 251, 255, 0.99) 48%, rgba(248, 251, 255, 0.84) 68%, rgba(248, 251, 255, 0.3) 86%, rgba(248, 251, 255, 0) 100%),
-    linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.2) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
-  background-repeat: no-repeat;
-  z-index: 0;
-  pointer-events: none;
-}
-@media (max-width: 1199px) {
-  #toner-brands::after {
-    background-size: 100% 100%, 240vmax 240vmax;
-    background-position: 0 0, 100% 0;
-  }
-}
-#toner-brands > .container {
-  position: relative;
-  z-index: 1;
-}
-.toner-brands-head {
-  text-align: center;
-  max-width: none;
-  margin-bottom: clamp(28px, 4vw, 48px);
-}
-.toner-brands-head h2 {
-  margin-bottom: 0;
-}
-.toner-brands-head h2 em,
-.toner-request-head h2 em {
-  font-style: normal;
-  background: linear-gradient(120deg, var(--blue-500), var(--blue-700) 65%, var(--blue-900));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-.toner-brands-block .proof-grid--brands {
-  width: 100%;
-}
-.toner-brands-dealer-line {
-  display: grid;
-  grid-template-columns: minmax(1.75rem, 1fr) minmax(0, max-content) minmax(1.75rem, 1fr);
-  align-items: center;
-  column-gap: clamp(12px, 2.4vw, 32px);
-  width: 100%;
-  margin: clamp(24px, 3.2vw, 40px) 0 0;
-  font-size: clamp(14px, 1.4vw, 20px);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.25;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--blue-700);
-  white-space: normal;
-}
-.toner-brands-dealer-text {
-  grid-column: 2;
-  justify-self: center;
-  min-width: 0;
-  max-width: min(100%, 22rem);
-  text-wrap: balance;
-}
-.toner-brands-dealer-line::before,
-.toner-brands-dealer-line::after {
-  content: "";
-  align-self: center;
-  width: 100%;
-  min-width: 1.75rem;
-  height: 2px;
-  background: var(--blue-600);
-  opacity: 0.9;
-}
-.toner-brands-dealer-line::before {
-  grid-column: 1;
-}
-.toner-brands-dealer-line::after {
-  grid-column: 3;
-}
-@media (max-width: 900px) {
-  .toner-brands-dealer-line {
-    font-size: clamp(14px, 2.4vw, 15px);
-    letter-spacing: 0.1em;
-    column-gap: clamp(12px, 2.8vw, 20px);
-  }
-}
-@media (max-width: 520px) {
-  .toner-brands-dealer-line {
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    line-height: 1.3;
-    grid-template-columns: minmax(1.25rem, 1fr) minmax(0, max-content) minmax(1.25rem, 1fr);
-    column-gap: clamp(10px, 2.8vw, 16px);
-  }
-  .toner-brands-dealer-text {
-    max-width: min(100%, 13.5rem);
-  }
-}
-.proof-grid--brands .proof-card--brand {
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-  padding-top: clamp(6px, 0.8vw, 10px);
-}
-.proof-grid--brands .proof-card--brand::before {
-  display: none;
-}
-.proof-grid--brands .proof-card--brand:hover {
-  border-color: transparent;
-  box-shadow: none;
-}
-.proof-grid--brands .proof-brand-photo {
-  background: transparent;
-  box-shadow: none;
-  border-radius: 0;
-}
-.proof-grid--brands .proof-brand-photo--toner {
-  overflow: hidden;
-}
-.proof-grid--brands .proof-brand-photo--toner img {
-  position: relative;
-  z-index: 1;
-  object-position: center bottom;
-  padding: clamp(8px, 1.2vw, 14px);
-  padding-top: 0;
-}
-.proof-grid--brands .proof-brand-photo--canon img {
-  transform: scale(1.08);
-  transform-origin: center bottom;
-}
-.proof-grid--brands .proof-brand-photo--xerox img {
-  transform: scale(0.98);
-  transform-origin: center bottom;
-}
-.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--canon img {
-  transform: scale(1.13);
-}
-.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--xerox img {
-  transform: scale(1.03);
-}
-.proof-grid--brands .proof-brand-photo--lexmark img {
-  object-position: center bottom;
-  transform: scale(1.15);
-  transform-origin: center bottom;
-  padding-left: clamp(4px, 0.5vw, 8px);
-  padding-right: clamp(4px, 0.5vw, 8px);
-}
-.proof-grid--brands .proof-brand-photo--fp img {
-  object-position: center bottom;
-  transform: scale(0.9);
-  transform-origin: center bottom;
-  padding-left: clamp(10px, 1.4vw, 16px);
-  padding-right: clamp(10px, 1.4vw, 16px);
-}
-.proof-grid--brands .proof-brand-photo--ideal img {
-  object-position: center bottom;
-  transform: scale(1.2);
-  transform-origin: center bottom;
-}
-.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--ideal img {
-  transform: scale(1.26);
-}
-.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--lexmark img {
-  transform: scale(1.2);
-}
-.proof-grid--brands .proof-card--brand:hover .proof-brand-photo--fp img {
-  transform: scale(0.945);
-}
-@media (min-width: 901px) {
-  .proof-grid--brands .proof-brand-photo--canon img {
-    transform: scale(1.08) translateY(24%);
-  }
-  .proof-grid--brands .proof-brand-photo--lexmark img {
-    transform: scale(1.15) translateY(14%);
-  }
-  .proof-grid--brands .proof-brand-photo--ideal img {
-    transform: scale(1.2) translateY(25%);
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--canon img {
-    transform: scale(1.13) translateY(24%);
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--lexmark img {
-    transform: scale(1.2) translateY(14%);
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--ideal img {
-    transform: scale(1.26) translateY(25%);
-  }
-}
-@media (max-width: 900px) {
-  .proof-grid--brands {
-    column-gap: clamp(8px, 1.4vw, 12px);
-    row-gap: clamp(28px, 5.5vw, 44px);
-    /* Canon ~22% larger than Xerox at every tablet width */
-    --brand-xerox-scale: 0.94;
-    --brand-canon-scale: calc(var(--brand-xerox-scale) * 1.22);
-    --brand-canon-align-y: 10%;
-  }
-  .proof-grid--brands .proof-card--brand:last-child:nth-child(odd) {
-    width: calc((100% - clamp(8px, 1.4vw, 12px)) / 2);
-    margin-top: clamp(-14px, -3vw, -8px);
-    padding-top: 0;
-    gap: 0;
-    overflow: visible;
-  }
-  .proof-grid--brands .proof-card--brand {
-    padding: clamp(4px, 0.8vw, 8px) clamp(4px, 1vw, 10px) clamp(10px, 1.8vw, 16px);
-    gap: clamp(6px, 1.4vw, 10px);
-    min-width: 0;
-    overflow: hidden;
-  }
-  .proof-grid--brands .proof-brand-photo {
-    height: clamp(136px, 22vw, 158px);
-    flex: 0 0 clamp(136px, 22vw, 158px);
-  }
-  .proof-grid--brands .proof-brand-photo--toner img {
-    padding: clamp(2px, 0.5vw, 6px);
-    padding-top: 0;
-  }
-  .proof-grid--brands .proof-brand-logo {
-    height: clamp(44px, 8.5vw, 52px);
-    min-height: clamp(44px, 8.5vw, 52px);
-    max-height: clamp(44px, 8.5vw, 52px);
-  }
-  .proof-grid--brands .proof-brand-logo--canon,
-  .proof-grid--brands .proof-brand-logo--xerox { max-width: 78%; }
-  .proof-grid--brands .proof-brand-logo--lexmark { max-width: 84%; }
-  .proof-grid--brands .proof-brand-logo--fp { max-width: 58%; }
-  .proof-grid--brands .proof-brand-logo--ideal { max-width: 80%; }
-  .proof-grid--brands .proof-card--brand:last-child:nth-child(odd) .proof-brand-logo--ideal {
-    max-width: 92%;
-    height: clamp(50px, 10vw, 60px);
-    min-height: clamp(50px, 10vw, 60px);
-    max-height: clamp(50px, 10vw, 60px);
-    margin-top: clamp(-18px, -3.5vw, -10px);
-  }
-  .proof-grid--brands .proof-card--brand:last-child .proof-brand-photo--ideal {
-    overflow: visible;
-    height: clamp(148px, 24vw, 168px);
-    flex: 0 0 clamp(148px, 24vw, 168px);
-    margin-bottom: clamp(-12px, -2.4vw, -8px);
-  }
-  .proof-grid--brands .proof-brand-photo--fp img {
-    transform: scale(0.88);
-    padding-left: clamp(4px, 0.8vw, 8px);
-    padding-right: clamp(4px, 0.8vw, 8px);
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--fp img {
-    transform: scale(0.93);
-  }
-  .proof-grid--brands .proof-brand-photo--canon img {
-    transform: scale(var(--brand-canon-scale)) translateY(var(--brand-canon-align-y));
-    transform-origin: center bottom;
-  }
-  .proof-grid--brands .proof-brand-photo--xerox img {
-    transform: scale(var(--brand-xerox-scale));
-    transform-origin: center bottom;
-  }
-  .proof-grid--brands .proof-brand-photo--ideal img {
-    transform: scale(1.34) translateY(clamp(10px, 2.2vw, 16px));
-    transform-origin: center bottom;
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--canon img {
-    transform: scale(calc(var(--brand-canon-scale) * 1.045)) translateY(var(--brand-canon-align-y));
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--xerox img {
-    transform: scale(calc(var(--brand-xerox-scale) * 1.05));
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--ideal img {
-    transform: scale(1.4) translateY(clamp(10px, 2.2vw, 16px));
-  }
-}
-@media (max-width: 560px) {
-  .toner-brands-block .proof-grid--brands {
-    column-gap: 6px;
-    row-gap: clamp(24px, 7vw, 36px);
-    --brand-xerox-scale: 0.88;
-    --brand-canon-scale: calc(var(--brand-xerox-scale) * 1.22);
-    --brand-canon-align-y: 14%;
-  }
-  .proof-grid--brands .proof-card--brand:last-child:nth-child(odd) {
-    margin-top: clamp(-22px, -5.5vw, -12px);
-    padding-top: 0;
-    gap: 0;
-    overflow: visible;
-  }
-  .proof-grid--brands .proof-card--brand {
-    padding: clamp(2px, 0.5vw, 4px) clamp(2px, 0.5vw, 4px) clamp(8px, 1.4vw, 12px);
-    gap: 5px;
-  }
-  .proof-grid--brands .proof-brand-photo {
-    height: clamp(118px, 28vw, 142px);
-    flex: 0 0 clamp(118px, 28vw, 142px);
-  }
-  .proof-grid--brands .proof-brand-photo--toner img {
-    padding: clamp(2px, 0.6vw, 6px);
-    padding-top: 0;
-  }
-  .proof-grid--brands .proof-brand-logo {
-    height: clamp(40px, 9.5vw, 48px);
-    min-height: clamp(40px, 9.5vw, 48px);
-    max-height: clamp(40px, 9.5vw, 48px);
-  }
-  .proof-grid--brands .proof-brand-logo--canon,
-  .proof-grid--brands .proof-brand-logo--xerox { max-width: 82%; }
-  .proof-grid--brands .proof-brand-logo--lexmark { max-width: 86%; }
-  .proof-grid--brands .proof-brand-logo--fp { max-width: 62%; }
-  .proof-grid--brands .proof-brand-logo--ideal { max-width: 82%; }
-  .proof-grid--brands .proof-card--brand:last-child:nth-child(odd) .proof-brand-logo--ideal {
-    max-width: 96%;
-    height: clamp(46px, 11vw, 56px);
-    min-height: clamp(46px, 11vw, 56px);
-    max-height: clamp(46px, 11vw, 56px);
-    margin-top: clamp(-20px, -4vw, -12px);
-  }
-  .proof-grid--brands .proof-card--brand:last-child .proof-brand-photo--ideal {
-    overflow: visible;
-    height: clamp(128px, 30vw, 152px);
-    flex: 0 0 clamp(128px, 30vw, 152px);
-    margin-bottom: clamp(-14px, -3vw, -9px);
-  }
-  .proof-grid--brands .proof-brand-photo--canon img {
-    transform: scale(var(--brand-canon-scale)) translateY(var(--brand-canon-align-y));
-    transform-origin: center bottom;
-  }
-  .proof-grid--brands .proof-brand-photo--xerox img {
-    transform: scale(var(--brand-xerox-scale));
-    transform-origin: center bottom;
-  }
-  .proof-grid--brands .proof-brand-photo--lexmark img {
-    transform: scale(1.02);
-    padding-left: clamp(2px, 0.5vw, 6px);
-    padding-right: clamp(2px, 0.5vw, 6px);
-  }
-  .proof-grid--brands .proof-brand-photo--fp img {
-    transform: scale(0.84);
-    padding-left: clamp(4px, 0.8vw, 8px);
-    padding-right: clamp(4px, 0.8vw, 8px);
-  }
-  .proof-grid--brands .proof-brand-photo--ideal img {
-    transform: scale(1.28) translateY(clamp(12px, 2.8vw, 18px));
-    transform-origin: center bottom;
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--canon img {
-    transform: scale(calc(var(--brand-canon-scale) * 1.04)) translateY(var(--brand-canon-align-y));
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--xerox img {
-    transform: scale(calc(var(--brand-xerox-scale) * 1.04));
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--lexmark img {
-    transform: scale(1.06);
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--fp img {
-    transform: scale(0.88);
-  }
-  .proof-grid--brands .proof-card--brand:hover .proof-brand-photo--ideal img {
-    transform: scale(1.34) translateY(clamp(12px, 2.8vw, 18px));
-  }
-}
-.proof-card {
-  position: relative;
-  padding: 26px 22px 24px;
-  border-radius: 22px;
-  background:
-    radial-gradient(120% 80% at 8% 0%, rgba(255,255,255,0.95), rgba(255,255,255,0.55) 60%),
-    linear-gradient(160deg, rgba(217,230,255,0.62), rgba(255,255,255,0.94));
-  border: 1px solid rgba(126, 167, 255, 0.34);
-  box-shadow: 0 22px 50px -36px rgba(10, 40, 112, 0.5);
-  overflow: hidden;
-}
-.proof-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 90% 8%, rgba(31, 92, 245, 0.12), transparent 50%);
-  pointer-events: none;
-}
-.proof-card > * { position: relative; }
 
 /* Stat row */
 .stats-row {
@@ -1099,166 +703,6 @@ p { color: #3d4666; line-height: 1.6; }
 }
 @media (max-width: 900px) { .split-2 { grid-template-columns: 1fr; } }
 
-.toner-request-layout {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(32px, 4.5vw, 52px);
-}
-.toner-request-supplies {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-  min-width: 0;
-}
-.toner-request-supplies .product-stat {
-  padding: clamp(14px, 1.4vw, 16px) clamp(12px, 1.2vw, 14px);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(126, 167, 255, 0.28);
-  box-shadow: 0 18px 38px -32px rgba(10, 40, 112, 0.5);
-  container-type: inline-size;
-  min-width: 0;
-}
-.toner-request-supplies .product-stat strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 32px);
-  color: var(--blue-700);
-  line-height: 1;
-  margin-bottom: 6px;
-  letter-spacing: -0.02em;
-}
-.toner-request-supplies .product-stat > span {
-  display: block;
-  font-size: clamp(12.5px, 0.9vw, 14px);
-  line-height: 1.35;
-  color: #4a5274;
-  font-weight: 650;
-}
-@media (max-width: 640px) {
-  .toner-request-supplies {
-    grid-template-columns: 1fr;
-  }
-}
-.toner-request-shelf {
-  margin: 0;
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(126, 167, 255, 0.22);
-  box-shadow: 0 18px 38px -32px rgba(10, 40, 112, 0.45);
-}
-.toner-request-shelf img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: center bottom;
-}
-.toner-request-side {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(20px, 2.5vw, 28px);
-}
-@media (min-width: 901px) {
-  .toner-request-form-row {
-    align-items: stretch;
-  }
-  .toner-request-side {
-    height: 100%;
-    min-height: 0;
-  }
-  .toner-request-shelf {
-    margin-top: auto;
-    flex: 1 1 0;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .toner-request-shelf img {
-    flex: 1 1 auto;
-    width: 100%;
-    min-height: 0;
-    height: auto;
-    max-height: 100%;
-    object-fit: cover;
-    object-position: center 52%;
-  }
-}
-@media (min-width: 1280px) {
-  .toner-request-shelf img {
-    object-position: center 50%;
-  }
-}
-@media (min-width: 1600px) {
-  .toner-request-shelf img {
-    object-position: center 50%;
-  }
-}
-@media (max-width: 900px) {
-  .toner-request-shelf {
-    display: none;
-  }
-}
-.toner-request-head {
-  text-align: center;
-  max-width: none;
-  margin-bottom: 0;
-}
-.toner-request-head h2 {
-  margin-bottom: clamp(16px, 2vw, 22px);
-}
-.toner-request-head p {
-  font-size: clamp(16px, 1.2vw, 18px);
-  line-height: 1.6;
-  color: #3d4666;
-  max-width: 40rem;
-  margin-inline: auto;
-}
-.toner-request-head p + p {
-  margin-top: 18px;
-}
-.toner-request-form-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 56px);
-  align-items: start;
-  width: 100%;
-}
-.toner-request-photo {
-  margin: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 24px 56px -28px rgba(10, 40, 112, 0.45);
-}
-.toner-request-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-.toner-request-form-wrap {
-  width: 100%;
-  max-width: min(640px, 100%);
-  margin-inline: auto;
-}
-.toner-request-form-row .toner-request-form-wrap {
-  max-width: none;
-  margin-inline: 0;
-}
-@media (max-width: 900px) {
-  .toner-request-form-row {
-    grid-template-columns: 1fr;
-  }
-  .toner-request-photo {
-    max-width: min(520px, 100%);
-    margin-inline: auto;
-  }
-}
-
 /* Form */
 .form-shell {
   background: var(--white);
@@ -1267,171 +711,20 @@ p { color: #3d4666; line-height: 1.6; }
   padding: clamp(28px, 3vw, 44px);
   box-shadow: 0 30px 70px -32px rgba(10, 40, 112, 0.45);
 }
-.form-shell-title {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 2.4vw, 28px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--blue-800);
-  margin: 0 0 clamp(20px, 2.5vw, 28px);
-  text-wrap: balance;
-}
 .form-shell .row2 {
   display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
 }
 @media (max-width: 560px) { .form-shell .row2 { grid-template-columns: 1fr; } }
-.form-shell .field { margin-bottom: 16px; }
+.form-shell .field { margin-bottom: 14px; }
 .form-shell label {
   display: block; font-size: 13px; font-weight: 600;
-  color: var(--blue-800); margin-bottom: 8px;
-}
-.form-shell fieldset.field {
-  border: none;
-  margin: 0 0 16px;
-  padding: 0;
-  min-width: 0;
-}
-.form-shell legend {
-  display: block;
-  width: 100%;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--blue-800);
-  margin-bottom: 10px;
-  padding: 0;
-}
-.form-shell .field-hint {
-  font-weight: 500;
-  color: #5a6488;
-}
-.form-color-options {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-.form-check--full {
-  grid-column: 1 / -1;
-}
-.form-parts-field .form-parts-detail {
-  margin-bottom: 10px;
-}
-.form-parts-field .form-parts-detail.is-disabled label {
-  color: #8a93ad;
-}
-.form-parts-field .form-parts-detail.is-disabled input {
-  opacity: 0.55;
-  cursor: not-allowed;
-  background: rgba(245, 248, 255, 0.8);
-}
-.form-color-field.is-colors-na .form-check:not(.form-check--na) {
-  opacity: 0.55;
-  pointer-events: none;
-}
-.form-shell .form-check {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(15, 56, 158, 0.14);
-  background: var(--paper);
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  color: #3d4666;
-  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
-}
-.form-shell .form-check:hover {
-  border-color: rgba(31, 92, 245, 0.35);
-  background: #fff;
-}
-.form-shell .form-check input {
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
-  margin: 0;
-  padding: 0;
-  flex: 0 0 18px;
-  accent-color: var(--blue-600);
-  border: none;
-  box-shadow: none;
-  background: transparent;
-}
-.form-shell .form-check input:focus {
-  box-shadow: none;
-}
-.form-shell .form-check:has(input:checked) {
-  border-color: var(--blue-500);
-  background: rgba(238, 244, 255, 0.92);
-  box-shadow: 0 0 0 1px rgba(31, 92, 245, 0.12);
-}
-.form-color-options .form-check:not(.form-check--na) {
-  display: grid;
-  grid-template-columns: 18px minmax(0, 1fr) 34px;
-  align-items: center;
-  column-gap: 10px;
-  overflow: hidden;
-  padding: 10px 12px;
-}
-.form-color-options .form-check:not(.form-check--na) input {
-  grid-column: 1;
-  grid-row: 1;
-}
-.form-color-options .form-check:not(.form-check--na) > span:first-of-type {
-  grid-column: 2;
-  grid-row: 1;
-  flex: none;
-  min-width: 0;
-}
-.form-color-options .form-color-swatch {
-  grid-column: 3;
-  grid-row: 1;
-  display: block;
-  width: 34px;
-  height: 24px;
-  max-width: 34px;
-  max-height: 24px;
-  flex: none;
-  margin-left: 0;
-  object-fit: contain;
-  object-position: center;
-  border: none;
-  box-shadow: none;
-  pointer-events: none;
-  user-select: none;
-}
-@media (max-width: 560px) {
-  .form-color-options .form-check:not(.form-check--na) {
-    grid-template-columns: 18px minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    row-gap: 4px;
-    align-items: start;
-    padding: 10px 10px 8px;
-  }
-  .form-color-options .form-check:not(.form-check--na) input {
-    grid-row: 1 / span 2;
-    align-self: center;
-  }
-  .form-color-options .form-check:not(.form-check--na) > span:first-of-type {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .form-color-options .form-color-swatch {
-    grid-column: 2;
-    grid-row: 2;
-    width: 30px;
-    height: 20px;
-    max-width: 30px;
-    max-height: 20px;
-  }
+  color: var(--blue-800); margin-bottom: 6px;
 }
 .form-shell input,
 .form-shell textarea,
 .form-shell select {
-  width: 100%; font: inherit; font-size: 16px;
-  padding: 14px 16px; border-radius: 12px;
+  width: 100%; font: inherit; font-size: 15px;
+  padding: 12px 14px; border-radius: 12px;
   border: 1px solid rgba(15, 56, 158, 0.18);
   background: var(--paper); color: var(--ink);
   transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
@@ -1444,13 +737,17 @@ p { color: #3d4666; line-height: 1.6; }
   box-shadow: 0 0 0 3px rgba(31, 92, 245, 0.15);
 }
 .form-shell textarea { resize: vertical; min-height: 120px; }
-.form-shell button.cta.cta-pill-arrow-blue {
-  margin-top: 8px;
-  cursor: pointer;
-  font-family: var(--font-body);
-  -webkit-appearance: none;
-  appearance: none;
+.form-shell button[type="submit"] {
+  margin-top: 8px; width: 100%;
+  padding: 16px 22px; border: none; border-radius: 999px;
+  font: inherit; font-weight: 700; font-size: 15px;
+  letter-spacing: 0.04em; cursor: pointer;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 100%);
+  box-shadow: 0 18px 36px -14px rgba(15, 56, 158, 0.7);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+.form-shell button[type="submit"]:hover { transform: translateY(-1px); box-shadow: 0 24px 44px -16px rgba(15, 56, 158, 0.85); }
 .form-hint { margin-top: 14px; font-size: 13px; line-height: 1.5; color: #5a6488; }
 .form-hint a { color: var(--blue-700); font-weight: 600; }
 
@@ -1539,8 +836,12 @@ p { color: #3d4666; line-height: 1.6; }
   border: 1px solid rgba(15, 56, 158, 0.1);
   border-radius: 18px;
   padding: 22px 24px;
-  display: flex; align-items: center; gap: 16px;
-  text-decoration: none; color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  text-decoration: none;
+  color: var(--ink);
   box-shadow: 0 14px 36px -28px rgba(10, 40, 112, 0.35);
   transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
@@ -1548,6 +849,13 @@ p { color: #3d4666; line-height: 1.6; }
   transform: translateY(-2px);
   border-color: rgba(31, 92, 245, 0.3);
   box-shadow: 0 22px 50px -30px rgba(10, 40, 112, 0.5);
+}
+.resource-card-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
 }
 .resource-card .icon-wrap {
   width: 46px; height: 46px;
@@ -1561,9 +869,13 @@ p { color: #3d4666; line-height: 1.6; }
 .resource-card .meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .resource-card .meta strong { font-size: 15px; font-weight: 600; color: var(--ink); }
 .resource-card .meta span { font-size: 12.5px; color: #5a6488; }
-.resource-card .arrow {
-  margin-left: auto; color: var(--blue-500);
-  flex-shrink: 0;
+.resource-card .cta.cta-primary.cta-pill-arrow {
+  font-size: 14px;
+  padding: 12px 68px 12px 24px;
+}
+.resource-card .cta.cta-primary.cta-pill-arrow::after {
+  width: 38px;
+  height: 38px;
 }
 
 /* Brand chip grid */
@@ -1641,7 +953,57 @@ p { color: #3d4666; line-height: 1.6; }
   color: var(--blue-700);
 }
 
-/* CTA banner layout/animation: automation-one-cta.css (synced with homepage) */
+/* ---------- CTA section ---------- */
+.cta-section {
+  padding: clamp(72px, 10vw, 120px) 0;
+  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 60%, var(--blue-900) 100%);
+  color: var(--white); text-align: center; overflow: hidden; position: relative;
+}
+.cta-section::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: url("automation-one-footer-bg.png");
+  background-size: cover; background-position: left 40%;
+  background-repeat: no-repeat;
+  opacity: 0.92; mix-blend-mode: soft-light;
+  pointer-events: none; z-index: 0;
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.58) 68%, rgba(0,0,0,0) 92%);
+          mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.58) 68%, rgba(0,0,0,0) 92%);
+}
+.cta-section::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 32%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.07) 0%, transparent 30%);
+}
+.cta-watermark {
+  position: absolute; left: 66%; top: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(100% + 56px); width: auto;
+  max-width: min(1100px, 92vw); object-fit: contain;
+  opacity: 0.22; pointer-events: none; z-index: 2;
+}
+.cta-section .container { position: relative; z-index: 3; }
+.cta-section h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(28px, 4.2vw, 48px); line-height: 1.08;
+  letter-spacing: -0.03em; color: var(--white);
+  margin-bottom: 18px; text-wrap: balance;
+}
+.cta-section h2 em {
+  font-style: normal;
+  background: linear-gradient(120deg, #b9d0ff, var(--white));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.cta-section p {
+  font-size: 18px; color: rgba(255,255,255,0.85);
+  max-width: 600px; margin: 0 auto 36px;
+  line-height: 1.55;
+}
+.cta-section .cta-row {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  justify-content: center; margin-bottom: 32px;
+}
 .cta-secondary {
   background: rgba(255,255,255,0.08); color: var(--white);
   border: 1.5px solid rgba(255,255,255,0.45);
@@ -1649,6 +1011,23 @@ p { color: #3d4666; line-height: 1.6; }
   -webkit-backdrop-filter: blur(10px);
 }
 .cta-secondary:hover { background: rgba(255,255,255,0.16); border-color: var(--white); }
+.cta-section .phone-row {
+  display: inline-flex; flex-wrap: wrap; gap: 28px;
+  padding: 16px 32px; border-radius: 999px;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background:
+    radial-gradient(118% 90% at 44% 12%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 58%),
+    rgba(255, 255, 255, 0.05);
+  box-shadow:
+    inset 0 1px 6px rgba(255, 255, 255, 0.12),
+    inset 0 -5px 12px rgba(6, 22, 58, 0.07),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+.cta-section .phone-row a {
+  color: var(--white); text-decoration: none; font-weight: 600;
+  font-size: 15px; display: inline-flex; align-items: center; gap: 8px;
+}
+.cta-section .phone-row a:hover { color: #b9d0ff; }
 
 /* ---------- FOOTER ---------- */
 footer {
@@ -2173,13 +1552,167 @@ html { background-color: #ffffff; }
   .pt-scan-bar { display: none !important; }
   html { background-color: transparent; }
 }
+/* Final CTA banner animation synced with homepage */
+.cta-section {
+  --cta-letter-bg-size: 159%;
+  --cta-letter-bg-y: 44%;
+  --cta-letter-x: -0.75%;
+  --cta-letter-rotate: -13deg;
+  --cta-letter-scale: 1.16;
+  --cta-watermark-left: 66%;
+  --cta-watermark-scale: 1;
+}
+.cta-section::after {
+  inset: -16% -12%;
+  background-size: var(--cta-letter-bg-size) auto;
+  background-position: left var(--cta-letter-bg-y);
+  transform: translate3d(var(--cta-letter-x), 0, 0) rotate(var(--cta-letter-rotate)) scale(var(--cta-letter-scale));
+  transform-origin: 28% 50%;
+}
+.cta-watermark {
+  left: var(--cta-watermark-left);
+  transform: translate(-50%, -50%) scale(var(--cta-watermark-scale));
+}
+
+/* ---------- CANON-SYNCED SHARED CTA / FOOTER ---------- */
+.cta-section .cta-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.cta-section .cta-contact-bar {
+  margin: 26px auto 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(6, 26, 74, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.cta-section .cta-contact-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.cta-section .cta-contact-icon:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.cta-section .cta-contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+.cta-section .cta-contact-phone {
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.cta-section .cta-contact-phone:hover { color: #b9d0ff; }
+.cta-section .cta-contact-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+@media (max-width: 560px) {
+  .cta-section .cta-contact-bar {
+    gap: 10px;
+    padding: 8px 10px;
+  }
+  .cta-section .cta-contact-divider { height: 18px; }
+}
+
+.survey-form-wrap { max-width: 920px; margin: 0 auto; }
+.survey-progress {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; margin-bottom: 24px;
+}
+.survey-progress-label {
+  font-size: 14px; font-weight: 700; color: var(--blue-800);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.survey-progress-bar {
+  flex: 1; height: 8px; border-radius: 999px;
+  background: rgba(15, 56, 158, 0.1); overflow: hidden;
+}
+.survey-progress-bar span {
+  display: block; height: 100%; width: 50%;
+  background: linear-gradient(90deg, var(--blue-500), var(--blue-700));
+  border-radius: inherit; transition: width 0.25s ease;
+}
+.survey-form-wrap[data-step="2"] .survey-progress-bar span { width: 100%; }
+.survey-step { display: none; }
+.survey-step.is-active { display: block; }
+.survey-section-title {
+  font-family: var(--font-display); font-size: 18px; font-weight: 700;
+  color: var(--ink); margin: 24px 0 12px;
+}
+.survey-section-title:first-child { margin-top: 0; }
+.survey-note {
+  font-size: 13.5px; line-height: 1.55; color: #5a6488;
+  margin: 8px 0 14px;
+}
+.survey-checkgroup, .survey-radiogroup {
+  display: flex; flex-wrap: wrap; gap: 10px 18px;
+  margin-bottom: 14px;
+}
+.survey-checkgroup label, .survey-radiogroup label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14.5px; font-weight: 500; color: #3d4666;
+  margin: 0; cursor: pointer;
+}
+.survey-checkgroup input, .survey-radiogroup input { width: auto; margin: 0; }
+.survey-inline-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+}
+.survey-inline-row input { width: auto; min-width: 72px; flex: 0 1 120px; }
+.survey-inline-row span { font-size: 14.5px; color: #3d4666; }
+.survey-actions {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;
+}
+.survey-actions button, .survey-actions .btn-secondary {
+  flex: 1 1 180px; min-height: 52px;
+}
+.survey-actions .btn-secondary {
+  appearance: none; border: 1px solid rgba(15, 56, 158, 0.18);
+  border-radius: 999px; background: var(--white); color: var(--blue-800);
+  font: inherit; font-weight: 700; font-size: 15px; cursor: pointer;
+  padding: 14px 22px; transition: border-color 0.2s, background-color 0.2s;
+}
+.survey-actions .btn-secondary:hover {
+  border-color: rgba(31, 92, 245, 0.35);
+  background: rgba(238, 244, 255, 0.85);
+}
+.survey-disclaimer {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid rgba(15, 56, 158, 0.1);
+  font-size: 14px; line-height: 1.6; color: #5a6488;
+}
+
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
 <link rel="stylesheet" href="ao-subpage-section-head.css">
 </head>
-<body class="subpage toner-page">
+<body class="subpage network-survey-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
   <div class="pt-grid" id="pt-grid"></div>
   <img class="pt-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" decoding="async" fetchpriority="low" />
@@ -2219,173 +1752,211 @@ html { background-color: #ffffff; }
 
 
 
-<section class="subpage-hero subpage-hero--video">
-  <video
-    class="subpage-hero-video"
-    src="toner-hero-bg.mov"
-    autoplay
-    muted
-    playsinline
-    webkit-playsinline
-    preload="auto"
-    aria-hidden="true"
-  >
-    <source src="toner-hero-bg.mov" type="video/quicktime" />
-  </video>
-  <script>
-  (function (v) {
-    if (!v || v.tagName !== 'VIDEO') return;
-    v.muted = true;
-    v.defaultMuted = true;
-    v.loop = false;
-    v.setAttribute('muted', '');
-    v.setAttribute('playsinline', '');
-    v.setAttribute('webkit-playsinline', '');
-    function play() {
-      var p = v.play();
-      if (p && typeof p.catch === 'function') p.catch(function () {});
-    }
-    v.addEventListener('loadeddata', play, { once: true });
-    v.addEventListener('canplay', play, { once: true });
-    v.addEventListener('ended', function () {
-      if (v.duration && isFinite(v.duration)) {
-        v.currentTime = Math.max(0, v.duration - 0.05);
-      }
-      v.pause();
-    });
-    play();
-  })(document.currentScript.previousElementSibling);
-  </script>
+<section class="subpage-hero">
   <div class="container">
-    <span class="section-eyebrow reveal">Toner &amp; Supplies</span>
-    <h1 class="reveal">Need toner, parts or supplies?<br/><em>We've got you covered.</em></h1>
+    <span class="section-eyebrow reveal">Before we arrive</span>
+    <h1 class="reveal">Network installation <em>survey</em></h1>
     <div class="lead reveal">
-      <p>Order from our 15,000 sq.&nbsp;ft. of toner and parts inventory in Vancouver and Burnaby &mdash; the largest local stock of OEM cartridges for Canon, Xerox, Lexmark, FP and Ideal.MBM. Most orders ship the same day.</p>
-    </div>
-    <div class="hero-cta-row reveal">
-      <a href="#toner-request" class="cta cta-pill-arrow-blue">Request Toner &amp; Supplies</a>
+      <p>Complete this survey within 48 hours of your delivery date. Network installations include 2 hours of non-chargeable time. Automation One personnel assist with device configuration, print drivers, and additional software; your network support personnel handle network connectivity changes.</p>
     </div>
   </div>
 </section>
 
-
-
-<section class="band" id="toner-brands">
+<section class="band" id="network-survey">
   <div class="container">
-    <header class="band-head toner-brands-head reveal">
-      <span class="section-eyebrow">Need something urgently?</span>
-      <h2>What you need<br/><em>when you need it.</em></h2>
-    </header>
-    <div class="toner-brands-block reveal">
-      <div class="proof-grid proof-grid--brands">
-      <a class="proof-card proof-card--brand" href="automation-one-canon.html" aria-label="Canon products">
-        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--canon">
-          <img src="canon-toner.png" alt="Canon imagePRESS toner cartridges" loading="lazy" decoding="async" />
-        </span>
-        <img class="proof-brand-logo proof-brand-logo--canon" src="brand-logo-canon.png?v=2" alt="Canon" loading="lazy" decoding="async" />
-      </a>
-      <a class="proof-card proof-card--brand" href="automation-one-xerox.html" aria-label="Xerox products">
-        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--xerox">
-          <img src="service-stats/xerox-toners-cartoon.svg" alt="Xerox toner and supplies" loading="lazy" decoding="async" />
-        </span>
-        <img class="proof-brand-logo proof-brand-logo--xerox" src="brand-logo-xerox.png?v=3" alt="Xerox" loading="lazy" decoding="async" />
-      </a>
-      <a class="proof-card proof-card--brand" href="automation-one-lexmark.html" aria-label="Lexmark products">
-        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--lexmark">
-          <img src="lexmark-toner-transparent.png" alt="Lexmark toner and supplies" loading="lazy" decoding="async" />
-        </span>
-        <img class="proof-brand-logo proof-brand-logo--lexmark" src="brand-logo-lexmark.png" alt="Lexmark" loading="lazy" decoding="async" />
-      </a>
-      <a class="proof-card proof-card--brand" href="automation-one-fp.html" aria-label="Francotyp Postalia products">
-        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--fp">
-          <img src="fp-toner-transparent.png" alt="Francotyp Postalia PostBase Mini ink cartridges" loading="lazy" decoding="async" />
-        </span>
-        <img class="proof-brand-logo proof-brand-logo--fp" src="brand-logo-fp.png" alt="Francotyp Postalia" loading="lazy" decoding="async" />
-      </a>
-      <a class="proof-card proof-card--brand" href="automation-one-ideal-mbm.html" aria-label="Ideal.MBM products">
-        <span class="proof-brand-photo proof-brand-photo--toner proof-brand-photo--ideal">
-          <img src="ideal-mbm-shredder-bags.png" alt="Ideal.MBM DestroyIt custom fit shred bags" loading="lazy" decoding="async" />
-        </span>
-        <img class="proof-brand-logo proof-brand-logo--ideal" src="brand-logo-ideal.png" alt="Ideal.MBM" loading="lazy" decoding="async" />
-      </a>
-      </div>
-      <p class="toner-brands-dealer-line"><span class="toner-brands-dealer-text">Authorized Toner &amp; Supplies Dealer</span></p>
-    </div>
-  </div>
-</section>
+    <div class="survey-form-wrap reveal" data-step="1">
+      <form class="form-shell" id="network-survey-form" autocomplete="on">
+        <div class="survey-progress" aria-hidden="true">
+          <span class="survey-progress-label" id="survey-step-label">Step 1 of 2</span>
+          <div class="survey-progress-bar"><span></span></div>
+        </div>
 
-<section class="band band--tint" id="toner-request">
-  <div class="container toner-request-layout">
-    <header class="band-head toner-request-head reveal">
-      <span class="section-eyebrow">Request Toner &amp; Supplies</span>
-      <h2>Tell us what to send.<br/><em>We'll handle the rest.</em></h2>
-      <p>Fill out the short form below &mdash; or call us in Metro Vancouver at <a href="tel:6042556622" style="color:var(--blue-700);font-weight:600;text-decoration:none;">604.255.6622</a>.</p>
-      <p>If you're not sure of your model number, snap us a photo of your device and email it to <a href="mailto:toner@automationone.ca" style="color:var(--blue-700);font-weight:600;text-decoration:none;">toner@automationone.ca</a> &mdash; we'll figure it out.</p>
-    </header>
-    <div class="toner-request-form-row reveal">
-      <div class="toner-request-side">
-        <figure class="toner-request-photo">
-          <img src="toner-request-printer.png" alt="Technician replacing toner in a Xerox AltaLink C8155 at Automation One" width="1200" height="1200" loading="lazy" decoding="async" />
-        </figure>
-        <div class="toner-request-supplies" aria-label="Toner and supplies we stock">
-          <div class="product-stat">
-            <strong>CMYK</strong>
-            <span>Cyan, Magenta, Yellow and Black cartridges for colour MFPs and production presses.</span>
+        <div class="survey-step is-active" data-step="1">
+          <div class="row2">
+            <div class="field"><label for="ns-customer">Customer</label><input id="ns-customer" name="customer" type="text" /></div>
+            <div class="field"><label for="ns-customer-phone">Phone number</label><input id="ns-customer-phone" name="customer_phone" type="tel" /></div>
           </div>
-          <div class="product-stat">
-            <strong>Parts</strong>
-            <span>Drums, fusers, transfer belts, staples, waste containers and more.</span>
+          <div class="field"><label for="ns-location">Location</label><input id="ns-location" name="location" type="text" /></div>
+          <div class="row2">
+            <div class="field"><label for="ns-network-contact">Network contact</label><input id="ns-network-contact" name="network_contact" type="text" /></div>
+            <div class="field"><label for="ns-network-contact-phone">Phone number</label><input id="ns-network-contact-phone" name="network_contact_phone" type="tel" /></div>
           </div>
-          <div class="product-stat">
-            <strong>Supplies</strong>
-            <span>FP postage meter ink and Ideal.MBM shredder bags, staples, and consumables.</span>
+          <div class="survey-radiogroup" role="radiogroup" aria-label="Network contact type">
+            <label><input type="radio" name="network_contact_type" value="Staff Member" /> Staff member</label>
+            <label><input type="radio" name="network_contact_type" value="Consultant" /> Consultant</label>
+          </div>
+          <p class="survey-note">Network contact must have access to passwords for workstations and servers.</p>
+          <div class="row2">
+            <div class="field"><label for="ns-email">Email address</label><input id="ns-email" name="email" type="email" /></div>
+            <div class="field"><label for="ns-sales-rep">Sales rep</label><input id="ns-sales-rep" name="sales_rep" type="text" /></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ns-eta">ETA delivery date</label><input id="ns-eta" name="eta_delivery_date" type="date" /></div>
+            <div class="field"><label for="ns-product">Product / model</label><input id="ns-product" name="product_model" type="text" /></div>
+          </div>
+          <p class="survey-section-title">Transaction status</p>
+          <div class="survey-radiogroup" role="radiogroup" aria-label="Transaction status">
+            <label><input type="radio" name="transaction_status" value="Sold" /> Sold</label>
+            <label><input type="radio" name="transaction_status" value="Trial" /> Trial</label>
+            <label><input type="radio" name="transaction_status" value="Rental" /> Rental</label>
+          </div>
+          <p class="survey-section-title">Accessories</p>
+          <div class="survey-checkgroup">
+            <label><input type="checkbox" name="accessories" value="Finisher" /> Finisher</label>
+            <label><input type="checkbox" name="accessories" value="Fax" /> Fax</label>
+            <label><input type="checkbox" name="accessories" value="Other" /> Other</label>
+          </div>
+          <div class="field"><label for="ns-accessories-other">Other accessories</label><input id="ns-accessories-other" name="accessories_other" type="text" /></div>
+          <div class="field"><label for="ns-apps">Integrated solutions (apps)</label><input id="ns-apps" name="integrated_solutions" type="text" /></div>
+          <p class="survey-section-title">Electrical requirements</p>
+          <div class="survey-inline-row">
+            <span>dedicated</span>
+            <input name="electrical_vac" type="text" inputmode="numeric" placeholder="VAC" aria-label="VAC" />
+            <input name="electrical_amp" type="text" inputmode="numeric" placeholder="Amp" aria-label="Amps" />
+            <span>60 Hz, single phase, 3 wire</span>
+          </div>
+          <p class="survey-section-title">Site access</p>
+          <div class="row2">
+            <div class="field">
+              <label>Elevator available</label>
+              <div class="survey-radiogroup">
+                <label><input type="radio" name="elevator_available" value="Yes" /> Yes</label>
+                <label><input type="radio" name="elevator_available" value="No" /> No</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Stairs involved</label>
+              <div class="survey-radiogroup">
+                <label><input type="radio" name="stairs_involved" value="Yes" /> Yes</label>
+                <label><input type="radio" name="stairs_involved" value="No" /> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="field"><label for="ns-stairs-count">If yes, how many?</label><input id="ns-stairs-count" name="stairs_count" type="text" /></div>
+          <div class="field">
+            <label>Live network drop</label>
+            <div class="survey-radiogroup">
+              <label><input type="radio" name="live_network_drop" value="Yes" /> Yes</label>
+              <label><input type="radio" name="live_network_drop" value="No" /> No</label>
+            </div>
+          </div>
+          <p class="survey-note">Network cables for device connections are not included with product.</p>
+          <div class="survey-actions">
+            <button type="button" class="btn-secondary" id="survey-next">Continue to step 2</button>
           </div>
         </div>
-        <figure class="toner-request-shelf">
-          <img src="toner-request-shelf-photo.png" alt="Lexmark toner cartridges stocked on warehouse shelves at Automation One" width="768" height="1024" loading="lazy" decoding="async" />
-        </figure>
-      </div>
-      <div class="toner-request-form-wrap">
-      <form class="form-shell" id="toner-form" autocomplete="on">
-        <h2 class="form-shell-title">Request Toner &amp; Supplies Form</h2>
-        <div class="row2">
-          <div class="field"><label for="tn-first">First name</label><input id="tn-first" name="firstName" type="text" autocomplete="given-name" placeholder="Jane" /></div>
-          <div class="field"><label for="tn-last">Last name</label><input id="tn-last" name="lastName" type="text" autocomplete="family-name" placeholder="Smith" /></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="tn-phone">Phone <span aria-hidden="true">*</span></label><input id="tn-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="604.555.1234" required /></div>
-          <div class="field"><label for="tn-email">Email <span aria-hidden="true">*</span></label><input id="tn-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required /></div>
-        </div>
-        <div class="field"><label for="tn-company">Company <span aria-hidden="true">*</span></label><input id="tn-company" name="company" type="text" autocomplete="organization" placeholder="Your company name" required /></div>
-        <div class="field"><label for="tn-model">Equipment brand &amp; model number <span aria-hidden="true">*</span></label><input id="tn-model" name="model" type="text" placeholder="e.g. Canon imageRUNNER C5560i" required /></div>
-        <fieldset class="field form-color-field" id="tn-colors-field">
-          <legend>Colours needed <span class="field-hint">(select all that apply, or not applicable)</span></legend>
-          <div class="form-color-options">
-            <label class="form-check"><input type="checkbox" name="color" value="Cyan" /><span>Cyan</span><img class="form-color-swatch" src="toner-mound-cyan.png" alt="" width="268" height="162" aria-hidden="true" decoding="async" /></label>
-            <label class="form-check"><input type="checkbox" name="color" value="Magenta" /><span>Magenta</span><img class="form-color-swatch" src="toner-mound-magenta.png" alt="" width="253" height="162" aria-hidden="true" decoding="async" /></label>
-            <label class="form-check"><input type="checkbox" name="color" value="Yellow" /><span>Yellow</span><img class="form-color-swatch" src="toner-mound-yellow.png" alt="" width="267" height="163" aria-hidden="true" decoding="async" /></label>
-            <label class="form-check"><input type="checkbox" name="color" value="Black" /><span>Black</span><img class="form-color-swatch" src="toner-mound-black.png" alt="" width="256" height="158" aria-hidden="true" decoding="async" /></label>
-            <label class="form-check form-check--full form-check--na"><input type="checkbox" name="color" value="Not applicable" id="tn-color-na" /><span>Not applicable</span></label>
+
+        <div class="survey-step" data-step="2">
+          <p class="survey-section-title">Network communication</p>
+          <div class="row2">
+            <div class="field"><label for="ns-isp">Internet service provider</label><input id="ns-isp" name="internet_service_provider" type="text" /></div>
+            <div class="field"><label for="ns-domain">Domain</label><input id="ns-domain" name="domain" type="text" /></div>
           </div>
-        </fieldset>
-        <fieldset class="field form-parts-field" id="tn-parts-field">
-          <legend>Parts &amp; Supplies</legend>
-          <div class="field form-parts-detail" id="tn-parts-detail">
-            <label for="tn-parts">Describe the part(s) you need</label>
-            <input id="tn-parts" name="parts" type="text" placeholder="e.g. drum unit, fuser, waste toner bottle..." />
+          <p class="survey-section-title">Ethernet</p>
+          <div class="row2">
+            <div class="field"><label for="ns-static-ip">TCP/IP &mdash; assigned static IP address</label><input id="ns-static-ip" name="static_ip" type="text" /></div>
+            <div class="field"><label for="ns-subnet">Subnet mask</label><input id="ns-subnet" name="subnet_mask" type="text" /></div>
           </div>
-          <label class="form-check form-check--full"><input type="checkbox" name="partsNa" value="Not applicable" id="tn-parts-na" /><span>Not applicable</span></label>
-        </fieldset>
-        <div class="field"><label for="tn-note">Additional info</label><textarea id="tn-note" name="note" rows="4" placeholder="Quantity, urgency, delivery address, or anything else we should know..."></textarea></div>
-        <button type="submit" class="cta cta-pill-arrow-blue">Submit Request</button>
-        <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:toner@automationone.ca">toner@automationone.ca</a>.</p>
+          <div class="row2">
+            <div class="field"><label for="ns-gateway">Gateway</label><input id="ns-gateway" name="gateway" type="text" /></div>
+            <div class="field"><label for="ns-dns-primary">DNS primary</label><input id="ns-dns-primary" name="dns_primary" type="text" /></div>
+          </div>
+          <div class="field"><label for="ns-dns-secondary">DNS secondary</label><input id="ns-dns-secondary" name="dns_secondary" type="text" /></div>
+          <div class="survey-checkgroup"><label><input type="checkbox" name="connection_usb" value="Yes" /> USB</label></div>
+          <p class="survey-section-title">Wireless</p>
+          <div class="row2">
+            <div class="field"><label for="ns-ssid">SSID</label><input id="ns-ssid" name="wireless_ssid" type="text" /></div>
+            <div class="field">
+              <label>Security type</label>
+              <div class="survey-radiogroup">
+                <label><input type="radio" name="wireless_security" value="WEP" /> WEP</label>
+                <label><input type="radio" name="wireless_security" value="WPA" /> WPA</label>
+                <label><input type="radio" name="wireless_security" value="WPA2" /> WPA2</label>
+              </div>
+            </div>
+          </div>
+          <div class="field"><label for="ns-server-os">Server operating systems</label><textarea id="ns-server-os" name="server_operating_systems" rows="3" placeholder="Indicate type and version number"></textarea></div>
+          <div class="field"><label for="ns-workstation-os">Workstation operating systems</label><textarea id="ns-workstation-os" name="workstation_operating_systems" rows="3" placeholder="Indicate O/S version and number of workstations"></textarea></div>
+          <p class="survey-section-title">Print driver defaults</p>
+          <div class="survey-checkgroup">
+            <label><input type="checkbox" name="driver_language" value="PCL" /> PCL</label>
+            <label><input type="checkbox" name="driver_language" value="PS" /> PS</label>
+          </div>
+          <div class="survey-checkgroup">
+            <label><input type="checkbox" name="driver_colour" value="B&W" /> B&amp;W</label>
+            <label><input type="checkbox" name="driver_colour" value="Colour" /> Colour</label>
+            <label><input type="checkbox" name="driver_sides" value="1-sided" /> 1-sided</label>
+            <label><input type="checkbox" name="driver_sides" value="2-sided" /> 2-sided</label>
+          </div>
+          <p class="survey-section-title">Scanning requirements</p>
+          <div class="survey-checkgroup">
+            <label><input type="checkbox" name="scan_delivery" value="Save-to-folder" /> Save-to-folder</label>
+            <label><input type="checkbox" name="scan_delivery" value="Scan-to-email" /> Scan-to-email</label>
+            <label><input type="checkbox" name="scan_delivery" value="Inbound Fax Forwarding" /> Inbound fax forwarding</label>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ns-scan-user">Scan user name</label><input id="ns-scan-user" name="scan_user_name" type="text" /></div>
+            <div class="field"><label for="ns-scan-password">Scan password</label><input id="ns-scan-password" name="scan_password" type="text" /></div>
+          </div>
+          <div class="field"><label for="ns-email-server">Email server address</label><input id="ns-email-server" name="email_server_address" type="text" /></div>
+          <div class="field">
+            <label>Authentication required</label>
+            <div class="survey-radiogroup">
+              <label><input type="radio" name="auth_required" value="yes" /> Yes</label>
+              <label><input type="radio" name="auth_required" value="no" /> No</label>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ns-auth-user">Authentication user name</label><input id="ns-auth-user" name="auth_user_name" type="text" /></div>
+            <div class="field"><label for="ns-auth-password">Authentication password</label><input id="ns-auth-password" name="auth_password" type="text" /></div>
+          </div>
+          <div class="field"><label for="ns-auth-port">Port no.</label><input id="ns-auth-port" name="auth_port" type="text" /></div>
+          <p class="survey-section-title">Scan file formats</p>
+          <div class="survey-checkgroup">
+            <label><input type="checkbox" name="scan_formats" value="PDF" /> PDF</label>
+            <label><input type="checkbox" name="scan_formats" value="TIFF" /> TIFF</label>
+            <label><input type="checkbox" name="scan_formats" value="JPEG" /> JPEG</label>
+            <label><input type="checkbox" name="scan_formats" value="PDF (Searchable Text)" /> PDF (searchable text)</label>
+            <label><input type="checkbox" name="scan_formats" value="MS Word" /> MS Word</label>
+            <label><input type="checkbox" name="scan_formats" value="MS PowerPoint" /> MS PowerPoint</label>
+          </div>
+          <p class="survey-section-title">Customer&rsquo;s software applications</p>
+          <div class="row2">
+            <div class="field"><label for="ns-app-word">Word processing</label><input id="ns-app-word" name="app_word_processing" type="text" /></div>
+            <div class="field"><label for="ns-app-email">Email</label><input id="ns-app-email" name="app_email" type="text" /></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ns-app-accounting">Accounting</label><input id="ns-app-accounting" name="app_accounting" type="text" /></div>
+            <div class="field"><label for="ns-app-browser">Web browser</label><input id="ns-app-browser" name="app_web_browser" type="text" /></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ns-app-presentation">Presentation</label><input id="ns-app-presentation" name="app_presentation" type="text" /></div>
+            <div class="field"><label for="ns-app-cad">CAD</label><input id="ns-app-cad" name="app_cad" type="text" /></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ns-app-design">Graphic design</label><input id="ns-app-design" name="app_graphic_design" type="text" /></div>
+            <div class="field"><label for="ns-app-dms">Document management</label><input id="ns-app-dms" name="app_document_management" type="text" /></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="ns-app-cloud">Cloud services</label><input id="ns-app-cloud" name="app_cloud_services" type="text" /></div>
+            <div class="field"><label for="ns-app-other">Other</label><input id="ns-app-other" name="app_other" type="text" /></div>
+          </div>
+          <div class="field"><label for="ns-special">Special instructions</label><textarea id="ns-special" name="special_instructions" rows="4"></textarea></div>
+          <p class="survey-disclaimer">To better streamline our installation efforts and limit downtime, this completed survey needs to be submitted to us within 48 hours of the delivery date. This survey needs to be completed before network connectivity can take place. All network installations are to be conducted by the customer&rsquo;s network support personnel; Automation One network personnel are only available to assist in the device configuration, installation of print drivers and additional software. Automation One assumes no responsibility for changes to network configurations. Network installations include 2 hours of non-chargeable time; any additional install time may be chargeable, depending on the circumstances.</p>
+          <div class="row2">
+            <div class="field"><label for="ns-submitter-name">Name</label><input id="ns-submitter-name" name="submitter_name" type="text" required /></div>
+            <div class="field"><label for="ns-submission-date">Date of submission</label><input id="ns-submission-date" name="submission_date" type="date" required /></div>
+          </div>
+          <div class="survey-actions">
+            <button type="button" class="btn-secondary" id="survey-back">Back to step 1</button>
+            <button type="submit">Submit survey</button>
+          </div>
+          <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:info@automationone.ca">info@automationone.ca</a>.</p>
+        </div>
       </form>
-      </div>
     </div>
   </div>
 </section>
-
-
 
 <section class="cta-section" id="resources">
   <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
@@ -2856,108 +2427,43 @@ html { background-color: #ffffff; }
 
 
 <script>
-  (function syncTonerRequestShelfLayout() {
-    var side = document.querySelector('.toner-request-side');
-    var form = document.getElementById('toner-form');
-    if (!side || !form) return;
-
-    var mq = window.matchMedia('(min-width: 901px)');
-
-    function sync() {
-      if (!mq.matches) {
-        side.style.minHeight = '';
-        return;
-      }
-      side.style.minHeight = form.offsetHeight + 'px';
-    }
-
-    sync();
-    window.addEventListener('resize', sync, { passive: true });
-    if (mq.addEventListener) mq.addEventListener('change', sync);
-    else mq.addListener(sync);
-    if (window.ResizeObserver) new ResizeObserver(sync).observe(form);
-    else window.addEventListener('load', sync);
-  })();
-</script>
-
-
-<script>
   (function () {
-    var form = document.getElementById('toner-form');
-    if (!form) return;
+    var wrap = document.querySelector('.survey-form-wrap');
+    var form = document.getElementById('network-survey-form');
+    if (!wrap || !form) return;
+    var step1 = form.querySelector('.survey-step[data-step="1"]');
+    var step2 = form.querySelector('.survey-step[data-step="2"]');
+    var label = document.getElementById('survey-step-label');
+    var nextBtn = document.getElementById('survey-next');
+    var backBtn = document.getElementById('survey-back');
 
-    var colorsField = document.getElementById('tn-colors-field');
-    var colorNa = document.getElementById('tn-color-na');
-    var colorChecks = form.querySelectorAll('input[name="color"]:not(#tn-color-na)');
-    var partsInput = document.getElementById('tn-parts');
-    var partsNa = document.getElementById('tn-parts-na');
-    var partsDetail = document.getElementById('tn-parts-detail');
-
-    function syncColorNa() {
-      if (!colorsField || !colorNa) return;
-      colorsField.classList.toggle('is-colors-na', colorNa.checked);
+    function showStep(step) {
+      wrap.dataset.step = String(step);
+      step1.classList.toggle('is-active', step === 1);
+      step2.classList.toggle('is-active', step === 2);
+      if (label) label.textContent = step === 1 ? 'Step 1 of 2' : 'Step 2 of 2';
+      window.scrollTo({ top: wrap.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
     }
 
-    function syncPartsNa() {
-      if (!partsInput || !partsNa || !partsDetail) return;
-      var disabled = partsNa.checked;
-      partsInput.disabled = disabled;
-      partsDetail.classList.toggle('is-disabled', disabled);
-      if (disabled) partsInput.value = '';
-    }
-
-    if (colorNa) {
-      colorNa.addEventListener('change', function () {
-        if (colorNa.checked) {
-          colorChecks.forEach(function (cb) { cb.checked = false; });
-        }
-        syncColorNa();
-      });
-    }
-    colorChecks.forEach(function (cb) {
-      cb.addEventListener('change', function () {
-        if (cb.checked && colorNa) colorNa.checked = false;
-        syncColorNa();
-      });
-    });
-
-    if (partsNa) {
-      partsNa.addEventListener('change', syncPartsNa);
-      syncPartsNa();
-    }
-    syncColorNa();
+    if (nextBtn) nextBtn.addEventListener('click', function () { showStep(2); });
+    if (backBtn) backBtn.addEventListener('click', function () { showStep(1); });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var fd = new FormData(form);
-      var first = (fd.get('firstName') || '').toString().trim();
-      var last = (fd.get('lastName') || '').toString().trim();
-      var phone = (fd.get('phone') || '').toString().trim();
-      var email = (fd.get('email') || '').toString().trim();
-      var company = (fd.get('company') || '').toString().trim();
-      var model = (fd.get('model') || '').toString().trim();
-      var note = (fd.get('note') || '').toString().trim();
-      var colors = fd.getAll('color');
-      var colorsText = colors.length ? colors.join(', ') : '(none specified)';
-      var partsText = partsNa && partsNa.checked
-        ? 'Not applicable'
-        : ((fd.get('parts') || '').toString().trim() || '(none specified)');
-      var name = [first, last].filter(Boolean).join(' ');
-      var lines = [
-        'Request: Toner / supplies',
-        name ? 'Name: ' + name : null,
-        company ? 'Company: ' + company : null,
-        'Phone: ' + phone,
-        'Email: ' + email,
-        'Equipment: ' + model,
-        'Colours: ' + colorsText,
-        'Parts & Supplies: ' + partsText,
-        '',
-        note || '(no additional info)'
-      ].filter(Boolean);
-      var subject = encodeURIComponent('Website toner request');
+      var grouped = {};
+      fd.forEach(function (value, key) {
+        var trimmed = (value || '').toString().trim();
+        if (!trimmed) return;
+        grouped[key] = grouped[key] ? grouped[key] + ', ' + trimmed : trimmed;
+      });
+      var lines = ['Request: Network installation survey'];
+      Object.keys(grouped).forEach(function (key) {
+        lines.push(key + ': ' + grouped[key]);
+      });
+      var subject = encodeURIComponent('Network installation survey');
       var body = encodeURIComponent(lines.join('\n'));
-      window.location.href = 'mailto:toner@automationone.ca?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:info@automationone.ca?subject=' + subject + '&body=' + body;
     });
   })();
 </script>

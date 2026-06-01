@@ -278,18 +278,105 @@ body.subpage .nav-actions .btn-ghost:hover {
     radial-gradient(120% 90% at 5% 20%, rgba(185, 208, 255, 0.45) 0%, transparent 55%),
     linear-gradient(165deg, #eef4ff 0%, var(--paper) 60%);
 }
+.subpage-hero-photo {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: auto;
+  width: auto;
+  height: 108%;
+  min-height: 100%;
+  max-width: min(52vw, 640px);
+  transform: translateY(-50%);
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.58;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    hsl(0 0% 0% / 0) 0%,
+    hsl(0 0% 0% / 0.08) 18%,
+    hsl(0 0% 0% / 0.42) 42%,
+    hsl(0 0% 0% / 0.88) 62%,
+    hsl(0 0% 0% / 1) 78%,
+    hsl(0 0% 0% / 1) 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    hsl(0 0% 0% / 0) 0%,
+    hsl(0 0% 0% / 0.08) 18%,
+    hsl(0 0% 0% / 0.42) 42%,
+    hsl(0 0% 0% / 0.88) 62%,
+    hsl(0 0% 0% / 1) 78%,
+    hsl(0 0% 0% / 1) 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+@media (min-width: 561px) {
+  .subpage-hero-photo {
+    opacity: 0.72;
+    max-width: min(46vw, 640px);
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0) 10%,
+      hsl(0 0% 0% / 0.12) 24%,
+      hsl(0 0% 0% / 0.55) 46%,
+      hsl(0 0% 0% / 0.95) 62%,
+      hsl(0 0% 0% / 1) 72%,
+      hsl(0 0% 0% / 1) 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0) 10%,
+      hsl(0 0% 0% / 0.12) 24%,
+      hsl(0 0% 0% / 0.55) 46%,
+      hsl(0 0% 0% / 0.95) 62%,
+      hsl(0 0% 0% / 1) 72%,
+      hsl(0 0% 0% / 1) 100%
+    );
+  }
+}
+.subpage-hero--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248, 250, 255, 0.94) 0%,
+      rgba(248, 250, 255, 0.82) 28%,
+      rgba(238, 244, 255, 0.52) 48%,
+      rgba(238, 244, 255, 0.22) 68%,
+      rgba(238, 244, 255, 0.06) 100%
+    ),
+    radial-gradient(125% 90% at 88% 0%, rgba(106, 155, 255, 0.28) 0%, transparent 55%),
+    radial-gradient(120% 90% at 5% 20%, rgba(185, 208, 255, 0.42) 0%, transparent 55%);
+}
 .subpage-hero::before {
   content: "";
   position: absolute;
   inset: -20% -10% auto auto;
   width: 60vw; height: 60vw;
   max-width: 900px; max-height: 900px;
+  z-index: 1;
   background:
     radial-gradient(circle at 50% 50%, rgba(31, 92, 245, 0.12) 0%, transparent 65%);
   pointer-events: none;
   filter: blur(40px);
 }
-.subpage-hero .container { position: relative; z-index: 1; }
+.subpage-hero--photo::before {
+  z-index: 2;
+}
+.subpage-hero .container { position: relative; z-index: 2; }
+.subpage-hero--photo .container { z-index: 3; }
 .subpage-hero h1 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -434,49 +521,254 @@ p { color: #3d4666; line-height: 1.6; }
 .band--ink .card ul li::before { border-color: #b9d0ff; }
 .band--ink .card .icon { background: linear-gradient(135deg, #b9d0ff, var(--blue-400)); color: var(--blue-900); }
 
-/* Stat row */
-.stats-row {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 2vw, 28px);
+/* Service stats panel (matches homepage) */
+.service-stats-panel {
+  position: relative;
   margin-top: clamp(40px, 5vw, 64px);
+  padding: clamp(18px, 2vw, 24px);
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.48)),
+    radial-gradient(90% 70% at 0% 0%, rgba(126, 167, 255, 0.22), transparent 68%);
+  border: 1px solid rgba(126, 167, 255, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 36px 90px -56px rgba(15, 56, 158, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
-@media (max-width: 900px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
-.stat {
-  background: var(--white);
-  border: 1px solid rgba(15, 56, 158, 0.08);
-  border-radius: 20px;
-  padding: clamp(22px, 2.4vw, 32px) clamp(18px, 2vw, 28px);
-  text-align: left;
-  box-shadow: 0 16px 40px -30px rgba(10, 40, 112, 0.35);
+.service-stats-panel::before {
+  content: "";
+  position: absolute;
+  left: clamp(20px, 3vw, 38px);
+  top: 0;
+  width: min(520px, 58%);
+  height: 3px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, var(--blue-600) 0%, #7ea7ff 34%, #ffffff 52%, #7ea7ff 68%, transparent 100%);
+  background-size: 220% 100%;
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
+  transform-origin: left center;
+  animation: servicePanelHighlightExtend 7.5s ease-in-out infinite alternate;
 }
-.band--ink .stat {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.14);
-  color: var(--white);
+@keyframes servicePanelHighlightExtend {
+  from { transform: scaleX(0.36); }
+  to { transform: scaleX(1); }
 }
-.stat .num {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(40px, 5vw, 60px);
-  line-height: 1; letter-spacing: -0.04em;
-  background: linear-gradient(120deg, var(--blue-500), var(--blue-700) 65%, var(--blue-900));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block; margin-bottom: 12px;
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 0;
 }
-.band--ink .stat .num {
-  background: linear-gradient(120deg, #b9d0ff, var(--white));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.62));
+  border: 1px solid rgba(126, 167, 255, 0.22);
+  border-radius: 24px;
+  padding: 22px 18px 20px;
+  box-shadow: 0 20px 42px -34px rgba(15, 56, 158, 0.52);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease;
 }
-.stat .label {
-  font-size: 13.5px; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--blue-800);
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(21, 71, 209, 0.92), rgba(126, 167, 255, 0.35));
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
 }
-.band--ink .stat .label { color: #b9d0ff; }
-.stat p { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: #5a6488; }
-.band--ink .stat p { color: rgba(255, 255, 255, 0.78); }
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(21, 71, 209, 0.34);
+  box-shadow: 0 28px 60px -34px rgba(15, 56, 158, 0.64);
+  background: rgba(255, 255, 255, 0.94);
+}
+.stat-card:hover::before { opacity: 1; }
+.stat-card .icon-wrap {
+  width: 48px; height: 48px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--blue-600);
+  display: grid; place-items: center;
+  margin-bottom: 20px;
+}
+.stat-card.response-time .icon-wrap {
+  width: clamp(107px, 8.5vw, 133px);
+  height: clamp(107px, 8.5vw, 133px);
+  border-radius: 50%;
+  background: transparent;
+  overflow: hidden;
+  margin-inline: auto;
+}
+.service-stat-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.98) 0 31%, transparent 32%),
+    radial-gradient(circle at 50% 50%, rgba(126, 167, 255, 0.22) 0 55%, transparent 56%),
+    linear-gradient(145deg, rgba(21, 71, 209, 0.12), rgba(126, 167, 255, 0.34));
+  border: 1px solid rgba(126, 167, 255, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 18px 34px -28px rgba(15, 56, 158, 0.72);
+}
+.service-stat-visual--response::before {
+  content: "";
+  position: absolute;
+  inset: 21%;
+  border-radius: 50%;
+  border: 8px solid var(--blue-600);
+  border-top-color: #7ea7ff;
+  transform: rotate(-28deg);
+}
+.service-stat-visual--response::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34%;
+  height: 34%;
+  border-left: 5px solid var(--blue-800);
+  border-bottom: 5px solid var(--blue-800);
+  border-radius: 0 0 0 5px;
+  transform: translate(-5%, -82%) rotate(-45deg);
+  transform-origin: left bottom;
+}
+.service-stat-visual--specialists {
+  background:
+    radial-gradient(circle at 50% 31%, rgba(255, 255, 255, 0.98) 0 11%, transparent 12%),
+    radial-gradient(circle at 31% 43%, rgba(255, 255, 255, 0.94) 0 9%, transparent 10%),
+    radial-gradient(circle at 69% 43%, rgba(255, 255, 255, 0.94) 0 9%, transparent 10%),
+    linear-gradient(145deg, rgba(21, 71, 209, 0.12), rgba(126, 167, 255, 0.36));
+}
+.service-stat-visual--specialists::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  width: 58%;
+  height: 35%;
+  border-radius: 999px 999px 30px 30px;
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+  transform: translateX(-50%);
+  box-shadow:
+    -26px 8px 0 -8px rgba(21, 71, 209, 0.72),
+    26px 8px 0 -8px rgba(126, 167, 255, 0.86);
+}
+.service-stat-visual--specialists::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 24%;
+  width: 21%;
+  height: 21%;
+  border-radius: 50%;
+  background: var(--blue-800);
+  transform: translateX(-50%);
+  box-shadow:
+    -28px 15px 0 -4px var(--blue-600),
+    28px 15px 0 -4px #7ea7ff;
+}
+.stat-card.trained-specialists .icon-wrap {
+  width: clamp(107px, 8.5vw, 133px);
+  height: clamp(107px, 8.5vw, 133px);
+  border-radius: 50%;
+  background: transparent;
+  overflow: hidden;
+  margin-inline: auto;
+}
+.stat-card.toner-inventory .icon-wrap {
+  width: clamp(120px, 10vw, 150px);
+  height: clamp(107px, 8.5vw, 133px);
+  border-radius: 12px;
+  background: transparent;
+  margin-inline: auto;
+  overflow: visible;
+}
+.stat-card.toner-inventory .icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+.stat-card.consumer-choice .icon-wrap,
+.stat-card.bbb-rating .icon-wrap {
+  width: clamp(120px, 10vw, 150px);
+  height: clamp(107px, 8.5vw, 133px);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  margin-inline: auto;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-card.consumer-choice .icon-wrap img,
+.stat-card.bbb-rating .icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.stat-card.bbb-rating .icon-wrap img {
+  object-position: center center;
+  margin: 0 auto;
+  transform: translateX(10px);
+}
+.stat-card .big {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.stat-card .big sub {
+  font-size: 30px;
+  vertical-align: super;
+  color: var(--blue-500);
+  margin-left: 2px;
+  font-weight: 600;
+}
+.stat-card .lbl {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.stat-card .desc {
+  font-size: 13.5px;
+  color: #6b7494;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card.bbb-rating {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, calc(50% - 5px));
+  }
+}
+@media (max-width: 560px) {
+  .stat-grid { grid-template-columns: 1fr; }
+  .stat-card.bbb-rating {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+}
 
 /* Two-column split */
 .split-2 {
@@ -485,6 +777,19 @@ p { color: #3d4666; line-height: 1.6; }
   align-items: start;
 }
 @media (max-width: 900px) { .split-2 { grid-template-columns: 1fr; } }
+
+/* Branded service van illustration */
+.service-van-wrap {
+  margin-top: clamp(24px, 4vw, 36px);
+  max-width: 100%;
+}
+.service-van-wrap img,
+.service-van-wrap svg {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+}
 
 /* Form */
 .form-shell {
@@ -520,17 +825,13 @@ p { color: #3d4666; line-height: 1.6; }
   box-shadow: 0 0 0 3px rgba(31, 92, 245, 0.15);
 }
 .form-shell textarea { resize: vertical; min-height: 120px; }
-.form-shell button[type="submit"] {
-  margin-top: 8px; width: 100%;
-  padding: 16px 22px; border: none; border-radius: 999px;
-  font: inherit; font-weight: 700; font-size: 15px;
-  letter-spacing: 0.04em; cursor: pointer;
-  color: var(--white);
-  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 100%);
-  box-shadow: 0 18px 36px -14px rgba(15, 56, 158, 0.7);
-  transition: transform 0.2s, box-shadow 0.2s;
+.form-shell button.cta.cta-pill-arrow-blue {
+  margin-top: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  -webkit-appearance: none;
+  appearance: none;
 }
-.form-shell button[type="submit"]:hover { transform: translateY(-1px); box-shadow: 0 24px 44px -16px rgba(15, 56, 158, 0.85); }
 .form-hint { margin-top: 14px; font-size: 13px; line-height: 1.5; color: #5a6488; }
 .form-hint a { color: var(--blue-700); font-weight: 600; }
 
@@ -1453,7 +1754,18 @@ html { background-color: #ffffff; }
 
 
 
-<section class="subpage-hero">
+<section class="subpage-hero subpage-hero--photo">
+  <img
+    class="subpage-hero-photo"
+    src="service-hero-canon-delivery.jpg"
+    width="628"
+    height="640"
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
   <div class="container">
     <span class="section-eyebrow reveal">Service &amp; Support</span>
     <h1 class="reveal">Service you can <em>count on,</em><br/>every business day.</h1>
@@ -1462,8 +1774,7 @@ html { background-color: #ffffff; }
       <p>Average response time of <strong>90 minutes</strong>. Maximum response time guaranteed at <strong>4 hours</strong>. The lowest in the industry.</p>
     </div>
     <div class="hero-cta-row reveal">
-      <a href="#request-quote" class="cta cta-pill-arrow-blue js-open-quote-drawer">Request Service</a>
-      <a href="tel:6042556622" class="cta cta-primary cta-pill-arrow">Call 604.255.6622</a>
+      <a href="#request-service" class="cta cta-pill-arrow-blue">Request Service</a>
     </div>
   </div>
 </section>
@@ -1573,41 +1884,76 @@ html { background-color: #ffffff; }
       </div>
     </div>
 
-    <div class="stats-row reveal">
-      <div class="stat">
-        <span class="num">90<small style="font-size:0.5em">min</small></span>
-        <div class="label">Average response</div>
-        <p>The lowest published average in the industry &mdash; across Metro Vancouver.</p>
-      </div>
-      <div class="stat">
-        <span class="num">4<small style="font-size:0.5em">hr</small></span>
-        <div class="label">Guaranteed maximum</div>
-        <p>Every contract carries our 4-hour maximum response time guarantee.</p>
-      </div>
-      <div class="stat">
-        <span class="num">22<small style="font-size:0.5em">yrs</small></span>
-        <div class="label">Consumer Choice Award</div>
-        <p>The only Vancouver winner of the Best Office Equipment award &mdash; 24 years running.</p>
-      </div>
-      <div class="stat">
-        <span class="num">A+</span>
-        <div class="label">Better Business Bureau</div>
-        <p>Over 45 years of trusted relationships have earned us an A+ rating since the BBB began grading.</p>
+    <div class="service-stats-panel reveal">
+      <div class="stat-grid">
+        <div class="stat-card response-time">
+          <div class="icon-wrap">
+            <span class="service-stat-visual service-stat-visual--response" aria-hidden="true"></span>
+          </div>
+          <div class="big">90<sub>min</sub></div>
+          <div class="lbl">Average response time</div>
+          <div class="desc">Across Metro Vancouver, our local technicians are usually on-site within 90 minutes of your call, and we guarantee to be on-site within 4 hours.</div>
+        </div>
+
+        <div class="stat-card toner-inventory">
+          <div class="icon-wrap">
+            <img src="service-stats/xerox-toners-cartoon.svg" alt="Cartoon Xerox toner cartridges" loading="lazy" decoding="async" />
+          </div>
+          <div class="big">15,000<sub>ft²</sub></div>
+          <div class="lbl">Parts &amp; toner inventory</div>
+          <div class="desc">Local warehouses in Vancouver and Burnaby keep the parts on the shelf, ready for same-day dispatch.</div>
+        </div>
+
+        <div class="stat-card trained-specialists">
+          <div class="icon-wrap">
+            <span class="service-stat-visual service-stat-visual--specialists" aria-hidden="true"></span>
+          </div>
+          <div class="big">40<sub>+</sub></div>
+          <div class="lbl">Trained specialists</div>
+          <div class="desc">Sales, IT and field service technicians — all manufacturer-trained on the brands we sell.</div>
+        </div>
+
+        <div class="stat-card consumer-choice">
+          <div class="icon-wrap">
+            <img src="service-stats/consumer-choice-award-2026.png" alt="Consumer Choice Award 2026 Vancouver badge" loading="lazy" decoding="async" />
+          </div>
+          <div class="big">24<sub>yrs</sub></div>
+          <div class="lbl">Consumer Choice Award</div>
+          <div class="desc">Voted Metro Vancouver's premier office equipment company for service excellence twenty-four years running.</div>
+        </div>
+
+        <div class="stat-card bbb-rating">
+          <div class="icon-wrap">
+            <img src="service-stats/bbb-a-plus-rating.png" alt="A+ BBB Accredited Business logo" loading="lazy" decoding="async" />
+          </div>
+          <div class="big">A<sub>+</sub></div>
+          <div class="lbl">BBB rating</div>
+          <div class="desc">Accredited with an A+ Better Business Bureau rating.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band band--tint">
+<section class="band band--tint" id="request-service">
   <div class="container split-2">
     <div class="reveal">
       <span class="section-eyebrow">Ask about our 4-hour guarantee</span>
       <h2>Tell us what's down. <em>We'll dispatch from Vancouver.</em></h2>
       <p>Whether it's a paper jam that won't quit, a calibration that drifted, or a fleet-wide alert &mdash; describe what you're seeing and we'll get a technician en route. After hours? Leave details and we'll respond first thing.</p>
       <p style="margin-top:18px;">
-        Prefer to talk? Call <a href="tel:6042556622" style="color:var(--blue-700);font-weight:600;text-decoration:none;">604.255.6622</a> &middot;
-        Email <a href="mailto:info@automationone.ca" style="color:var(--blue-700);font-weight:600;text-decoration:none;">info@automationone.ca</a>
+        Prefer to talk to a human? Call <a href="tel:6042556622" style="color:var(--blue-700);font-weight:600;text-decoration:none;">604-255-6622</a>.
       </p>
+      <figure class="service-van-wrap reveal" aria-label="Automation One branded service van">
+        <img
+          src="service-van-branded.png"
+          width="1024"
+          height="585"
+          alt="Blue Automation One Mercedes-Benz Sprinter service van with company logo, automationone.ca, and 604-255-6622 on the side"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
     </div>
     <div class="reveal">
       <form class="form-shell" id="service-form" autocomplete="on">
@@ -1622,7 +1968,7 @@ html { background-color: #ffffff; }
         <div class="field"><label for="sv-email">Email <span aria-hidden="true">*</span></label><input id="sv-email" name="email" type="email" placeholder="Email" required /></div>
         <div class="field"><label for="sv-model">Equipment brand &amp; model number</label><input id="sv-model" name="model" type="text" placeholder="e.g. Canon imageRUNNER C5560i" /></div>
         <div class="field"><label for="sv-issue">Describe the issue</label><textarea id="sv-issue" name="issue" rows="4" placeholder="What's happening? Any error codes?"></textarea></div>
-        <button type="submit">Submit service request</button>
+        <button type="submit" class="cta cta-pill-arrow-blue">Submit Request</button>
         <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:info@automationone.ca">info@automationone.ca</a>.</p>
       </form>
     </div>

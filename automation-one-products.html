@@ -1465,22 +1465,32 @@
     user-select: none;
   }
   .products-hero-visual-back {
-    right: 12%;
+    right: 10%;
     bottom: 72px;
-    width: min(90%, 568px);
+    width: min(92%, 580px);
     z-index: 1;
   }
   .products-hero-visual-mid {
     left: -22%;
-    bottom: -42px;
+    bottom: -60px;
     width: min(46%, 288px);
-    z-index: 2;
+    z-index: 4;
   }
   .products-hero-visual-front {
-    left: 30%;
+    left: 22%;
     bottom: 6px;
-    width: min(85%, 516px);
+    width: min(78%, 480px);
     z-index: 3;
+  }
+  @media (min-width: 981px) and (max-width: 1200px) {
+    .products-hero-grid > div:first-child {
+      position: relative;
+      z-index: 2;
+    }
+    .products-hero-visual-mid {
+      left: -16%;
+      bottom: -74px;
+    }
   }
   @keyframes productsHeroLogoSlideIn {
     from {
@@ -1664,6 +1674,17 @@
   @media (max-width: 900px) {
     .proof-grid--brands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
+  @media (max-width: 900px) and (min-width: 561px) {
+    .proof-grid--brands > .proof-card--brand:last-child:nth-child(5) {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: calc((100% - clamp(12px, 1.6vw, 20px)) / 2);
+      max-width: calc((100% - clamp(12px, 1.6vw, 20px)) / 2);
+    }
+  }
+  @media (max-width: 560px) {
+    .proof-grid--brands { grid-template-columns: 1fr; }
+  }
   .proof-card--brand {
     display: flex;
     flex-direction: column;
@@ -1750,6 +1771,25 @@
       0 10px 24px -8px rgba(10, 40, 112, 0.28),
       0 18px 40px -16px rgba(10, 40, 112, 0.22);
     transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+  }
+  .proof-brand-cta-label--short {
+    display: none;
+  }
+  .proof-brand-cta-label--long {
+    white-space: nowrap;
+  }
+  @media (min-width: 901px) and (max-width: 1280px) {
+    .proof-brand-cta {
+      container-type: inline-size;
+    }
+    @container (max-width: 194px) {
+      .proof-brand-cta-label--long {
+        display: none;
+      }
+      .proof-brand-cta-label--short {
+        display: inline;
+      }
+    }
   }
   .proof-brand-cta::after {
     content: "";
@@ -3190,10 +3230,50 @@
     cursor: pointer;
   }
   @media (max-width: 980px) {
-    .products-hero-grid { grid-template-columns: 1fr; }
+    .products-hero-grid {
+      grid-template-columns: 1fr;
+      gap: clamp(28px, 4vw, 48px);
+    }
+    .products-hero-grid > div:first-child {
+      position: relative;
+      z-index: 2;
+    }
+    .products-hero-lead {
+      max-width: none;
+    }
     .products-hero-visual {
       transform: none;
       margin: 0 auto;
+      width: min(100%, 680px);
+      height: clamp(364px, calc(60vw + 48px), 464px);
+      min-height: 0;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .products-hero-visual-back {
+      right: 0;
+      bottom: 36px;
+      width: auto;
+      height: auto;
+      max-height: calc(100% - 36px);
+      max-width: min(94%, 520px);
+    }
+    .products-hero-visual-front {
+      left: 8%;
+      bottom: 6px;
+      width: auto;
+      height: auto;
+      max-height: calc(100% - 6px);
+      max-width: min(72%, 420px);
+    }
+    .products-hero-visual-mid {
+      left: 4%;
+      bottom: -48px;
+      width: auto;
+      height: auto;
+      max-height: min(44%, 245px);
+      max-width: min(46%, 270px);
+      z-index: 4;
     }
     .catalog-layout {
       display: block;
@@ -3223,9 +3303,54 @@
     }
     .filters-backdrop.is-open { display: block; }
   }
+  @media (max-width: 768px) and (min-width: 561px) {
+    .products-hero-visual {
+      width: min(100%, 600px);
+      height: clamp(344px, calc(58vw + 44px), 424px);
+    }
+    .products-hero-visual-back {
+      bottom: 28px;
+      max-height: calc(100% - 28px);
+      max-width: min(92%, 460px);
+    }
+    .products-hero-visual-front {
+      max-height: calc(100% - 6px);
+      max-width: min(70%, 360px);
+    }
+    .products-hero-visual-mid {
+      bottom: -44px;
+      max-height: min(42%, 225px);
+      max-width: min(44%, 240px);
+    }
+  }
   @media (max-width: 560px) {
     .products-hero-actions { flex-direction: column; align-items: stretch; }
     .products-hero-actions .cta { justify-content: center; }
+    .products-hero-visual {
+      width: min(100%, 420px);
+      height: clamp(271px, calc(52vw + 16px), 296px);
+      overflow: hidden;
+    }
+    .products-hero-visual-back {
+      bottom: 16px;
+      width: auto;
+      max-height: calc(100% - 16px);
+      max-width: min(88%, 318px);
+    }
+    .products-hero-visual-mid {
+      left: 8%;
+      bottom: -40px;
+      width: auto;
+      max-height: min(40%, 170px);
+      max-width: min(40%, 175px);
+    }
+    .products-hero-visual-front {
+      left: 4%;
+      bottom: 4px;
+      width: auto;
+      max-height: calc(100% - 4px);
+      max-width: min(66%, 252px);
+    }
     .product-grid { grid-template-columns: 1fr; }
     .category-grid { grid-template-columns: 1fr; }
   }
@@ -3253,27 +3378,6 @@
     width: 36px;
     height: 36px;
     right: 6px;
-  }
-  @media (max-width: 900px) {
-    .products-hero-visual {
-      min-height: clamp(240px, 52vw, 340px);
-      width: min(100%, 420px);
-    }
-    .products-hero-visual-back {
-      right: 6%;
-      bottom: 52px;
-      width: min(88%, 357px);
-    }
-    .products-hero-visual-mid {
-      left: -18%;
-      bottom: -32px;
-      width: min(44%, 180px);
-    }
-    .products-hero-visual-front {
-      left: 20%;
-      bottom: 4px;
-      width: min(83%, 322px);
-    }
   }
   .products-catalog > .container {
     position: relative;
@@ -3634,7 +3738,7 @@ html { background-color: #ffffff; }
         <h1>The right fit for your business.</h1>
         <p class="products-hero-lead">Authorized Canon, Xerox, Lexmark, Francotyp Postalia, and Ideal.MBM dealer. Discover what we have to offer by brand, or office equipment category. See below for our catalogue.</p>
         <div class="products-hero-actions">
-          <a href="#catalog" class="cta cta-primary cta-pill-arrow">Skip to Catalogue</a>
+          <a href="#catalog" class="cta cta-primary cta-pill-arrow">View Catalogue</a>
         </div>
       </div>
       <div class="products-hero-visual" aria-label="Commercial printers">
@@ -3703,35 +3807,35 @@ html { background-color: #ffffff; }
           <img src="canon-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img class="proof-brand-logo proof-brand-logo--canon" src="brand-logo-canon.png" alt="Canon" loading="lazy" decoding="async" />
-        <span class="proof-brand-cta">Discover More</span>
+        <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
       <a class="proof-card proof-card--brand" href="automation-one-xerox.html" aria-label="Xerox products">
         <span class="proof-brand-photo">
           <img src="xerox-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img class="proof-brand-logo proof-brand-logo--xerox" src="brand-logo-xerox.png" alt="Xerox" loading="lazy" decoding="async" />
-        <span class="proof-brand-cta">Discover More</span>
+        <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
       <a class="proof-card proof-card--brand" href="automation-one-lexmark.html" aria-label="Lexmark products">
         <span class="proof-brand-photo">
           <img src="lexmark-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img class="proof-brand-logo proof-brand-logo--lexmark" src="brand-logo-lexmark.png" alt="Lexmark" loading="lazy" decoding="async" />
-        <span class="proof-brand-cta">Discover More</span>
+        <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
       <a class="proof-card proof-card--brand" href="automation-one-fp.html" aria-label="Francotyp Postalia products">
         <span class="proof-brand-photo">
           <img src="fp-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img class="proof-brand-logo proof-brand-logo--fp" src="brand-logo-fp.png" alt="Francotyp Postalia" loading="lazy" decoding="async" />
-        <span class="proof-brand-cta">Discover More</span>
+        <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
       <a class="proof-card proof-card--brand" href="automation-one-ideal-mbm.html" aria-label="Ideal.MBM products">
         <span class="proof-brand-photo">
           <img src="ideal-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img class="proof-brand-logo proof-brand-logo--ideal" src="brand-logo-ideal.png" alt="Ideal.MBM" loading="lazy" decoding="async" />
-        <span class="proof-brand-cta">Discover More</span>
+        <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
     </div>
   </div>

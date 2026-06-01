@@ -537,6 +537,30 @@
     body.contact-page .contact-hero {
       padding-top: clamp(100px, 24vw, 128px);
     }
+    .contact-hero {
+      min-height: clamp(360px, 72vw, 440px);
+    }
+    body.contact-page .contact-hero::before {
+      background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.83) 64%, rgba(255, 255, 255, 0.83) 97%),
+        url("contact-hero-bg-mobile.png?v=3");
+      background-position: center center, 10% top;
+      background-size: auto, cover;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body.contact-page .contact-hero::before {
+      background-position: center center, 20% top;
+      background-size: auto, cover;
+    }
+  }
+
+  @media (min-width: 561px) and (max-width: 1024px) {
+    body.contact-page .contact-hero::before {
+      background-position: center center, 72% top;
+      background-size: auto, cover;
+    }
   }
 
 
@@ -551,9 +575,12 @@
     content: "";
     position: absolute;
     inset: 0;
-    background:
+    background-image:
       linear-gradient(180deg, rgba(255, 255, 255, 0.83) 64%, rgba(255, 255, 255, 0.83) 97%),
-      url("contact-hero-bg.png") center center / cover no-repeat;
+      url("contact-hero-bg.png?v=4");
+    background-position: center center, center center;
+    background-size: auto, cover;
+    background-repeat: no-repeat, no-repeat;
     pointer-events: none;
     z-index: 0;
   }
@@ -736,6 +763,87 @@
   .channel-icon svg {
     width: clamp(28px, 3vw, 32px);
     height: clamp(28px, 3vw, 32px);
+  }
+  .channel-icon--phone {
+    width: auto;
+    height: auto;
+    min-height: clamp(72px, 8vw, 88px);
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .channel-icon--phone img {
+    display: block;
+    width: auto;
+    height: clamp(72px, 8vw, 88px);
+    filter:
+      drop-shadow(0 0 10px rgba(31, 92, 245, 0.1))
+      drop-shadow(0 5px 10px rgba(10, 40, 112, 0.1));
+  }
+  .channel-icon--office {
+    width: auto;
+    height: auto;
+    min-height: clamp(78px, 9vw, 96px);
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .channel-icon--office img {
+    display: block;
+    width: auto;
+    height: clamp(78px, 9vw, 96px);
+    max-width: min(100%, 240px);
+    object-fit: contain;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    filter:
+      drop-shadow(0 0 10px rgba(31, 92, 245, 0.1))
+      drop-shadow(0 5px 10px rgba(10, 40, 112, 0.1));
+  }
+  .channel-icon--fax {
+    width: auto;
+    height: auto;
+    min-height: clamp(78px, 8.5vw, 96px);
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .channel-icon--fax img {
+    display: block;
+    width: auto;
+    height: clamp(78px, 8.5vw, 96px);
+    max-width: min(100%, 200px);
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    filter:
+      drop-shadow(0 0 10px rgba(31, 92, 245, 0.1))
+      drop-shadow(0 5px 10px rgba(10, 40, 112, 0.1));
+  }
+  .channel-icon--email {
+    width: auto;
+    height: auto;
+    min-height: clamp(64px, 7vw, 80px);
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .channel-icon--email img {
+    display: block;
+    width: auto;
+    height: clamp(64px, 7vw, 80px);
+    max-width: min(100%, 168px);
+    object-fit: cover;
+    border-radius: 10px;
+    filter:
+      drop-shadow(0 0 10px rgba(31, 92, 245, 0.1))
+      drop-shadow(0 5px 10px rgba(10, 40, 112, 0.1));
   }
   .channel-card h3 {
     font-size: clamp(15px, 1.4vw, 17px);
@@ -2061,29 +2169,29 @@ body.contact-page .band h2 em.title-note {
     <h2><a href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743">Vancouver <em>Office</em></a></h2>
     <div class="channel-grid" aria-label="Vancouver contact methods">
       <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.31 1.7.57 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.09a2 2 0 0 1 2.11-.45c.8.26 1.64.45 2.5.57A2 2 0 0 1 22 16.92z"/></svg>
+        <div class="channel-icon channel-icon--phone" aria-hidden="true">
+          <img src="contact-phone-mockup.png?v=2" width="777" height="1020" alt="" loading="lazy" decoding="async" />
         </div>
         <h3>Call now</h3>
         <p><a href="tel:+16042556622" class="channel-num">604-255-6622</a></p>
       </div>
       <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v4M16 4v4M4 10h16"/><path d="M8 14h2M8 17h5"/></svg>
-        </div>
-        <h3>Fax</h3>
-        <p class="channel-num">604-255-7744</p>
-      </div>
-      <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <div class="channel-icon channel-icon--email" aria-hidden="true">
+          <img src="contact-email.png?v=2" width="517" height="294" alt="" loading="lazy" decoding="async" />
         </div>
         <h3>Email</h3>
         <p><a href="mailto:info@automationone.ca" class="channel-email">info@automationone.ca</a></p>
       </div>
       <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="channel-icon channel-icon--fax" aria-hidden="true">
+          <img src="contact-fax.png?v=3" width="1006" height="792" alt="" loading="lazy" decoding="async" />
+        </div>
+        <h3>Fax</h3>
+        <p class="channel-num">604-255-7744</p>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon channel-icon--office" aria-hidden="true">
+          <img src="contact-vancouver-office.png" width="1024" height="628" alt="" loading="lazy" decoding="async" />
         </div>
         <h3>Meet us</h3>
         <p class="channel-num">1365 Boundary Rd.,<br/>Vancouver, BC V5K 4T9</p>
@@ -2143,29 +2251,29 @@ body.contact-page .band h2 em.title-note {
     <h2><a href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.2715037,-123.0207332,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d345c4be47:0x402e91058e71c12b!8m2!3d49.2715037!4d-123.0185392">Burnaby <em>Office</em> <em class="title-note">(appointment only)</em></a></h2>
     <div class="channel-grid" aria-label="Burnaby contact methods">
       <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.31 1.7.57 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.09a2 2 0 0 1 2.11-.45c.8.26 1.64.45 2.5.57A2 2 0 0 1 22 16.92z"/></svg>
+        <div class="channel-icon channel-icon--phone" aria-hidden="true">
+          <img src="contact-phone-mockup.png?v=2" width="777" height="1020" alt="" loading="lazy" decoding="async" />
         </div>
         <h3>Call now</h3>
         <p><a href="tel:+16042556622" class="channel-num">604-255-6622</a></p>
       </div>
       <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v4M16 4v4M4 10h16"/><path d="M8 14h2M8 17h5"/></svg>
-        </div>
-        <h3>Fax</h3>
-        <p class="channel-num">604-255-7744</p>
-      </div>
-      <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <div class="channel-icon channel-icon--email" aria-hidden="true">
+          <img src="contact-email.png?v=2" width="517" height="294" alt="" loading="lazy" decoding="async" />
         </div>
         <h3>Email</h3>
         <p><a href="mailto:info@automationone.ca" class="channel-email">info@automationone.ca</a></p>
       </div>
       <div class="channel-card">
-        <div class="channel-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="channel-icon channel-icon--fax" aria-hidden="true">
+          <img src="contact-fax.png?v=3" width="1006" height="792" alt="" loading="lazy" decoding="async" />
+        </div>
+        <h3>Fax</h3>
+        <p class="channel-num">604-255-7744</p>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon channel-icon--office" aria-hidden="true">
+          <img src="contact-burnaby-office.png" width="996" height="670" alt="" loading="lazy" decoding="async" />
         </div>
         <h3>Meet us</h3>
         <p class="channel-num">1440 Ingleton Ave.,<br/>Burnaby, BC V5C 4L7</p>
