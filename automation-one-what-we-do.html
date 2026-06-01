@@ -278,18 +278,153 @@ body.subpage .nav-actions .btn-ghost:hover {
     radial-gradient(120% 90% at 5% 20%, rgba(185, 208, 255, 0.45) 0%, transparent 55%),
     linear-gradient(165deg, #eef4ff 0%, var(--paper) 60%);
 }
+.subpage-hero-photo {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: auto;
+  width: auto;
+  height: 108%;
+  min-height: 100%;
+  max-width: min(52vw, 640px);
+  transform: translateY(-50%);
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.58;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    hsl(0 0% 0% / 0) 0%,
+    hsl(0 0% 0% / 0.08) 18%,
+    hsl(0 0% 0% / 0.42) 42%,
+    hsl(0 0% 0% / 0.88) 62%,
+    hsl(0 0% 0% / 1) 78%,
+    hsl(0 0% 0% / 1) 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    hsl(0 0% 0% / 0) 0%,
+    hsl(0 0% 0% / 0.08) 18%,
+    hsl(0 0% 0% / 0.42) 42%,
+    hsl(0 0% 0% / 0.88) 62%,
+    hsl(0 0% 0% / 1) 78%,
+    hsl(0 0% 0% / 1) 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+@media (min-width: 561px) {
+  .subpage-hero-photo {
+    opacity: 0.72;
+    max-width: min(46vw, 640px);
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0) 10%,
+      hsl(0 0% 0% / 0.12) 24%,
+      hsl(0 0% 0% / 0.55) 46%,
+      hsl(0 0% 0% / 0.95) 62%,
+      hsl(0 0% 0% / 1) 72%,
+      hsl(0 0% 0% / 1) 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0) 10%,
+      hsl(0 0% 0% / 0.12) 24%,
+      hsl(0 0% 0% / 0.55) 46%,
+      hsl(0 0% 0% / 0.95) 62%,
+      hsl(0 0% 0% / 1) 72%,
+      hsl(0 0% 0% / 1) 100%
+    );
+  }
+}
+.wwdfy-page .subpage-hero-photo {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform: none;
+  object-fit: cover;
+  object-position: 68% center;
+  opacity: 0.18;
+}
+@media (min-width: 561px) {
+  .wwdfy-page .subpage-hero-photo {
+    opacity: 0.26;
+    object-position: 62% center;
+  }
+}
+@media (max-width: 560px) {
+  .wwdfy-page .subpage-hero-photo {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 0;
+    height: 118%;
+    width: auto;
+    transform: translateX(-58%);
+    transform-origin: bottom center;
+    object-position: 52% bottom;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0.28) 20%,
+      hsl(0 0% 0% / 0.72) 46%,
+      hsl(0 0% 0% / 0.98) 66%,
+      hsl(0 0% 0% / 1) 82%,
+      hsl(0 0% 0% / 1) 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0.28) 20%,
+      hsl(0 0% 0% / 0.72) 46%,
+      hsl(0 0% 0% / 0.98) 66%,
+      hsl(0 0% 0% / 1) 82%,
+      hsl(0 0% 0% / 1) 100%
+    );
+  }
+}
+.subpage-hero--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248, 250, 255, 0.94) 0%,
+      rgba(248, 250, 255, 0.82) 28%,
+      rgba(238, 244, 255, 0.52) 48%,
+      rgba(238, 244, 255, 0.22) 68%,
+      rgba(238, 244, 255, 0.06) 100%
+    ),
+    radial-gradient(125% 90% at 88% 0%, rgba(106, 155, 255, 0.28) 0%, transparent 55%),
+    radial-gradient(120% 90% at 5% 20%, rgba(185, 208, 255, 0.42) 0%, transparent 55%);
+}
 .subpage-hero::before {
   content: "";
   position: absolute;
   inset: -20% -10% auto auto;
   width: 60vw; height: 60vw;
   max-width: 900px; max-height: 900px;
+  z-index: 1;
   background:
     radial-gradient(circle at 50% 50%, rgba(31, 92, 245, 0.12) 0%, transparent 65%);
   pointer-events: none;
   filter: blur(40px);
 }
-.subpage-hero .container { position: relative; z-index: 1; }
+.subpage-hero--photo::before {
+  z-index: 2;
+}
+.subpage-hero .container { position: relative; z-index: 2; }
+.subpage-hero--photo .container { z-index: 3; }
 .subpage-hero h1 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -402,6 +537,95 @@ p { color: #3d4666; line-height: 1.6; }
   box-shadow: 0 14px 28px -14px rgba(31, 92, 245, 0.6);
 }
 .card .icon svg { width: 24px; height: 24px; }
+.wwdfy-page .card .card-photo {
+  width: 100%;
+  min-height: clamp(112px, 14vw, 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+.wwdfy-page .card .card-photo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: clamp(112px, 14vw, 140px);
+  max-width: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 10px rgba(31, 92, 245, 0.1))
+    drop-shadow(0 5px 10px rgba(10, 40, 112, 0.1));
+}
+.wwdfy-page .card .card-photo--panel img {
+  max-width: clamp(200px, 26vw, 260px);
+  max-height: clamp(100px, 13vw, 124px);
+}
+.wwdfy-page #cost .card-photo {
+  align-items: center;
+}
+.wwdfy-page #cost .card-photo img {
+  max-width: clamp(225px, 28.2vw, 284px);
+  max-height: clamp(176px, 20.9vw, 217px);
+  object-fit: contain;
+  transform: translateY(4px);
+}
+.wwdfy-page .card .card-photo--scene img {
+  max-width: clamp(212px, 27vw, 272px);
+  max-height: clamp(108px, 14vw, 136px);
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center 42%;
+}
+.wwdfy-page .card .card-photo--device img {
+  max-width: clamp(180px, 23vw, 232px);
+  max-height: clamp(120px, 15vw, 152px);
+}
+.wwdfy-page .card .card-photo--product img {
+  max-width: clamp(248px, 31vw, 312px);
+  max-height: clamp(156px, 19vw, 192px);
+  border-radius: 10px;
+  object-fit: contain;
+  object-position: center;
+}
+.wwdfy-page .card .card-photo--award img {
+  max-width: clamp(188px, 24vw, 240px);
+  max-height: clamp(108px, 14vw, 132px);
+  border-radius: 8px;
+}
+.wwdfy-page #workflow .card-photo {
+  align-items: center;
+}
+.wwdfy-page #workflow .card-photo img {
+  max-width: clamp(260px, 32.55vw, 328px);
+  max-height: clamp(149px, 18.9vw, 185px);
+  transform: translateY(2px);
+}
+.wwdfy-page #sustainability .card-photo img {
+  max-width: clamp(207px, 26.4vw, 264px);
+  max-height: clamp(119px, 15.4vw, 146px);
+}
+.wwdfy-page #solutions .band-head {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.wwdfy-page #solutions .card {
+  display: flex;
+  flex-direction: column;
+}
+.wwdfy-page #solutions .card .card-photo {
+  height: clamp(168px, 20vw, 208px);
+  min-height: clamp(168px, 20vw, 208px);
+  flex: 0 0 auto;
+}
+.wwdfy-page #solutions .card h3 {
+  text-align: center;
+}
 .card h3 { margin-bottom: 10px; }
 .card p { font-size: 15.5px; line-height: 1.6; color: #4a5478; }
 .card ul {
@@ -1453,17 +1677,27 @@ html { background-color: #ffffff; }
 
 
 
-<section class="subpage-hero">
+<section class="subpage-hero subpage-hero--photo">
+  <img
+    class="subpage-hero-photo"
+    src="what-we-do-hero.png?v=2"
+    width="1024"
+    height="535"
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
   <div class="container">
     <span class="section-eyebrow reveal">What We Do For You</span>
     <h1 class="reveal">Beyond paper.<br/><em>Beyond printing.</em></h1>
     <div class="lead reveal">
-      <p>Automation One helps you optimize paper-handling tasks. With our innovative digital solutions, it's now easier than ever to capture, archive, locate, and act on every bit of valuable company information.</p>
-      <p>Below: five overlapping disciplines we use to make your office work better &mdash; together, they turn your multifunction printer into the connector of a calmer, more secure, more productive business.</p>
+      <p>Automation One does more than optimize paper-handling&mdash;we streamline complete business workflows that elevate your entire office environment. It's easier to capture, archive, locate, send, and act on every valuable data point in your organization.</p>
+      <p>Not sure where to start? Book an in-person or online consultation&mdash;we'll talk through what your office needs and how we can help.</p>
     </div>
     <div class="hero-cta-row reveal">
-      <a href="#solutions" class="cta cta-pill-arrow-blue">See solutions</a>
-      <a href="automation-one-contact.html" class="cta cta-primary cta-pill-arrow">Talk to a specialist</a>
+      <a href="https://calendly.com/bachtem-automationone/30min" class="cta cta-pill-arrow-blue" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
     </div>
   </div>
 </section>
@@ -1473,14 +1707,16 @@ html { background-color: #ffffff; }
 <section class="band" id="solutions">
   <div class="container">
     <div class="band-head reveal">
-      <span class="section-eyebrow">Five disciplines</span>
+      <span class="section-eyebrow">How We Help</span>
       <h2>The full stack of <em>office optimization.</em></h2>
       <p>Each of these areas works on its own &mdash; or layered together for a transformation. Tell us where the friction is, and we'll map a phased rollout that pays for itself.</p>
     </div>
 
     <div class="cards-grid cards-grid--3">
       <article class="card reveal" id="dm">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="card-photo card-photo--product" aria-hidden="true">
+          <img src="wwdfy-document-management.png?v=3" width="362" height="320" alt="" loading="lazy" decoding="async" />
+        </div>
         <h3>Document management &amp; distribution</h3>
         <p>Use your MFP as a network connector. Capture, file, and retrieve hard-copy documents in a secure repository that powers the rest of your business for years.</p>
         <ul>
@@ -1493,9 +1729,11 @@ html { background-color: #ffffff; }
       </article>
 
       <article class="card reveal" id="workflow">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13"/><path d="M3 12h9"/><path d="M3 18h13"/><path d="M21 4l-3 4 3 4"/><path d="M16 14l3 4-3 4"/></svg></div>
+        <div class="card-photo card-photo--award" aria-hidden="true">
+          <img src="wwdfy-workflow-bli-award.png?v=1" width="800" height="400" alt="" loading="lazy" decoding="async" />
+        </div>
         <h3>Workflow &amp; productivity</h3>
-        <p>Integrate devices into your network and transform how documents are produced &amp; shared. Improve, redesign, or automate workflows to keep pace with changing customer demand.</p>
+        <p>Recently, our brand partner Xerox was named Keypoint Intelligence's 2026 Smart Workplace Solutions Line of the Year. Integrate devices into your network and transform how documents are produced &amp; shared. Improve, redesign, or automate workflows to keep pace with changing customer demand.</p>
         <ul>
           <li>Dynamic, integrated documents in less time</li>
           <li>Easier office-wide collaboration</li>
@@ -1505,7 +1743,9 @@ html { background-color: #ffffff; }
       </article>
 
       <article class="card reveal" id="cost">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="card-photo card-photo--panel" aria-hidden="true">
+          <img src="wwdfy-workflow-productivity.png?v=1" width="580" height="580" alt="" loading="lazy" decoding="async" />
+        </div>
         <h3>Cost recovery &amp; control</h3>
         <p>Get visibility into the real costs of print across your business &mdash; from simple server-less tools to enterprise systems &mdash; and steer behavior with rules and quotas.</p>
         <ul>
@@ -1518,7 +1758,9 @@ html { background-color: #ffffff; }
       </article>
 
       <article class="card reveal" id="security">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="card-photo card-photo--scene" aria-hidden="true">
+          <img src="wwdfy-security.png?v=3" width="966" height="652" alt="" loading="lazy" decoding="async" />
+        </div>
         <h3>Security &amp; device management</h3>
         <p>Treat your MFP like any other endpoint. Restrict access, protect confidential output, and gain confidence that print meets the same security standards as the rest of your stack.</p>
         <ul>
@@ -1530,7 +1772,9 @@ html { background-color: #ffffff; }
       </article>
 
       <article class="card reveal" id="vertical">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21V12h6v9"/></svg></div>
+        <div class="card-photo card-photo--scene" aria-hidden="true">
+          <img src="wwdfy-vertical-markets.png" width="1024" height="682" alt="" loading="lazy" decoding="async" />
+        </div>
         <h3>Vertical-market solutions</h3>
         <p>We tailor configurations for Government, Health Care, Education, Legal, Manufacturing and Financial teams &mdash; with industry-specific workflows that comply out of the box.</p>
         <ul>
@@ -1542,9 +1786,11 @@ html { background-color: #ffffff; }
       </article>
 
       <article class="card reveal" id="sustainability">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3v9a9 9 0 0 1-18 0V3"/><path d="M12 3v15"/></svg></div>
+        <div class="card-photo card-photo--award" aria-hidden="true">
+          <img src="wwdfy-sustainability-ecovadis.png?v=2" width="600" height="400" alt="" loading="lazy" decoding="async" />
+        </div>
         <h3>Sustainability built in</h3>
-        <p>Print less, scan more, and right-size your devices to actual usage. Our managed-print programs report savings &mdash; in dollars and in trees.</p>
+        <p>Recently, our brand partner Canon was recognized as a Platinum Top 1% Sustainability Award Winner. Print less, scan more, and right-size your devices to actual usage. Our managed-print programs report savings &mdash; in dollars and in trees.</p>
         <ul>
           <li>Default duplex &amp; pull-print rules</li>
           <li>Right-sized device counts &amp; placement</li>
@@ -1552,27 +1798,6 @@ html { background-color: #ffffff; }
           <li>Quarterly environmental reporting</li>
         </ul>
       </article>
-    </div>
-  </div>
-</section>
-
-<section class="band band--ink">
-  <div class="container">
-    <div class="split-2">
-      <div class="reveal">
-        <span class="section-eyebrow">Where to start</span>
-        <h2>One conversation. <em>A clearer print stack.</em></h2>
-        <p>Most engagements begin with a complimentary on-site assessment: we count your devices, audit usage, map workflows, and report back with a phased plan. No commitment, no pressure &mdash; just a clear picture.</p>
-        <div class="hero-cta-row" style="margin-top:28px;">
-          <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Book an assessment</a>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="pull-quote">
-          <p>To learn more about how Automation One can help you optimize your corporate environment and workflow, contact us today.</p>
-          <div class="pull-cite">From our team to yours</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>

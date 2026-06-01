@@ -1,0 +1,535 @@
+/* Authorized dealer brands section (homepage + subpages) */
+.brands {
+  position: relative;
+  isolation: isolate;
+  background: var(--white);
+  padding: 0;
+  overflow: hidden;
+  --ao-logo-mask: url("ao-nav-logo.png");
+}
+.brands .brands-scene-pin .brands-scene-h2--final {
+  font-size: clamp(2.15rem, 3.5vw, 3.1rem);
+  color: var(--ink);
+}
+.brands-scene-h2--final .brands-h2-line {
+  color: var(--ink);
+}
+.brands-scene-h2--final .brands-h2-em {
+  font-style: normal;
+}
+/*
+  Brands beat: solid blue behind copy, then blue is clipped away by a shrinking circle
+  (same clip on matte + white headline overlay). Snap removes the last blue patch.
+*/
+.brands-scene {
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+}
+.brands-scene-pin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--white);
+  --brands-reveal-cx: 50%;
+  --brands-reveal-cy: 45%;
+  --brands-reveal-r: 0px;
+  --brands-reveal-ring-opacity: 0;
+}
+.brands-scene-pin::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(72% 58% at 50% 38%, rgba(126, 167, 255, 0.22), transparent 62%),
+    radial-gradient(48% 42% at 88% 78%, rgba(31, 92, 245, 0.12), transparent 68%);
+}
+.brands-scene-pin::after {
+  content: "";
+  position: absolute;
+  left: var(--brands-reveal-cx);
+  top: var(--brands-reveal-cy);
+  width: calc(var(--brands-reveal-r) * 2);
+  height: calc(var(--brands-reveal-r) * 2);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 0 0 1px rgba(126, 167, 255, 0.16),
+    0 0 48px rgba(126, 167, 255, 0.28);
+  pointer-events: none;
+  z-index: 4;
+  opacity: var(--brands-reveal-ring-opacity);
+  transition: opacity 0.35s ease;
+}
+.brands-scene-matte {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* Lighter blues (was 600→700→900) so the full blue field matches hero / airy feel */
+  background:
+    radial-gradient(120% 90% at 18% 0%, rgba(255, 255, 255, 0.28), transparent 52%),
+    radial-gradient(80% 70% at 82% 100%, rgba(10, 40, 112, 0.22), transparent 58%),
+    linear-gradient(
+      158deg,
+      var(--blue-300) 0%,
+      var(--blue-500) 44%,
+      var(--blue-700) 100%
+    );
+  clip-path: circle(150vmax at 50% 45%);
+  -webkit-clip-path: circle(150vmax at 50% 45%);
+  will-change: clip-path;
+}
+/* Background video: same circular clip as matte; under copy / white headline overlay */
+.brands-scene-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-color: transparent;
+  overflow: hidden;
+  clip-path: circle(150vmax at 50% 45%);
+  -webkit-clip-path: circle(150vmax at 50% 45%);
+  will-change: clip-path, opacity;
+}
+.brands-scene-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(92% 72% at 50% 32%, rgba(126, 167, 255, 0.22), transparent 62%),
+    linear-gradient(160deg, rgba(10, 40, 112, 0.54), rgba(31, 92, 245, 0.42) 48%, rgba(6, 26, 74, 0.5));
+  mix-blend-mode: color;
+}
+.brands-scene-photo-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+  pointer-events: none;
+  /* Strong cool blue + lifted luminance vs source footage */
+  filter: hue-rotate(-78deg) saturate(0.92) contrast(1.04) brightness(1.08);
+}
+.brands-scene-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(28px, 5vh, 64px) 0;
+}
+.brands-scene-copy {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+/* Eyebrow + body copy: JS masks out area overlapping blue circle (white-only) */
+.brands-copy-white-mask {
+  display: block;
+  width: 100%;
+}
+.brands-scene-copy .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(126, 167, 255, 0.34);
+  box-shadow: 0 10px 28px -22px rgba(15, 56, 158, 0.55);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-700);
+}
+.brands-scene-copy p {
+  color: #4a5274;
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.58;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+.brands-scene-headline-stack {
+  position: relative;
+  width: 100%;
+}
+.brands-scene-logo {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  margin-top: clamp(44px, 6vh, 78px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  pointer-events: none;
+  will-change: opacity;
+}
+.brands-scene-logo .logo-mark-wrap {
+  display: block;
+  line-height: 0;
+}
+/* Shrink-wrap to “Automation One” width; block stays centred under mark */
+.brands-scene-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  gap: 2px;
+}
+.brands-scene-logo .brands-scene-logo-mark {
+  height: clamp(98px, 18vw, 142px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+/* Same typography as nav `.logo-text .name` */
+.brands-scene-logo .brands-scene-logo-name {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(22px, 3.2vw, 30px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #ffffff;
+  text-align: left;
+  white-space: nowrap;
+  max-width: 100%;
+}
+/* Same as nav `.logo-text .sub` (inherits display font from `.logo` context → set explicitly here) */
+.brands-scene-logo .brands-scene-logo-sub {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  opacity: 0.9;
+  color: #ffffff;
+  text-align: right;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.brands-scene-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-synthesis: none;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  text-wrap: unset;
+  /* Three fixed lines (manual breaks; nowrap keeps each on one line) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.08em;
+}
+.brands-h2-line-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: center;
+  max-width: 100%;
+  gap: 0.2em;
+  line-height: 1.06;
+  box-sizing: border-box;
+}
+.brands-h2-line-wrap .brands-h2-line {
+  max-width: none;
+}
+.brands-scene-h2 .brands-h2-line,
+.brands-scene-h2 .brands-h2-em {
+  display: block;
+  white-space: nowrap;
+  line-height: 1.06;
+  max-width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.brands-scene-h2 .brands-h2-dependable {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1.06;
+  text-align: center;
+  box-sizing: border-box;
+}
+@media (max-width: 560px) {
+  .brands-scene-headline-stack {
+    padding-inline: clamp(6px, 2.5vw, 16px);
+  }
+  .brands .brands-scene-pin .brands-scene-h2 {
+    font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+    gap: 0.1em;
+    line-height: 1.14;
+  }
+  .brands-scene-h2 .brands-h2-line,
+  .brands-scene-h2 .brands-h2-em,
+  .brands-scene-h2 .brands-h2-dependable {
+    white-space: normal;
+  }
+  .brands-h2-line-wrap {
+    flex-wrap: wrap;
+    row-gap: 0.06em;
+  }
+  .brands-h2-line-wrap .brands-h2-line,
+  .brands-h2-line-wrap .brands-h2-dependable {
+    white-space: normal;
+  }
+  .brands-scene--animating .brands-scene-h2--final,
+  .brands-scene--animating .brands-scene-h2--on-blue {
+    line-height: 1.14;
+  }
+}
+/* JS drives --brands-h2-rem (linear rem) so size only shrinks smoothly — no min/clamp string tween pops */
+.brands-scene--animating .brands-scene-h2--final,
+.brands-scene--animating .brands-scene-h2--on-blue {
+  font-size: calc(var(--brands-h2-rem, 3.5) * 1rem);
+}
+/* Final headline layer (under overlay): finishing colours on white */
+.brands-scene-h2--final .brands-h2-em,
+.brands-scene-h2--final .brands-h2-dependable {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--blue-500), #7ea7ff 48%, var(--blue-800));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* Duplicate headline: solid white everywhere it paints (clipped to blue = split at boundary) */
+.brands-h2-blue-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.brands-h2-blue-cover-clip {
+  width: 100%;
+  height: 100%;
+  display: block;
+  clip-path: circle(150vmax at 50% 45%);
+  -webkit-clip-path: circle(150vmax at 50% 45%);
+  will-change: clip-path;
+}
+.brands-h2-blue-shift {
+  position: absolute;
+  margin: 0;
+  transform: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+.brands-h2-blue-shift .brands-scene-h2 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Until fonts + layout sync, hide both headline layers so duplicates never stack visibly */
+.brands-scene--animating:not(.brands-scene--headlines-ready) .brands-scene-h2--final,
+.brands-scene--animating:not(.brands-scene--headlines-ready) .brands-h2-blue-cover {
+  opacity: 0;
+}
+.brands-scene-h2--on-blue,
+.brands-scene-h2--on-blue .brands-h2-em,
+.brands-scene-h2--on-blue .brands-h2-dependable {
+  font-style: normal;
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.brands-scene:not(.brands-scene--animating) .brands-h2-blue-cover {
+  display: none;
+}
+/* No JS / no advanced motion: ordinary static section */
+.brands-scene:not(.brands-scene--animating) .brands-scene-matte,
+.brands-scene:not(.brands-scene--animating) .brands-scene-logo {
+  display: none;
+}
+.brands-scene-photo {
+  display: block;
+}
+.brands-scene:not(.brands-scene--animating) .brands-scene-pin {
+  min-height: 0;
+  padding: clamp(120px, 14vw, 176px) 0 clamp(96px, 12vw, 132px);
+}
+.brands-scene:not(.brands-scene--animating) .brands-scene-h2--final .brands-h2-em,
+.brands-scene:not(.brands-scene--animating) .brands-scene-h2--final .brands-h2-dependable {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--blue-500), var(--blue-700));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* Static fallback when scroll animation is unavailable (no GSAP / reduced motion) */
+.brands-scene.brands-scene--static-fallback .brands-scene-matte,
+.brands-scene.brands-scene--static-fallback .brands-h2-blue-cover,
+.brands-scene.brands-scene--static-fallback .brands-scene-logo {
+  display: none !important;
+}
+.brands-scene.brands-scene--static-fallback .brands-scene-photo {
+  display: block !important;
+  clip-path: circle(150vmax at 50% 45%);
+  -webkit-clip-path: circle(150vmax at 50% 45%);
+  opacity: 0.4;
+}
+.brands-scene.brands-scene--static-fallback .brands-scene-pin {
+  min-height: 100vh;
+  padding: clamp(120px, 14vw, 176px) 0 clamp(96px, 12vw, 132px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .brands-scene:not(.brands-scene--static-fallback) .brands-scene-matte,
+  .brands-scene:not(.brands-scene--static-fallback) .brands-scene-photo,
+  .brands-scene:not(.brands-scene--static-fallback) .brands-scene-logo {
+    display: none !important;
+  }
+  .brands-scene-pin {
+    min-height: 0 !important;
+    padding: clamp(120px, 14vw, 176px) 0 132px !important;
+  }
+}
+.brands::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: clamp(120px, 16vw, 240px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.26;
+  background: linear-gradient(
+    to right,
+    rgba(31, 92, 245, 0.82) 0%,
+    rgba(31, 92, 245, 0.72) 45%,
+    rgba(31, 92, 245, 0.28) 76%,
+    rgba(31, 92, 245, 0) 100%
+  );
+  -webkit-mask-image: var(--ao-logo-mask);
+          mask-image: var(--ao-logo-mask);
+  -webkit-mask-size: 18px 13px;
+          mask-size: 18px 13px;
+  -webkit-mask-repeat: repeat;
+          mask-repeat: repeat;
+  -webkit-mask-position: left top;
+          mask-position: left top;
+}
+/* Right edge wash — gradient only (no repeating logo tile mask) */
+.brands::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: clamp(120px, 16vw, 240px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.26;
+  background: linear-gradient(
+    to left,
+    rgba(31, 92, 245, 0.82) 0%,
+    rgba(31, 92, 245, 0.72) 45%,
+    rgba(31, 92, 245, 0.28) 76%,
+    rgba(31, 92, 245, 0) 100%
+  );
+}
+.brands .container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(56px, 8vw, 92px);
+}
+.brand-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: clamp(48px, 6vw, 76px);
+  min-height: clamp(52px, 8vw, 107px);
+  will-change: opacity;
+}
+.brand-strip-frame {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 1024px);
+  overflow: hidden;
+  line-height: 0;
+  padding: clamp(14px, 2vw, 20px) clamp(18px, 3vw, 28px);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(246, 249, 255, 0.78));
+  border: 1px solid rgba(126, 167, 255, 0.28);
+  box-shadow:
+    0 18px 44px -32px rgba(15, 56, 158, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+.brand-strip-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(1.04) contrast(1.02);
+}
+.brand-strip-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -52%;
+  width: 62%;
+  height: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 8%,
+    rgba(255, 255, 255, 0.52) 29%,
+    rgba(255, 255, 255, 0.88) 50%,
+    rgba(255, 255, 255, 0.52) 71%,
+    rgba(255, 255, 255, 0) 92%
+  );
+  transform: skewX(-14deg) translateX(-130%);
+  transform-origin: center center;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  animation: dealersBannerShine 4.5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-strip-frame::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+@keyframes dealersBannerShine {
+  0%, 0.15% {
+    transform: skewX(-14deg) translateX(-130%);
+    opacity: 0;
+  }
+  0.75% {
+    opacity: 1;
+  }
+  76% {
+    transform: skewX(-14deg) translateX(320%);
+    opacity: 1;
+  }
+  77.5%, 100% {
+    transform: skewX(-14deg) translateX(320%);
+    opacity: 0;
+  }
+}

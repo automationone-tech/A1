@@ -646,32 +646,6 @@ p { color: #3d4666; line-height: 1.6; }
   flex-shrink: 0;
 }
 
-/* Brand chip grid */
-.brand-chip-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-}
-.brand-chip {
-  display: flex; align-items: center; gap: 12px;
-  padding: 16px 18px;
-  background: var(--white);
-  border: 1px solid rgba(15, 56, 158, 0.1);
-  border-radius: 14px;
-  text-decoration: none;
-  color: var(--ink);
-  box-shadow: 0 10px 24px -20px rgba(10, 40, 112, 0.4);
-  transition: border-color 0.22s ease, transform 0.22s ease;
-}
-.brand-chip:hover { border-color: var(--blue-500); transform: translateY(-2px); }
-.brand-chip .dot {
-  width: 10px; height: 10px;
-  background: var(--blue-500);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.brand-chip strong { font-size: 14px; font-weight: 600; }
-
 /* Testimonial cards */
 .testimonial-grid {
   display: grid;
@@ -1407,11 +1381,36 @@ html { background-color: #ffffff; }
   .cta-section .cta-contact-divider { height: 18px; }
 }
 
+/* About page — authorized dealer banner: faded still + pure white brand strip */
+body.about-page .brands .brand-strip-frame {
+  background: #ffffff;
+  border: 1px solid rgba(126, 167, 255, 0.22);
+  box-shadow: 0 14px 36px -28px rgba(15, 56, 158, 0.35);
+}
+body.about-page .brands .brand-strip-frame::after {
+  display: none;
+}
+body.about-page .brands-scene--static-fallback .brands-scene-photo {
+  opacity: 0.16;
+}
+body.about-page .brands-scene-photo-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+  pointer-events: none;
+  filter: hue-rotate(-78deg) saturate(0.88) contrast(1.02) brightness(1.06);
+}
+
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
 <link rel="stylesheet" href="ao-subpage-section-head.css">
+<link rel="stylesheet" href="ao-brands-scene.css">
 </head>
 <body class="subpage about-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -1455,7 +1454,7 @@ html { background-color: #ffffff; }
 
 <section class="subpage-hero">
   <div class="container">
-    <span class="section-eyebrow reveal">About &amp; Our History</span>
+    <span class="section-eyebrow reveal">Who We Are</span>
     <h1 class="reveal">A company that<br/><em>works for you.</em></h1>
     <div class="lead reveal">
       <p>Since 1981, Automation One has been Vancouver's locally owned, family-operated leader in business printing and document solutions. We're independent, multi-brand, and accountable to the businesses we serve &mdash; not a corporate head office an ocean away.</p>
@@ -1577,19 +1576,61 @@ html { background-color: #ffffff; }
   </div>
 </section>
 
-<section class="band band--tint">
-  <div class="container">
-    <div class="band-head reveal">
-      <span class="section-eyebrow">Our partners</span>
-      <h2>Five world-class brands. <em>One independent advisor.</em></h2>
-      <p>We aren't tied to any single manufacturer &mdash; which lets us recommend exactly the right machine for your workload, not the one a quota forces us to push.</p>
-    </div>
-    <div class="brand-chip-grid reveal">
-      <a class="brand-chip" href="automation-one-products.html#catalog"><span class="dot"></span><strong>Canon</strong></a>
-      <a class="brand-chip" href="automation-one-products.html#catalog"><span class="dot"></span><strong>Xerox</strong></a>
-      <a class="brand-chip" href="automation-one-products.html#catalog"><span class="dot"></span><strong>Lexmark</strong></a>
-      <a class="brand-chip" href="automation-one-products.html#catalog"><span class="dot"></span><strong>Francotyp Postalia (FP)</strong></a>
-      <a class="brand-chip" href="automation-one-products.html#catalog"><span class="dot"></span><strong>Ideal.MBM</strong></a>
+<section class="brands" id="partners" aria-label="Authorized dealer brands">
+  <div class="brands-scene brands-scene--static-fallback">
+    <div class="brands-scene-pin">
+      <div class="brands-scene-matte" aria-hidden="true"></div>
+      <div class="brands-scene-photo" aria-hidden="true">
+        <img
+          class="brands-scene-photo-still"
+          src="brands-scene-handshake-still.jpg"
+          alt=""
+          decoding="async"
+          loading="lazy"
+        />
+      </div>
+      <div class="brands-scene-inner">
+        <div class="container">
+          <header class="section-head brands-scene-copy">
+            <div class="brands-copy-white-mask">
+              <span class="section-eyebrow">Authorized dealer</span>
+            </div>
+            <div class="brands-scene-headline-stack">
+              <h2 class="brands-scene-h2 brands-scene-h2--final">
+                <span class="brands-h2-line">Multiple award winning</span>
+                <span class="brands-h2-line-wrap">
+                  <span class="brands-h2-line">brands.</span>
+                  <span class="brands-h2-dependable">One dependable</span>
+                </span>
+                <em class="brands-h2-em">&amp; independent partner.</em>
+              </h2>
+            </div>
+            <div class="brands-copy-white-mask">
+              <p>We're not tied to a single manufacturer &mdash; so you get the right machine for your workload, not the one a sales rep was told to push.</p>
+            </div>
+          </header>
+
+          <div class="brand-row">
+            <div class="brand-strip-frame">
+              <img
+                class="brand-strip-image"
+                src="authorized-dealer-brands.png"
+                alt="Authorized dealer: Canon, Ideal MBM, Lexmark, FP, Xerox"
+                loading="lazy"
+                decoding="async"
+                usemap="#about-authorized-brands-map"
+              />
+              <map name="about-authorized-brands-map">
+                <area shape="rect" coords="0,0,200,107" href="automation-one-canon.html" alt="Canon products" aria-label="Canon products" />
+                <area shape="rect" coords="206,0,406,107" href="automation-one-ideal-mbm.html" alt="Ideal.MBM products" aria-label="Ideal.MBM products" />
+                <area shape="rect" coords="412,0,612,107" href="automation-one-lexmark.html" alt="Lexmark products" aria-label="Lexmark products" />
+                <area shape="rect" coords="618,0,818,107" href="automation-one-fp.html" alt="Francotyp Postalia products" aria-label="Francotyp Postalia products" />
+                <area shape="rect" coords="824,0,1024,107" href="automation-one-xerox.html" alt="Xerox products" aria-label="Xerox products" />
+              </map>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
