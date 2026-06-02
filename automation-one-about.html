@@ -583,6 +583,132 @@ p { color: #3d4666; line-height: 1.6; }
 .timeline > li {
   position: relative; padding-left: 60px;
 }
+.timeline-item--founding,
+.timeline-item--rebrand,
+.timeline-item--mfp,
+.timeline-item--hq,
+.timeline-item--burnaby,
+.timeline-item--canon,
+.timeline-item--lexmark,
+.timeline-item--fp,
+.timeline-item--xerox,
+.timeline-item--ideal,
+.timeline-item--award {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(18px, 3.5vw, 44px);
+  align-items: center;
+}
+.timeline-item--founding .timeline-item-main,
+.timeline-item--rebrand .timeline-item-main,
+.timeline-item--mfp .timeline-item-main,
+.timeline-item--hq .timeline-item-main,
+.timeline-item--burnaby .timeline-item-main,
+.timeline-item--canon .timeline-item-main,
+.timeline-item--lexmark .timeline-item-main,
+.timeline-item--fp .timeline-item-main,
+.timeline-item--xerox .timeline-item-main,
+.timeline-item--ideal .timeline-item-main,
+.timeline-item--award .timeline-item-main {
+  min-width: 0;
+}
+.timeline-founding-logo,
+.timeline-rebrand-logo,
+.timeline-mfp-photo,
+.timeline-hq-photo,
+.timeline-burnaby-photo,
+.timeline-canon-logo,
+.timeline-lexmark-logo,
+.timeline-fp-logo,
+.timeline-xerox-logo,
+.timeline-ideal-logo,
+.timeline-award-photo {
+  margin: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.timeline-founding-logo img,
+.timeline-rebrand-logo img,
+.timeline-canon-logo img,
+.timeline-lexmark-logo img,
+.timeline-xerox-logo img {
+  width: clamp(220px, 32vw, 420px);
+  height: auto;
+  display: block;
+}
+.timeline-canon-logo img,
+.timeline-lexmark-logo img,
+.timeline-xerox-logo img {
+  width: clamp(160px, 24vw, 280px);
+}
+.timeline-fp-logo img {
+  width: clamp(96px, 14vw, 150px);
+  max-height: 96px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.timeline-ideal-logo img {
+  width: clamp(120px, 18vw, 200px);
+  max-height: 110px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.timeline-mfp-photo img,
+.timeline-hq-photo img,
+.timeline-burnaby-photo img {
+  width: clamp(160px, 22vw, 280px);
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 16px 40px -28px rgba(15, 56, 158, 0.45);
+}
+.timeline-award-photo img {
+  width: clamp(96px, 13vw, 140px);
+  max-height: 200px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 760px) {
+  .timeline-item--founding,
+  .timeline-item--rebrand,
+  .timeline-item--mfp,
+  .timeline-item--hq,
+  .timeline-item--burnaby,
+  .timeline-item--canon,
+  .timeline-item--lexmark,
+  .timeline-item--fp,
+  .timeline-item--xerox,
+  .timeline-item--ideal,
+  .timeline-item--award {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .timeline-founding-logo img,
+  .timeline-rebrand-logo img,
+  .timeline-canon-logo img,
+  .timeline-lexmark-logo img,
+  .timeline-xerox-logo img,
+  .timeline-mfp-photo img,
+  .timeline-hq-photo img,
+  .timeline-burnaby-photo img {
+    width: min(100%, 240px);
+  }
+  .timeline-fp-logo img {
+    width: min(100%, 120px);
+    max-height: 72px;
+  }
+  .timeline-ideal-logo img {
+    width: min(100%, 160px);
+    max-height: 88px;
+  }
+  .timeline-award-photo img {
+    width: min(100%, 120px);
+    max-height: 165px;
+  }
+}
 .timeline > li::before {
   content: ""; position: absolute;
   left: 11px; top: 6px;
@@ -1406,7 +1532,7 @@ body.about-page .brands-scene-photo-still {
 }
 
 </style>
-<link rel="stylesheet" href="ao-logo-lockup.css">
+<link rel="stylesheet" href="ao-logo-lockup.css?v=4">
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
 <link rel="stylesheet" href="ao-subpage-section-head.css">
@@ -1495,7 +1621,7 @@ body.about-page .brands-scene-photo-still {
   </div>
 </section>
 
-<section class="band band--ink" id="timeline">
+<section class="band band--tint" id="timeline">
   <div class="container">
     <div class="band-head reveal">
       <span class="section-eyebrow">Our history</span>
@@ -1503,41 +1629,278 @@ body.about-page .brands-scene-photo-still {
       <p>The short version of a long story: from typewriters and fax machines through laser printers and managed-print contracts, Automation One has changed alongside the office &mdash; while staying right here in Vancouver.</p>
     </div>
 
-    <ol class="timeline reveal" style="--blue-300:#7ea7ff;">
-      <li>
-        <span class="year">1981</span>
-        <div class="event">Founded in Vancouver</div>
-        <p>The Achtem family incorporates Automation One Business Systems Inc., focused on selling and servicing office equipment to local businesses.</p>
+    <ol class="timeline reveal">
+      <li class="timeline-item--founding">
+        <div class="timeline-item-main">
+          <span class="year">March 20, 1981</span>
+          <div class="event">Founded in Vancouver</div>
+          <p>Automation One Business Systems Incorporated was founded as an office equipment dealer of photocopiers and facsimile machines &mdash; helping Vancouver area businesses handle the explosion in paper-based document volume efficiently. That foundation in reliable document and communication equipment directly led to the broad business solutions provider we are today.</p>
+        </div>
+        <figure class="timeline-founding-logo" aria-hidden="true">
+          <img
+            src="about-timeline-ao-logo.png?v=2"
+            width="1024"
+            height="137"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </li>
-      <li>
-        <span class="year">1995</span>
-        <div class="event">Authorized dealer status</div>
-        <p>Forms multi-brand partnerships and becomes an authorized dealer for Canon, Xerox, Lexmark, Francotyp Postalia, and Ideal.MBM &mdash; the same five brands we represent today.</p>
+      <li class="timeline-item--mfp">
+        <div class="timeline-item-main">
+          <span class="year">1991</span>
+          <div class="event">Multifunction Printers (MFPs)</div>
+          <p>Started reselling all-in-one devices that were taking the industry by storm and revolutionizing business workflows.</p>
+        </div>
+        <figure class="timeline-mfp-photo" aria-hidden="true">
+          <img
+            src="about-timeline-mfp-1991.png?v=1"
+            width="1024"
+            height="694"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </li>
-      <li>
-        <span class="year">2000</span>
-        <div class="event">First Consumer Choice Award</div>
-        <p>Earns its first Vancouver Consumer Choice Award for Best Office Equipment &mdash; the start of an unbroken streak that now spans 24 consecutive years.</p>
+      <li class="timeline-item--rebrand">
+        <div class="timeline-item-main">
+          <span class="year">1995</span>
+          <div class="event">First Rebrand</div>
+          <p>Automation One adopts its iconic blue and white colour scheme &mdash; representative of the coasts of Vancouver and the bright skies above.</p>
+        </div>
+        <figure class="timeline-rebrand-logo" aria-hidden="true">
+          <img
+            src="about-timeline-ao-logo-blue.png?v=2"
+            width="1024"
+            height="137"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </li>
-      <li>
-        <span class="year">2008</span>
-        <div class="event">Burnaby office opens</div>
-        <p>Adds the Burnaby office on Ingleton Avenue to serve clients east of the city, bringing combined parts and inventory space to over 15,000&nbsp;sq.&nbsp;ft.</p>
+      <li class="timeline-item--hq">
+        <div class="timeline-item-main">
+          <span class="year">1997</span>
+          <div class="event">HQ moves to Boundary Road</div>
+          <p>Automation One moves to its current headquarters on Boundary Road in Vancouver &mdash; an office and warehouse situated in the heart of the city with quick and easy access to our widening customer base.</p>
+        </div>
+        <figure class="timeline-hq-photo" aria-hidden="true">
+          <img
+            src="about-timeline-boundary-road.png?v=2"
+            width="470"
+            height="309"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </li>
-      <li>
-        <span class="year">2014</span>
-        <div class="event">Managed Print Services launch</div>
-        <p>Rolls out fleet management, automatic meter reads, and predictive maintenance for clients large and small &mdash; turning the service desk from reactive to proactive.</p>
+      <li class="timeline-item--award">
+        <div class="timeline-item-main">
+          <span class="year">2000</span>
+          <div class="event">First Consumer Choice Award</div>
+          <p>Earns the Vancouver Consumer Choice Award for Business Excellence in the Office Equipment category &mdash; the first of 24 wins!</p>
+        </div>
+        <figure class="timeline-award-photo" aria-hidden="true">
+          <img
+            src="about-timeline-cca-2000.png?v=1"
+            width="940"
+            height="815"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </li>
-      <li>
-        <span class="year">2020</span>
-        <div class="event">Digital solutions division</div>
-        <p>Launches a dedicated digital-solutions practice covering document management, workflow automation, cost recovery, and device security &mdash; the foundation of the <a href="automation-one-what-we-do.html" style="color:#b9d0ff;font-weight:600;">What We Do For You</a> page.</p>
+      <li class="timeline-item--canon">
+        <div class="timeline-item-main">
+          <span class="year">2008</span>
+          <div class="event">Canon authorized dealer</div>
+          <p>Automation One becomes an authorized dealer of Canon business products and solutions.</p>
+        </div>
+        <figure class="timeline-canon-logo" aria-hidden="true">
+          <img
+            src="brand-logo-canon.png?v=2"
+            width="610"
+            height="129"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </li>
-      <li>
-        <span class="year">2026</span>
-        <div class="event">24-year award winner</div>
-        <p>Recognized again as Vancouver's BEST Printing Services Company by the Consumer Choice Award &mdash; the only winner in the category, locally.</p>
+      <li class="timeline-item--burnaby">
+        <div class="timeline-item-main">
+          <span class="year">2009</span>
+          <div class="event">Burnaby satellite office opens</div>
+          <p>Adds the Burnaby office on Ingleton Avenue to serve clients east of the city, bringing combined parts and inventory space to over 15,000&nbsp;sq.&nbsp;ft.</p>
+        </div>
+        <figure class="timeline-burnaby-photo" aria-hidden="true">
+          <img
+            src="about-timeline-burnaby.png?v=4"
+            width="1024"
+            height="760"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--award">
+        <div class="timeline-item-main">
+          <span class="year">2012</span>
+          <div class="event">10th Consumer Choice Award</div>
+          <p>Earns the Vancouver Consumer Choice Award for Business Excellence in the Office Equipment category &mdash; the 10th win!</p>
+        </div>
+        <figure class="timeline-award-photo" aria-hidden="true">
+          <img
+            src="about-timeline-cca-2012.png?v=1"
+            width="747"
+            height="1024"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--lexmark">
+        <div class="timeline-item-main">
+          <span class="year">2014</span>
+          <div class="event">Lexmark authorized dealer</div>
+          <p>Automation One becomes an authorized dealer of Lexmark business products and solutions.</p>
+        </div>
+        <figure class="timeline-lexmark-logo" aria-hidden="true">
+          <img
+            src="brand-logo-lexmark.png"
+            width="976"
+            height="200"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--fp">
+        <div class="timeline-item-main">
+          <span class="year">2016</span>
+          <div class="event">Francotyp Postalia (FP) authorized dealer</div>
+          <p>By taking on Francotyp Postalia (FP), Automation One expands its line of complete office equipment solutions &mdash; for the first time offering mailing equipment, specifically postage meters and folder inserters.</p>
+        </div>
+        <figure class="timeline-fp-logo" aria-hidden="true">
+          <img
+            src="brand-logo-fp.png"
+            width="1024"
+            height="524"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--xerox">
+        <div class="timeline-item-main">
+          <span class="year">2017</span>
+          <div class="event">Xerox authorized dealer</div>
+          <p>Automation One becomes an authorized dealer of Xerox business products and solutions.</p>
+        </div>
+        <figure class="timeline-xerox-logo" aria-hidden="true">
+          <img
+            src="brand-logo-xerox.png"
+            width="1024"
+            height="224"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--ideal">
+        <div class="timeline-item-main">
+          <span class="year">2018</span>
+          <div class="event">Ideal.MBM authorized dealer</div>
+          <p>Automation One commits further to document management with MBM Corporation&rsquo;s Canadian outlet Ideal.MBM, offering premium commercial shredders, cutters, and other paper finishing products.</p>
+        </div>
+        <figure class="timeline-ideal-logo" aria-hidden="true">
+          <img
+            src="brand-logo-ideal.png"
+            width="444"
+            height="242"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--rebrand">
+        <div class="timeline-item-main">
+          <span class="year">2020</span>
+          <div class="event">Rebrand</div>
+          <p>A modernization of the company and refined logo to represent a more modern and ever-advancing era.</p>
+        </div>
+        <figure class="timeline-rebrand-logo" aria-hidden="true">
+          <img
+            src="about-timeline-ao-logo-2020.png?v=2"
+            width="1001"
+            height="123"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--award">
+        <div class="timeline-item-main">
+          <span class="year">2022</span>
+          <div class="event">20th Consumer Choice Award</div>
+          <p>Automation One earns its 20th Consumer Choice Award for Business Excellence in the Office Equipment category for Vancouver &mdash; a record unrivaled.</p>
+        </div>
+        <figure class="timeline-award-photo" aria-hidden="true">
+          <img
+            src="about-timeline-cca-2022.png?v=1"
+            width="746"
+            height="1024"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--rebrand">
+        <div class="timeline-item-main">
+          <span class="year">2026</span>
+          <div class="event">Rebrand</div>
+          <p>Automation One adopts its current brand identity &mdash; the A&middot;O mark and wordlock used across the site today.</p>
+        </div>
+        <figure class="timeline-rebrand-logo" aria-hidden="true">
+          <img
+            src="about-timeline-ao-logo-2026.png?v=3"
+            width="833"
+            height="136"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </li>
+      <li class="timeline-item--award">
+        <div class="timeline-item-main">
+          <span class="year">2026</span>
+          <div class="event">24-year award winner</div>
+          <p>Automation One becomes the single business in Vancouver with the most Consumer Choice Award wins across any category, recognized again for Best Office Equipment &mdash; the only winner in the category, locally.</p>
+        </div>
+        <figure class="timeline-award-photo" aria-hidden="true">
+          <img
+            src="service-stats/consumer-choice-award-2026.png"
+            width="566"
+            height="859"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </li>
     </ol>
   </div>
@@ -2106,7 +2469,7 @@ body.about-page .brands-scene-photo-still {
 
 
 
-<script src="ao-logo-lockup.js"></script>
+<script src="ao-logo-lockup.js?v=4"></script>
 <script>
   (function initPageTransition() {
     var overlay = document.getElementById('page-transition');
