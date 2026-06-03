@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#1547d1" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<title>Service & Support | Automation One</title>
-<meta name="description" content="Local Vancouver dispatch, 90-minute average response, and a 4-hour maximum response time guarantee. Authorized service for Canon, Xerox, Lexmark, FP and Ideal.MBM." />
+<title>FAQ | Automation One</title>
+<meta name="description" content="Frequently asked questions about Automation One printers, service, toner, managed print, and support for Vancouver and BC businesses." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -127,7 +127,13 @@ body.subpage .nav-actions .btn-ghost:hover {
 }
 .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
 .logo-text { line-height: 1.05; }
-.logo-text .name { font-family: var(--font-display); font-weight: 700; font-size: 30px; letter-spacing: -0.02em; }
+.logo-text .name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
 .logo-text .sub { font-weight: 500; opacity: 0.9; letter-spacing: 0.01em; }
 .nav-actions {
   position: relative; display: flex; align-items: center; flex-wrap: nowrap;
@@ -267,6 +273,13 @@ body.subpage .nav-actions .btn-ghost:hover {
 @media (max-width: 560px) {
   .site-header .nav-actions .quote-award-link { display: none !important; }
 }
+@media (min-width: 1025px) {
+  body.faq-page .site-header .nav a.logo .logo-text .name,
+  body.faq-page .foot-brand a.logo .logo-text .name {
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
 
 /* ---------- HERO (subpage hero variant) ---------- */
 .subpage-hero {
@@ -286,7 +299,7 @@ body.subpage .nav-actions .btn-ghost:hover {
   width: auto;
   height: 108%;
   min-height: 100%;
-  max-width: min(52vw, 640px);
+  max-width: min(52vw, 720px);
   transform: translateY(-50%);
   object-fit: cover;
   object-position: center center;
@@ -319,7 +332,7 @@ body.subpage .nav-actions .btn-ghost:hover {
 @media (min-width: 561px) {
   .subpage-hero-photo {
     opacity: 0.72;
-    max-width: min(46vw, 640px);
+    max-width: min(46vw, 720px);
     -webkit-mask-image: linear-gradient(
       90deg,
       hsl(0 0% 0% / 0) 0%,
@@ -341,6 +354,154 @@ body.subpage .nav-actions .btn-ghost:hover {
       hsl(0 0% 0% / 1) 100%
     );
   }
+}
+.faq-page .subpage-hero-photo {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform: none;
+  object-fit: unset;
+  object-position: right center;
+  opacity: 0.52;
+}
+@media (min-width: 561px) {
+  .faq-page .subpage-hero-photo {
+    opacity: 0.62;
+  }
+}
+@media (max-width: 560px) {
+  .faq-page .subpage-hero-photo {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 0;
+    height: 118%;
+    width: auto;
+    transform: translateX(-62%);
+    transform-origin: bottom center;
+    object-fit: cover;
+    object-position: 46% bottom;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0.28) 20%,
+      hsl(0 0% 0% / 0.72) 46%,
+      hsl(0 0% 0% / 0.98) 66%,
+      hsl(0 0% 0% / 1) 82%,
+      hsl(0 0% 0% / 1) 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0) 0%,
+      hsl(0 0% 0% / 0.28) 20%,
+      hsl(0 0% 0% / 0.72) 46%,
+      hsl(0 0% 0% / 0.98) 66%,
+      hsl(0 0% 0% / 1) 82%,
+      hsl(0 0% 0% / 1) 100%
+    );
+  }
+}
+.faq-group {
+  max-width: 920px;
+  margin: 0 auto clamp(40px, 6vw, 56px);
+}
+.faq-group:last-child { margin-bottom: 0; }
+.faq-group-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.faq-item {
+  border-radius: 16px;
+  border: 1px solid rgba(15, 56, 158, 0.12);
+  background: var(--white);
+  box-shadow: 0 14px 36px -26px rgba(10, 40, 112, 0.42);
+  overflow: hidden;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 52px 18px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink);
+  position: relative;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--blue-600);
+  border-bottom: 2px solid var(--blue-600);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 0.22s ease;
+}
+.faq-item[open] summary {
+  color: var(--blue-700);
+  background: rgba(238, 244, 255, 0.55);
+}
+.faq-item[open] summary::after {
+  transform: translateY(-35%) rotate(-135deg);
+}
+.faq-item summary:hover { background: rgba(238, 244, 255, 0.35); }
+.faq-answer {
+  padding: 0 20px 20px;
+  color: rgba(11, 19, 48, 0.78);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.faq-answer p + p { margin-top: 12px; }
+.faq-answer a {
+  color: var(--blue-700);
+  font-weight: 600;
+  text-decoration: none;
+}
+.faq-answer a:hover { text-decoration: underline; }
+.faq-cta-strip {
+  margin-top: clamp(36px, 5vw, 52px);
+  padding: clamp(24px, 4vw, 32px);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(238, 244, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border: 1px solid rgba(15, 56, 158, 0.14);
+  text-align: center;
+}
+.faq-cta-strip p {
+  margin-bottom: 18px;
+  color: rgba(11, 19, 48, 0.72);
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.faq-cta-strip .hero-cta-row {
+  justify-content: center;
+}
+.resources-page .subpage-hero--photo::after,
+.faq-page .subpage-hero--photo::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248, 250, 255, 0.94) 0%,
+      rgba(248, 250, 255, 0.82) 28%,
+      rgba(238, 244, 255, 0.52) 48%,
+      rgba(238, 244, 255, 0.22) 68%,
+      rgba(238, 244, 255, 0.06) 100%
+    );
 }
 .subpage-hero--photo::after {
   content: "";
@@ -489,6 +650,113 @@ p { color: #3d4666; line-height: 1.6; }
   box-shadow: 0 14px 28px -14px rgba(31, 92, 245, 0.6);
 }
 .card .icon svg { width: 24px; height: 24px; }
+#manufacturer-support {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(82% 70% at 18% 15%, rgba(126, 167, 255, 0.34), transparent 58%),
+    linear-gradient(135deg, #f8fbff 0%, #eef4ff 48%, #e8f0ff 100%);
+}
+#manufacturer-support::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(248, 251, 255, 1) 0%, rgba(248, 251, 255, 0.98) 42%, rgba(248, 251, 255, 0.74) 64%, rgba(248, 251, 255, 0.08) 100%),
+    linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+@media (min-width: 1200px) {
+  #manufacturer-support::after {
+    background:
+      linear-gradient(90deg, rgba(248, 251, 255, 1) 0%, rgba(248, 251, 255, 0.99) 48%, rgba(248, 251, 255, 0.84) 68%, rgba(248, 251, 255, 0.3) 86%, rgba(248, 251, 255, 0) 100%),
+      linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
+  }
+}
+@media (max-width: 1199px) {
+  #manufacturer-support::after {
+    background-size: 100% 100%, 240vmax 240vmax;
+    background-position: 0 0, 100% 0;
+  }
+}
+#manufacturer-support > .container {
+  position: relative;
+  z-index: 1;
+}
+#manufacturer-support .card .brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  margin-bottom: 14px;
+}
+#manufacturer-support .card .brand-logo {
+  display: block;
+  width: auto;
+  height: 52px;
+  max-height: 52px;
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center center;
+  filter: saturate(0.92);
+  transition: transform 0.22s ease, filter 0.22s ease;
+}
+#manufacturer-support .card:hover .brand-logo {
+  transform: scale(1.03);
+  filter: saturate(1.05);
+}
+#manufacturer-support .card .brand-logo--canon,
+#manufacturer-support .card .brand-logo--xerox {
+  height: 36px;
+  max-height: 36px;
+  max-width: 48%;
+}
+#manufacturer-support .card .brand-logo--lexmark {
+  height: 38px;
+  max-height: 38px;
+  max-width: 54%;
+}
+#manufacturer-support .card .brand-logo--fp { max-width: 56%; }
+#manufacturer-support .card .brand-logo--ideal { max-width: 74%; }
+#manufacturer-support .card {
+  text-align: center;
+}
+#manufacturer-support .card:not(.card--help) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+#manufacturer-support .card:not(.card--help) p {
+  flex: 1;
+}
+#manufacturer-support .card .cta.cta-primary.cta-pill-arrow {
+  font-size: 14px;
+  padding: 12px 68px 12px 24px;
+}
+#manufacturer-support .card .cta.cta-primary.cta-pill-arrow::after {
+  width: 38px;
+  height: 38px;
+}
+#manufacturer-support .card--help {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+#manufacturer-support .card--help h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#manufacturer-support .card--help p {
+  margin: 0;
+}
 .card h3 { margin-bottom: 10px; }
 .card p { font-size: 15.5px; line-height: 1.6; color: #4a5478; }
 .card ul {
@@ -506,240 +774,6 @@ p { color: #3d4666; line-height: 1.6; }
   transform: rotate(-45deg);
 }
 
-#managed-print {
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    radial-gradient(62% 72% at 8% 8%, rgba(126, 167, 255, 0.28), transparent 64%),
-    radial-gradient(54% 68% at 94% 18%, rgba(31, 92, 245, 0.14), transparent 66%),
-    linear-gradient(180deg, #ffffff 0%, #f4f8ff 46%, #eef4ff 100%);
-}
-#managed-print .managed-print-sheen {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 34%),
-    linear-gradient(115deg, rgba(255, 255, 255, 0) 0 18%, rgba(255, 255, 255, 0.12) 18% 19%, rgba(255, 255, 255, 0) 19% 42%, rgba(185, 208, 255, 0.14) 42% 43%, rgba(255, 255, 255, 0) 43% 100%);
-}
-#request-service .managed-print-sheen {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 34%),
-    linear-gradient(115deg, rgba(255, 255, 255, 0) 0 48%, rgba(255, 255, 255, 0.12) 48% 49%, rgba(255, 255, 255, 0) 49% 72%, rgba(185, 208, 255, 0.14) 72% 73%, rgba(255, 255, 255, 0) 73% 100%);
-}
-#request-service {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    radial-gradient(62% 72% at 8% 8%, rgba(126, 167, 255, 0.28), transparent 64%),
-    radial-gradient(54% 68% at 94% 18%, rgba(31, 92, 245, 0.14), transparent 66%),
-    linear-gradient(180deg, #ffffff 0%, #f4f8ff 46%, #eef4ff 100%);
-}
-#request-service .container {
-  position: relative;
-  z-index: 1;
-}
-#managed-print::before,
-#managed-print::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-}
-#managed-print::before {
-  inset: 5% auto auto -10%;
-  width: min(52vw, 620px);
-  aspect-ratio: 1;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(126, 167, 255, 0.26), transparent 66%);
-  filter: blur(4px);
-}
-#managed-print::after {
-  inset: auto -12% 15% auto;
-  width: min(46vw, 560px);
-  aspect-ratio: 1;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(31, 92, 245, 0.16), transparent 68%);
-}
-#managed-print .container {
-  position: relative;
-  z-index: 1;
-}
-#managed-print .band-head {
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-#managed-print .band-head .section-eyebrow {
-  margin-left: auto;
-  margin-right: auto;
-}
-#managed-print .band-head p {
-  max-width: 70ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-#managed-print .cover-points-panel {
-  position: relative;
-  max-width: 980px;
-  margin: 0 auto;
-  border: 1px solid rgba(126, 167, 255, 0.28);
-  border-radius: clamp(26px, 3vw, 38px);
-  overflow: hidden;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    0 38px 90px -64px rgba(15, 56, 158, 0.62);
-}
-#managed-print .cover-points-photo {
-  position: absolute;
-  top: -12%;
-  right: -12%;
-  bottom: -4%;
-  left: -4%;
-  z-index: 0;
-  opacity: 0.4;
-  pointer-events: none;
-  overflow: hidden;
-}
-#managed-print .cover-points-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(155deg, rgba(185, 208, 255, 0.42) 0%, rgba(126, 167, 255, 0.34) 45%, rgba(47, 102, 242, 0.22) 100%);
-  mix-blend-mode: color;
-}
-#managed-print .cover-points-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-width: 100%;
-  object-fit: cover;
-  object-position: left 82%;
-  transform: scale(0.8) rotate(1.2deg);
-  transform-origin: left bottom;
-  -webkit-mask-image:
-    linear-gradient(to right, #000 0%, #000 72%, rgba(0, 0, 0, 0.9) 82%, rgba(0, 0, 0, 0.62) 92%, rgba(0, 0, 0, 0.28) 98%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0.32) 36%, rgba(0, 0, 0, 0.72) 58%, #000 74%);
-  mask-image:
-    linear-gradient(to right, #000 0%, #000 72%, rgba(0, 0, 0, 0.9) 82%, rgba(0, 0, 0, 0.62) 92%, rgba(0, 0, 0, 0.28) 98%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0.32) 36%, rgba(0, 0, 0, 0.72) 58%, #000 74%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-#managed-print .cover-points {
-  position: relative;
-  z-index: 1;
-  list-style: none;
-  margin: 0;
-  padding: clamp(16px, 2.2vw, 24px);
-  display: grid;
-  gap: 0;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(248, 250, 255, 0.28)),
-    radial-gradient(96% 90% at 10% 0%, rgba(185, 208, 255, 0.14), transparent 58%);
-}
-#managed-print .cover-points > li {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(260px, 1fr);
-  gap: clamp(18px, 4vw, 54px);
-  align-items: start;
-  padding: clamp(24px, 3vw, 34px) clamp(8px, 1vw, 14px);
-  border-bottom: 1px solid rgba(15, 56, 158, 0.1);
-}
-#managed-print .cover-points > li:first-child {
-  padding-top: clamp(12px, 1.5vw, 18px);
-}
-#managed-print .cover-points > li:last-child {
-  border-bottom: 0;
-  padding-bottom: clamp(12px, 1.5vw, 18px);
-}
-#managed-print .cover-points > li > h3 {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: clamp(22px, 2.3vw, 30px);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-}
-#managed-print .cover-points > li > p {
-  grid-column: 1;
-  margin: clamp(10px, 1.2vw, 14px) 0 0;
-  font-size: clamp(15.5px, 1.15vw, 17px);
-  line-height: 1.62;
-  color: #3d4666;
-}
-#managed-print .cover-points ul {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  list-style: none;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
-#managed-print .cover-points ul li {
-  position: relative;
-  padding: 11px 14px 11px 42px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(126, 167, 255, 0.16);
-  color: #3d4666;
-  font-size: 14.5px;
-  line-height: 1.45;
-  box-shadow: 0 14px 34px -32px rgba(10, 40, 112, 0.42);
-}
-#managed-print .cover-points ul li::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  top: 1.05em;
-  width: 12px;
-  height: 8px;
-  border-left: 2px solid var(--blue-500);
-  border-bottom: 2px solid var(--blue-500);
-  transform: rotate(-45deg);
-}
-@media (max-width: 760px) {
-  #managed-print .cover-points-photo {
-    top: -6%;
-    right: -12%;
-    bottom: 0;
-    left: 0;
-    opacity: 0.36;
-  }
-  #managed-print .cover-points-photo img {
-    object-position: left 80%;
-    transform: scale(0.76) rotate(1.2deg);
-    transform-origin: left bottom;
-    -webkit-mask-image:
-      linear-gradient(to right, #000 0%, #000 66%, rgba(0, 0, 0, 0.88) 78%, rgba(0, 0, 0, 0.58) 90%, rgba(0, 0, 0, 0.24) 98%, rgba(0, 0, 0, 0) 100%),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 12%, rgba(0, 0, 0, 0.38) 40%, rgba(0, 0, 0, 0.78) 62%, #000 76%);
-    mask-image:
-      linear-gradient(to right, #000 0%, #000 66%, rgba(0, 0, 0, 0.88) 78%, rgba(0, 0, 0, 0.58) 90%, rgba(0, 0, 0, 0.24) 98%, rgba(0, 0, 0, 0) 100%),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 12%, rgba(0, 0, 0, 0.38) 40%, rgba(0, 0, 0, 0.78) 62%, #000 76%);
-  }
-  #managed-print .cover-points {
-    padding: 16px;
-  }
-  #managed-print .cover-points > li {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  #managed-print .cover-points ul {
-    grid-column: auto;
-    grid-row: auto;
-  }
-}
-
 /* Ink cards (for ink bands) */
 .band--ink .card {
   background: rgba(255, 255, 255, 0.06);
@@ -755,601 +789,49 @@ p { color: #3d4666; line-height: 1.6; }
 .band--ink .card ul li::before { border-color: #b9d0ff; }
 .band--ink .card .icon { background: linear-gradient(135deg, #b9d0ff, var(--blue-400)); color: var(--blue-900); }
 
-/* How we do it — trust-card layout on dark ink cards */
-#service-promise {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-#service-promise > .container {
-  position: relative;
-  z-index: 1;
-}
-#service-promise .service-promise-photo {
-  position: absolute;
-  inset: -10% -8% -12% 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-#service-promise .service-promise-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 42% center;
-  opacity: 0.26;
-  filter: saturate(0.84) contrast(1.06) brightness(0.96);
-  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.38) 54%, rgba(0, 0, 0, 0) 80%);
-          mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.38) 54%, rgba(0, 0, 0, 0) 80%);
-  -webkit-mask-size: 100% 100%;
-          mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-}
-@media (max-width: 760px) {
-  #service-promise .service-promise-photo {
-    inset: 32% -18% -10% -12%;
-  }
-  #service-promise .service-promise-photo img {
-    opacity: 0.2;
-    object-position: center 40%;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.34) 26%, rgba(0, 0, 0, 0.82) 62%, rgba(0, 0, 0, 0.92) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.34) 26%, rgba(0, 0, 0, 0.82) 62%, rgba(0, 0, 0, 0.92) 100%);
-  }
-}
-#service-promise .band-head {
-  max-width: 840px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-#service-promise .band-head .section-eyebrow {
-  margin-left: auto;
-  margin-right: auto;
-}
-#service-promise .band-head p {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 68ch;
-}
-#service-promise .card h3 {
-  margin-bottom: 0;
-}
-#service-promise .cards-grid {
-  align-items: stretch;
-  counter-reset: promise-card;
-  gap: clamp(18px, 2.2vw, 30px);
-  grid-template-rows: clamp(200px, 24vw, 260px) auto auto;
-  grid-auto-rows: clamp(200px, 24vw, 260px) auto auto;
-}
-#service-promise .card {
-  counter-increment: promise-card;
-  display: grid;
-  grid-template-rows: clamp(200px, 24vw, 260px) auto minmax(6.25rem, auto);
-  grid-row: span 3;
-  height: 100%;
-  min-height: clamp(378px, 42vw, 448px);
-  padding: 0;
-  text-align: left;
-  border-radius: clamp(22px, 2.6vw, 30px);
-  border-color: rgba(255, 255, 255, 0.16);
-  background: var(--promise-card-surface, #123fae);
-  box-shadow:
-    0 28px 76px -52px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  overflow: hidden;
-  --promise-card-surface: #123fae;
-  --promise-body-photo-overlap: clamp(62px, 7.2vw, 86px);
-}
-@supports (grid-template-rows: subgrid) {
-  #service-promise .card {
-    grid-template-rows: subgrid;
-  }
-}
-#service-promise .card::after {
-  content: counter(promise-card);
-  position: absolute;
-  right: -10px;
-  bottom: -18px;
-  z-index: 1;
-  color: rgba(255, 255, 255, 0.1);
-  font-family: var(--font-display);
-  font-size: clamp(5rem, 7vw, 8rem);
-  font-weight: 800;
-  line-height: 0.8;
-  letter-spacing: -0.08em;
-  pointer-events: none;
-}
-#service-promise .promise-card-copy {
-  grid-row: 2 / -1;
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-rows: auto minmax(6.25rem, auto);
-  margin-top: 0;
-  background: transparent;
-  --promise-title-gutter: clamp(22px, 2.4vw, 32px);
-  --promise-badge-size: 34px;
-  --promise-badge-gap: 10px;
-  --promise-title-lines: 3.1rem;
-  --promise-title-stack: calc(var(--promise-badge-size) + var(--promise-badge-gap) + var(--promise-title-lines));
-  --promise-title-photo-gap: clamp(54px, 5.8vw, 74px);
-  --promise-body-photo-overlap: clamp(62px, 7.2vw, 86px);
-}
-@supports (grid-template-rows: subgrid) {
-  #service-promise .promise-card-copy {
-    grid-template-rows: subgrid;
-  }
-}
-#service-promise .promise-card-copy > p {
-  grid-row: 2;
-  position: relative;
-  z-index: 4;
-  margin: calc(-1 * var(--promise-body-photo-overlap)) 0 0;
-  padding-top: 0;
-  min-height: 6.25rem;
-  padding:
-    0
-    var(--promise-title-gutter)
-    var(--promise-title-gutter)
-    var(--promise-title-gutter);
-  text-align: left;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.78);
-  text-shadow:
-    0 1px 10px rgba(6, 26, 74, 0.95),
-    0 0 20px rgba(10, 40, 112, 0.88);
-}
-#service-promise .promise-card-copy > h3 {
-  grid-row: 1;
-  position: absolute;
-  top: calc(-1 * var(--promise-title-stack) - var(--promise-title-photo-gap));
-  left: 0;
-  right: 0;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--promise-badge-gap);
-  width: 100%;
-  height: var(--promise-title-stack);
-  min-height: var(--promise-title-stack);
-  max-height: var(--promise-title-stack);
-  margin: 0;
-  padding: 0 var(--promise-title-gutter) 0;
-  box-sizing: border-box;
-  text-align: center;
-  background: transparent;
-  color: var(--white);
-  text-shadow: 0 1px 14px rgba(6, 26, 74, 0.92);
-}
-#service-promise .promise-card-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 var(--promise-title-lines);
-  width: 100%;
-  min-height: var(--promise-title-lines);
-  max-height: var(--promise-title-lines);
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: 1.08;
-  text-align: center;
-  text-wrap: balance;
-}
-#service-promise .card h3::before {
-  content: counter(promise-card);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--promise-badge-size, 34px);
-  height: var(--promise-badge-size, 34px);
-  flex: 0 0 var(--promise-badge-size, 34px);
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
-  color: var(--white);
-  box-shadow: 0 12px 24px -14px rgba(31, 92, 245, 0.72);
-  font-family: var(--font-body);
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-}
-#service-promise .card .card-photo {
-  grid-row: 1;
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: clamp(200px, 24vw, 260px);
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 0;
-  background: var(--promise-card-surface, #123fae);
-  box-shadow: none;
-}
-#service-promise .card .card-photo::after {
-  content: "";
-  position: absolute;
-  inset: 25% 0 0;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 63, 174, 0) 0%,
-    var(--promise-card-surface, #123fae) 100%
-  );
-}
-#service-promise .card .card-photo img {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  margin: 0;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0;
-  filter: none;
-  transform: scale(1.02);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-#service-promise .card:hover .card-photo img {
-  transform: scale(1.06);
-}
-#service-promise .cards-grid > .card:nth-child(1) .card-photo img {
-  object-position: 58% 42%;
-}
-#service-promise .cards-grid > .card:nth-child(2) .card-photo img {
-  object-position: 58% 50%;
-}
-#service-promise .cards-grid > .card:nth-child(3) .card-photo img {
-  object-position: center 38%;
-}
-#service-promise .cards-grid > .card:nth-child(4) .card-photo img {
-  object-position: 42% center;
-}
-
-#service-highlights {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    radial-gradient(82% 70% at 18% 15%, rgba(126, 167, 255, 0.34), transparent 58%),
-    linear-gradient(135deg, #f8fbff 0%, #eef4ff 48%, #e8f0ff 100%);
-}
-#service-highlights::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://automationone.ca/wp-content/uploads/2021/09/Service1-1-1005x1024-2.jpg");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: auto 108%;
-  opacity: 0.5;
-  z-index: 0;
-  pointer-events: none;
-}
-#service-highlights::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(248, 251, 255, 1) 0%, rgba(248, 251, 255, 0.98) 42%, rgba(248, 251, 255, 0.74) 64%, rgba(248, 251, 255, 0.08) 100%),
-    linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
-  z-index: 0;
-  pointer-events: none;
-}
-@media (min-width: 1200px) {
-  #service-highlights::after {
-    background:
-      linear-gradient(90deg, rgba(248, 251, 255, 1) 0%, rgba(248, 251, 255, 0.99) 48%, rgba(248, 251, 255, 0.84) 68%, rgba(248, 251, 255, 0.3) 86%, rgba(248, 251, 255, 0) 100%),
-      linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
-  }
-}
-#service-highlights .container {
-  position: relative;
-  z-index: 1;
-}
-#service-highlights .band-head {
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: clamp(36px, 5vw, 56px);
-  text-align: center;
-}
-#service-highlights .band-head .section-eyebrow {
-  margin-left: auto;
-  margin-right: auto;
-}
-#service-highlights .band-head p {
-  max-width: 70ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-#service-highlights .service-trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 24px;
-}
-#service-highlights .service-trust-row span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 0 15px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(126, 167, 255, 0.32);
-  box-shadow: 0 14px 30px -24px rgba(15, 56, 158, 0.42);
-  color: rgba(26, 40, 74, 0.82);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.065em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-#service-highlights .service-stats-panel {
-  margin-top: 0;
-}
-
-/* Service stats panel (matches homepage) */
-.service-stats-panel {
-  position: relative;
+/* Stat row */
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 28px);
   margin-top: clamp(40px, 5vw, 64px);
-  padding: clamp(18px, 2vw, 24px);
-  border-radius: 34px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.48)),
-    radial-gradient(90% 70% at 0% 0%, rgba(126, 167, 255, 0.22), transparent 68%);
-  border: 1px solid rgba(126, 167, 255, 0.28);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 36px 90px -56px rgba(15, 56, 158, 0.6);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
-.service-stats-panel::before {
-  content: "";
-  position: absolute;
-  left: clamp(20px, 3vw, 38px);
-  top: 0;
-  width: min(520px, 58%);
-  height: 3px;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, var(--blue-600) 0%, #7ea7ff 34%, #ffffff 52%, #7ea7ff 68%, transparent 100%);
-  background-size: 220% 100%;
-  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
-  transform-origin: left center;
-  animation: servicePanelHighlightExtend 7.5s ease-in-out infinite alternate;
+@media (max-width: 900px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
+.stat {
+  background: var(--white);
+  border: 1px solid rgba(15, 56, 158, 0.08);
+  border-radius: 20px;
+  padding: clamp(22px, 2.4vw, 32px) clamp(18px, 2vw, 28px);
+  text-align: left;
+  box-shadow: 0 16px 40px -30px rgba(10, 40, 112, 0.35);
 }
-@keyframes servicePanelHighlightExtend {
-  from { transform: scaleX(0.36); }
-  to { transform: scaleX(1); }
+.band--ink .stat {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--white);
 }
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin-top: 0;
+.stat .num {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1; letter-spacing: -0.04em;
+  background: linear-gradient(120deg, var(--blue-500), var(--blue-700) 65%, var(--blue-900));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; margin-bottom: 12px;
 }
-.stat-card {
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.62));
-  border: 1px solid rgba(126, 167, 255, 0.22);
-  border-radius: 24px;
-  padding: 22px 18px 20px;
-  box-shadow: 0 20px 42px -34px rgba(15, 56, 158, 0.52);
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease;
+.band--ink .stat .num {
+  background: linear-gradient(120deg, #b9d0ff, var(--white));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.stat-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(21, 71, 209, 0.92), rgba(126, 167, 255, 0.35));
-  opacity: 0;
-  transition: opacity .3s ease;
-  pointer-events: none;
+.stat .label {
+  font-size: 13.5px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--blue-800);
 }
-.stat-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(21, 71, 209, 0.34);
-  box-shadow: 0 28px 60px -34px rgba(15, 56, 158, 0.64);
-  background: rgba(255, 255, 255, 0.94);
-}
-.stat-card:hover::before { opacity: 1; }
-.stat-card .icon-wrap {
-  width: 48px; height: 48px;
-  border-radius: 0;
-  background: transparent;
-  color: var(--blue-600);
-  display: grid; place-items: center;
-  margin-bottom: 20px;
-}
-.stat-card.response-time .icon-wrap {
-  width: clamp(107px, 8.5vw, 133px);
-  height: clamp(107px, 8.5vw, 133px);
-  border-radius: 50%;
-  background: transparent;
-  overflow: hidden;
-  margin-inline: auto;
-}
-.service-stat-visual {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.98) 0 31%, transparent 32%),
-    radial-gradient(circle at 50% 50%, rgba(126, 167, 255, 0.22) 0 55%, transparent 56%),
-    linear-gradient(145deg, rgba(21, 71, 209, 0.12), rgba(126, 167, 255, 0.34));
-  border: 1px solid rgba(126, 167, 255, 0.42);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.86),
-    0 18px 34px -28px rgba(15, 56, 158, 0.72);
-}
-.service-stat-visual--response::before {
-  content: "";
-  position: absolute;
-  inset: 21%;
-  border-radius: 50%;
-  border: 8px solid var(--blue-600);
-  border-top-color: #7ea7ff;
-  transform: rotate(-28deg);
-}
-.service-stat-visual--response::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 34%;
-  height: 34%;
-  border-left: 5px solid var(--blue-800);
-  border-bottom: 5px solid var(--blue-800);
-  border-radius: 0 0 0 5px;
-  transform: translate(-5%, -82%) rotate(-45deg);
-  transform-origin: left bottom;
-}
-.service-stat-visual--specialists {
-  background:
-    radial-gradient(circle at 50% 31%, rgba(255, 255, 255, 0.98) 0 11%, transparent 12%),
-    radial-gradient(circle at 31% 43%, rgba(255, 255, 255, 0.94) 0 9%, transparent 10%),
-    radial-gradient(circle at 69% 43%, rgba(255, 255, 255, 0.94) 0 9%, transparent 10%),
-    linear-gradient(145deg, rgba(21, 71, 209, 0.12), rgba(126, 167, 255, 0.36));
-}
-.service-stat-visual--specialists::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 20%;
-  width: 58%;
-  height: 35%;
-  border-radius: 999px 999px 30px 30px;
-  background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
-  transform: translateX(-50%);
-  box-shadow:
-    -26px 8px 0 -8px rgba(21, 71, 209, 0.72),
-    26px 8px 0 -8px rgba(126, 167, 255, 0.86);
-}
-.service-stat-visual--specialists::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 24%;
-  width: 21%;
-  height: 21%;
-  border-radius: 50%;
-  background: var(--blue-800);
-  transform: translateX(-50%);
-  box-shadow:
-    -28px 15px 0 -4px var(--blue-600),
-    28px 15px 0 -4px #7ea7ff;
-}
-.stat-card.trained-specialists .icon-wrap {
-  width: clamp(107px, 8.5vw, 133px);
-  height: clamp(107px, 8.5vw, 133px);
-  border-radius: 50%;
-  background: transparent;
-  overflow: hidden;
-  margin-inline: auto;
-}
-.stat-card.toner-inventory .icon-wrap {
-  width: clamp(120px, 10vw, 150px);
-  height: clamp(107px, 8.5vw, 133px);
-  border-radius: 12px;
-  background: transparent;
-  margin-inline: auto;
-  overflow: visible;
-}
-.stat-card.toner-inventory .icon-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-}
-.stat-card.consumer-choice .icon-wrap,
-.stat-card.bbb-rating .icon-wrap {
-  width: clamp(120px, 10vw, 150px);
-  height: clamp(107px, 8.5vw, 133px);
-  border-radius: 0;
-  background: transparent;
-  color: inherit;
-  margin-inline: auto;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.stat-card.consumer-choice .icon-wrap img,
-.stat-card.bbb-rating .icon-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-.stat-card.bbb-rating .icon-wrap img {
-  object-position: center center;
-  margin: 0 auto;
-  transform: translateX(10px);
-}
-.stat-card .big {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 44px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-.stat-card .big sub {
-  font-size: 30px;
-  vertical-align: super;
-  color: var(--blue-500);
-  margin-left: 2px;
-  font-weight: 600;
-}
-.stat-card .lbl {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--ink-soft);
-  margin-bottom: 6px;
-}
-.stat-card .desc {
-  font-size: 13.5px;
-  color: #6b7494;
-  line-height: 1.5;
-}
-@media (max-width: 900px) {
-  .stat-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat-card.bbb-rating {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: min(100%, calc(50% - 5px));
-  }
-}
-@media (max-width: 560px) {
-  .stat-grid { grid-template-columns: 1fr; }
-  .stat-card.bbb-rating {
-    grid-column: auto;
-    justify-self: stretch;
-    width: auto;
-  }
-}
+.band--ink .stat .label { color: #b9d0ff; }
+.stat p { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: #5a6488; }
+.band--ink .stat p { color: rgba(255, 255, 255, 0.78); }
 
 /* Two-column split */
 .split-2 {
@@ -1358,19 +840,6 @@ p { color: #3d4666; line-height: 1.6; }
   align-items: start;
 }
 @media (max-width: 900px) { .split-2 { grid-template-columns: 1fr; } }
-
-/* Branded service van illustration */
-.service-van-wrap {
-  margin-top: clamp(24px, 4vw, 36px);
-  max-width: 100%;
-}
-.service-van-wrap img,
-.service-van-wrap svg {
-  display: block;
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-}
 
 /* Form */
 .form-shell {
@@ -1406,13 +875,17 @@ p { color: #3d4666; line-height: 1.6; }
   box-shadow: 0 0 0 3px rgba(31, 92, 245, 0.15);
 }
 .form-shell textarea { resize: vertical; min-height: 120px; }
-.form-shell button.cta.cta-pill-arrow-blue {
-  margin-top: 8px;
-  cursor: pointer;
-  font-family: var(--font-body);
-  -webkit-appearance: none;
-  appearance: none;
+.form-shell button[type="submit"] {
+  margin-top: 8px; width: 100%;
+  padding: 16px 22px; border: none; border-radius: 999px;
+  font: inherit; font-weight: 700; font-size: 15px;
+  letter-spacing: 0.04em; cursor: pointer;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 100%);
+  box-shadow: 0 18px 36px -14px rgba(15, 56, 158, 0.7);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+.form-shell button[type="submit"]:hover { transform: translateY(-1px); box-shadow: 0 24px 44px -16px rgba(15, 56, 158, 0.85); }
 .form-hint { margin-top: 14px; font-size: 13px; line-height: 1.5; color: #5a6488; }
 .form-hint a { color: var(--blue-700); font-weight: 600; }
 
@@ -1493,16 +966,59 @@ p { color: #3d4666; line-height: 1.6; }
 /* Resource link list */
 .resource-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(14px, 1.6vw, 20px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 18px);
+}
+@media (max-width: 960px) {
+  .resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .resource-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 961px) {
+  .resource-card {
+    padding: 18px 16px;
+    gap: 14px;
+  }
+  .resource-card-top { gap: 12px; }
+  .resource-card .icon-wrap { width: 42px; height: 42px; }
+  .resource-card .icon-wrap svg { width: 20px; height: 20px; }
+  .resource-card .meta strong { font-size: 14px; }
+  .resource-card .meta span { font-size: 12px; line-height: 1.45; }
+  .resource-card .cta.cta-primary.cta-pill-arrow {
+    font-size: 13px;
+    padding: 10px 54px 10px 18px;
+    text-align: center;
+  }
+  .resources-page #downloads .resource-card .cta.cta-primary.cta-pill-arrow {
+    align-self: center;
+    width: fit-content;
+  }
+  .resources-page #downloads .resource-card {
+    padding-bottom: 26px;
+  }
+  .resources-page #downloads .resource-card .meta strong {
+    font-size: calc(16px + 0.5pt);
+  }
+  .resources-page #downloads .resource-card .meta span {
+    font-size: calc(12px + 1pt);
+  }
+  .resource-card .cta.cta-primary.cta-pill-arrow::after {
+    width: 34px;
+    height: 34px;
+  }
 }
 .resource-card {
   background: var(--white);
   border: 1px solid rgba(15, 56, 158, 0.1);
   border-radius: 18px;
   padding: 22px 24px;
-  display: flex; align-items: center; gap: 16px;
-  text-decoration: none; color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  color: var(--ink);
   box-shadow: 0 14px 36px -28px rgba(10, 40, 112, 0.35);
   transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
@@ -1510,6 +1026,15 @@ p { color: #3d4666; line-height: 1.6; }
   transform: translateY(-2px);
   border-color: rgba(31, 92, 245, 0.3);
   box-shadow: 0 22px 50px -30px rgba(10, 40, 112, 0.5);
+}
+.resource-card-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  text-align: center;
 }
 .resource-card .icon-wrap {
   width: 46px; height: 46px;
@@ -1520,12 +1045,147 @@ p { color: #3d4666; line-height: 1.6; }
   display: grid; place-items: center;
 }
 .resource-card .icon-wrap svg { width: 22px; height: 22px; }
-.resource-card .meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.resource-card .meta strong { font-size: 15px; font-weight: 600; color: var(--ink); }
-.resource-card .meta span { font-size: 12.5px; color: #5a6488; }
-.resource-card .arrow {
-  margin-left: auto; color: var(--blue-500);
+.resource-card .resource-pdf-thumb {
+  position: relative;
   flex-shrink: 0;
+  width: 86px;
+  margin-inline: auto;
+}
+.resource-card .resource-pdf-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.resource-card .resource-photo-thumb {
+  flex-shrink: 0;
+  width: clamp(143px, 20vw, 188px);
+  margin-inline: auto;
+}
+.resource-card .resource-photo-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.resource-card .resource-photo-thumb--toner {
+  width: clamp(116px, 17vw, 145px);
+}
+.resource-card .resource-photo-thumb--toner img {
+  transform: none;
+}
+.resource-card .resource-photo-thumb--contact {
+  width: clamp(64px, 9vw, 78px);
+}
+.resource-card .meta { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; width: 100%; text-align: center; }
+.resource-card .meta strong { display: block; width: 100%; font-size: 15px; font-weight: 600; color: var(--ink); text-align: center; }
+.resource-card .meta span { display: block; width: 100%; font-size: 12.5px; color: #5a6488; text-align: center; }
+.resource-card .cta.cta-primary.cta-pill-arrow {
+  font-size: 14px;
+  padding: 12px 68px 12px 24px;
+  align-self: center;
+  margin-inline: auto;
+}
+.resource-card .cta.cta-primary.cta-pill-arrow::after {
+  width: 38px;
+  height: 38px;
+}
+
+/* Resources page — centre content between hero and final CTA */
+.resources-page .subpage-hero ~ section:not(.cta-section) .band-head {
+  margin-inline: auto;
+  max-width: 760px;
+  text-align: center;
+}
+.resources-page .subpage-hero ~ section:not(.cta-section) .band-head .cta {
+  margin-inline: auto;
+}
+
+/* Resources page — centre Forms & Links cards */
+.resources-page #downloads .resource-grid {
+  align-items: stretch;
+}
+.resources-page #downloads .resource-card {
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding-bottom: 30px;
+}
+.resources-page #downloads .resource-card-top {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: center;
+  gap: 22px;
+}
+.resources-page #downloads .resource-card .resource-pdf-thumb,
+.resources-page #downloads .resource-card .resource-photo-thumb {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: clamp(112px, 14vw, 128px);
+  margin-inline: auto;
+  flex-shrink: 0;
+}
+.resources-page #downloads .resource-card .resource-pdf-thumb {
+  width: 100%;
+}
+.resources-page #downloads .resource-card .resource-pdf-thumb img {
+  width: 86px;
+  filter:
+    drop-shadow(0 5px 8px rgba(10, 40, 112, 0.22))
+    drop-shadow(0 12px 20px rgba(10, 40, 112, 0.16));
+}
+.resources-page #downloads .resource-card .resource-photo-thumb {
+  width: 100%;
+}
+.resources-page #downloads .resource-card .resource-photo-thumb > img {
+  width: 100%;
+  max-width: clamp(143px, 20vw, 188px);
+  height: auto;
+  filter:
+    drop-shadow(0 0 10px rgba(31, 92, 245, 0.1))
+    drop-shadow(0 5px 10px rgba(10, 40, 112, 0.1));
+}
+.resources-page #downloads .resource-card .resource-photo-thumb--toner > img {
+  max-width: clamp(116px, 17vw, 145px);
+  filter:
+    drop-shadow(0 6px 10px rgba(10, 40, 112, 0.24))
+    drop-shadow(0 14px 22px rgba(10, 40, 112, 0.16));
+}
+.resources-page #downloads .resource-card .resource-photo-thumb--contact > img {
+  max-width: clamp(64px, 9vw, 78px);
+  filter:
+    drop-shadow(0 7px 12px rgba(10, 40, 112, 0.26))
+    drop-shadow(0 16px 26px rgba(10, 40, 112, 0.17));
+}
+.resources-page #downloads .resource-card .meta {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  min-height: 4.6em;
+  margin-top: 2px;
+  gap: 6px;
+}
+.resources-page #downloads .resource-card .meta strong {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: calc(17px + 0.5pt);
+}
+.resources-page #downloads .resource-card .meta span {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: calc(12.5px + 1pt);
+  line-height: 1.45;
+}
+.resources-page #downloads .resource-card .cta.cta-primary.cta-pill-arrow {
+  align-self: center;
+  margin-inline: auto;
+  width: fit-content;
+  margin-top: -8px;
 }
 
 /* Brand chip grid */
@@ -2294,9 +1954,8 @@ html { background-color: #ffffff; }
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
 <link rel="stylesheet" href="ao-subpage-section-head.css">
-<link rel="stylesheet" href="ao-service-support-emails.css">
 </head>
-<body class="subpage service-page">
+<body class="subpage faq-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
   <div class="pt-grid" id="pt-grid"></div>
   <img class="pt-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" decoding="async" fetchpriority="low" />
@@ -2339,9 +1998,9 @@ html { background-color: #ffffff; }
 <section class="subpage-hero subpage-hero--photo">
   <img
     class="subpage-hero-photo"
-    src="service-hero-canon-delivery.jpg"
-    width="628"
-    height="640"
+    src="faq-hero-subject.png?v=2"
+    width="1536"
+    height="1024"
     alt=""
     aria-hidden="true"
     loading="eager"
@@ -2349,327 +2008,186 @@ html { background-color: #ffffff; }
     fetchpriority="high"
   />
   <div class="container">
-    <span class="section-eyebrow reveal">Service &amp; Support</span>
-    <h1 class="reveal">Service you can <em>count on,</em><br/>every business day.</h1>
+    <span class="section-eyebrow reveal">FAQ</span>
+    <h1 class="reveal">Answers to<br/>common <em>questions.</em></h1>
     <div class="lead reveal">
-      <p>We've held the Vancouver Consumer Choice Award for 24 consecutive years and an A+ Better Business Bureau rating because our service desk picks up the phone, our technicians are factory-trained, and our trucks are stocked.</p>
-      <p>Average response time of <strong>90 minutes</strong>. Maximum response time guaranteed at <strong>4 hours</strong>. The lowest in the industry.</p>
+      <p>Whether you're comparing equipment, planning a move, or need toner today &mdash; here are the questions we hear most from Vancouver-area offices. Still stuck? Our team picks up the phone.</p>
     </div>
     <div class="hero-cta-row reveal">
-      <a href="#request-service" class="cta cta-pill-arrow-blue">Request Service</a>
+      <a href="#faq-general" class="cta cta-pill-arrow-blue">General</a>
+      <a href="#faq-service" class="cta cta-pill-arrow-blue">Service</a>
+      <a href="automation-one-contact.html" class="cta cta-primary cta-pill-arrow">Contact us</a>
     </div>
   </div>
 </section>
 
 
 
-<section class="band band--ink" id="service-promise">
-  <div class="service-promise-photo" aria-hidden="true">
-    <img
-      src="service-promise-banner.jpg"
-      width="1024"
-      height="680"
-      alt=""
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
+<section class="band" id="faq-general">
   <div class="container">
     <div class="band-head reveal">
-      <span class="section-eyebrow">How we do it</span>
-      <h2>Four promises behind every<br/><em>service call.</em></h2>
-      <p>From the moment you call our central dispatch in Vancouver, our remote monitoring tools, factory-trained technicians, and 15,000&nbsp;sq.&nbsp;ft. of parts inventory go to work — quietly, reliably, and locally.</p>
+      <span class="section-eyebrow">Getting started</span>
+      <h2>About Automation&nbsp;One &amp; <em>how we work.</em></h2>
+      <p>Locally owned in Vancouver since 1981. We're an independent, multi-brand dealer &mdash; not a national call centre &mdash; so you deal with the same people who install and service your equipment.</p>
     </div>
-    <div class="cards-grid cards-grid--4">
-      <div class="card reveal">
-        <div class="card-photo card-photo--scene" aria-hidden="true">
-          <img
-            src="service-predictive-maintenance.jpg"
-            width="1024"
-            height="576"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="promise-card-copy">
-          <h3><span class="promise-card-title">Easy service</span></h3>
-          <p>Every Automation One service contract covers preventative maintenance, parts, labour, and loaner equipment if it's ever needed. One agreement, one number, one team.</p>
-        </div>
-      </div>
-      <div class="card reveal">
-        <div class="card-photo card-photo--scene" aria-hidden="true">
-          <img
-            src="wwdfy-trust-digital.png"
-            width="1536"
-            height="1024"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="promise-card-copy">
-          <h3><span class="promise-card-title">Predictive maintenance</span></h3>
-          <p>Smart remote monitoring tells us when wear parts are due before they fail. The result: fewer emergency calls and almost no surprise downtime.</p>
-        </div>
-      </div>
-      <div class="card reveal">
-        <div class="card-photo card-photo--scene" aria-hidden="true">
-          <img
-            src="service-fast-dispatch.jpg"
-            width="1536"
-            height="1024"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="promise-card-copy">
-          <h3><span class="promise-card-title">Fast dispatch</span></h3>
-          <p>Our average response time is 90 minutes, four hours guaranteed. Dispatch is centralized in Vancouver — you'll always speak to a human on the first ring.</p>
-        </div>
-      </div>
-      <div class="card reveal">
-        <div class="card-photo card-photo--scene" aria-hidden="true">
-          <img
-            src="service-performance-guaranteed.jpg"
-            width="912"
-            height="642"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="promise-card-copy">
-          <h3><span class="promise-card-title">Performance, guaranteed</span></h3>
-          <p>On the rare occasion a machine doesn't meet our performance standards, we replace it &mdash; at no cost to you.</p>
-        </div>
+
+    <div class="faq-group reveal" id="faq-about">
+      <h3 class="faq-group-title">Company &amp; coverage</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What does Automation&nbsp;One do?</summary>
+          <div class="faq-answer">
+            <p>We supply, lease, install, and service office printing and business systems for organizations across Metro Vancouver and BC. That includes multifunction printers, production systems, wide-format devices, postage meters, folder inserters, shredders, and managed print programs.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What areas do you serve?</summary>
+          <div class="faq-answer">
+            <p>Our home base is Vancouver, with technicians and sales coverage throughout the Lower Mainland and much of British Columbia. If you're outside the core region, call <a href="tel:+16042556622">604-255-6622</a> or email <a href="mailto:info@automationone.ca">info@automationone.ca</a> &mdash; we can usually still help or point you to the right resource.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Where are your offices?</summary>
+          <div class="faq-answer">
+            <p><strong>Vancouver head office:</strong> 1365 Boundary Rd., Vancouver, BC V5K 4T9 (walk-in and dispatch).<br><strong>Burnaby office:</strong> 1440 Ingleton Ave., Burnaby, BC V5C 4L7 (by appointment). See full contact details on our <a href="automation-one-contact.html">Contact</a> page.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Are you affiliated with a single manufacturer?</summary>
+          <div class="faq-answer">
+            <p>No. We're authorized for Canon, Xerox, Lexmark, Francotyp-Postalia, Ideal MBM, and more. That independence lets us recommend the device that fits your volume, workflow, and budget &mdash; not whichever brand happens to be on promotion.</p>
+          </div>
+        </details>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band" id="managed-print">
-  <div class="managed-print-sheen" aria-hidden="true"></div>
+<section class="band band--tint" id="faq-products">
   <div class="container">
-    <div class="band-head reveal">
-      <span class="section-eyebrow">What we cover</span>
-      <h2>From single-printer fixes to <em>fully managed print.</em></h2>
-      <p>Whether you operate one workgroup MFP or a fleet across multiple sites, we tune the right support model so your printers fade into the background of the business they should never interrupt.</p>
-    </div>
-
-    <div class="cover-points-panel reveal">
-      <div class="cover-points-photo" aria-hidden="true">
-        <img
-          src="managed-print-cover.png"
-          width="1024"
-          height="589"
-          alt=""
-          loading="lazy"
-          decoding="async"
-        />
+    <div class="faq-group reveal">
+      <h3 class="faq-group-title">Products, quotes &amp; purchasing</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I get a quote?</summary>
+          <div class="faq-answer">
+            <p>Use <strong>Request a Quote</strong> on any page, book a <a href="https://calendly.com/bachtem-automationone/30min" target="_blank" rel="noopener noreferrer">consultation</a>, or call <a href="tel:+16042556622">604-255-6622</a>. Tell us your monthly volume, colour needs, and any scan/fax requirements. We typically respond within one business day with options, not a high-pressure pitch.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Should I buy, lease, or rent?</summary>
+          <div class="faq-answer">
+            <p>It depends on cash flow, how long you'll keep the device, and whether you want supplies and service bundled. Leasing is common for offices that want predictable monthly costs; purchasing can make sense for stable, long-term fleets. Your account manager will walk through both models with real numbers.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can you help me choose the right model?</summary>
+          <div class="faq-answer">
+            <p>Yes. Browse our <a href="automation-one-products.html#catalog">product catalogue</a> for specs, or ask us for a shortlist. We'll factor in speed, duty cycle, finishing, security, and total cost per page &mdash; not just sticker price.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you install and configure equipment on our network?</summary>
+          <div class="faq-answer">
+            <p>Yes. Standard deliveries include setup, driver deployment, and walkthrough with your team. For networked installs, complete the <a href="automation-one-network-installation-survey.html">network installation survey</a> before we arrive so connectivity goes smoothly.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can you service printers we didn't buy from you?</summary>
+          <div class="faq-answer">
+            <p>Often yes, depending on brand and model. Contact us with the serial number and current contract status. If we're not the right fit, we'll tell you honestly rather than waste your time.</p>
+          </div>
+        </details>
       </div>
-      <ul class="cover-points">
-      <li>
-        <h3>Technical support &amp; repairs</h3>
-        <p>Manufacturer-certified technicians diagnose, repair, and optimize your equipment so jobs run right the first time.</p>
-        <ul>
-          <li>Authorized for Canon, Xerox, Lexmark, FP &amp; Ideal.MBM</li>
-          <li>OEM parts only — never aftermarket</li>
-          <li>Same-day on-site service across Metro Vancouver</li>
-        </ul>
-      </li>
-      <li>
-        <h3>Managed print services</h3>
-        <p>Right-size your fleet, automate supplies, and pay one predictable rate per print. We monitor everything — you focus on the work.</p>
-        <ul>
-          <li>Free fleet assessment &amp; total cost analysis</li>
-          <li>Automatic toner shipments before you run out</li>
-          <li>Detailed reporting on usage by user or department</li>
-        </ul>
-      </li>
-      <li>
-        <h3>Smart tracking tools</h3>
-        <p>Centralized, transparent and automated &mdash; from meter reads to ticket histories &mdash; everything is in your portal at all times.</p>
-        <ul>
-          <li>Automatic meter reading, included free of charge</li>
-          <li>Remote diagnostics &amp; firmware updates</li>
-          <li>Self-service ticket and supply ordering</li>
-        </ul>
-      </li>
-      <li>
-        <h3>Flexible billing</h3>
-        <p>Because every decision is made locally in Vancouver, we adapt to your accounting — not the other way around.</p>
-        <ul>
-          <li>Monthly, quarterly or semi-annual billing</li>
-          <li>Per-department or per-project cost codes</li>
-          <li>Easy plan adjustments mid-term</li>
-        </ul>
-      </li>
-      </ul>
     </div>
   </div>
 </section>
 
-<section class="band" id="service-highlights">
+<section class="band" id="faq-service">
   <div class="container">
-    <div class="band-head reveal">
-      <span class="section-eyebrow">Service that shows up</span>
-      <h2>Everything your office <em>prints, copies, scans &amp; more.</em></h2>
-      <p>From a single high-volume colour copier to a managed fleet across multiple locations &mdash; we deliver, install, and service it all under one roof.</p>
-      <div class="service-trust-row" aria-label="Service that shows up">
-        <span>Metro Vancouver coverage</span>
-        <span>4-hour on-site guarantee</span>
-        <span>Manufacturer-trained team</span>
-      </div>
-    </div>
-
-    <div class="service-stats-panel reveal">
-      <div class="stat-grid">
-        <div class="stat-card response-time">
-          <div class="icon-wrap">
-            <span class="service-stat-visual service-stat-visual--response" aria-hidden="true"></span>
+    <div class="faq-group reveal">
+      <h3 class="faq-group-title">Service &amp; support</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I request a service call?</summary>
+          <div class="faq-answer">
+            <p>Submit the form on our <a href="automation-one-service-support.html#request-service">Service &amp; Support</a> page (emails <a href="mailto:dispatch@automationone.ca">dispatch@automationone.ca</a>), or call <a href="tel:+16042556622">604-255-6622</a> during business hours. Include your company name, device model, error codes, and whether the machine is completely down.</p>
           </div>
-          <div class="big">90<sub>min</sub></div>
-          <div class="lbl">Average response time</div>
-          <div class="desc">Across Metro Vancouver, our local technicians are usually on-site within 90 minutes of your call, and we guarantee to be on-site within 4 hours.</div>
-        </div>
-
-        <div class="stat-card toner-inventory">
-          <div class="icon-wrap">
-            <img src="service-stats/xerox-toners-cartoon.svg" alt="Cartoon Xerox toner cartridges" loading="lazy" decoding="async" />
+        </details>
+        <details class="faq-item">
+          <summary>Do I have to call a 1-800 number for service?</summary>
+          <div class="faq-answer">
+            <p>No. You'll reach our Vancouver dispatch team and local technicians &mdash; the same people who know your account. That's a big reason clients stay with us for decades.</p>
           </div>
-          <div class="big">15,000<sub>ft²</sub></div>
-          <div class="lbl">Parts &amp; toner inventory</div>
-          <div class="desc">Local warehouses in Vancouver and Burnaby keep the parts on the shelf, ready for same-day dispatch.</div>
-        </div>
-
-        <div class="stat-card trained-specialists">
-          <div class="icon-wrap">
-            <span class="service-stat-visual service-stat-visual--specialists" aria-hidden="true"></span>
+        </details>
+        <details class="faq-item">
+          <summary>How fast can you respond?</summary>
+          <div class="faq-answer">
+            <p>Response times depend on your service agreement and severity. Many contract clients see same-day or next-business-day on-site visits for critical failures. We'll always give you a realistic window when you log the call.</p>
           </div>
-          <div class="big">40<sub>+</sub></div>
-          <div class="lbl">Trained specialists</div>
-          <div class="desc">Sales, IT and field service technicians — all manufacturer-trained on the brands we sell.</div>
-        </div>
-
-        <div class="stat-card consumer-choice">
-          <div class="icon-wrap">
-            <img src="service-stats/consumer-choice-award-2026.png" alt="Consumer Choice Award 2026 Vancouver badge" loading="lazy" decoding="async" />
+        </details>
+        <details class="faq-item">
+          <summary>What if the visit is outside my contract?</summary>
+          <div class="faq-answer">
+            <p>For billable work (moves, training, end-of-life pickup, etc.) we confirm scope and rates before dispatch. Use the <a href="automation-one-billable-confirmation.html">billable confirmation form</a> when your account rep asks for authorization.</p>
           </div>
-          <div class="big">24<sub>yrs</sub></div>
-          <div class="lbl">Consumer Choice Award</div>
-          <div class="desc">Voted Metro Vancouver's premier office equipment company for service excellence twenty-four years running.</div>
-        </div>
-
-        <div class="stat-card bbb-rating">
-          <div class="icon-wrap">
-            <img src="service-stats/bbb-a-plus-rating.png" alt="A+ BBB Accredited Business logo" loading="lazy" decoding="async" />
+        </details>
+        <details class="faq-item">
+          <summary>Where can I find drivers and manuals?</summary>
+          <div class="faq-answer">
+            <p>Our <a href="automation-one-resources.html#manufacturer-support">Resources</a> page links to Canon, Xerox, Lexmark, FP, and Ideal MBM support hubs. If you can't find a file, email <a href="mailto:info@automationone.ca">info@automationone.ca</a> with the model number and we'll send it.</p>
           </div>
-          <div class="big">A<sub>+</sub></div>
-          <div class="lbl">BBB rating</div>
-          <div class="desc">Accredited with an A+ Better Business Bureau rating.</div>
-        </div>
+        </details>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band band--tint" id="service-support-emails">
+<section class="band band--tint" id="faq-supplies">
   <div class="container">
-    <div class="band-head reveal">
-      <span class="section-eyebrow">Service desk</span>
-      <h2>Service &amp; <em>support emails</em></h2>
+    <div class="faq-group reveal">
+      <h3 class="faq-group-title">Toner, supplies &amp; managed print</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I order toner or supplies?</summary>
+          <div class="faq-answer">
+            <p>Use our <a href="automation-one-toner.html">toner order page</a> or email <a href="mailto:toner@automationone.ca">toner@automationone.ca</a> with your account name, model, and part numbers if you have them. Managed print clients often receive automatic shipments before you run low.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use generic or third-party toner?</summary>
+          <div class="faq-answer">
+            <p>We strongly recommend OEM toner and drums on devices under contract or warranty. Non-OEM supplies can void coverage and cause reliability issues. Your rep can quote genuine supplies at competitive rates.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is managed print services (MPS)?</summary>
+          <div class="faq-answer">
+            <p>MPS bundles equipment, service, and supplies into one predictable program, usually with per-page billing and proactive monitoring. It's ideal for offices that want fewer surprises on the balance sheet. Learn more on <a href="automation-one-service-support.html#managed-print">Managed Print</a>.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I submit meter readings?</summary>
+          <div class="faq-answer">
+            <p>Email readings to <a href="mailto:meter@automationone.ca">meter@automationone.ca</a> with your company name and device serial numbers, or follow the instructions on your invoice. Managed accounts may auto-report depending on the device.</p>
+          </div>
+        </details>
+      </div>
     </div>
-    <div class="support-email-grid reveal" aria-label="Service and support email contacts">
-      <a class="support-email-card" href="mailto:dispatch@automationone.ca">
-        <span class="support-email-icon support-email-icon--photo support-email-icon--photo-dispatch" aria-hidden="true">
-          <img
-            src="service-support-dispatch.png"
-            width="592"
-            height="526"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
-        <span class="support-email-title">Dispatch</span>
-        <span class="support-email-address">dispatch@automationone.ca</span>
-      </a>
-      <a class="support-email-card" href="mailto:meter@automationone.ca">
-        <span class="support-email-icon support-email-icon--photo support-email-icon--photo-meter" aria-hidden="true">
-          <img
-            src="service-support-meter.png"
-            width="950"
-            height="962"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
-        <span class="support-email-title">Meter</span>
-        <span class="support-email-address">meter@automationone.ca</span>
-      </a>
-      <a class="support-email-card" href="mailto:toner@automationone.ca">
-        <span class="support-email-icon support-email-icon--photo" aria-hidden="true">
-          <img
-            src="service-support-toner-inventory.png"
-            width="948"
-            height="916"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
-        <span class="support-email-title">Toner / Supplies</span>
-        <span class="support-email-address">toner@automationone.ca</span>
-      </a>
+
+    <div class="faq-cta-strip reveal">
+      <p>Didn't find your answer? Call us at <a href="tel:+16042556622">604-255-6622</a> or email <a href="mailto:info@automationone.ca">info@automationone.ca</a> and we'll get you to the right person.</p>
+      <div class="hero-cta-row">
+        <a href="automation-one-contact.html" class="cta cta-pill-arrow-blue">Contact</a>
+        <a href="automation-one-resources.html" class="cta cta-primary cta-pill-arrow">Forms &amp; links</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="band" id="request-service">
-  <div class="managed-print-sheen" aria-hidden="true"></div>
-  <div class="container split-2">
-    <div class="reveal">
-      <span class="section-eyebrow">Ask about our 4-hour guarantee</span>
-      <h2>Tell us what's down. <em>We'll dispatch from Vancouver.</em></h2>
-      <p>Whether it's a paper jam that won't quit, a calibration that drifted, or a fleet-wide alert &mdash; describe what you're seeing and we'll get a technician en route. After hours? Leave details and we'll respond first thing.</p>
-      <p style="margin-top:18px;">
-        Prefer to talk to a human? Call <a href="tel:6042556622" style="color:var(--blue-700);font-weight:600;text-decoration:none;">604-255-6622</a>.
-      </p>
-      <figure class="service-van-wrap reveal" aria-label="Automation One branded service van">
-        <img
-          src="service-van-branded.png"
-          width="1024"
-          height="585"
-          alt="Blue Automation One Mercedes-Benz Sprinter service van with company logo, automationone.ca, and 604-255-6622 on the side"
-          loading="lazy"
-          decoding="async"
-        />
-      </figure>
-    </div>
-    <div class="reveal">
-      <form class="form-shell" id="service-form" autocomplete="on">
-        <div class="row2">
-          <div class="field"><label for="sv-first">First name</label><input id="sv-first" name="firstName" type="text" placeholder="First name" /></div>
-          <div class="field"><label for="sv-last">Last name</label><input id="sv-last" name="lastName" type="text" placeholder="Last name" /></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="sv-company">Company</label><input id="sv-company" name="company" type="text" placeholder="Company name" /></div>
-          <div class="field"><label for="sv-phone">Phone <span aria-hidden="true">*</span></label><input id="sv-phone" name="phone" type="tel" placeholder="Phone" required /></div>
-        </div>
-        <div class="field"><label for="sv-email">Email <span aria-hidden="true">*</span></label><input id="sv-email" name="email" type="email" placeholder="Email" required /></div>
-        <div class="field"><label for="sv-model">Equipment brand &amp; model number</label><input id="sv-model" name="model" type="text" placeholder="e.g. Canon imageRUNNER C5560i" /></div>
-        <div class="field"><label for="sv-issue">Describe the issue</label><textarea id="sv-issue" name="issue" rows="4" placeholder="What's happening? Any error codes?"></textarea></div>
-        <button type="submit" class="cta cta-pill-arrow-blue">Submit Request</button>
-        <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:dispatch@automationone.ca">dispatch@automationone.ca</a>.</p>
-      </form>
-    </div>
-  </div>
-</section>
 
-<section class="cta-section" id="resources">
+
+<section class="cta-section" id="faq-cta">
   <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="container">
     <h2>Ready to take <em>your business to the next level?</em></h2>
@@ -2865,7 +2383,7 @@ html { background-color: #ffffff; }
     </div>
 
     <div class="foot-bottom">
-      <div class="copy">© 2026 Automation One Business Systems Inc. · All rights reserved · Privacy · Terms</div>
+      <div class="copy">© 2026 Automation&nbsp;One Business Systems Inc. · All rights reserved · Privacy · Terms</div>
       <div class="socials">
         <a href="#" aria-label="LinkedIn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zM20 19h-3v-5.6c0-1.34-.03-3.06-1.87-3.06s-2.16 1.46-2.16 2.97v5.69h-3v-10h2.88v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.6z"/></svg>
@@ -3134,39 +2652,6 @@ html { background-color: #ffffff; }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     els.forEach(function (el) { io.observe(el); });
-  })();
-</script>
-
-
-<script>
-  (function () {
-    var form = document.getElementById('service-form');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var fd = new FormData(form);
-      var first = (fd.get('firstName') || '').toString().trim();
-      var last = (fd.get('lastName') || '').toString().trim();
-      var phone = (fd.get('phone') || '').toString().trim();
-      var email = (fd.get('email') || '').toString().trim();
-      var company = (fd.get('company') || '').toString().trim();
-      var model = (fd.get('model') || '').toString().trim();
-      var issue = (fd.get('issue') || '').toString().trim();
-      var name = [first, last].filter(Boolean).join(' ');
-      var lines = [
-        'Request: Service call',
-        name ? 'Name: ' + name : null,
-        company ? 'Company: ' + company : null,
-        'Phone: ' + phone,
-        'Email: ' + email,
-        model ? 'Equipment: ' + model : null,
-        '',
-        issue || '(no issue description)'
-      ].filter(Boolean);
-      var subject = encodeURIComponent('Website service request');
-      var body = encodeURIComponent(lines.join('\n'));
-      window.location.href = 'mailto:dispatch@automationone.ca?subject=' + subject + '&body=' + body;
-    });
   })();
 </script>
 

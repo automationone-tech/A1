@@ -2723,6 +2723,69 @@
     color: var(--ink);
     background: var(--white);
   }
+  .catalog-banner-photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 34%;
+    z-index: 0;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    border-radius: inherit;
+    background-image: url("products-catalog-banner.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    opacity: 0.2;
+    filter: saturate(0.88) contrast(1.05) brightness(1.04);
+    -webkit-mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.55) 42%,
+      rgba(0, 0, 0, 0.18) 62%,
+      transparent 78%
+    );
+    mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.55) 42%,
+      rgba(0, 0, 0, 0.18) 62%,
+      transparent 78%
+    );
+    -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+  }
+  .catalog-banner-photo img {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .catalog-banner::before,
+  .catalog-banner::after {
+    z-index: 1;
+  }
+  .catalog-banner-copy,
+  .catalog-banner .catalog-sort {
+    z-index: 2;
+  }
+  @media (max-width: 720px) {
+    .catalog-banner-photo {
+      left: 42%;
+    }
+    .catalog-banner-photo {
+      opacity: 0.16;
+    }
+  }
   .catalog-count {
     font-size: 14px;
     color: rgba(11, 19, 48, 0.6);
@@ -3928,6 +3991,15 @@ html { background-color: #ffffff; }
     <button type="button" class="filter-toggle-mobile" id="filter-toggle" aria-expanded="false">Filters &amp; search</button>
     <div class="filters-backdrop" id="filters-backdrop" aria-hidden="true"></div>
     <div class="catalog-banner">
+      <div class="catalog-banner-photo" aria-hidden="true">
+        <img
+          src="products-catalog-banner.png"
+          alt=""
+          width="1024"
+          height="413"
+          decoding="async"
+        />
+      </div>
       <div class="catalog-banner-copy">
         <span class="section-eyebrow">Browse &amp; refine</span>
         <h2 class="catalog-banner-title">Catalogue</h2>
@@ -5535,6 +5607,7 @@ html { background-color: #ffffff; }
           <li><a href="automation-one-about.html">About &amp; History</a></li>
           <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
           <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-faq.html">FAQs</a></li>
           <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
           <li><a href="automation-one-contact.html">Contact</a></li>
         </ul>

@@ -1,0 +1,207 @@
+/* Service & support emails ù matches automationone.ca/contact/ banner */
+
+#service-support-emails {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(82% 70% at 18% 15%, rgba(126, 167, 255, 0.22), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(238, 244, 255, 0.62) 100%);
+}
+
+#service-support-emails::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("service-hero-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.62;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#service-support-emails::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(31, 92, 245, 0.2) 0%,
+      rgba(57, 115, 248, 0.12) 26%,
+      rgba(106, 155, 255, 0.06) 48%,
+      rgba(185, 208, 255, 0.02) 68%,
+      transparent 88%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.68) 0%,
+      rgba(248, 251, 255, 0.52) 48%,
+      rgba(238, 244, 255, 0.46) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(248, 251, 255, 0.88) 0%,
+      rgba(248, 251, 255, 0.58) 36%,
+      rgba(248, 251, 255, 0.22) 66%,
+      rgba(248, 251, 255, 0.06) 100%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+#service-support-emails .container {
+  position: relative;
+  z-index: 1;
+}
+
+#service-support-emails .band-head {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#service-support-emails .band-head .section-eyebrow {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.support-email-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 22px);
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.support-email-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  padding: clamp(28px, 3.2vw, 40px) clamp(18px, 2.2vw, 26px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.52);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  backdrop-filter: blur(12px) saturate(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 14px 40px -24px rgba(10, 40, 112, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.support-email-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(31, 92, 245, 0.28);
+  box-shadow: 0 22px 52px -28px rgba(15, 56, 158, 0.45);
+}
+
+.support-email-card:focus-visible {
+  outline: 2px solid rgba(31, 92, 245, 0.35);
+  outline-offset: 3px;
+}
+
+.support-email-icon {
+  width: clamp(56px, 6vw, 64px);
+  height: clamp(56px, 6vw, 64px);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  color: var(--white);
+  box-shadow: 0 12px 24px -14px rgba(31, 92, 245, 0.65);
+}
+
+.support-email-icon svg {
+  width: clamp(26px, 3vw, 30px);
+  height: clamp(26px, 3vw, 30px);
+  fill: currentColor;
+}
+
+.support-email-icon--photo {
+  width: clamp(132px, 15vw, 172px);
+  height: clamp(132px, 15vw, 172px);
+  margin-bottom: clamp(18px, 2.1vw, 24px);
+  border-radius: 16px;
+  display: block;
+  padding: 0;
+  line-height: 0;
+  background: #e8f0ff;
+  box-shadow:
+    0 14px 30px -18px rgba(10, 40, 112, 0.48),
+    inset 0 0 0 1px rgba(126, 167, 255, 0.28);
+  overflow: hidden;
+}
+
+.support-email-icon--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% top;
+  display: block;
+  vertical-align: top;
+  transform: scale(1.06);
+  transform-origin: center top;
+}
+
+.support-email-icon--photo-meter img {
+  object-position: 62% top;
+}
+
+.support-email-icon--photo-dispatch img {
+  object-position: 42% top;
+}
+
+.support-email-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-800);
+  line-height: 1.25;
+  margin: 0 0 clamp(10px, 1.2vw, 14px);
+  min-height: calc(2 * 1.25 * 17px);
+  width: 100%;
+  max-width: 12em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.support-email-address {
+  font-size: clamp(14px, 1.15vw, 16px);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--blue-700);
+  word-break: break-word;
+}
+
+@media (max-width: 760px) {
+  .support-email-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .support-email-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .support-email-address {
+    font-size: 13px;
+  }
+}

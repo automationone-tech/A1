@@ -17,6 +17,11 @@
   status = 200
 
 [[redirects]]
+  from = "/faq"
+  to = "/automation-one-faq.html"
+  status = 200
+
+[[redirects]]
   from = "/digital-solutions"
   to = "/automation-one-digital-solutions.html"
   status = 200

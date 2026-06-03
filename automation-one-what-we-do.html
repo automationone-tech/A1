@@ -350,13 +350,13 @@ body.subpage .nav-actions .btn-ghost:hover {
   max-width: none;
   transform: none;
   object-fit: cover;
-  object-position: 68% center;
-  opacity: 0.18;
+  object-position: 72% center;
+  opacity: 0.24;
 }
 @media (min-width: 561px) {
   .wwdfy-page .subpage-hero-photo {
-    opacity: 0.26;
-    object-position: 62% center;
+    opacity: 0.34;
+    object-position: 68% center;
   }
 }
 @media (max-width: 560px) {
@@ -369,7 +369,8 @@ body.subpage .nav-actions .btn-ghost:hover {
     width: auto;
     transform: translateX(-58%);
     transform-origin: bottom center;
-    object-position: 52% bottom;
+    object-position: 58% bottom;
+    opacity: 0.2;
     -webkit-mask-image: linear-gradient(
       90deg,
       hsl(0 0% 0% / 0) 0%,
@@ -609,6 +610,749 @@ p { color: #3d4666; line-height: 1.6; }
   max-width: clamp(207px, 26.4vw, 264px);
   max-height: clamp(119px, 15.4vw, 146px);
 }
+.wwdfy-page #what-we-offer {
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(46vw 42vw at 12% 10%, rgba(185, 208, 255, 0.46) 0%, rgba(185, 208, 255, 0) 66%),
+    radial-gradient(40vw 40vw at 88% 12%, rgba(31, 92, 245, 0.14) 0%, rgba(31, 92, 245, 0) 68%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(238, 244, 255, 0.7) 100%);
+}
+.wwdfy-page #what-we-offer::before {
+  content: "";
+  position: absolute;
+  inset: 18% -8% auto auto;
+  width: min(46vw, 560px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(126, 167, 255, 0.2) 52%, rgba(126, 167, 255, 0) 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+.wwdfy-page #what-we-offer .container {
+  position: relative;
+  z-index: 1;
+}
+.wwdfy-page #what-we-offer .band-head {
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(34px, 5vw, 58px);
+  text-align: center;
+}
+.wwdfy-page #what-we-offer .band-head .section-eyebrow {
+  margin-left: auto;
+  margin-right: auto;
+}
+.wwdfy-page #what-we-offer .band-head p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 68ch;
+}
+.wwdfy-page #what-we-offer .cards-grid {
+  align-items: stretch;
+  counter-reset: trust-card;
+  gap: clamp(18px, 2.2vw, 30px);
+  grid-template-rows: clamp(200px, 24vw, 260px) auto auto;
+}
+.wwdfy-page #what-we-offer .card {
+  counter-increment: trust-card;
+  display: grid;
+  grid-template-rows: clamp(200px, 24vw, 260px) auto minmax(6.25rem, auto);
+  grid-row: span 3;
+  height: 100%;
+  min-height: clamp(378px, 42vw, 448px);
+  padding: 0;
+  text-align: left;
+  border-radius: clamp(22px, 2.6vw, 30px);
+  border-color: rgba(126, 167, 255, 0.18);
+  background: #f8faff;
+  box-shadow:
+    0 28px 76px -52px rgba(6, 26, 74, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  --trust-body-photo-overlap: clamp(62px, 7.2vw, 86px);
+}
+@supports (grid-template-rows: subgrid) {
+  .wwdfy-page #what-we-offer .card {
+    grid-template-rows: subgrid;
+  }
+}
+.wwdfy-page #what-we-offer .card::after {
+  content: counter(trust-card);
+  position: absolute;
+  right: -10px;
+  bottom: -18px;
+  z-index: 1;
+  color: rgba(31, 92, 245, 0.1);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 7vw, 8rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+.wwdfy-page #what-we-offer .trust-card-copy {
+  grid-row: 2 / -1;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: auto minmax(6.25rem, auto);
+  margin-top: 0;
+  background: transparent;
+  --trust-title-gutter: clamp(22px, 2.4vw, 32px);
+  --trust-badge-size: 34px;
+  --trust-badge-gap: 10px;
+  --trust-title-stack: calc(var(--trust-badge-size) + var(--trust-badge-gap) + 3.1rem);
+  --trust-title-photo-gap: clamp(54px, 5.8vw, 74px);
+  --trust-body-photo-overlap: clamp(62px, 7.2vw, 86px);
+}
+@supports (grid-template-rows: subgrid) {
+  .wwdfy-page #what-we-offer .trust-card-copy {
+    grid-template-rows: subgrid;
+  }
+}
+.wwdfy-page #what-we-offer .trust-card-copy > p {
+  grid-row: 2;
+  position: relative;
+  z-index: 4;
+  margin: calc(-1 * var(--trust-body-photo-overlap)) 0 0;
+  min-height: 6.25rem;
+  padding:
+    0
+    var(--trust-title-gutter)
+    var(--trust-title-gutter)
+    var(--trust-title-gutter);
+  text-align: left;
+  background: transparent;
+  text-shadow:
+    0 1px 10px rgba(255, 255, 255, 0.95),
+    0 0 20px rgba(248, 250, 255, 0.85);
+}
+.wwdfy-page #what-we-offer .trust-card-copy > h3 {
+  grid-row: 1;
+  position: absolute;
+  top: calc(-1 * var(--trust-title-stack) - var(--trust-title-photo-gap));
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--trust-badge-gap);
+  width: 100%;
+  min-height: var(--trust-title-stack);
+  margin: 0;
+  padding: 0 var(--trust-title-gutter) 0;
+  text-align: center;
+  background: transparent;
+  color: var(--ink-soft);
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.92);
+}
+.wwdfy-page #what-we-offer .card h3::before {
+  content: counter(trust-card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  order: -1;
+  width: var(--trust-badge-size, 34px);
+  height: var(--trust-badge-size, 34px);
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  color: var(--white);
+  box-shadow: 0 12px 24px -14px rgba(31, 92, 245, 0.72);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+.wwdfy-page #what-we-offer .card .card-photo {
+  grid-row: 1;
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(200px, 24vw, 260px);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: #f8faff;
+  box-shadow: none;
+}
+.wwdfy-page #what-we-offer .card .card-photo::after {
+  content: "";
+  position: absolute;
+  inset: 25% 0 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 255, 0) 0%,
+    rgba(248, 250, 255, 1) 100%
+  );
+}
+.wwdfy-page #what-we-offer .card .card-photo img,
+.wwdfy-page #what-we-offer .card .card-photo--scene img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  filter: none;
+  transform: scale(1.02);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wwdfy-page #what-we-offer .card:hover .card-photo img {
+  transform: scale(1.06);
+}
+.wwdfy-page #what-we-offer .cards-grid > .card:nth-child(1) .card-photo img {
+  object-position: 30% 24%;
+}
+.wwdfy-page #what-we-offer .cards-grid > .card:nth-child(2) .card-photo img {
+  object-position: 58% 50%;
+}
+.wwdfy-page #what-we-offer .cards-grid > .card:nth-child(3) .card-photo img {
+  object-position: center 52%;
+}
+.wwdfy-page #what-we-offer .cards-grid > .card:nth-child(4) .card-photo img {
+  object-position: 24% 100%;
+}
+@media (max-width: 600px) {
+  .wwdfy-page #what-we-offer .cards-grid > .card:nth-child(1) .card-photo img {
+    object-position: 26% 18%;
+  }
+}
+.wwdfy-page #process-banner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: clamp(78px, 9vw, 128px);
+  background:
+    radial-gradient(70% 72% at 16% 0%, rgba(126, 167, 255, 0.42), transparent 62%),
+    radial-gradient(64% 74% at 92% 48%, rgba(31, 92, 245, 0.32), transparent 62%),
+    linear-gradient(145deg, #061a4a 0%, #0a2870 42%, #1547d1 100%);
+  color: var(--white);
+}
+.wwdfy-page #process-banner::before {
+  content: "";
+  position: absolute;
+  inset: -18% -8%;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.22), transparent 17%),
+    conic-gradient(from -118deg at 50% 45%, transparent 0 10%, rgba(126, 167, 255, 0.22) 15%, transparent 24% 43%, rgba(255, 255, 255, 0.16) 49%, transparent 59% 74%, rgba(31, 92, 245, 0.34) 80%, transparent 90% 100%);
+  opacity: 0.82;
+  pointer-events: none;
+  z-index: 0;
+}
+.wwdfy-page #process-banner::after {
+  content: "";
+  position: absolute;
+  inset: auto -8% -28% auto;
+  width: min(58vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), rgba(126, 167, 255, 0.1) 45%, transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+}
+.wwdfy-page #process-banner .container {
+  position: relative;
+  z-index: 1;
+}
+.process-banner-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: clamp(30px, 4vw, 52px);
+  padding: clamp(26px, 4.8vw, 66px);
+  color: var(--white);
+  background:
+    radial-gradient(96% 124% at 86% 12%, rgba(126, 167, 255, 0.48) 0%, rgba(126, 167, 255, 0) 56%),
+    linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 34%, var(--blue-600) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 42px 96px -56px rgba(6, 26, 74, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.process-banner-photo {
+  position: absolute;
+  inset: -14% -10% -16% 40%;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.process-banner-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 54% 42%;
+  opacity: 0.22;
+  filter: saturate(0.82) contrast(1.06) brightness(1.05);
+  -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.28) 58%, rgba(0, 0, 0, 0) 78%);
+          mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.28) 58%, rgba(0, 0, 0, 0) 78%);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+.process-banner-sheen {
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 34%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0) 0 18%, rgba(255, 255, 255, 0.12) 18% 19%, rgba(255, 255, 255, 0) 19% 42%, rgba(185, 208, 255, 0.14) 42% 43%, rgba(255, 255, 255, 0) 43% 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.process-banner-shell > *:not(.process-banner-sheen):not(.process-banner-photo) {
+  position: relative;
+  z-index: 2;
+}
+.process-banner-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.72fr);
+  gap: clamp(24px, 5vw, 76px);
+  align-items: end;
+  margin-bottom: clamp(34px, 5vw, 64px);
+}
+.process-banner-head .section-eyebrow {
+  margin-bottom: 14px;
+}
+.process-banner-head h2 {
+  margin-bottom: 0;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-synthesis: none;
+  font-size: clamp(33px, 4.5vw, 55px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.process-banner-head h2 .process-banner-h2-line {
+  display: block;
+}
+.process-banner-head h2 .process-banner-h2-accent {
+  display: block;
+  font-style: normal;
+  background: linear-gradient(120deg, #ffffff 0%, #ffffff 20%, #b9d0ff 48%, #2f66f2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.process-banner-copy {
+  max-width: 48ch;
+  color: var(--white);
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.65;
+}
+.process-banner-copy p {
+  margin: 0;
+  color: var(--white);
+}
+.process-banner-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.process-banner-kicker::before {
+  content: "";
+  width: 34px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffffff, #7ea7ff);
+}
+.process-step-line {
+  position: absolute;
+  left: clamp(34px, 5.3vw, 80px);
+  right: clamp(34px, 5.3vw, 80px);
+  top: calc(50% + 40px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(185, 208, 255, 0.54), transparent);
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.process-step-line::before,
+.process-step-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: clamp(90px, 13vw, 180px);
+  height: clamp(90px, 13vw, 180px);
+  border-radius: 999px;
+  border: 1px solid rgba(185, 208, 255, 0.18);
+  transform: translateY(-50%);
+}
+.process-step-line::before { left: 10%; }
+.process-step-line::after { right: 10%; }
+.process-step-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.45vw, 20px);
+  align-items: stretch;
+  counter-reset: process-step;
+  --process-step-gap: clamp(12px, 1.45vw, 20px);
+}
+.process-step-arrows {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.process-banner-step-arrow {
+  position: absolute;
+  top: 50%;
+  width: clamp(36px, 5.2vw, 58px);
+  transform: translate(-50%, -50%);
+  color: var(--blue-700);
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 8px rgba(10, 40, 112, 0.24));
+}
+.process-banner-step-arrow img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.process-banner-step-arrow--1-2 {
+  left: calc((100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 0.5);
+}
+.process-banner-step-arrow--2-3 {
+  left: calc(2 * (100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 1.5);
+}
+.process-banner-step-arrow--3-4 {
+  left: calc(3 * (100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 2.5);
+}
+.process-banner-step-arrow--4-5 {
+  left: calc(4 * (100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 3.5);
+}
+.process-step-card {
+  counter-increment: process-step;
+  position: relative;
+  min-height: clamp(260px, 26vw, 330px);
+  padding: clamp(18px, 2vw, 26px);
+  overflow: hidden;
+  border-radius: clamp(22px, 2.4vw, 32px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(238, 244, 255, 0.8)),
+    radial-gradient(90% 82% at 0% 0%, rgba(126, 167, 255, 0.18), transparent 62%);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 26px 58px -36px rgba(0, 0, 0, 0.72);
+  color: var(--ink);
+  transform: translateY(var(--step-lift, 0));
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.26s ease;
+}
+.process-step-card:nth-child(2) { --step-lift: clamp(14px, 2vw, 28px); }
+.process-step-card:nth-child(4) { --step-lift: clamp(10px, 1.7vw, 24px); }
+.process-step-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -18% -34% 28%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(31, 92, 245, 0.2), transparent 62%);
+  pointer-events: none;
+}
+.process-step-card::after {
+  content: counter(process-step);
+  position: absolute;
+  right: -10px;
+  bottom: -18px;
+  color: rgba(31, 92, 245, 0.1);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 7vw, 8rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+.process-step-card > * {
+  position: relative;
+  z-index: 1;
+}
+.process-step-card h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--blue-900);
+  font-size: clamp(1.18rem, 1.5vw, 1.55rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+.process-step-card h3::before {
+  content: counter(process-step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  order: -1;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  color: var(--white);
+  box-shadow: 0 12px 24px -14px rgba(31, 92, 245, 0.72);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+.process-step-card p {
+  margin: 0;
+  color: rgba(26, 40, 74, 0.72);
+  font-size: clamp(13.5px, 1.08vw, 15px);
+  line-height: 1.58;
+}
+.process-step-card:hover {
+  transform: translateY(calc(var(--step-lift, 0px) - 8px));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 36px 70px -34px rgba(0, 0, 0, 0.78);
+}
+.process-banner-cta {
+  container-type: inline-size;
+  container-name: process-banner-cta;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(40px, 6vw, 74px);
+  padding: clamp(16px, 2vw, 22px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.process-banner-cta p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.5;
+}
+.process-banner-cta-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px 14px;
+}
+@container process-banner-cta (max-width: 820px) {
+  .process-banner-cta {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .process-banner-cta p {
+    width: 100%;
+    text-align: center;
+  }
+  .process-banner-cta-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@container process-banner-cta (max-width: 480px) {
+  .process-banner-cta-actions .cta {
+    width: auto;
+    max-width: 100%;
+    flex: 0 1 auto;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .process-step-card h3 {
+    font-size: clamp(1.16rem, 1.45vw, 1.52rem);
+  }
+  .process-step-card p {
+    font-size: clamp(14px, 1.12vw, 15px);
+  }
+  .process-step-card h3::before {
+    font-size: 17px;
+  }
+}
+@media (max-width: 1024px) {
+  .process-banner-head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .process-step-line {
+    display: none;
+  }
+  .process-step-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(12px, 2vw, 18px);
+    --process-step-gap: clamp(12px, 2vw, 18px);
+  }
+  .process-step-card,
+  .process-step-card:nth-child(2),
+  .process-step-card:nth-child(4) {
+    --step-lift: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: clamp(188px, 22vh, 240px);
+    padding: clamp(16px, 2vw, 22px);
+    border-radius: clamp(18px, 2.2vw, 26px);
+    text-align: center;
+  }
+  .process-step-card h3 {
+    gap: 10px;
+    margin-bottom: 0;
+    font-size: clamp(1.22rem, 2.6vw, 1.5rem);
+  }
+  .process-step-card h3::before {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+  .process-step-card p {
+    font-size: clamp(14.5px, 1.6vw, 16px);
+    line-height: 1.55;
+    text-align: center;
+  }
+  .process-step-card::after {
+    font-size: clamp(4rem, 10vw, 6.5rem);
+  }
+  .process-banner-step-arrow {
+    left: 50%;
+    width: clamp(32px, 5vw, 52px);
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .process-banner-step-arrow--1-2 {
+    top: calc((100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 0.5);
+  }
+  .process-banner-step-arrow--2-3 {
+    top: calc(2 * (100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 1.5);
+  }
+  .process-banner-step-arrow--3-4 {
+    top: calc(3 * (100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 2.5);
+  }
+  .process-banner-step-arrow--4-5 {
+    top: calc(4 * (100% - 4 * var(--process-step-gap)) / 5 + var(--process-step-gap) * 3.5);
+  }
+}
+@media (max-width: 760px) {
+  .process-banner-photo {
+    inset: 38% -14% -12% 0;
+  }
+  .process-banner-photo img {
+    opacity: 0.16;
+    object-position: center 36%;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 28%, rgba(0, 0, 0, 0.75) 58%, rgba(0, 0, 0, 0.9) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 28%, rgba(0, 0, 0, 0.75) 58%, rgba(0, 0, 0, 0.9) 100%);
+  }
+}
+@media (max-width: 640px) {
+  .process-banner-shell {
+    padding: 24px;
+    border-radius: 30px;
+  }
+  .process-step-grid {
+    gap: clamp(10px, 2.5vw, 14px);
+    --process-step-gap: clamp(10px, 2.5vw, 14px);
+  }
+  .process-step-card,
+  .process-step-card:nth-child(2),
+  .process-step-card:nth-child(4) {
+    min-height: clamp(170px, 20vh, 220px);
+    padding: clamp(14px, 3.5vw, 18px);
+  }
+  .process-step-card h3 {
+    font-size: clamp(1.16rem, 4.5vw, 1.32rem);
+  }
+  .process-step-card p {
+    font-size: clamp(14px, 3.6vw, 15px);
+  }
+  .process-banner-step-arrow {
+    width: clamp(28px, 6vw, 44px);
+  }
+  .process-banner-cta {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 28px;
+  }
+  .process-banner-cta p {
+    text-align: center;
+  }
+  .process-banner-cta-actions {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .process-banner-cta-actions .cta {
+    width: auto;
+    max-width: 100%;
+    flex: 0 1 auto;
+  }
+}
+.wwdfy-page #solutions {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(82% 70% at 18% 15%, rgba(126, 167, 255, 0.34), transparent 58%),
+    linear-gradient(135deg, #f8fbff 0%, #eef4ff 48%, #e8f0ff 100%);
+}
+.wwdfy-page #solutions::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(248, 251, 255, 1) 0%, rgba(248, 251, 255, 0.98) 42%, rgba(248, 251, 255, 0.74) 64%, rgba(248, 251, 255, 0.08) 100%),
+    linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+@media (min-width: 1200px) {
+  .wwdfy-page #solutions::after {
+    background:
+      linear-gradient(90deg, rgba(248, 251, 255, 1) 0%, rgba(248, 251, 255, 0.99) 48%, rgba(248, 251, 255, 0.84) 68%, rgba(248, 251, 255, 0.3) 86%, rgba(248, 251, 255, 0) 100%),
+      linear-gradient(140deg, rgba(31, 92, 245, 0) 0 59%, rgba(31, 92, 245, 0.5) 59% 67.5%, rgba(31, 92, 245, 0) 67.5%);
+  }
+}
+@media (max-width: 1199px) {
+  .wwdfy-page #solutions::after {
+    background-size: 100% 100%, 240vmax 240vmax;
+    background-position: 0 0, 100% 0;
+  }
+}
+.wwdfy-page #solutions .container {
+  position: relative;
+  z-index: 1;
+}
 .wwdfy-page #solutions .band-head {
   margin-left: auto;
   margin-right: auto;
@@ -625,6 +1369,30 @@ p { color: #3d4666; line-height: 1.6; }
 }
 .wwdfy-page #solutions .card h3 {
   text-align: center;
+}
+.wwdfy-page #solutions .card::before {
+  inset: 0 0 auto;
+  height: 4px;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: linear-gradient(90deg, rgba(21, 71, 209, 0.92), rgba(126, 167, 255, 0.35));
+  opacity: 0;
+  z-index: 4;
+  transition: opacity 0.3s ease;
+}
+.wwdfy-page #solutions .card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(21, 71, 209, 0.34);
+  box-shadow: 0 28px 60px -34px rgba(15, 56, 158, 0.64);
+}
+.wwdfy-page #solutions .card:hover::before {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wwdfy-page #solutions .card:hover {
+    transform: none;
+  }
 }
 .card h3 { margin-bottom: 10px; }
 .card p { font-size: 15.5px; line-height: 1.6; color: #4a5478; }
@@ -1680,9 +2448,9 @@ html { background-color: #ffffff; }
 <section class="subpage-hero subpage-hero--photo">
   <img
     class="subpage-hero-photo"
-    src="what-we-do-hero.png?v=2"
+    src="about-hero.jpg"
     width="1024"
-    height="535"
+    height="522"
     alt=""
     aria-hidden="true"
     loading="eager"
@@ -1698,6 +2466,133 @@ html { background-color: #ffffff; }
     </div>
     <div class="hero-cta-row reveal">
       <a href="https://calendly.com/bachtem-automationone/30min" class="cta cta-pill-arrow-blue" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="band band--tint" id="what-we-offer">
+  <div class="container">
+    <div class="band-head reveal">
+      <span class="section-eyebrow">Why trust us</span>
+      <h2>Four ways we <em>earn our keep.</em></h2>
+      <p>Proof you can feel day to day: loyal clients, practical digital tools, careful inspections, and print programs built to lower real operating costs.</p>
+    </div>
+
+    <div class="cards-grid cards-grid--4">
+      <div class="card reveal">
+        <div class="card-photo card-photo--scene" aria-hidden="true">
+          <img src="wwdfy-trust-loyalty.png" width="1536" height="1024" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="trust-card-copy">
+          <h3>Business loyalty</h3>
+          <p>Our clients stay because the experience makes their life easier. Smart management tools, transparent reporting, and a service desk that knows your name.</p>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-photo card-photo--scene" aria-hidden="true">
+          <img src="wwdfy-trust-digital.png" width="1536" height="1024" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="trust-card-copy">
+          <h3>Digital tools</h3>
+          <p>Wherever you are in your digital transformation, we have the tools to give transparent access to your data &mdash; so you can take measures that meaningfully cut expenses.</p>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-photo card-photo--scene" aria-hidden="true">
+          <img src="wwdfy-trust-inspection.png" width="871" height="1024" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="trust-card-copy">
+          <h3>Inspection</h3>
+          <p>A single thorough inspection is enough to make a reliable diagnosis. We commit to original-equipment-manufacturer (OEM) parts only, for long-term reliability.</p>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-photo card-photo--scene" aria-hidden="true">
+          <img src="wwdfy-trust-printing.png" width="768" height="1024" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="trust-card-copy">
+          <h3>Reducing costs</h3>
+          <p>Printing responsibly changes everything for your bottom line. We help you make a real difference through better print management, transparent reporting, and smarter device placement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="band" id="process-banner">
+  <div class="container">
+    <div class="process-banner-shell reveal">
+      <div class="process-banner-photo" aria-hidden="true">
+        <img
+          src="wwdfy-process-banner.jpg"
+          width="1024"
+          height="637"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="process-banner-sheen" aria-hidden="true"></div>
+      <div class="process-banner-head">
+        <div>
+          <span class="section-eyebrow">Our Process</span>
+          <h2><span class="process-banner-h2-line">Support for</span> <span class="process-banner-h2-accent">every step.</span></h2>
+        </div>
+        <div class="process-banner-copy">
+          <span class="process-banner-kicker">How we serve you</span>
+          <p>The support you deserve every step of the way. We learn how your office really works, recommend the right fit, and stay with you after the install so the solution keeps paying off.</p>
+        </div>
+      </div>
+
+      <div class="process-step-line" aria-hidden="true"></div>
+      <div class="process-step-grid" aria-label="Our process to support your business">
+        <article class="process-step-card reveal">
+          <h3>Consult / Reconsult</h3>
+          <p>We visit your office, audit your print volume, and listen to what's working and what isn't.</p>
+        </article>
+        <article class="process-step-card reveal">
+          <h3>Recommend</h3>
+          <p>We propose the right mix of equipment from five top brands &mdash; never just one we're locked into.</p>
+        </article>
+        <article class="process-step-card reveal">
+          <h3>Install</h3>
+          <p>Our team delivers, networks, and configures every device &mdash; including driver rollout to your staff.</p>
+        </article>
+        <article class="process-step-card reveal">
+          <h3>Train</h3>
+          <p>Hands-on walkthroughs so your people use the features they're paying for from day one.</p>
+        </article>
+        <article class="process-step-card reveal">
+          <h3>Support</h3>
+          <p>Local technicians on call with a 90-minute average response and a 4-hour guarantee.</p>
+        </article>
+        <div class="process-step-arrows" aria-hidden="true">
+          <span class="process-banner-step-arrow process-banner-step-arrow--1-2">
+            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+          </span>
+          <span class="process-banner-step-arrow process-banner-step-arrow--2-3">
+            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+          </span>
+          <span class="process-banner-step-arrow process-banner-step-arrow--3-4">
+            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+          </span>
+          <span class="process-banner-step-arrow process-banner-step-arrow--4-5">
+            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+          </span>
+        </div>
+      </div>
+
+      <div class="process-banner-cta">
+        <p>Ready to map your five-step rollout?</p>
+        <div class="process-banner-cta-actions">
+          <a href="https://calendly.com/bachtem-automationone/30min" class="cta cta-secondary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+          <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1992,6 +2887,7 @@ html { background-color: #ffffff; }
           <li><a href="automation-one-about.html">About &amp; History</a></li>
           <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
           <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-faq.html">FAQs</a></li>
           <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
           <li><a href="automation-one-contact.html">Contact</a></li>
         </ul>

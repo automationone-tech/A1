@@ -646,6 +646,27 @@
     max-width: 72ch;
   }
   .contact-hero .lead p + p { margin-top: 14px; }
+  .contact-hero .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .contact-hero .cta.cta-pill-no-arrow {
+    padding: 10px 28px;
+    min-height: 60px;
+    max-height: 60px;
+    font-size: 19px;
+    line-height: 1;
+    color: var(--blue-500);
+  }
+  .contact-hero .cta.cta-pill-no-arrow:hover {
+    color: var(--blue-500);
+  }
+  .contact-hero .cta.cta-pill-no-arrow::after {
+    display: none;
+    content: none;
+  }
 
   .band { padding: 72px 0; }
   .band--tint { background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(238,244,255,0.5) 100%); }
@@ -2114,6 +2135,7 @@ body.contact-page .band h2 em.title-note {
 <link rel="stylesheet" href="ao-subpage-mobile-header.css">
 <link rel="stylesheet" href="automation-one-cta.css">
 <link rel="stylesheet" href="ao-subpage-section-head.css">
+<link rel="stylesheet" href="ao-service-support-emails.css">
 </head>
 <body class="contact-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -2158,7 +2180,11 @@ body.contact-page .band h2 em.title-note {
     <h1>Reach out and we will be<br/><em>happy to help</em></h1>
     <div class="lead">
       <p>Thank you for considering Automation One. Whether you require product info, technical assistance, toner, supplies or general advice, our team is ready to help.</p>
-      <p>Please see our locations and contact details below.</p>
+      <p>Please see our locations and contact details below, or if you'd like to check out our frequently asked questions and answers, follow the link.</p>
+    </div>
+    <div class="hero-cta-row">
+      <a href="tel:+16042556622" class="cta cta-primary cta-pill-arrow cta-pill-no-arrow" aria-label="Call 604-255-6622">Call&nbsp;&nbsp;604-255-6622</a>
+      <a href="automation-one-faq.html" class="cta cta-pill-arrow-blue">FAQs</a>
     </div>
   </div>
 </section>
@@ -2323,6 +2349,59 @@ body.contact-page .band h2 em.title-note {
         </div>
         </form>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--tint" id="service-support-emails">
+  <div class="container">
+    <div class="band-head reveal">
+      <span class="section-eyebrow">Service desk</span>
+      <h2>Service &amp; <em>support emails</em></h2>
+    </div>
+    <div class="support-email-grid reveal" aria-label="Service and support email contacts">
+      <a class="support-email-card" href="mailto:dispatch@automationone.ca">
+        <span class="support-email-icon support-email-icon--photo support-email-icon--photo-dispatch" aria-hidden="true">
+          <img
+            src="service-support-dispatch.png"
+            width="592"
+            height="526"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+        <span class="support-email-title">Dispatch</span>
+        <span class="support-email-address">dispatch@automationone.ca</span>
+      </a>
+      <a class="support-email-card" href="mailto:meter@automationone.ca">
+        <span class="support-email-icon support-email-icon--photo support-email-icon--photo-meter" aria-hidden="true">
+          <img
+            src="service-support-meter.png"
+            width="950"
+            height="962"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+        <span class="support-email-title">Meter</span>
+        <span class="support-email-address">meter@automationone.ca</span>
+      </a>
+      <a class="support-email-card" href="mailto:toner@automationone.ca">
+        <span class="support-email-icon support-email-icon--photo" aria-hidden="true">
+          <img
+            src="service-support-toner-inventory.png"
+            width="948"
+            height="916"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+        <span class="support-email-title">Toner / Supplies</span>
+        <span class="support-email-address">toner@automationone.ca</span>
+      </a>
     </div>
   </div>
 </section>
@@ -2515,6 +2594,7 @@ body.contact-page .band h2 em.title-note {
           <li><a href="automation-one-about.html">About &amp; History</a></li>
           <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
           <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-faq.html">FAQs</a></li>
           <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
           <li><a href="automation-one-contact.html">Contact</a></li>
         </ul>
