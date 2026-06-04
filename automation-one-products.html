@@ -9,8 +9,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="manifest" href="site.webmanifest" />
 <meta name="theme-color" content="#1f5cf5" />
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#1547d1" />
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f389e" />
+<meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: dark)" />
 <meta name="color-scheme" content="light dark" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <title>Products &amp; Solutions | Automation One Vancouver</title>
@@ -463,93 +463,6 @@
     .nav-links { display: none; }
   }
   @media (max-width: 560px) {
-    /* Mobile header: logo left, compact CTAs stacked right; no award */
-    body.products-page .site-header .nav {
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8px;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    .site-header .nav-actions {
-      flex-direction: column;
-      align-items: flex-end;
-      flex: 0 0 auto;
-      width: auto;
-      padding-right: 0;
-      gap: 5px;
-      margin-left: auto;
-    }
-    .site-header .nav-actions .quote-award-link {
-      display: none !important;
-    }
-    .site-header .nav-actions .cta.cta-primary.cta-pill-arrow {
-      order: 1;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 7px 34px 7px 11px;
-      letter-spacing: 0;
-      line-height: 1.25;
-      box-shadow: 0 10px 22px -14px rgba(10, 40, 112, 0.48);
-    }
-    .site-header .nav-actions .cta.cta-primary.cta-pill-arrow::after {
-      width: 24px;
-      height: 24px;
-      right: 5px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-position: 50% 50%;
-      background-size: 46% auto;
-      box-shadow: 0 8px 16px -10px rgba(15, 56, 158, 0.88);
-    }
-    .site-header .nav-actions .cta.cta-primary.cta-pill-arrow:hover::after {
-      transform: translateY(-50%);
-      background-position: 50% 50%;
-    }
-    .site-header .nav-actions .btn-ghost {
-      display: inline-flex;
-      order: 2;
-      padding: 7px 13px;
-      font-size: 11px;
-      font-weight: 600;
-      line-height: 1.25;
-      white-space: nowrap;
-    }
-    /* Nav logo: top-aligned with quote CTA; mark 5% smaller; name +1px */
-    .site-header .nav .logo {
-      align-items: flex-start;
-      gap: 10px;
-      min-width: 0;
-      flex: 1 1 auto;
-      width: auto;
-      max-width: 58%;
-    }
-    body.products-page .site-header .logo-mark-wrap {
-      --nav-logo-mark-height: 24.7px;
-      transform: translateX(-8px);
-    }
-    .site-header .nav .logo-text {
-      align-items: flex-end;
-      line-height: 1.08;
-      min-width: 0;
-    }
-    .site-header .nav .logo-text .name {
-      font-size: 13px;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-    .site-header .nav .logo-text .sub {
-      font-size: 9px;
-      letter-spacing: 0.03em;
-      opacity: 1;
-      white-space: nowrap;
-    }
-    body.products-page .site-header .nav .logo-text .name,
-    body.products-page .site-header .nav .logo-text .sub {
-      color: inherit;
-    }
     body.products-page .products-hero-placeholder {
       padding-top: clamp(100px, 24vw, 128px);
     }
@@ -1075,9 +988,63 @@
     transition: background 0.2s, color 0.2s;
   }
   .sticky-bar a:hover { color: var(--white); background: rgba(255, 255, 255, 0.1); }
-  .sticky-bar a.primary { background: var(--blue-500); color: var(--white); }
-  .sticky-bar a.primary:hover { background: var(--blue-600); }
+  .sticky-bar a.is-nav-current,
+  .sticky-bar .sticky-nav-trigger.is-nav-current {
+    background: linear-gradient(135deg, var(--blue-400, #3d7dff), var(--blue-600));
+    color: var(--white);
+    box-shadow: 0 8px 20px -8px rgba(31, 92, 245, 0.6);
+  }
   .sticky-bar svg { width: 16px; height: 16px; flex-shrink: 0; }
+  @media (min-width: 561px) {
+    .sticky-bar-mobile { display: none; }
+    .sticky-bar-links-desktop { display: flex; flex-wrap: nowrap; align-items: center; }
+    .sticky-bar-links-desktop .sticky-nav-group { flex-shrink: 0; }
+    body { padding-bottom: 92px; }
+    .sticky-bar {
+      bottom: 32px;
+      z-index: 100;
+      flex-wrap: nowrap;
+      width: max-content;
+      max-width: calc(100vw - 20px);
+      background: rgba(11, 19, 48, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      box-shadow: 0 18px 50px -12px rgba(11, 19, 48, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    }
+    .sticky-bar-links-desktop > a,
+    .sticky-bar-links-desktop .sticky-nav-trigger {
+      gap: 0;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 10px clamp(10px, 1.75vw, 18px);
+      font-size: clamp(12px, 2.1vw, 14.5px);
+      line-height: 1;
+      font-family: var(--font-body);
+      transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+    .sticky-bar-links-desktop > a.home-link {
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+    .sticky-bar-links-desktop svg { display: none; }
+    .sticky-bar-links-desktop a.home-link svg { display: block; width: 16px; height: 16px; }
+    .sticky-bar-links-desktop a.home-link .sticky-nav-text { display: none; }
+    .sticky-bar-links-desktop > a:hover,
+    .sticky-bar-links-desktop .sticky-nav-trigger:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
   .sticky-bar-links-desktop { display: flex; align-items: center; gap: 6px; }
   .sticky-bar-mobile { display: none; }
   .sticky-seg {
@@ -1207,39 +1174,6 @@
       max-height: min(70vh, 560px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-    }
-
-    body.products-page .site-header .nav {
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8px;
-      padding-left: 28px;
-      padding-right: 28px;
-    }
-    body.products-page .site-header .nav-actions {
-      flex-direction: column;
-      align-items: flex-end;
-      flex: 0 0 auto;
-      margin-left: auto;
-      padding-right: 0;
-      gap: 10px;
-    }
-    body.products-page .site-header .nav .logo {
-      align-items: flex-start;
-      flex: 1 1 auto;
-      min-width: 0;
-      max-width: 58%;
-    }
-    body.products-page .site-header .nav-actions .quote-award-link { display: none; }
-    body.products-page .site-header .nav-actions .btn-ghost {
-      padding: 12px 20px;
-      font-size: 14px;
-    }
-    body.products-page .site-header .nav-actions .cta.cta-primary.cta-pill-arrow {
-      font-size: 14px;
-      min-height: 42px;
     }
 
     .products-hero-placeholder { padding: 72px 0 56px; }
@@ -3398,7 +3332,23 @@
       overflow-y: auto;
     }
     .catalog-filters.is-open { transform: translateY(0); }
-    .filter-toggle-mobile { display: block; }
+    .products-catalog > .container {
+      display: flex;
+      flex-direction: column;
+    }
+    .catalog-banner {
+      order: 1;
+      margin-bottom: 16px;
+    }
+    .filter-toggle-mobile {
+      display: block;
+      order: 2;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    .catalog-layout {
+      order: 3;
+    }
     .filters-backdrop {
       display: none;
       position: fixed;
@@ -3539,28 +3489,6 @@
   body.products-page .site-header a.logo .logo-text .sub {
     color: var(--nav-logo-ink) !important;
     opacity: 1 !important;
-  }
-
-  /* Subpage header layout: logo left, CTAs stacked right (not homepage) */
-  @media (max-width: 1024px) {
-    body.products-page .site-header .nav {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-    body.products-page .site-header .nav-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      flex: 0 0 auto;
-      margin-left: auto;
-      padding-right: 0;
-    }
-    body.products-page .site-header .nav-actions .quote-award-link {
-      display: none !important;
-    }
   }
 
 /* ---------- PAGE TRANSITION (photocopier scan) ---------- */
@@ -3793,11 +3721,12 @@ html { background-color: #ffffff; }
 
 </style>
 <link rel="stylesheet" href="ao-logo-lockup.css">
-<link rel="stylesheet" href="ao-subpage-mobile-header.css">
+<link rel="stylesheet" href="ao-subpage-mobile-header.css?v=safari-blue1">
+<link rel="stylesheet" href="ao-footer.css">
 <link rel="stylesheet" href="automation-one-cta.css">
 <link rel="stylesheet" href="ao-subpage-section-head.css">
 </head>
-<body class="products-page">
+<body class="subpage products-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
   <div class="pt-grid" id="pt-grid"></div>
   <img loading="lazy" class="pt-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" decoding="async" fetchpriority="low" />
@@ -5596,7 +5525,8 @@ html { background-color: #ffffff; }
             <span class="sub">Business&nbsp;Systems</span>
           </span>
         </a>
-        <p>Vancouver's locally owned printing and office equipment leader since 1981. Independent, multi-brand, and always on call.</p>
+        <p>Vancouver's locally owned printing and office equipment leader since 1981. Independent, multi-brand, and always at your service.</p>
+        <p>Call us today at <a href="tel:+16042556622" class="foot-phone">604-255-6622</a>.</p>
         <div class="foot-addr">
           <strong>Vancouver Head Office</strong>
           1365 Boundary Rd., Vancouver, BC V5K 4T9
@@ -5611,12 +5541,15 @@ html { background-color: #ffffff; }
       <div class="foot-col">
         <h6>Products</h6>
         <ul>
-          <li><a href="automation-one-products.html#catalog">Office Printers</a></li>
-          <li><a href="automation-one-products.html#catalog">Multifunction</a></li>
-          <li><a href="automation-one-products.html#catalog">Production</a></li>
-          <li><a href="automation-one-products.html#catalog">Large Format</a></li>
-          <li><a href="automation-one-products.html#catalog">Postage Meters</a></li>
-          <li><a href="automation-one-products.html#catalog">Shredders</a></li>
+          <li><a href="#catalog" data-filter-category="all">Full Catalogue</a></li>
+          <li><a href="#catalog" data-filter-category="office-printers">Office Printers</a></li>
+          <li><a href="#catalog" data-filter-category="multifunction">Multifunction</a></li>
+          <li><a href="#catalog" data-filter-category="production">Production</a></li>
+          <li><a href="#catalog" data-filter-category="large-format">Wide-Format</a></li>
+          <li><a href="#catalog" data-filter-category="mailing">Mailing Solutions</a></li>
+          <li><a href="#catalog" data-filter-category="document-management">Document Management</a></li>
+          <li><a href="automation-one-digital-solutions.html">Digital Solutions</a></li>
+          <li><a href="#catalog" data-filter-category="more">More</a></li>
         </ul>
       </div>
 
@@ -5634,23 +5567,25 @@ html { background-color: #ffffff; }
       <div class="foot-col">
         <h6>Service</h6>
         <ul>
-          <li><a href="automation-one-service-support.html">Service Request</a></li>
-          <li><a href="automation-one-toner.html">Order Toner</a></li>
-          <li><a href="automation-one-service-support.html#managed-print">Managed Print</a></li>
-          <li><a href="automation-one-resources.html">Forms &amp; Links</a></li>
-          <li><a href="automation-one-resources.html#manufacturer-support">Manufacturer Support</a></li>
+          <li><a href="automation-one-service-support.html#request-service">Request Service</a></li>
+          <li><a href="automation-one-toner.html">Order Toner &amp; Supplies</a></li>
+          <li><a href="automation-one-network-installation-survey.html">Network Survey</a></li>
+          <li><a href="automation-one-billable-confirmation.html">Billable Request</a></li>
+          <li><a href="automation-one-service-support.html#service-support-emails">Meter Readings</a></li>
+          <li><a href="automation-one-resources.html#manufacturer-support">Drivers &amp; Downloads</a></li>
+          <li><a href="#">Remote Support</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Company</h6>
         <ul>
-          <li><a href="automation-one-about.html">About &amp; History</a></li>
           <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
+          <li><a href="automation-one-about.html">About Us &amp; Our History</a></li>
           <li><a href="automation-one-testimonials.html">Testimonials</a></li>
           <li><a href="automation-one-faq.html">FAQs</a></li>
           <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
-          <li><a href="automation-one-contact.html">Contact</a></li>
+          <li><a href="automation-one-contact.html">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -5658,16 +5593,16 @@ html { background-color: #ffffff; }
     <div class="foot-bottom">
       <div class="copy">© 2026 Automation One Business Systems Inc. · All rights reserved · Privacy · Terms</div>
       <div class="socials">
-        <a href="#" aria-label="LinkedIn">
+        <a href="https://ca.linkedin.com/company/automation-one-business-systems" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zM20 19h-3v-5.6c0-1.34-.03-3.06-1.87-3.06s-2.16 1.46-2.16 2.97v5.69h-3v-10h2.88v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.6z"/></svg>
         </a>
-        <a href="#" aria-label="YouTube">
+        <a href="https://www.youtube.com/user/AutomationOneLTD" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6C1.6 4.4.8 5.2.5 6.2 0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
         </a>
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/automationone/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.34 2.69.93 3.36.62 4.14.32 4.9.12 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.13C21.32 1.34 20.65.93 19.86.62 19.1.32 18.22.12 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
         </a>
-        <a href="#" aria-label="X / Twitter">
+        <a href="https://x.com/automation_one" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
       </div>
@@ -5683,12 +5618,13 @@ html { background-color: #ffffff; }
     </button>
   </div>
   <div class="sticky-bar-links-desktop">
-    <a href="index.html" class="primary home-link" aria-label="Home">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
+    <a href="index.html" class="home-link" data-nav="home" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
+      <span class="sticky-nav-text">Home</span>
     </a>
-    <div class="sticky-nav-group">
-      <button type="button" class="sticky-nav-trigger" aria-expanded="false" aria-haspopup="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    <div class="sticky-nav-group" data-nav="offer">
+      <button type="button" class="sticky-nav-trigger is-nav-current" aria-expanded="false" aria-haspopup="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
         What We Offer
       </button>
       <div class="sticky-nav-dropdown" hidden>
@@ -5698,9 +5634,9 @@ html { background-color: #ffffff; }
         <a href="automation-one-resources.html">Resources</a>
       </div>
     </div>
-    <div class="sticky-nav-group">
+    <div class="sticky-nav-group" data-nav="who">
       <button type="button" class="sticky-nav-trigger" aria-expanded="false" aria-haspopup="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
         Who We Are
       </button>
       <div class="sticky-nav-dropdown" hidden>
@@ -5709,8 +5645,8 @@ html { background-color: #ffffff; }
         <a href="automation-one-testimonials.html">Testimonials</a>
       </div>
     </div>
-    <a href="automation-one-contact.html" >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <a href="automation-one-contact.html" data-nav="contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Get in Touch
     </a>
   </div>
@@ -5722,7 +5658,7 @@ html { background-color: #ffffff; }
   </a>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">What We Offer</span>
-    <a href="automation-one-products.html" class="mobile-nav-sub">Products &amp; Solutions</a>
+    <a href="automation-one-products.html" class="mobile-nav-sub" aria-current="page">Products &amp; Solutions</a>
     <a href="automation-one-service-support.html" class="mobile-nav-sub">Service &amp; Support</a>
     <a href="automation-one-toner.html" class="mobile-nav-sub">Toner &amp; Supplies</a>
     <a href="automation-one-resources.html" class="mobile-nav-sub">Resources</a>
@@ -6337,6 +6273,11 @@ html { background-color: #ffffff; }
         var filterBy = link.getAttribute('data-filter-by');
         if (!cat) return;
         e.preventDefault();
+        if (cat === 'all') {
+          clearAllFilters();
+          document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
         if (filterBy === 'color') {
           state.mediaFilters = null;
           state.typeFilters = null;
@@ -6373,7 +6314,7 @@ html { background-color: #ffffff; }
             state.segmentFilters = ['cutters'];
           } else if (cat === 'shredders') {
             state.segmentFilters = ['shredders'];
-          } else if (cat === 'scanners') {
+          } else if (cat === 'scanners' || cat === 'document-management') {
             state.segmentFilters = ['scanners'];
           } else if (cat === 'more') {
             state.segmentFilters = ['more'];
@@ -6386,6 +6327,13 @@ html { background-color: #ffffff; }
         document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    (function applyCategoryFromQuery() {
+      var cat = new URLSearchParams(window.location.search).get('category');
+      if (!cat) return;
+      var link = document.querySelector('[data-filter-category="' + cat + '"]');
+      if (link) link.click();
+    })();
 
     document.querySelectorAll('.btn-quote[data-product]').forEach(function (btn) {
       btn.addEventListener('click', function () {

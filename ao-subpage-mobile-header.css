@@ -1,5 +1,6 @@
 /* Subpage mobile/tablet header — matches homepage logo proportions + stacked layout */
 
+
 body:not(.home-page) .page-transition,
 body:not(.home-page) .pt-scan-bar {
   display: none !important;

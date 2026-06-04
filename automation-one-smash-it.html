@@ -9,6 +9,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="manifest" href="site.webmanifest" />
 <meta name="theme-color" content="#1f5cf5" />
+<meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: dark)" />
 <title>Printer Bash | Automation One</title>
 <meta name="description" content="Play Automation One Printer Bash: launch the dead printer out the second-storey window, then finish it in the parking lot with a baseball bat." />
 <!-- ao-seo-start -->
@@ -214,6 +216,40 @@ body.canon-page .site-header { padding-top: calc(env(safe-area-inset-top, 0px) +
 .cta-primary { color: #fff; background: linear-gradient(135deg, var(--blue-500), var(--blue-700)); box-shadow: 0 18px 36px -22px rgba(15, 56, 158, 0.8); }
 .cta-secondary { color: var(--blue-800); background: rgba(255, 255, 255, 0.78); box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.9); }
 .cta-danger { color: #fff; background: linear-gradient(135deg, #ff7a45, #df2525); box-shadow: 0 18px 32px -20px rgba(223, 37, 37, 0.8); border-color: transparent; }
+.smash-return {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 52px);
+  left: clamp(14px, 2.2vw, 26px);
+  z-index: 9;
+  min-height: 42px;
+  padding: 0 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-800);
+  background:
+    radial-gradient(118% 90% at 44% 12%, rgba(255, 255, 255, 0.98), rgba(238, 244, 255, 0.62) 45%, transparent 62%),
+    rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(15, 56, 158, 0.14);
+  box-shadow:
+    inset 0 1px 6px rgba(255, 255, 255, 0.9),
+    0 16px 34px -24px rgba(10, 40, 112, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+.smash-return:hover {
+  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    inset 0 1px 7px rgba(255, 255, 255, 0.95),
+    0 18px 38px -24px rgba(10, 40, 112, 0.72);
+}
 .hero { display: none; }
 .hero-grid { display: grid; gap: 18px; align-items: end; grid-template-columns: minmax(0, 1.2fr) auto; padding: 0; }
 .kicker {
@@ -277,7 +313,7 @@ h1 span {
 .game-shell.fs-mode + * { /* hide page chrome under fullscreen */ }
 .fs-toggle {
   position: absolute;
-  top: 18px;
+  top: 52px;
   right: 18px;
   z-index: 8;
   display: inline-flex;
@@ -1235,8 +1271,15 @@ footer .container {
   -webkit-mask-position: center;
   mask-position: center;
 }
+.foot-brand a.logo .logo-text,
+.foot-brand a.logo .logo-text .name,
+.foot-brand a.logo .logo-text .sub {
+  color: inherit;
+  opacity: 1;
+  -webkit-text-fill-color: currentColor;
+}
 .foot-brand .logo-text .name { font-size: 24px; line-height: 1.02; }
-.foot-brand .logo-text .sub { font-size: 13px; letter-spacing: 0.09em; }
+.foot-brand .logo-text .sub { letter-spacing: 0.01em; }
 .foot-brand p {
   font-size: 14px;
   line-height: 1.6;
@@ -1577,10 +1620,15 @@ footer .container {
   .smash-intro { display: none; }
 }
 </style>
-<link rel="stylesheet" href="ao-subpage-mobile-header.css">
+<link rel="stylesheet" href="ao-subpage-mobile-header.css?v=safari-blue1">
 <link rel="stylesheet" href="automation-one-cta.css">
 </head>
 <body class="canon-page">
+<script>
+  if (location.pathname.endsWith('/automation-one-smash-it.html')) {
+    history.replaceState(null, '', '/printer-bash');
+  }
+</script>
 <div class="smash-intro" id="smash-intro" aria-label="Printer Bash intro screen">
   <div class="smash-intro-inner">
     <a class="smash-intro-logo" href="index.html" aria-label="Automation One home">
@@ -1605,27 +1653,7 @@ footer .container {
   <div class="smash-intro-loading" aria-hidden="true"><span></span></div>
   <div class="smash-intro-loading-label" aria-hidden="true">Loading...</div>
 </div>
-<header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="logo">
-      <span class="logo-mark-wrap" aria-hidden="true">
-        <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
-      </span>
-      <span class="logo-text">
-        <span class="name">Automation&nbsp;One</span>
-        <span class="sub">Business&nbsp;Systems</span>
-      </span>
-    </a>
-    <ul class="nav-links" hidden></ul>
-    <div class="nav-actions">
-      <a href="#" class="btn btn-ghost">Remote Support</a>
-      <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
-      <a href="https://www.ccaward.com/award-winners/vancouver/best-office-equipment/automation-one-business-systems-inc/" class="quote-award-link" target="_blank" rel="noopener noreferrer" aria-label="Automation One on Consumer Choice Award – Vancouver Best Office Equipment">
-        <img class="quote-award-logo" src="service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
-      </a>
-    </div>
-  </nav>
-</header>
+<a class="smash-return" href="index.html" onclick="if (window.history.length > 1) { window.history.back(); return false; }">Return</a>
 
 <main>
   <section class="hero">
@@ -1682,221 +1710,6 @@ footer .container {
 
   <div class="notes">Fictional printer violence. Real printer relief.</div>
 </main>
-
-<section class="cta-section" id="resources">
-  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-  <div class="container">
-    <h2>Ready to take <em>your business to the next level?</em></h2>
-    <p>Tell us a bit about your office and we'll send back a no-pressure recommendation, usually within one business day.</p>
-
-    <div class="cta-row">
-      <a href="https://calendly.com/bachtem-automationone/30min" class="cta cta-secondary" target="_blank" rel="noopener noreferrer">
-        Book a Consultation
-      </a>
-      <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
-    </div>
-
-    <div class="cta-contact-bar" aria-label="Contact us">
-      <a
-        href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743"
-        class="cta-contact-icon"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Vancouver office in Google Maps"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      </a>
-      <span class="cta-contact-divider" aria-hidden="true"></span>
-      <a href="tel:+16042556622" class="cta-contact-phone">604-255-6622</a>
-      <span class="cta-contact-divider" aria-hidden="true"></span>
-      <a href="mailto:info@automationone.ca" class="cta-contact-icon" aria-label="Email info@automationone.ca">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </a>
-    </div>
-    </div>
-  </section>
-
-<script>
-  (function initFinalCtaLetterPan() {
-    var section = document.querySelector('.cta-section');
-    if (!section) return;
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
-    var hasStarted = false, lockedFinal = false, rafId = 0, finalLetterRafId = 0;
-    var DURATION_MS = 3500, WATERMARK_DURATION_MS = 2250;
-    function clamp01(v) { return Math.max(0, Math.min(1, v)); }
-    function smoothstep(t) { t = clamp01(t); return t * t * (3 - 2 * t); }
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function setLetterEasedProgress(t) {
-      t = clamp01(t);
-      section.style.setProperty('--cta-letter-bg-size', lerp(159, 100, t).toFixed(2) + '%');
-      section.style.setProperty('--cta-letter-bg-y', lerp(44, 40, t).toFixed(2) + '%');
-      section.style.setProperty('--cta-letter-x', lerp(-0.75, 0, t).toFixed(2) + '%');
-      section.style.setProperty('--cta-letter-rotate', lerp(-13, 0, t).toFixed(3) + 'deg');
-      section.style.setProperty('--cta-letter-scale', lerp(1.16, 1, t).toFixed(4));
-    }
-    function setProgress(t) { setLetterEasedProgress(smoothstep(t)); }
-    function setWatermarkProgress(t) {
-      t = smoothstep(t);
-      section.style.setProperty('--cta-watermark-left', lerp(60.67, 66, t).toFixed(2) + '%');
-      section.style.setProperty('--cta-watermark-scale', lerp(1.15, 1, t).toFixed(4));
-    }
-    function setFinalState() {
-      section.style.setProperty('--cta-letter-bg-size', '100%');
-      section.style.setProperty('--cta-letter-bg-y', '40%');
-      section.style.setProperty('--cta-letter-x', '0%');
-      section.style.setProperty('--cta-letter-rotate', '0deg');
-      section.style.setProperty('--cta-letter-scale', '1');
-    }
-    function setWatermarkFinalState() {
-      section.style.setProperty('--cta-watermark-left', '66%');
-      section.style.setProperty('--cta-watermark-scale', '1');
-    }
-    function lockFinalState() {
-      if (lockedFinal) return;
-      lockedFinal = true;
-      if (rafId) cancelAnimationFrame(rafId);
-      setFinalState();
-      setWatermarkFinalState();
-      window.removeEventListener('scroll', requestStart);
-      window.removeEventListener('resize', requestStart);
-      window.addEventListener('scroll', requestFinalLetterUpdate, { passive: true });
-      window.addEventListener('resize', requestFinalLetterUpdate, { passive: true });
-    }
-    function isInViewport() {
-      var r = section.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight || 1;
-      return r.top < vh && r.bottom > 0;
-    }
-    function startAnimation() {
-      if (hasStarted || lockedFinal) return;
-      hasStarted = true;
-      window.removeEventListener('scroll', requestStart);
-      window.removeEventListener('resize', requestStart);
-      var startTs = performance.now();
-      function step(now) {
-        var t = clamp01((now - startTs) / DURATION_MS);
-        var watermarkT = clamp01((now - startTs) / WATERMARK_DURATION_MS);
-        setProgress(t);
-        setWatermarkProgress(watermarkT);
-        if (t < 1) rafId = requestAnimationFrame(step);
-        else lockFinalState();
-      }
-      setProgress(0);
-      setWatermarkProgress(0);
-      rafId = requestAnimationFrame(step);
-    }
-    function requestStart() { if (isInViewport()) startAnimation(); }
-    function finalLetterProgressFromScroll() {
-      var r = section.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight || 1;
-      return smoothstep((vh * 0.62 - r.top) / (vh * 0.62));
-    }
-    function updateFinalLetterFromScroll() {
-      finalLetterRafId = 0;
-      setLetterEasedProgress(0.95 + finalLetterProgressFromScroll() * 0.05);
-    }
-    function requestFinalLetterUpdate() {
-      if (!lockedFinal || finalLetterRafId) return;
-      finalLetterRafId = requestAnimationFrame(updateFinalLetterFromScroll);
-    }
-    setProgress(0);
-    setWatermarkProgress(0);
-    requestStart();
-    window.addEventListener('scroll', requestStart, { passive: true });
-    window.addEventListener('resize', requestStart, { passive: true });
-  })();
-</script>
-
-<footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a href="index.html" class="logo">
-          <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
-          <span class="logo-text">
-            <span class="name">Automation&nbsp;One</span>
-            <span class="sub">Business&nbsp;Systems</span>
-          </span>
-        </a>
-        <p>Vancouver's locally owned printing and office equipment leader since 1981. Independent, multi-brand, and always on call.</p>
-        <div class="foot-addr">
-          <strong>Vancouver Head Office</strong>
-          1365 Boundary Rd., Vancouver, BC V5K 4T9
-  </div>
-        <br>
-        <div class="foot-addr">
-          <strong>Burnaby Office (by appt.)</strong>
-          1440 Ingleton Ave., Burnaby, BC V5C 4L7
-        </div>
-      </div>
-
-      <div class="foot-col">
-        <h6>Products</h6>
-        <ul>
-          <li><a href="automation-one-products.html#catalog">Office Printers</a></li>
-          <li><a href="automation-one-products.html#catalog">Multifunction</a></li>
-          <li><a href="automation-one-products.html#catalog">Production</a></li>
-          <li><a href="automation-one-products.html#catalog">Large Format</a></li>
-          <li><a href="automation-one-products.html#catalog">Mailing Solutions</a></li>
-          <li><a href="automation-one-products.html#catalog">Shredders</a></li>
-        </ul>
-      </div>
-
-      <div class="foot-col">
-        <h6>Brands</h6>
-        <ul>
-          <li><a href="automation-one-canon.html">Canon</a></li>
-          <li><a href="automation-one-xerox.html">Xerox</a></li>
-          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
-          <li><a href="automation-one-fp.html">Francotyp Postalia</a></li>
-          <li><a href="automation-one-ideal-mbm.html">Ideal MBM</a></li>
-        </ul>
-      </div>
-
-      <div class="foot-col">
-        <h6>Service</h6>
-        <ul>
-          <li><a href="automation-one-service-support.html">Service Request</a></li>
-          <li><a href="automation-one-toner.html">Order Toner</a></li>
-          <li><a href="automation-one-service-support.html#managed-print">Managed Print</a></li>
-          <li><a href="automation-one-resources.html">Forms &amp; Links</a></li>
-          <li><a href="automation-one-resources.html#manufacturer-support">Manufacturer Support</a></li>
-        </ul>
-      </div>
-
-      <div class="foot-col">
-        <h6>Company</h6>
-        <ul>
-          <li><a href="automation-one-about.html">About &amp; History</a></li>
-          <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
-          <li><a href="automation-one-testimonials.html">Testimonials</a></li>
-          <li><a href="automation-one-faq.html">FAQs</a></li>
-          <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
-          <li><a href="automation-one-contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="foot-bottom">
-      <div class="copy">© 2026 Automation One Business Systems Inc. · All rights reserved · Privacy · Terms</div>
-      <div class="socials">
-        <a href="#" aria-label="LinkedIn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zM20 19h-3v-5.6c0-1.34-.03-3.06-1.87-3.06s-2.16 1.46-2.16 2.97v5.69h-3v-10h2.88v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.6z"/></svg>
-        </a>
-        <a href="#" aria-label="YouTube">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6C1.6 4.4.8 5.2.5 6.2 0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.34 2.69.93 3.36.62 4.14.32 4.9.12 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.13C21.32 1.34 20.65.93 19.86.62 19.1.32 18.22.12 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-        </a>
-        <a href="#" aria-label="X / Twitter">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <div class="quote-drawer-overlay" id="quote-drawer-overlay" aria-hidden="true"></div>
 <aside class="quote-drawer" id="quote-drawer" aria-hidden="true" aria-labelledby="quote-drawer-title" role="dialog">
