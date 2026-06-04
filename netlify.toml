@@ -403,6 +403,23 @@
   to = "/automation-one-lexmark-c4342.html"
   status = 200
 
+# Product detail pages are served from nested pretty URLs such as
+# /canon/imageforce-1440p. Keep relative image/CSS/PDF paths working there.
+[[redirects]]
+  from = "/canon/*"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/*"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/*"
+  to = "/:splat"
+  status = 200
+
 # --- Main section pretty URLs (200) ---
 
 [[redirects]]
