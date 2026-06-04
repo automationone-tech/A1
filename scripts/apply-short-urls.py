@@ -108,6 +108,7 @@ def write_netlify_toml(path_map: dict[str, str]) -> None:
             f'  from = "/{filename}"',
             f'  to = "{public_path}"',
             "  status = 301",
+            "  force = true",
         ]
 
     lines.append("")
@@ -129,11 +130,13 @@ def write_netlify_toml(path_map: dict[str, str]) -> None:
         '  from = "/automation-one-homepage-6.html"',
         '  to = "/"',
         "  status = 301",
+        "  force = true",
         "",
         "[[redirects]]",
         '  from = "/index.html"',
         '  to = "/"',
         "  status = 301",
+        "  force = true",
     ]
 
     lines.append(HEADERS_BLOCK.strip())
