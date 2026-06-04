@@ -487,6 +487,33 @@
   height: auto;
   display: block;
   filter: saturate(1.04) contrast(1.02);
+  pointer-events: none;
+  user-select: none;
+}
+.brand-strip-links {
+  position: absolute;
+  top: clamp(14px, 2vw, 20px);
+  right: clamp(18px, 3vw, 28px);
+  bottom: clamp(14px, 2vw, 20px);
+  left: clamp(18px, 3vw, 28px);
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+.brand-strip-link {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  display: block;
+  border-radius: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+.brand-strip-link:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
 }
 .brand-strip-frame::after {
   content: "";

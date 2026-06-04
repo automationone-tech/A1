@@ -29,6 +29,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="fonts-jeton.css">
+<link rel="preload" as="image" href="about-history-banner.jpg" fetchpriority="high" />
+<link rel="preload" as="image" href="about-timeline-ao-logo.png?v=3" fetchpriority="high" />
 <style>
 
 :root {
@@ -2267,6 +2269,53 @@ body.quote-drawer-open { overflow: hidden; }
   opacity: 1;
   transform: translateY(0);
 }
+/* Timeline: show structure immediately; only the band-head animates in */
+body.about-page #timeline .timeline {
+  opacity: 1;
+  transform: none;
+}
+body.about-page #timeline .band-head.reveal {
+  transition-duration: 0.45s;
+}
+@media (max-width: 760px) {
+  body.about-page #timeline .band-head.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+  body.about-page #timeline .timeline > li {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 260px;
+  }
+  .timeline-founding-logo,
+  .timeline-rebrand-logo,
+  .timeline-mfp-photo,
+  .timeline-hq-photo,
+  .timeline-burnaby-photo,
+  .timeline-canon-logo,
+  .timeline-lexmark-logo,
+  .timeline-fp-logo,
+  .timeline-xerox-logo,
+  .timeline-ideal-logo,
+  .timeline-award-photo {
+    transform: none;
+    transition: none;
+  }
+  .timeline > li:hover .timeline-founding-logo,
+  .timeline > li:hover .timeline-rebrand-logo,
+  .timeline > li:hover .timeline-mfp-photo,
+  .timeline > li:hover .timeline-hq-photo,
+  .timeline > li:hover .timeline-burnaby-photo,
+  .timeline > li:hover .timeline-canon-logo,
+  .timeline > li:hover .timeline-lexmark-logo,
+  .timeline > li:hover .timeline-fp-logo,
+  .timeline > li:hover .timeline-xerox-logo,
+  .timeline > li:hover .timeline-ideal-logo,
+  .timeline > li:hover .timeline-award-photo {
+    transform: none;
+  }
+}
 
 
 
@@ -2633,7 +2682,7 @@ body.about-page .brands-scene-photo-still {
 
 <header class="site-header">
   <nav class="nav">
-    <a href="/" class="logo">
+    <a href="index.html" class="logo">
       <span class="logo-mark-wrap" aria-hidden="true">
         <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
       </span>
@@ -2724,11 +2773,11 @@ body.about-page .brands-scene-photo-still {
     <div class="band-head reveal">
       <div class="history-band-photo history-band-photo--left" aria-hidden="true">
         <img
-          src="about-history-left.png"
-          width="1024"
-          height="755"
+          src="about-history-left.jpg?v=1"
+          width="720"
+          height="531"
           alt=""
-          loading="lazy"
+          loading="eager"
           decoding="async"
         />
       </div>
@@ -2738,8 +2787,9 @@ body.about-page .brands-scene-photo-still {
           width="1024"
           height="510"
           alt=""
-          loading="lazy"
+          loading="eager"
           decoding="async"
+          fetchpriority="high"
         />
       </div>
       <div class="history-head-copy">
@@ -2756,7 +2806,7 @@ body.about-page .brands-scene-photo-still {
       </div>
     </div>
 
-    <ol class="timeline reveal">
+    <ol class="timeline">
       <li class="timeline-item--founding">
         <div class="timeline-item-main">
           <span class="year">March 20, 1981</span>
@@ -2765,12 +2815,13 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-founding-logo" aria-hidden="true">
           <img
-            src="about-timeline-ao-logo.png?v=2"
+            src="about-timeline-ao-logo.png?v=3"
             width="1024"
             height="137"
             alt=""
-            loading="lazy"
+            loading="eager"
             decoding="async"
+            fetchpriority="high"
           />
         </figure>
       </li>
@@ -2782,11 +2833,11 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-mfp-photo" aria-hidden="true">
           <img
-            src="about-timeline-mfp-1991.png?v=1"
-            width="1024"
-            height="694"
+            src="about-timeline-mfp-1991.jpg?v=1"
+            width="640"
+            height="434"
             alt=""
-            loading="lazy"
+            loading="eager"
             decoding="async"
           />
         </figure>
@@ -2799,7 +2850,7 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-rebrand-logo" aria-hidden="true">
           <img
-            src="about-timeline-ao-logo-blue.png?v=2"
+            src="about-timeline-ao-logo-blue.png?v=3"
             width="1024"
             height="137"
             alt=""
@@ -2816,7 +2867,7 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-hq-photo" aria-hidden="true">
           <img
-            src="about-timeline-boundary-road.png?v=2"
+            src="about-timeline-boundary-road.jpg?v=1"
             width="470"
             height="309"
             alt=""
@@ -2833,9 +2884,9 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-award-photo" aria-hidden="true">
           <img
-            src="about-timeline-cca-2000.png?v=1"
-            width="940"
-            height="815"
+            src="about-timeline-cca-2000.jpg?v=1"
+            width="320"
+            height="277"
             alt=""
             loading="lazy"
             decoding="async"
@@ -2867,9 +2918,9 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-burnaby-photo" aria-hidden="true">
           <img
-            src="about-timeline-burnaby.png?v=4"
-            width="1024"
-            height="760"
+            src="about-timeline-burnaby.jpg?v=1"
+            width="640"
+            height="475"
             alt=""
             loading="lazy"
             decoding="async"
@@ -2884,9 +2935,9 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-award-photo" aria-hidden="true">
           <img
-            src="about-timeline-cca-2012.png?v=1"
-            width="747"
-            height="1024"
+            src="about-timeline-cca-2012.jpg?v=1"
+            width="320"
+            height="438"
             alt=""
             loading="lazy"
             decoding="async"
@@ -2986,9 +3037,9 @@ body.about-page .brands-scene-photo-still {
         </div>
         <figure class="timeline-award-photo" aria-hidden="true">
           <img
-            src="about-timeline-cca-2022.png?v=1"
-            width="746"
-            height="1024"
+            src="about-timeline-cca-2022.jpg?v=1"
+            width="320"
+            height="439"
             alt=""
             loading="lazy"
             decoding="async"
@@ -3072,18 +3123,19 @@ body.about-page .brands-scene-photo-still {
               <img
                 class="brand-strip-image"
                 src="authorized-dealer-brands.png"
+                width="1024"
+                height="107"
                 alt="Authorized dealer: Canon, Ideal MBM, Lexmark, FP, Xerox"
                 loading="lazy"
                 decoding="async"
-                usemap="#about-authorized-brands-map"
               />
-              <map name="about-authorized-brands-map">
-                <area shape="rect" coords="0,0,200,107" href="/canon" alt="Canon products" aria-label="Canon products" />
-                <area shape="rect" coords="206,0,406,107" href="/ideal-mbm" alt="Ideal.MBM products" aria-label="Ideal.MBM products" />
-                <area shape="rect" coords="412,0,612,107" href="/lexmark" alt="Lexmark products" aria-label="Lexmark products" />
-                <area shape="rect" coords="618,0,818,107" href="/fp" alt="Francotyp Postalia products" aria-label="Francotyp Postalia products" />
-                <area shape="rect" coords="824,0,1024,107" href="/xerox" alt="Xerox products" aria-label="Xerox products" />
-              </map>
+              <nav class="brand-strip-links" aria-label="Authorized dealer brands">
+                <a class="brand-strip-link" href="automation-one-canon.html" aria-label="Canon products"></a>
+                <a class="brand-strip-link" href="automation-one-ideal-mbm.html" aria-label="Ideal MBM products"></a>
+                <a class="brand-strip-link" href="automation-one-lexmark.html" aria-label="Lexmark products"></a>
+                <a class="brand-strip-link" href="automation-one-fp.html" aria-label="Francotyp Postalia products"></a>
+                <a class="brand-strip-link" href="automation-one-xerox.html" aria-label="Xerox products"></a>
+              </nav>
             </div>
           </div>
         </div>
@@ -3223,7 +3275,7 @@ body.about-page .brands-scene-photo-still {
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="/" class="logo">
+        <a href="index.html" class="logo">
           <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
@@ -3245,46 +3297,46 @@ body.about-page .brands-scene-photo-still {
       <div class="foot-col">
         <h6>Products</h6>
         <ul>
-          <li><a href="/products#catalog">Office Printers</a></li>
-          <li><a href="/products#catalog">Multifunction</a></li>
-          <li><a href="/products#catalog">Production</a></li>
-          <li><a href="/products#catalog">Large Format</a></li>
-          <li><a href="/products#catalog">Mailing Solutions</a></li>
-          <li><a href="/products#catalog">Shredders</a></li>
+          <li><a href="automation-one-products.html#catalog">Office Printers</a></li>
+          <li><a href="automation-one-products.html#catalog">Multifunction</a></li>
+          <li><a href="automation-one-products.html#catalog">Production</a></li>
+          <li><a href="automation-one-products.html#catalog">Large Format</a></li>
+          <li><a href="automation-one-products.html#catalog">Mailing Solutions</a></li>
+          <li><a href="automation-one-products.html#catalog">Shredders</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Brands</h6>
         <ul>
-          <li><a href="/canon">Canon</a></li>
-          <li><a href="/xerox">Xerox</a></li>
-          <li><a href="/lexmark">Lexmark</a></li>
-          <li><a href="/fp">Francotyp Postalia</a></li>
-          <li><a href="/ideal-mbm">Ideal MBM</a></li>
+          <li><a href="automation-one-canon.html">Canon</a></li>
+          <li><a href="automation-one-xerox.html">Xerox</a></li>
+          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
+          <li><a href="automation-one-fp.html">Francotyp Postalia</a></li>
+          <li><a href="automation-one-ideal-mbm.html">Ideal MBM</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Service</h6>
         <ul>
-          <li><a href="/service">Service Request</a></li>
-          <li><a href="/toner">Order Toner</a></li>
-          <li><a href="/service#managed-print">Managed Print</a></li>
-          <li><a href="/resources">Forms &amp; Links</a></li>
-          <li><a href="/resources#manufacturer-support">Manufacturer Support</a></li>
+          <li><a href="automation-one-service-support.html">Service Request</a></li>
+          <li><a href="automation-one-toner.html">Order Toner</a></li>
+          <li><a href="automation-one-service-support.html#managed-print">Managed Print</a></li>
+          <li><a href="automation-one-resources.html">Forms &amp; Links</a></li>
+          <li><a href="automation-one-resources.html#manufacturer-support">Manufacturer Support</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Company</h6>
         <ul>
-          <li><a href="/about">About &amp; History</a></li>
-          <li><a href="/what-we-do">What We Do for You</a></li>
-          <li><a href="/testimonials">Testimonials</a></li>
-          <li><a href="/faq">FAQs</a></li>
-          <li><a href="/printer-bash">Printer Bash</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="automation-one-about.html">About &amp; History</a></li>
+          <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
+          <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-faq.html">FAQs</a></li>
+          <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
+          <li><a href="automation-one-contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -3319,7 +3371,7 @@ body.about-page .brands-scene-photo-still {
     </button>
   </div>
   <div class="sticky-bar-links-desktop">
-    <a href="/" class="home-link" data-nav="home" aria-label="Home">
+    <a href="index.html" class="home-link" data-nav="home" aria-label="Home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
       <span class="sticky-nav-text">Home</span>
     </a>
@@ -3329,10 +3381,10 @@ body.about-page .brands-scene-photo-still {
         What We Offer
       </button>
       <div class="sticky-nav-dropdown" hidden>
-        <a href="/products">Products &amp; Solutions</a>
-        <a href="/service">Service &amp; Support</a>
-        <a href="/toner">Toner &amp; Supplies</a>
-        <a href="/resources">Resources</a>
+        <a href="automation-one-products.html">Products &amp; Solutions</a>
+        <a href="automation-one-service-support.html">Service &amp; Support</a>
+        <a href="automation-one-toner.html">Toner &amp; Supplies</a>
+        <a href="automation-one-resources.html">Resources</a>
       </div>
     </div>
     <div class="sticky-nav-group" data-nav="who">
@@ -3341,12 +3393,12 @@ body.about-page .brands-scene-photo-still {
         Who We Are
       </button>
       <div class="sticky-nav-dropdown" hidden>
-        <a href="/what-we-do">What We Do for You</a>
-        <a href="/about">About Us &amp; Our History</a>
-        <a href="/testimonials">Testimonials</a>
+        <a href="automation-one-what-we-do.html">What We Do for You</a>
+        <a href="automation-one-about.html">About Us &amp; Our History</a>
+        <a href="automation-one-testimonials.html">Testimonials</a>
       </div>
     </div>
-    <a href="/contact" class="" data-nav="contact">
+    <a href="automation-one-contact.html" class="" data-nav="contact">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Get in Touch
     </a>
@@ -3354,24 +3406,24 @@ body.about-page .brands-scene-photo-still {
 </nav>
 
 <div class="mobile-nav-sheet" id="mobile-nav-sheet" hidden>
-  <a href="/">
+  <a href="index.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/></svg>
     Home
   </a>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">What We Offer</span>
-    <a href="/products" class="mobile-nav-sub">Products &amp; Solutions</a>
-    <a href="/service" class="mobile-nav-sub">Service &amp; Support</a>
-    <a href="/toner" class="mobile-nav-sub">Toner &amp; Supplies</a>
-    <a href="/resources" class="mobile-nav-sub">Resources</a>
+    <a href="automation-one-products.html" class="mobile-nav-sub">Products &amp; Solutions</a>
+    <a href="automation-one-service-support.html" class="mobile-nav-sub">Service &amp; Support</a>
+    <a href="automation-one-toner.html" class="mobile-nav-sub">Toner &amp; Supplies</a>
+    <a href="automation-one-resources.html" class="mobile-nav-sub">Resources</a>
   </div>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">Who We Are</span>
-    <a href="/what-we-do" class="mobile-nav-sub">What We Do for You</a>
-    <a href="/about" class="mobile-nav-sub">About Us &amp; Our History</a>
-    <a href="/testimonials" class="mobile-nav-sub">Testimonials</a>
+    <a href="automation-one-what-we-do.html" class="mobile-nav-sub">What We Do for You</a>
+    <a href="automation-one-about.html" class="mobile-nav-sub">About Us &amp; Our History</a>
+    <a href="automation-one-testimonials.html" class="mobile-nav-sub">Testimonials</a>
   </div>
-  <a href="/contact">
+  <a href="automation-one-contact.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     Get in Touch
   </a>
@@ -3546,19 +3598,67 @@ body.about-page .brands-scene-photo-still {
   /* Reveal-on-scroll */
   (function initReveals() {
     var els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window) || !els.length) {
-      els.forEach(function (el) { el.classList.add('is-in'); });
+    if (!els.length) return;
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
+    var timeline = document.getElementById('timeline');
+    function revealIn(el) { el.classList.add('is-in'); }
+    function timelineNear() {
+      if (!timeline) return false;
+      var rect = timeline.getBoundingClientRect();
+      return rect.top < window.innerHeight * 2.2 && rect.bottom > -120;
+    }
+    if (mobile && timeline) {
+      timeline.querySelectorAll('.reveal').forEach(revealIn);
+    }
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(revealIn);
       return;
     }
-    var io = new IntersectionObserver(function (entries) {
+    var defaultIo = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          io.unobserve(entry.target);
+          revealIn(entry.target);
+          defaultIo.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(function (el) { io.observe(el); });
+    var timelineIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          revealIn(entry.target);
+          timelineIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '18% 0px 28% 0px' });
+    els.forEach(function (el) {
+      if (timeline && timeline.contains(el)) {
+        if (timelineNear()) revealIn(el);
+        else timelineIo.observe(el);
+      } else {
+        defaultIo.observe(el);
+      }
+    });
+    window.addEventListener('load', function () {
+      if (timelineNear()) timeline.querySelectorAll('.reveal').forEach(revealIn);
+    }, { once: true });
+  })();
+
+  /* Timeline: start decoding lazy images before they enter the viewport */
+  (function initTimelineImagePrime() {
+    var section = document.getElementById('timeline');
+    if (!section || !('IntersectionObserver' in window)) return;
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
+    var lazyImgs = section.querySelectorAll('img[loading="lazy"]');
+    if (!lazyImgs.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var img = entry.target;
+        io.unobserve(img);
+        if (img.decode) img.decode().catch(function () {});
+      });
+    }, { rootMargin: mobile ? '100% 0px 60% 0px' : '70% 0px 45% 0px' });
+    lazyImgs.forEach(function (img) { io.observe(img); });
   })();
 </script>
 

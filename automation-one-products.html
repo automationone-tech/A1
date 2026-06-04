@@ -1599,6 +1599,30 @@
     width: 100%;
     height: auto;
     opacity: 0.9;
+    pointer-events: none;
+    user-select: none;
+  }
+  .products-trust .dealers-banner-links {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .products-trust .dealers-banner-link {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 44px;
+    display: block;
+    border-radius: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .products-trust .dealers-banner-link:focus-visible {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 2px;
   }
   .products-trust .dealers-banner-frame::after {
     content: "";
@@ -3790,7 +3814,7 @@ html { background-color: #ffffff; }
 
 <header class="site-header">
   <nav class="nav">
-    <a href="/" class="logo">
+    <a href="index.html" class="logo">
       <span class="logo-mark-wrap" aria-hidden="true">
         <img loading="lazy" class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
       </span>
@@ -3862,15 +3886,14 @@ html { background-color: #ffffff; }
         height="107"
         alt="Authorized dealer for Canon, Ideal MBM, Lexmark, FP, and Xerox"
         decoding="async"
-        usemap="#products-authorized-brands-map"
       />
-      <map name="products-authorized-brands-map">
-        <area shape="rect" coords="0,0,200,107" href="/canon" alt="Canon products" aria-label="Canon products" />
-        <area shape="rect" coords="206,0,406,107" href="/ideal-mbm" alt="Ideal.MBM products" aria-label="Ideal.MBM products" />
-        <area shape="rect" coords="412,0,612,107" href="/lexmark" alt="Lexmark products" aria-label="Lexmark products" />
-        <area shape="rect" coords="618,0,818,107" href="/fp" alt="Francotyp Postalia products" aria-label="Francotyp Postalia products" />
-        <area shape="rect" coords="824,0,1024,107" href="/xerox" alt="Xerox products" aria-label="Xerox products" />
-      </map>
+      <nav class="dealers-banner-links" aria-label="Authorized dealer brands">
+        <a class="dealers-banner-link" href="automation-one-canon.html" aria-label="Canon products"></a>
+        <a class="dealers-banner-link" href="automation-one-ideal-mbm.html" aria-label="Ideal MBM products"></a>
+        <a class="dealers-banner-link" href="automation-one-lexmark.html" aria-label="Lexmark products"></a>
+        <a class="dealers-banner-link" href="automation-one-fp.html" aria-label="Francotyp Postalia products"></a>
+        <a class="dealers-banner-link" href="automation-one-xerox.html" aria-label="Xerox products"></a>
+      </nav>
     </div>
   </div>
 </section>
@@ -3883,35 +3906,35 @@ html { background-color: #ffffff; }
       <p>Independent. Multi-brand. Locally owned. We don't sell you the device the rep had on quota — we match the right fit, then stand behind it.</p>
     </div>
     <div class="proof-grid proof-grid--brands">
-      <a class="proof-card proof-card--brand" href="/canon" aria-label="Canon products">
+      <a class="proof-card proof-card--brand" href="automation-one-canon.html" aria-label="Canon products">
         <span class="proof-brand-photo">
           <img loading="lazy" src="canon-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img loading="lazy" class="proof-brand-logo proof-brand-logo--canon" src="brand-logo-canon.png" alt="Canon" loading="lazy" decoding="async" />
         <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
-      <a class="proof-card proof-card--brand" href="/xerox" aria-label="Xerox products">
+      <a class="proof-card proof-card--brand" href="automation-one-xerox.html" aria-label="Xerox products">
         <span class="proof-brand-photo">
           <img loading="lazy" src="xerox-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img loading="lazy" class="proof-brand-logo proof-brand-logo--xerox" src="brand-logo-xerox.png" alt="Xerox" loading="lazy" decoding="async" />
         <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
-      <a class="proof-card proof-card--brand" href="/lexmark" aria-label="Lexmark products">
+      <a class="proof-card proof-card--brand" href="automation-one-lexmark.html" aria-label="Lexmark products">
         <span class="proof-brand-photo">
           <img loading="lazy" src="lexmark-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img loading="lazy" class="proof-brand-logo proof-brand-logo--lexmark" src="brand-logo-lexmark.png" alt="Lexmark" loading="lazy" decoding="async" />
         <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
-      <a class="proof-card proof-card--brand" href="/fp" aria-label="Francotyp Postalia products">
+      <a class="proof-card proof-card--brand" href="automation-one-fp.html" aria-label="Francotyp Postalia products">
         <span class="proof-brand-photo">
           <img loading="lazy" src="fp-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
         <img loading="lazy" class="proof-brand-logo proof-brand-logo--fp" src="brand-logo-fp.png" alt="Francotyp Postalia" loading="lazy" decoding="async" />
         <span class="proof-brand-cta"><span class="proof-brand-cta-label proof-brand-cta-label--long">Discover More</span><span class="proof-brand-cta-label proof-brand-cta-label--short">More</span></span>
       </a>
-      <a class="proof-card proof-card--brand" href="/ideal-mbm" aria-label="Ideal.MBM products">
+      <a class="proof-card proof-card--brand" href="automation-one-ideal-mbm.html" aria-label="Ideal.MBM products">
         <span class="proof-brand-photo">
           <img loading="lazy" src="ideal-brand-office-scene.png" alt="" loading="lazy" decoding="async" />
         </span>
@@ -3986,7 +4009,7 @@ html { background-color: #ffffff; }
         <div class="category-card-visual"><img loading="lazy" src="document-scanners-transparent.png" alt="" /></div>
         <div class="category-card-body"><h3>Document Scanners</h3><p>Digitize archives and automate capture workflows.</p><span class="btn-view-details">View Devices</span></div>
       </a>
-      <a class="category-card" href="/digital-solutions">
+      <a class="category-card" href="automation-one-digital-solutions.html">
         <div class="category-card-visual category-card-visual--digital-solutions" aria-hidden="true">
           <div class="digital-solutions-cloud">
             <span class="digital-logo-orb digital-logo-orb--uniflow"><img loading="lazy" src="solution-brochures/digital-logos/uniflow-crop.png" alt="" decoding="async" /></span>
@@ -4140,7 +4163,7 @@ html { background-color: #ffffff; }
           <h3>PrimeLink<span class="reg-mark">®</span> B9136</h3>
           <p class="product-card-spec">A3+ | 136 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/primelink-b9136">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9136.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4156,7 +4179,7 @@ html { background-color: #ffffff; }
           <h3>PrimeLink<span class="reg-mark">®</span> B9125</h3>
           <p class="product-card-spec">A3+ | 125 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/primelink-b9125">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9125.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4172,7 +4195,7 @@ html { background-color: #ffffff; }
           <h3>PrimeLink<span class="reg-mark">®</span> B9110</h3>
           <p class="product-card-spec">A3+ | 110 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/primelink-b9110">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9110.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4188,7 +4211,7 @@ html { background-color: #ffffff; }
           <h3>PrimeLink<span class="reg-mark">®</span> B9100</h3>
           <p class="product-card-spec">A3+ | 100 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/primelink-b9100">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-primelink-b9100.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4204,7 +4227,7 @@ html { background-color: #ffffff; }
           <h3>PrimeLink<span class="reg-mark">®</span> C9281</h3>
           <p class="product-card-spec">A3+ | 81 ppm BW | 81 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/primelink-c9281">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-primelink-c9281.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4220,7 +4243,7 @@ html { background-color: #ffffff; }
           <h3>PrimeLink<span class="reg-mark">®</span> C9275</h3>
           <p class="product-card-spec">A3+ | 75 ppm BW | 75 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/primelink-c9275">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-primelink-c9275.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4236,7 +4259,7 @@ html { background-color: #ffffff; }
           <h3>PrimeLink<span class="reg-mark">®</span> C9265</h3>
           <p class="product-card-spec">A3+ | 65 ppm BW | 65 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/primelink-c9265">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-primelink-c9265.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4252,7 +4275,7 @@ html { background-color: #ffffff; }
           <h3>M5270</h3>
           <p class="product-card-spec">A4/Legal | 70 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/m5270">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-m5270.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4268,7 +4291,7 @@ html { background-color: #ffffff; }
           <h3>XM7370</h3>
           <p class="product-card-spec">A4/Legal | 70 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xm7370">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xm7370.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4284,7 +4307,7 @@ html { background-color: #ffffff; }
           <h3>XM7355</h3>
           <p class="product-card-spec">A4/Legal | 55 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xm7355">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xm7355.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4300,7 +4323,7 @@ html { background-color: #ffffff; }
           <h3>XM5365</h3>
           <p class="product-card-spec">A4/Legal | 65 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xm5365">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xm5365.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4316,7 +4339,7 @@ html { background-color: #ffffff; }
           <h3>M5255</h3>
           <p class="product-card-spec">A4/Legal | 55 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/m5255">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-m5255.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4332,7 +4355,7 @@ html { background-color: #ffffff; }
           <h3>XM3350BR</h3>
           <p class="product-card-spec">A4 | 50 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xm3350br">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xm3350br.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4348,7 +4371,7 @@ html { background-color: #ffffff; }
           <h3>M3350</h3>
           <p class="product-card-spec">A4 | 50 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/m3350">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-m3350.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4364,7 +4387,7 @@ html { background-color: #ffffff; }
           <h3>C4342</h3>
           <p class="product-card-spec">A4/Legal | 42 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/c4342">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-c4342.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4380,7 +4403,7 @@ html { background-color: #ffffff; }
           <h3>XC4342</h3>
           <p class="product-card-spec">A4/Legal | 42 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xc4342">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xc4342.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4396,7 +4419,7 @@ html { background-color: #ffffff; }
           <h3>C4352</h3>
           <p class="product-card-spec">A4/Legal | 52 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/c4352">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-c4352.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4412,7 +4435,7 @@ html { background-color: #ffffff; }
           <h3>XC4352</h3>
           <p class="product-card-spec">A4/Legal | 52 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xc4352">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xc4352.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4428,7 +4451,7 @@ html { background-color: #ffffff; }
           <h3>XC2335</h3>
           <p class="product-card-spec">A4/Legal | 35 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xc2335">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xc2335.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4444,7 +4467,7 @@ html { background-color: #ffffff; }
           <h3>XC2326</h3>
           <p class="product-card-spec">A4/Legal | 26 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xc2326">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xc2326.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4460,7 +4483,7 @@ html { background-color: #ffffff; }
           <h3>XM1342</h3>
           <p class="product-card-spec">A4 | 42 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xm1342">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xm1342.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4476,7 +4499,7 @@ html { background-color: #ffffff; }
           <h3>XM3142</h3>
           <p class="product-card-spec">A4 | 42 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/xm3142">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-xm3142.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4492,7 +4515,7 @@ html { background-color: #ffffff; }
           <h3>M1342</h3>
           <p class="product-card-spec">A4 | 42 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/lexmark/m1342">View Details</a>
+            <a class="btn-view-details" href="automation-one-lexmark-m1342.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4508,7 +4531,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8170</h3>
           <p class="product-card-spec">A3 | 70 ppm BW | 70 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8170">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8170.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4524,7 +4547,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8155</h3>
           <p class="product-card-spec">A3 | 55 ppm BW | 55 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8155">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8155.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4540,7 +4563,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8145</h3>
           <p class="product-card-spec">A3 | 45 ppm BW | 45 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8145">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8145.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4556,7 +4579,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8135</h3>
           <p class="product-card-spec">A3 | 35 ppm BW | 35 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8135">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8135.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4572,7 +4595,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8130</h3>
           <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8130">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8130.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4588,7 +4611,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8270</h3>
           <p class="product-card-spec">A3 | 70 ppm BW | 70 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8270">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8270.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4604,7 +4627,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8255</h3>
           <p class="product-card-spec">A3 | 55 ppm BW | 55 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8255">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8255.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4620,7 +4643,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8245</h3>
           <p class="product-card-spec">A3 | 45 ppm BW | 45 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8245">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8245.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4636,7 +4659,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8235</h3>
           <p class="product-card-spec">A3 | 35 ppm BW | 35 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8235">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8235.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4652,7 +4675,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> C8230</h3>
           <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-c8230">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-c8230.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4668,7 +4691,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> B8145</h3>
           <p class="product-card-spec">A3 | 45 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-b8145">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8145.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4684,7 +4707,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> B8155</h3>
           <p class="product-card-spec">A3 | 55 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-b8155">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8155.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4700,7 +4723,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> B8170</h3>
           <p class="product-card-spec">A3 | 72 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-b8170">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8170.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4716,7 +4739,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> B8245</h3>
           <p class="product-card-spec">A3 | 45 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-b8245">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8245.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4732,7 +4755,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> B8255</h3>
           <p class="product-card-spec">A3 | 55 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-b8255">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8255.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4748,7 +4771,7 @@ html { background-color: #ffffff; }
           <h3>AltaLink<span class="reg-mark">®</span> B8270</h3>
           <p class="product-card-spec">A3 | 72 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/altalink-b8270">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-altalink-b8270.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4764,7 +4787,7 @@ html { background-color: #ffffff; }
           <h3>VersaLink<span class="reg-mark">®</span> B7135</h3>
           <p class="product-card-spec">A3 | 35 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/versalink-b7135">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-versalink-b7135.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4780,7 +4803,7 @@ html { background-color: #ffffff; }
           <h3>VersaLink<span class="reg-mark">®</span> B7130</h3>
           <p class="product-card-spec">A3 | 30 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/versalink-b7130">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-versalink-b7130.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4796,7 +4819,7 @@ html { background-color: #ffffff; }
           <h3>VersaLink<span class="reg-mark">®</span> B7125</h3>
           <p class="product-card-spec">A3 | 25 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/versalink-b7125">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-versalink-b7125.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4812,7 +4835,7 @@ html { background-color: #ffffff; }
           <h3>VersaLink<span class="reg-mark">®</span> C7130</h3>
           <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/versalink-c7130">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-versalink-c7130.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4828,7 +4851,7 @@ html { background-color: #ffffff; }
           <h3>VersaLink<span class="reg-mark">®</span> C7125</h3>
           <p class="product-card-spec">A3 | 25 ppm BW | 25 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/versalink-c7125">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-versalink-c7125.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4844,7 +4867,7 @@ html { background-color: #ffffff; }
           <h3>VersaLink<span class="reg-mark">®</span> C7120</h3>
           <p class="product-card-spec">Tabloid | 20 ppm BW | 20 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/xerox/versalink-c7120">View Details</a>
+            <a class="btn-view-details" href="automation-one-xerox-versalink-c7120.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4860,7 +4883,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C1333P</h3>
           <p class="product-card-spec">A4 | 35 ppm BW | 35 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c1333p">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c1333p.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4878,7 +4901,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C1333F</h3>
           <p class="product-card-spec">A4 | 35 ppm BW | 35 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c1333">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c1333.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4895,7 +4918,7 @@ html { background-color: #ffffff; }
           <h3>imageCLASS X MF1333C</h3>
           <p class="product-card-spec">Legal | 35 ppm BW | 35 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageclass-x-mf1333c">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageclass-x-mf1333c.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4911,7 +4934,7 @@ html { background-color: #ffffff; }
           <h3>imageRUNNER C3326i</h3>
           <p class="product-card-spec">A3 | 26 ppm BW | 26 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/color-imagerunner-c3326i">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-c3326i.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4927,7 +4950,7 @@ html { background-color: #ffffff; }
           <h3>imageRUNNER ADVANCE DX C3926i</h3>
           <p class="product-card-spec">A3 | 26 ppm BW | 26 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/color-imagerunner-advance-dx-c3926i">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-advance-dx-c3926i.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4943,7 +4966,7 @@ html { background-color: #ffffff; }
           <h3>imageRUNNER ADVANCE DX C3930i</h3>
           <p class="product-card-spec">A3 | 30 ppm BW | 30 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/color-imagerunner-advance-dx-c3930i">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-advance-dx-c3930i.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4959,7 +4982,7 @@ html { background-color: #ffffff; }
           <h3>imageRUNNER ADVANCE DX C3935i</h3>
           <p class="product-card-spec">A3 | 35 ppm BW | 35 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/color-imagerunner-advance-dx-c3935i">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-color-imagerunner-advance-dx-c3935i.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4976,7 +4999,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C3150</h3>
           <p class="product-card-spec">A3 | 50 ppm BW | 50 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c3150">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c3150.html">View Details</a>
           </div>
         </div>
       </article>
@@ -4993,7 +5016,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C5140</h3>
           <p class="product-card-spec">A3 | 40 ppm BW | 40 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c5140">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5140.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5010,7 +5033,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C5150</h3>
           <p class="product-card-spec">A3 | 50 ppm BW | 50 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c5150">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5150.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5027,7 +5050,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C5160</h3>
           <p class="product-card-spec">A3 | 60 ppm BW | 60 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c5160">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5160.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5044,7 +5067,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C5170</h3>
           <p class="product-card-spec">A3 | 70 ppm BW | 70 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c5170">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c5170.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5061,7 +5084,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C7165</h3>
           <p class="product-card-spec">A3 | 65 ppm BW | 65 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c7165">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c7165.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5077,7 +5100,7 @@ html { background-color: #ffffff; }
           <h3>imageRUNNER ADVANCE DX 4945i</h3>
           <p class="product-card-spec">A3 | 45 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imagerunner-advance-dx-4945i">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imagerunner-advance-dx-4945i.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5093,7 +5116,7 @@ html { background-color: #ffffff; }
           <h3>imageRUNNER ADVANCE DX 4925i</h3>
           <p class="product-card-spec">A3 | 25 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imagerunner-advance-dx-4925i">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imagerunner-advance-dx-4925i.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5109,7 +5132,7 @@ html { background-color: #ffffff; }
           <h3>imageRUNNER ADVANCE DX 4935i</h3>
           <p class="product-card-spec">A3 | 35 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imagerunner-advance-dx-4935i">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imagerunner-advance-dx-4935i.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5125,7 +5148,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 1440F</h3>
           <p class="product-card-spec">A4 | 42 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-1440">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-1440.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5141,7 +5164,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 1440P</h3>
           <p class="product-card-spec">A4 | 42 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-1440p">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-1440p.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5158,7 +5181,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 6155</h3>
           <p class="product-card-spec">A3 | 55 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-6155">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-6155.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5175,7 +5198,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 6160</h3>
           <p class="product-card-spec">A3 | 60 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-6160">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-6160.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5192,7 +5215,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 6170</h3>
           <p class="product-card-spec">A3 | 70 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-6170">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-6170.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5208,7 +5231,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 520F</h3>
           <p class="product-card-spec">A4 | 55 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-520">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-520.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5224,7 +5247,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 610F</h3>
           <p class="product-card-spec">A4 | 65 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-610">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-610.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5240,7 +5263,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 710F</h3>
           <p class="product-card-spec">A4 | 75 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-710">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-710.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5257,7 +5280,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C331F</h3>
           <p class="product-card-spec">A4 | 34 ppm BW | 34 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c331">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c331.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5274,7 +5297,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C431F</h3>
           <p class="product-card-spec">A4 | 45 ppm BW | 45 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c431">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c431.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5291,7 +5314,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C521F</h3>
           <p class="product-card-spec">A4 | 55 ppm BW | 55 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c521">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c521.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5308,7 +5331,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE C611F</h3>
           <p class="product-card-spec">A4 | 65 ppm BW | 65 ppm Colour</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-c611">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-c611.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5325,7 +5348,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 8186</h3>
           <p class="product-card-spec">A3 | 86 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-8186">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-8186.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5342,7 +5365,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 8195</h3>
           <p class="product-card-spec">A3 | 95 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-8195">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-8195.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5359,7 +5382,7 @@ html { background-color: #ffffff; }
           <h3>imageFORCE 8105</h3>
           <p class="product-card-spec">A3 | 105 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imageforce-8105">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imageforce-8105.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5375,7 +5398,7 @@ html { background-color: #ffffff; }
           <h3>imagePRESS V700</h3>
           <p class="product-card-spec">Production | 70 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imagepress-v700">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v700.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5391,7 +5414,7 @@ html { background-color: #ffffff; }
           <h3>imagePRESS V800</h3>
           <p class="product-card-spec">Production | 81 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imagepress-v800">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v800.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5407,7 +5430,7 @@ html { background-color: #ffffff; }
           <h3>imagePRESS V900</h3>
           <p class="product-card-spec">Production | 90 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imagepress-v900">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v900.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5423,7 +5446,7 @@ html { background-color: #ffffff; }
           <h3>imagePRESS V1000</h3>
           <p class="product-card-spec">Production | 100 ppm</p>
           <div class="product-card-actions">
-            <a class="btn-view-details" href="/canon/imagepress-v1000">View Details</a>
+            <a class="btn-view-details" href="automation-one-canon-imagepress-v1000.html">View Details</a>
           </div>
         </div>
       </article>
@@ -5566,7 +5589,7 @@ html { background-color: #ffffff; }
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="/" class="logo">
+        <a href="index.html" class="logo">
           <img loading="lazy" class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
@@ -5588,46 +5611,46 @@ html { background-color: #ffffff; }
       <div class="foot-col">
         <h6>Products</h6>
         <ul>
-          <li><a href="/products#catalog">Office Printers</a></li>
-          <li><a href="/products#catalog">Multifunction</a></li>
-          <li><a href="/products#catalog">Production</a></li>
-          <li><a href="/products#catalog">Large Format</a></li>
-          <li><a href="/products#catalog">Postage Meters</a></li>
-          <li><a href="/products#catalog">Shredders</a></li>
+          <li><a href="automation-one-products.html#catalog">Office Printers</a></li>
+          <li><a href="automation-one-products.html#catalog">Multifunction</a></li>
+          <li><a href="automation-one-products.html#catalog">Production</a></li>
+          <li><a href="automation-one-products.html#catalog">Large Format</a></li>
+          <li><a href="automation-one-products.html#catalog">Postage Meters</a></li>
+          <li><a href="automation-one-products.html#catalog">Shredders</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Brands</h6>
         <ul>
-          <li><a href="/canon">Canon</a></li>
-          <li><a href="/xerox">Xerox</a></li>
-          <li><a href="/lexmark">Lexmark</a></li>
-          <li><a href="/fp">Francotyp Postalia</a></li>
-          <li><a href="/ideal-mbm">Ideal MBM</a></li>
+          <li><a href="automation-one-canon.html">Canon</a></li>
+          <li><a href="automation-one-xerox.html">Xerox</a></li>
+          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
+          <li><a href="automation-one-fp.html">Francotyp Postalia</a></li>
+          <li><a href="automation-one-ideal-mbm.html">Ideal MBM</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Service</h6>
         <ul>
-          <li><a href="/service">Service Request</a></li>
-          <li><a href="/toner">Order Toner</a></li>
-          <li><a href="/service#managed-print">Managed Print</a></li>
-          <li><a href="/resources">Forms &amp; Links</a></li>
-          <li><a href="/resources#manufacturer-support">Manufacturer Support</a></li>
+          <li><a href="automation-one-service-support.html">Service Request</a></li>
+          <li><a href="automation-one-toner.html">Order Toner</a></li>
+          <li><a href="automation-one-service-support.html#managed-print">Managed Print</a></li>
+          <li><a href="automation-one-resources.html">Forms &amp; Links</a></li>
+          <li><a href="automation-one-resources.html#manufacturer-support">Manufacturer Support</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Company</h6>
         <ul>
-          <li><a href="/about">About &amp; History</a></li>
-          <li><a href="/what-we-do">What We Do for You</a></li>
-          <li><a href="/testimonials">Testimonials</a></li>
-          <li><a href="/faq">FAQs</a></li>
-          <li><a href="/printer-bash">Printer Bash</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="automation-one-about.html">About &amp; History</a></li>
+          <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
+          <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-faq.html">FAQs</a></li>
+          <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
+          <li><a href="automation-one-contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -5660,7 +5683,7 @@ html { background-color: #ffffff; }
     </button>
   </div>
   <div class="sticky-bar-links-desktop">
-    <a href="/" class="primary home-link" aria-label="Home">
+    <a href="index.html" class="primary home-link" aria-label="Home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
     </a>
     <div class="sticky-nav-group">
@@ -5669,10 +5692,10 @@ html { background-color: #ffffff; }
         What We Offer
       </button>
       <div class="sticky-nav-dropdown" hidden>
-        <a href="/products">Products &amp; Solutions</a>
-        <a href="/service">Service &amp; Support</a>
-        <a href="/toner">Toner &amp; Supplies</a>
-        <a href="/resources">Resources</a>
+        <a href="automation-one-products.html">Products &amp; Solutions</a>
+        <a href="automation-one-service-support.html">Service &amp; Support</a>
+        <a href="automation-one-toner.html">Toner &amp; Supplies</a>
+        <a href="automation-one-resources.html">Resources</a>
       </div>
     </div>
     <div class="sticky-nav-group">
@@ -5681,36 +5704,36 @@ html { background-color: #ffffff; }
         Who We Are
       </button>
       <div class="sticky-nav-dropdown" hidden>
-        <a href="/what-we-do">What We Do for You</a>
-        <a href="/about">About Us &amp; Our History</a>
-        <a href="/testimonials">Testimonials</a>
+        <a href="automation-one-what-we-do.html">What We Do for You</a>
+        <a href="automation-one-about.html">About Us &amp; Our History</a>
+        <a href="automation-one-testimonials.html">Testimonials</a>
       </div>
     </div>
-    <a href="/contact" >
+    <a href="automation-one-contact.html" >
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Get in Touch
     </a>
   </div>
 </nav>
 <div class="mobile-nav-sheet" id="mobile-nav-sheet" hidden>
-  <a href="/">
+  <a href="index.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/></svg>
     Home
   </a>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">What We Offer</span>
-    <a href="/products" class="mobile-nav-sub">Products &amp; Solutions</a>
-    <a href="/service" class="mobile-nav-sub">Service &amp; Support</a>
-    <a href="/toner" class="mobile-nav-sub">Toner &amp; Supplies</a>
-    <a href="/resources" class="mobile-nav-sub">Resources</a>
+    <a href="automation-one-products.html" class="mobile-nav-sub">Products &amp; Solutions</a>
+    <a href="automation-one-service-support.html" class="mobile-nav-sub">Service &amp; Support</a>
+    <a href="automation-one-toner.html" class="mobile-nav-sub">Toner &amp; Supplies</a>
+    <a href="automation-one-resources.html" class="mobile-nav-sub">Resources</a>
   </div>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">Who We Are</span>
-    <a href="/what-we-do" class="mobile-nav-sub">What We Do for You</a>
-    <a href="/about" class="mobile-nav-sub">About Us &amp; Our History</a>
-    <a href="/testimonials" class="mobile-nav-sub">Testimonials</a>
+    <a href="automation-one-what-we-do.html" class="mobile-nav-sub">What We Do for You</a>
+    <a href="automation-one-about.html" class="mobile-nav-sub">About Us &amp; Our History</a>
+    <a href="automation-one-testimonials.html" class="mobile-nav-sub">Testimonials</a>
   </div>
-  <a href="/contact" >
+  <a href="automation-one-contact.html" >
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     Get in Touch
   </a>
@@ -6742,36 +6765,5 @@ html { background-color: #ffffff; }
   })();
 </script>
 
-<script>
-  (function initResponsiveImageMaps() {
-    function scaleMapForImage(img) {
-      var usemap = img.getAttribute('usemap');
-      if (!usemap || !img.naturalWidth || !img.naturalHeight) return;
-      var map = document.querySelector('map[name="' + usemap.slice(1) + '"]');
-      if (!map) return;
-      var scaleX = img.clientWidth / img.naturalWidth;
-      var scaleY = img.clientHeight / img.naturalHeight;
-      map.querySelectorAll('area[coords]').forEach(function (area) {
-        if (!area.dataset.originalCoords) {
-          area.dataset.originalCoords = area.getAttribute('coords');
-        }
-        var scaled = area.dataset.originalCoords.split(',').map(function (value, index) {
-          var numeric = parseFloat(value);
-          return Math.round(numeric * (index % 2 === 0 ? scaleX : scaleY));
-        });
-        area.setAttribute('coords', scaled.join(','));
-      });
-    }
-
-    function scaleMaps() {
-      document.querySelectorAll('img[usemap]').forEach(scaleMapForImage);
-    }
-
-    window.addEventListener('load', scaleMaps);
-    window.addEventListener('resize', scaleMaps);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(scaleMaps);
-    scaleMaps();
-  })();
-</script>
 </body>
 </html>
