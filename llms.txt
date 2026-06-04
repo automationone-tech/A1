@@ -1,0 +1,18 @@
+# Automation One (automationone.org)
+
+Vancouver-based authorized dealer for office printers, MFPs, production print,
+postage meters, and managed print. Brands: Canon, Lexmark, Xerox, Francotyp-Postalia, Ideal MBM.
+
+## Key pages
+- Home: https://automationone.org/
+- Products: https://automationone.org/products
+- FAQ: https://automationone.org/faq
+- Contact: https://automationone.org/contact
+- Service: https://automationone.org/service
+- About: https://automationone.org/about
+
+## Contact
+Phone: 604-255-6622
+Email: info@automationone.ca
+Vancouver: 1365 Boundary Rd., Vancouver, BC V5K 4T9
+Burnaby: 1440 Ingleton Ave., Burnaby, BC V5C 4L7
