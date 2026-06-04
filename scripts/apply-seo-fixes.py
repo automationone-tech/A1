@@ -105,11 +105,11 @@ def get_title(page_html: str) -> str | None:
 
 def get_description(page_html: str) -> str | None:
     m = re.search(
-        r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']*)["\']',
+        r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1',
         page_html,
-        re.I,
+        re.I | re.S,
     )
-    return html.unescape(m.group(1).strip()) if m else None
+    return html.unescape(m.group(2).strip()) if m else None
 
 
 def set_title(page_html: str, title: str) -> str:
@@ -117,7 +117,11 @@ def set_title(page_html: str, title: str) -> str:
 
 
 def attr_escape(value: str) -> str:
-    return value.replace("&", "&amp;").replace('"', "&quot;")
+    return (
+        value.replace("&", "&amp;")
+        .replace('"', "&quot;")
+        .replace("'", "&#39;")
+    )
 
 
 def set_or_insert_description(page_html: str, desc: str) -> str:
