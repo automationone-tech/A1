@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Automation One SEO / AEO / Performance PDF report."""
+"""Generate Automation One SEO / AEO / Performance / Migration PDF report."""
 from __future__ import annotations
 
 from datetime import date
@@ -22,18 +22,16 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "Automation-One-SEO-AEO-Performance-Report.pdf"
-SITE = "https://automationone.org"
+SITE_ORG = "https://automationone.org"
+SITE_CA = "https://automationone.ca"
 REPORT_DATE = date.today().strftime("%B %d, %Y")
+BULLET = "\u2022 "
 
 
 def score_bar(score: int, width: float = 4.8 * inch) -> Table:
     fill = min(max(score, 0), 100) / 100.0 * width
     gap = width - fill
-    t = Table(
-        [[""]],
-        colWidths=[fill, gap] if gap > 0 else [fill],
-        rowHeights=[10],
-    )
+    t = Table([[""]], colWidths=[fill, gap] if gap > 0 else [fill], rowHeights=[10])
     style = [
         ("BACKGROUND", (0, 0), (0, 0), colors.HexColor("#1f5cf5")),
         ("LINEBELOW", (0, 0), (-1, 0), 0, colors.HexColor("#d9e6ff")),
@@ -44,322 +42,354 @@ def score_bar(score: int, width: float = 4.8 * inch) -> Table:
     return t
 
 
+def styled_table(data, col_widths, header_color="#1547d1", font_size=8.5):
+    t = Table(data, colWidths=col_widths, repeatRows=1)
+    t.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor(header_color)),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("FONTSIZE", (0, 0), (-1, -1), font_size),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#d9e6ff")),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f5f8ff")]),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 5),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+                ("TOPPADDING", (0, 0), (-1, -1), 4),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            ]
+        )
+    )
+    return t
+
+
+def priority_table(rows, col_widths=(0.6 * inch, 5.7 * inch)):
+    return styled_table([["Priority", "Action"]] + list(rows), col_widths, font_size=9)
+
+
+def bullets(story, items, body_style):
+    for item in items:
+        story.append(Paragraph(BULLET + item, body_style))
+
+
 def build_story():
     styles = getSampleStyleSheet()
     title = ParagraphStyle(
-        "AOTitle",
-        parent=styles["Title"],
-        fontSize=26,
-        textColor=colors.HexColor("#1547d1"),
-        spaceAfter=12,
-        alignment=TA_CENTER,
+        "AOTitle", parent=styles["Title"], fontSize=24,
+        textColor=colors.HexColor("#1547d1"), spaceAfter=10, alignment=TA_CENTER,
     )
     h1 = ParagraphStyle(
-        "AOH1",
-        parent=styles["Heading1"],
-        fontSize=16,
-        textColor=colors.HexColor("#1547d1"),
-        spaceBefore=14,
-        spaceAfter=8,
+        "AOH1", parent=styles["Heading1"], fontSize=15,
+        textColor=colors.HexColor("#1547d1"), spaceBefore=12, spaceAfter=6,
     )
     h2 = ParagraphStyle(
-        "AOH2",
-        parent=styles["Heading2"],
-        fontSize=12,
-        textColor=colors.HexColor("#0f389e"),
-        spaceBefore=10,
-        spaceAfter=6,
+        "AOH2", parent=styles["Heading2"], fontSize=11,
+        textColor=colors.HexColor("#0f389e"), spaceBefore=8, spaceAfter=4,
     )
-    body = ParagraphStyle(
-        "AOBody",
-        parent=styles["BodyText"],
-        fontSize=10,
-        leading=14,
-        alignment=TA_LEFT,
-    )
-    small = ParagraphStyle("AOSmall", parent=body, fontSize=8.5, textColor=colors.grey)
+    body = ParagraphStyle("AOBody", parent=styles["BodyText"], fontSize=9.5, leading=13)
+    small = ParagraphStyle("AOSmall", parent=body, fontSize=8, textColor=colors.grey)
 
     story = []
 
-    # Cover
-    story.append(Spacer(1, 1.2 * inch))
+    # ---- Cover ----
+    story.append(Spacer(1, 1.0 * inch))
     story.append(Paragraph("Automation One", title))
-    story.append(Paragraph("SEO, AEO &amp; Performance Audit Report", title))
-    story.append(Spacer(1, 0.2 * inch))
-    story.append(Paragraph(SITE, ParagraphStyle("sub", parent=body, alignment=TA_CENTER, fontSize=12)))
+    story.append(Paragraph("SEO, AEO, Performance &amp; Domain Migration Report", title))
+    story.append(Spacer(1, 0.15 * inch))
+    story.append(Paragraph(SITE_ORG, ParagraphStyle("sub", parent=body, alignment=TA_CENTER, fontSize=11)))
+    story.append(Paragraph(SITE_CA + " (current WordPress site)", ParagraphStyle("sub2", parent=body, alignment=TA_CENTER, fontSize=10)))
     story.append(Paragraph(f"Report date: {REPORT_DATE}", ParagraphStyle("dt", parent=body, alignment=TA_CENTER)))
-    story.append(Spacer(1, 0.35 * inch))
+    story.append(Spacer(1, 0.25 * inch))
     story.append(
         Paragraph(
-            "Prepared after deployment of site-wide SEO/AEO improvements (commit 9221927) "
-            "and live verification on Netlify.",
-            ParagraphStyle("covernote", parent=body, alignment=TA_CENTER, fontSize=9),
+            "Includes: live audit of automationone.org (Netlify static site), comparison with "
+            "automationone.ca (WordPress), short-URL plan for long product filenames, and phased "
+            "migration plan (.ca primary, .org eventually 301 to .ca).",
+            ParagraphStyle("note", parent=body, alignment=TA_CENTER, fontSize=8.5),
         )
     )
     story.append(PageBreak())
 
-    # Executive summary
+    # ---- Executive summary ----
     story.append(Paragraph("Executive Summary", h1))
     story.append(
         Paragraph(
-            "automationone.org is in <b>good shape for search and AI discovery</b> after the June 2026 "
-            "update: every page has a meta description, canonical URL, Open Graph/Twitter tags, "
-            "robots.txt, sitemap.xml, favicons, FAQ structured data, and unique Canon product titles. "
-            "<b>Performance is the main gap</b> toward a &quot;perfect&quot; score - large HTML payloads, "
-            "hero video weight, and hundreds of catalogue images still limit Core Web Vitals on mobile.",
+            "The <b>new Netlify site</b> (automationone.org) is stronger on speed, catalogue page weight, "
+            "on-page structure, FAQ/AEO scaffolding, and unique product metadata. The <b>current .ca site</b> "
+            "(WordPress + Yoast) still has more indexed URLs (198 product pages, 51 blog posts) and established "
+            "search history. A smooth shutdown of WordPress requires a <b>redirect map</b>, <b>short public URLs</b> "
+            "for long .html product paths, and making <b>automationone.ca</b> the canonical domain before "
+            "redirecting .org to .ca.",
             body,
         )
     )
-    story.append(Spacer(1, 0.15 * inch))
-
     scores = [
-        ("Overall site readiness", 74, "Strong foundation; performance work remains"),
-        ("SEO (technical + on-page)", 84, "Indexing signals and metadata largely complete"),
-        ("AEO (AI / answer engines)", 76, "FAQ + LocalBusiness + llms.txt; expand Product schema"),
-        ("Performance (estimated)", 58, "Heavy HTML/video; lazy-load helps catalogue"),
-        ("Accessibility (SEO-adjacent)", 72, "585 decorative empty alts; otherwise solid"),
+        ("New site (.org) overall readiness", 74, "SEO/AEO foundation deployed; performance gap remains"),
+        ("Old site (.ca) SEO maturity", 68, "Many URLs indexed; weak H1s, heavy pages"),
+        ("New vs old performance", 85, "New site wins on payload and TTFB on key pages"),
+        ("Migration readiness", 45, "Redirect map and .ca on Netlify not done yet"),
     ]
-    score_table = [["Category", "Score / 100", "Notes"]]
-    for name, sc, note in scores:
-        score_table.append([name, str(sc), note])
-    st = Table(score_table, colWidths=[2.1 * inch, 0.9 * inch, 3.3 * inch])
-    st.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1547d1")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("FONTSIZE", (0, 0), (-1, -1), 9),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f5f8ff")]),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#d9e6ff")),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 6),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-                ("TOPPADDING", (0, 0), (-1, -1), 5),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-            ]
-        )
-    )
-    story.append(st)
-    story.append(Spacer(1, 0.12 * inch))
-    story.append(Paragraph("<i>Target &quot;perfect&quot; composite score: 92-96/100</i> after performance and schema refinements.", small))
-
-    story.append(Paragraph("Score breakdown", h2))
-    for name, sc, _ in scores:
-        story.append(Paragraph(f"{name}: <b>{sc}/100</b>", body))
-        story.append(score_bar(sc))
-        story.append(Spacer(1, 0.08 * inch))
-
+    score_table = [["Category", "Score", "Notes"]] + [[a, str(b), c] for a, b, c in scores]
+    story.append(styled_table(score_table, [2.2 * inch, 0.7 * inch, 3.4 * inch]))
     story.append(PageBreak())
 
-    # Live performance
-    story.append(Paragraph("Loading Times &amp; Payload (Live Measurements)", h1))
+    # ---- .ca vs .org comparison ----
+    story.append(Paragraph("Website Comparison: automationone.ca vs automationone.org", h1))
     story.append(
         Paragraph(
-            "Measured from Vancouver-region curl tests on " + REPORT_DATE + ". "
-            "Values are <b>HTML document time + size</b> only (not full browser LCP with fonts, CSS, images, video). "
-            "Multiply by roughly 3 - 6 -  in a real mobile browser for perceived load.",
+            "Live measurements from June 2026. .ca runs WordPress behind Cloudflare; .org is static HTML on Netlify.",
             body,
         )
     )
-    perf = [
-        ["URL", "HTTP", "Time (s)", "HTML size", "Est. mobile PSI perf*"],
-        ["/", "200", "0.29", "406 KB", "52 - 62"],
-        ["/products", "200", "0.52", "278 KB", "48 - 58"],
-        ["/contact", "200", "0.51", "119 KB", "58 - 68"],
-        ["/faq", "200", "0.57", "121 KB", "58 - 68"],
-        ["/about", "200", "0.47", "142 KB", "55 - 65"],
-        ["hero-printer-loop.mp4", "200", " - ", "6.7 MB", "Hurts LCP if autoplay"],
+    compare = [
+        ["Area", "automationone.ca (current)", "automationone.org (new)", "Winner"],
+        ["Platform", "WordPress + Yoast SEO", "Static HTML on Netlify", "New (simpler, faster ops)"],
+        ["Homepage HTML", "~414 KB, ~0.36s", "~406 KB, ~0.34s", "Tie (both large HTML)"],
+        ["Products page", "~1,235 KB, ~1.22s", "~278 KB, ~0.32s", "New (4x smaller)"],
+        ["Contact page", "~350 KB, ~1.0s", "~118 KB, ~0.29s", "New"],
+        ["Canon hub (/canon)", "~818 KB, ~1.2s", "Lighter static pages", "New"],
+        ["Homepage title", "Keyword-heavy (Printing Vancouver...)", "Brand-focused", "New"],
+        ["H1 on homepage", "0 H1 detected", "1 H1", "New"],
+        ["Meta + canonical + OG", "Yes", "Yes (all 100 pages)", "Tie"],
+        ["JSON-LD (homepage)", "3 blocks", "LocalBusiness + FAQ on key pages", "New (clearer)"],
+        ["Sitemap size", "~198 products, 29 pages, 51 posts", "99 static URLs", "Old has more URLs today"],
+        ["robots.txt", "WordPress (wp-admin rules)", "Simple + sitemap", "New"],
+        ["AEO", "51 blog posts (long-tail)", "FAQ + llms.txt + LocalBusiness", "Old volume; new structure"],
+        ["Est. mobile PSI (perf)", "45-55 on heavy pages", "52-62 home; catalogue still heavy", "New"],
     ]
-    pt = Table(perf, colWidths=[1.35 * inch, 0.55 * inch, 0.7 * inch, 0.85 * inch, 1.75 * inch])
-    pt.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f5cf5")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("FONTSIZE", (0, 0), (-1, -1), 8.5),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#d9e6ff")),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8faff")]),
-            ]
-        )
-    )
-    story.append(pt)
-    story.append(Spacer(1, 0.08 * inch))
-    story.append(
-        Paragraph(
-            "*Estimated Google PageSpeed Insights performance score (mobile), based on payload heuristics. "
-            "Run https://pagespeed.web.dev/ on each URL for authoritative lab data.",
-            small,
-        )
-    )
+    story.append(styled_table(compare, [1.15 * inch, 1.85 * inch, 1.85 * inch, 0.55 * inch], font_size=7.5))
+    story.append(Spacer(1, 0.1 * inch))
+    story.append(Paragraph("<b>Bottom line:</b> Migrate to the new site on .ca as soon as redirects are mapped. The new build is already better for performance and structured SEO/AEO; preserve .ca URL equity with 301 redirects.", body))
 
-    story.append(Paragraph("Estimated PageSpeed category scores (mobile, homepage)", h2))
-    psi = [
-        ["Category", "Current est.", "After perfect roadmap"],
-        ["Performance", "52 - 62", "85 - 92"],
-        ["Accessibility", "85 - 90", "92-96"],
-        ["Best Practices", "90 - 96", "96 - 100"],
-        ["SEO (Lighthouse)", "92 - 98", "98 - 100"],
+    story.append(Paragraph("Live HTML document metrics (.org)", h2))
+    org_perf = [
+        ["URL", "Time (s)", "HTML size", "Est. mobile PSI perf*"],
+        ["/", "0.29", "406 KB", "52-62"],
+        ["/products", "0.52", "278 KB", "48-58"],
+        ["/contact", "0.51", "119 KB", "58-68"],
+        ["/faq", "0.57", "121 KB", "58-68"],
+        ["/about", "0.47", "142 KB", "55-65"],
+        ["hero-printer-loop.mp4", "-", "6.7 MB", "Hurts LCP if autoplay"],
     ]
-    psit = Table(psi, colWidths=[1.6 * inch, 1.2 * inch, 1.6 * inch])
-    psit.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#0f389e")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("FONTSIZE", (0, 0), (-1, -1), 9),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
-            ]
-        )
-    )
-    story.append(psit)
-
+    story.append(styled_table([["URL", "Time", "Size", "PSI est."]] + org_perf[1:], [1.4 * inch, 0.75 * inch, 0.85 * inch, 1.9 * inch], header_color="#1f5cf5"))
+    story.append(Paragraph("*HTML transfer only; run PageSpeed Insights for full lab scores.", small))
     story.append(PageBreak())
 
-    # SEO
-    story.append(Paragraph("SEO Audit", h1))
-    story.append(Paragraph("Completed (deployed)", h2))
-    done_seo = [
-        "Meta description on all 100 HTML pages (homepage was missing before)",
-        "Unique title + description on 35 Canon product pages (no duplicate catalog meta)",
-        "rel=canonical on every page; pretty URLs for main sections via netlify.toml",
-        "Open Graph + Twitter Card tags + og-image.png (1200 - 630)",
-        "robots.txt and sitemap.xml (99 URLs; homepage-6 excluded)",
-        "Favicon.ico, PNG sizes, apple-touch-icon, site.webmanifest",
-        "theme-color aligned to brand #1f5cf5",
-        "HTTPS + HSTS via Netlify; www redirects to apex",
-        "automation-one-homepage-6.html: noindex + canonical to /",
-        "Printer Bash: single H1 (intro title demoted to &lt;p&gt;)",
-    ]
-    for item in done_seo:
-        story.append(Paragraph(f" -  {item}", body))
-
-    story.append(Paragraph("Remaining for perfect SEO", h2))
-    remain_seo = [
-        ("P1", "Submit sitemap in Google Search Console + Bing Webmaster Tools"),
-        ("P1", "Fix OG/twitter descriptions wherever apostrophes truncated (regex fix applied locally - re-deploy)"),
-        ("P2", "301 redirects from *.html to pretty URLs (optional; canonicals already set)"),
-        ("P2", "BreadcrumbList JSON-LD on product pages"),
-        ("P2", "Product schema on Lexmark/Xerox/Canon SKU pages"),
-        ("P3", "Add lastmod to sitemap when pages change"),
-        ("P3", "hreflang if you add French or US pages later"),
-    ]
-    rt = Table([["Priority", "Action"]] + [[a, b] for a, b in remain_seo], colWidths=[0.65 * inch, 5.65 * inch])
-    rt.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.25, colors.grey), ("FONTSIZE", (0, 0), (-1, -1), 9)]))
-    story.append(rt)
-
+    # ---- SEO / AEO on new site ----
+    story.append(Paragraph("SEO &amp; AEO on the New Site (Completed)", h1))
+    bullets(story, [
+        "Meta description on all 100 HTML pages",
+        "Unique title + description on 35 Canon product pages",
+        "rel=canonical, Open Graph, Twitter cards, og-image.png on every page",
+        "robots.txt, sitemap.xml (99 URLs), llms.txt, favicons, webmanifest",
+        "FAQPage JSON-LD (18 questions); LocalBusiness on home + contact",
+        "automation-one-homepage-6.html: noindex; canonical to /",
+        "Pretty URLs for main sections via netlify.toml (/products, /faq, etc.)",
+    ], body)
+    story.append(Paragraph("Remaining for perfect SEO/AEO", h2))
+    story.append(priority_table([
+        ("P1", "Submit sitemap after .ca cutover; verify Search Console on automationone.ca"),
+        ("P1", "301 map every high-traffic WordPress URL to new paths"),
+        ("P2", "Short public URLs for product pages (see next section)"),
+        ("P2", "Product + BreadcrumbList JSON-LD on all SKU pages"),
+        ("P2", "Decide blog strategy: redirect 51 posts vs migrate vs 410"),
+        ("P3", "Organization sameAs (Google Business Profile); lastmod in sitemap"),
+    ]))
     story.append(PageBreak())
 
-    # AEO
-    story.append(Paragraph("AEO Audit (AI Engine / Answer Optimization)", h1))
+    # ---- Long URL plan ----
+    story.append(Paragraph("Fixing Long Product Page URLs", h1))
     story.append(
         Paragraph(
-            "Answer engines (ChatGPT, Perplexity, Google AI Overviews, Copilot) favor "
-            "<b>clear factual HTML</b>, structured data, consistent NAP, and FAQ content.",
+            "Physical files use long names such as "
+            "<b>automation-one-canon-color-imagerunner-advance-dx-c3926i.html</b> (61 characters). "
+            "There are ~70+ product pages with the automation-one-{brand}- prefix. Main pages already "
+            "have short browser paths (/products, /faq); <b>product pages still show long .html URLs</b> "
+            "in the address bar and in some canonicals.",
             body,
         )
     )
-    story.append(Paragraph("Completed", h2))
-    for item in [
-        "FAQ page with 18 Q&amp;As in visible HTML + FAQPage JSON-LD",
-        "LocalBusiness JSON-LD on homepage and contact (phone, 2 offices, BC service area)",
-        "llms.txt at /llms.txt summarizing business and key URLs",
-        "Unique product names in H1 and meta for Canon SKUs",
-        "Contact page: tel: links, addresses, service emails",
-    ]:
-        story.append(Paragraph(f" -  {item}", body))
+    story.append(Paragraph("Recommended approach (safest)", h2))
+    bullets(story, [
+        "<b>Do not rename files on disk</b> (avoids breaking relative links and assets).",
+        "Add <b>short public URLs</b> via Netlify 200 rewrites to existing .html files.",
+        "Set canonical, og:url, and sitemap entries to the short URL only.",
+        "Add 301 redirects from old long .html paths to short paths.",
+        "Bulk-update internal hrefs in HTML (products grid, nav, breadcrumbs).",
+    ], body)
+    story.append(Paragraph("Target URL pattern", h2))
+    url_map = [
+        ["Today (example)", "Target public URL"],
+        ["automation-one-canon-imagerunner-advance-dx-4945i.html", "/canon/imagerunner-advance-dx-4945i"],
+        ["automation-one-lexmark-m5270.html", "/lexmark/m5270"],
+        ["automation-one-xerox-altalink-c8170.html", "/xerox/altalink-c8170"],
+        ["automation-one-network-installation-survey.html", "/network-survey"],
+        ["automation-one-billable-confirmation.html", "/billable-confirmation"],
+    ]
+    story.append(styled_table(url_map, [3.2 * inch, 2.9 * inch], font_size=8))
+    story.append(Paragraph("Implementation steps", h2))
+    bullets(story, [
+        "Script: generate netlify.toml [[redirects]] for each automation-one-{brand}-*.html",
+        "Update apply-seo-fixes.py canonical base to https://automationone.ca + short paths",
+        "Regenerate sitemap.xml with short URLs only",
+        "Search Console URL inspection after cutover",
+    ], body)
+    story.append(PageBreak())
 
-    story.append(Paragraph("Remaining for perfect AEO", h2))
-    for item in [
-        "Lead each product page with one-sentence &quot;what is this device&quot; answer block",
-        "Product + Brand JSON-LD on all SKU pages (Lexmark pattern already has unique copy)",
-        "Organization sameAs links (LinkedIn, Google Business Profile URLs)",
-        "Keep FAQ answers updated when policies change; dateModified in schema",
-        "Consider /about as authoritative &quot;who we are since 1981&quot; citation block",
-    ]:
-        story.append(Paragraph(f" -  {item}", body))
+    # ---- Domain migration ----
+    story.append(Paragraph("Domain Migration Plan", h1))
+    story.append(
+        Paragraph(
+            "<b>Goal:</b> Shut down WordPress on automationone.ca, serve the new static site on both "
+            ".ca and .org, then eventually <b>301 redirect automationone.org to automationone.ca</b> "
+            "so .ca is the permanent primary domain.",
+            body,
+        )
+    )
+
+    story.append(Paragraph("Phase 0 - Prep (1-2 weeks, .ca still on WordPress)", h2))
+    story.append(priority_table([
+        ("P0", "Export all URLs from https://automationone.ca/sitemap_index.xml"),
+        ("P0", "Build redirects-ca.csv: old WordPress path to new path (301)"),
+        ("P0", "Map top paths: /, /about/, /products/, /canon/, /contact/, /service/, /toner/, /faqs/"),
+        ("P0", "Decide fate of 51 blog posts (redirect to /resources, /faq, or keep /blog/)"),
+        ("P0", "Map 198 old WooCommerce product URLs to new SKU pages or discontinued hub"),
+        ("P0", "Implement short product URLs on Netlify before cutover"),
+        ("P0", "Set canonicals to https://automationone.ca/... before .org redirect"),
+    ]))
+
+    story.append(Paragraph("WordPress slug mismatches (need explicit 301)", h2))
+    slug_map = [
+        ["Old (.ca)", "New site path"],
+        ["/faqs/", "/faq"],
+        ["/what-we-do-for-you/", "/what-we-do"],
+        ["/idealmbm/", "/ideal-mbm"],
+        ["/solutions/", "/digital-solutions or /what-we-do (choose one)"],
+        ["Trailing slashes", "Normalize with Netlify 301 rules"],
+    ]
+    story.append(styled_table(slug_map, [2.2 * inch, 3.9 * inch], font_size=8.5))
+
+    story.append(Paragraph("Phase 1 - Dual domain on Netlify (cutover week)", h2))
+    bullets(story, [
+        "Netlify: add custom domain automationone.ca + www.automationone.ca (same deploy as .org)",
+        "Point .ca DNS to Netlify",
+        "Deploy redirects-ca.csv / netlify.toml 301 rules for all old .ca URLs",
+        "Google Search Console: add automationone.ca property; submit new sitemap",
+        "Bing Webmaster: same",
+        "Update GBP, email signatures, print ads to automationone.ca after live verification",
+        "Optional: keep WordPress 48-72h for rollback only",
+    ], body)
+
+    story.append(Paragraph("Phase 2 - Stabilize (2-4 weeks)", h2))
+    bullets(story, [
+        "Monitor 404s in Netlify + Search Console weekly; add missing redirects",
+        "Both domains serve same site; canonicals always point to https://automationone.ca",
+        "GSC Change of address if Google still treats .org as primary",
+    ], body)
+
+    story.append(Paragraph("Phase 3 - .org redirects to .ca (when ready)", h2))
+    story.append(
+        Paragraph(
+            "Add to netlify.toml (only after .ca redirects work and Search Console is clean):<br/>"
+            "<font size='8'>[[redirects]] from = \"https://automationone.org/*\" "
+            "to = \"https://automationone.ca/:splat\" status = 301 force = true</font>",
+            body,
+        )
+    )
+    bullets(story, [
+        "Also 301 www.automationone.org to https://automationone.ca/",
+        "Do not flip until: WP redirect map live, short URLs work, .ca indexed with low critical errors",
+    ], body)
+
+    story.append(Paragraph("Phase 4 - Decommission WordPress", h2))
+    bullets(story, [
+        "Cancel WP hosting after ~30 days stable .ca traffic",
+        "Keep domain registration; DNS stays on Netlify",
+    ], body)
+    story.append(PageBreak())
+
+    # ---- Migration timeline ----
+    story.append(Paragraph("Suggested Timeline", h1))
+    timeline = [
+        ["Phase", "Duration", "Activities"],
+        ["Prep", "Weeks 1-2", "Redirect map, short URLs, blog/product decisions"],
+        ["Cutover", "Week 3", ".ca DNS to Netlify; 301s live; GSC submit"],
+        ["Stabilize", "Weeks 4-7", "Fix 404s; canonicals on .ca; monitor rankings"],
+        ["Final", "Week 8+", ".org 301 to .ca; shut down WordPress"],
+    ]
+    story.append(styled_table(timeline, [1.0 * inch, 1.0 * inch, 4.1 * inch]))
+
+    story.append(Paragraph("Migration SEO / AEO checklist", h2))
+    mig = [
+        ["Priority", "Task"],
+        ["P0", "301 every old .ca URL that had traffic (Analytics + GSC export)"],
+        ["P0", "One canonical domain: https://automationone.ca everywhere"],
+        ["P0", "New sitemap on .ca; resubmit in GSC"],
+        ["P1", "Short public URLs for all product pages"],
+        ["P1", "Product JSON-LD on SKU pages"],
+        ["P1", "Blog strategy (redirect vs new /blog/)"],
+        ["P2", "Performance sprint (hero video, shared CSS)"],
+        ["P2", "Organization sameAs to Google Business Profile"],
+    ]
+    story.append(styled_table(mig, [0.65 * inch, 5.65 * inch], font_size=8.5))
 
     story.append(PageBreak())
 
-    # Performance roadmap
-    story.append(Paragraph("Performance Roadmap to Perfect", h1))
+    # ---- Performance roadmap ----
+    story.append(Paragraph("Performance Roadmap (New Site)", h1))
     story.append(
         Paragraph(
-            "Homepage: ~406 KB HTML with ~191 KB inline CSS. Products: ~278 KB HTML, 307 images "
+            "Homepage: ~406 KB HTML (~191 KB inline CSS). Products: ~278 KB, 307 images "
             "(lazy-loading enabled). Hero video: 6.7 MB MP4.",
             body,
         )
     )
-    perf_items = [
-        ("P1", "Run PageSpeed Insights; fix top 3 flagged items (usually LCP image/video, render-blocking fonts)"),
-        ("P1", "Homepage: poster image + preload=none on hero video; static image on mobile breakpoints"),
-        ("P1", "Self-host or subset Google Fonts (Inter/Montserrat); keep display=swap"),
-        ("P2", "Extract shared CSS to site.css (cached)  -  largest win for repeat visits"),
-        ("P2", "Products catalogue: virtualize or paginate images (307 DOM images is heavy)"),
-        ("P2", "Convert large JPG/PNG heroes to WebP/AVIF with &lt;picture&gt; fallbacks"),
-        ("P3", "Enable Netlify asset compression / CDN image transforms if added later"),
-        ("P3", "Preconnect only to fonts actually used; audit unused CSS per page"),
+    story.append(priority_table([
+        ("P1", "PageSpeed Insights on /, /products, /contact; fix LCP and render-blocking fonts"),
+        ("P1", "Hero: poster + preload=none; static image on mobile"),
+        ("P1", "Self-host or subset Google Fonts"),
+        ("P2", "Extract shared CSS to cached site.css"),
+        ("P2", "Products: paginate or virtualize 307 catalogue images"),
+        ("P2", "WebP/AVIF for large hero images"),
+    ]))
+    story.append(Paragraph("Estimated PageSpeed (mobile, homepage)", h2))
+    psi = [
+        ["Category", "Current est.", "Target"],
+        ["Performance", "52-62", "85-92"],
+        ["Accessibility", "85-90", "92-96"],
+        ["Best Practices", "90-96", "96-100"],
+        ["SEO (Lighthouse)", "92-98", "98-100"],
     ]
-    pt2 = Table([["Priority", "Action"]] + [[a, b] for a, b in perf_items], colWidths=[0.65 * inch, 5.65 * inch])
-    pt2.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.25, colors.grey), ("FONTSIZE", (0, 0), (-1, -1), 9)]))
-    story.append(pt2)
-
-    story.append(Paragraph("Accessibility items tied to SEO", h2))
-    for item in [
-        "585 images use alt=&quot;&quot; (decorative) - add descriptive alts on product catalogue thumbnails",
-        "Ensure form pages (toner, service request) have labels associated with inputs",
-        "Maintain single H1 per page on any new templates",
-    ]:
-        story.append(Paragraph(f" -  {item}", body))
+    story.append(styled_table(psi, [1.5 * inch, 1.25 * inch, 1.25 * inch], header_color="#0f389e"))
 
     story.append(PageBreak())
 
-    # Perfect checklist
-    story.append(Paragraph("Master Checklist: Path to a Perfect Score", h1))
+    # ---- Master checklist ----
+    story.append(Paragraph("Master Checklist", h1))
     checklist = [
         ["Area", "Task", "Status"],
-        ["Indexing", "robots.txt live", "Done"],
-        ["Indexing", "sitemap.xml submitted to Google", "You do this"],
-        ["Indexing", "Search Console ownership verified", "You do this"],
-        ["SEO", "Meta + canonical + OG all pages", "Done"],
-        ["SEO", "Canon unique titles (35 pages)", "Done"],
-        ["SEO", "OG descriptions apostrophe-safe", "Fix deployed pending push"],
-        ["AEO", "FAQPage JSON-LD", "Done"],
-        ["AEO", "LocalBusiness JSON-LD", "Done"],
-        ["AEO", "llms.txt", "Done"],
-        ["AEO", "Product schema all SKUs", "To do"],
-        ["Perf", "Document HTML under 150 KB", "To do"],
-        ["Perf", "LCP under 2.5s mobile", "To do"],
-        ["Perf", "Hero video optimized", "To do"],
+        ["New site", "Meta + canonical + OG all pages", "Done"],
+        ["New site", "Canon unique titles (35 pages)", "Done"],
+        ["New site", "FAQPage + LocalBusiness JSON-LD", "Done"],
+        ["New site", "robots.txt + sitemap + llms.txt", "Done"],
+        ["URLs", "Short product URLs (/canon/..., /lexmark/...)", "To do"],
+        ["Migration", "WordPress 301 redirect map", "To do"],
+        ["Migration", ".ca on Netlify (same deploy)", "To do"],
+        ["Migration", "GSC sitemap on .ca", "To do"],
+        ["Migration", ".org 301 to .ca", "Later"],
         ["Perf", "PSI Performance 90+", "To do"],
-        ["Trust", "Google Business Profile linked", "To do"],
-        ["Trust", "Consistent NAP across web", "Mostly done"],
+        ["AEO", "Product schema all SKUs", "To do"],
+        ["Trust", "GBP linked in schema", "To do"],
     ]
-    ct = Table(checklist, colWidths=[1.0 * inch, 3.2 * inch, 1.1 * inch])
-    ct.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1547d1")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("FONTSIZE", (0, 0), (-1, -1), 8.5),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f5f8ff")]),
-            ]
-        )
-    )
-    story.append(ct)
+    story.append(styled_table(checklist, [0.9 * inch, 3.5 * inch, 1.0 * inch], font_size=8))
 
-    story.append(Spacer(1, 0.2 * inch))
+    story.append(Spacer(1, 0.15 * inch))
     story.append(HRFlowable(width="100%", color=colors.HexColor("#d9e6ff")))
-    story.append(Spacer(1, 0.1 * inch))
     story.append(
         Paragraph(
-            f"Report generated for Automation One  -  {SITE}  -  {REPORT_DATE}<br/>"
-            "Re-run PageSpeed Insights after each performance sprint. "
-            "Script: scripts/generate-seo-report-pdf.py",
+            f"Automation One | {SITE_ORG} | {SITE_CA} | {REPORT_DATE}<br/>"
+            "Regenerate: python3 scripts/generate-seo-report-pdf.py",
             small,
         )
     )
@@ -370,11 +400,11 @@ def main() -> None:
     doc = SimpleDocTemplate(
         str(OUT),
         pagesize=letter,
-        rightMargin=0.65 * inch,
-        leftMargin=0.65 * inch,
-        topMargin=0.65 * inch,
-        bottomMargin=0.65 * inch,
-        title="Automation One SEO AEO Performance Report",
+        rightMargin=0.6 * inch,
+        leftMargin=0.6 * inch,
+        topMargin=0.6 * inch,
+        bottomMargin=0.6 * inch,
+        title="Automation One SEO AEO Performance Migration Report",
         author="Automation One",
     )
     doc.build(build_story())

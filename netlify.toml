@@ -1,9 +1,418 @@
 [build]
   publish = "."
 
+# --- Short URL rewrites (200) -> physical HTML files ---
+
+[[redirects]]
+  from = "/canon/color-imagerunner-advance-dx-c3930i"
+  to = "/automation-one-canon-color-imagerunner-advance-dx-c3930i.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/color-imagerunner-advance-dx-c3935i"
+  to = "/automation-one-canon-color-imagerunner-advance-dx-c3935i.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/color-imagerunner-advance-dx-c3926i"
+  to = "/automation-one-canon-color-imagerunner-advance-dx-c3926i.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imagerunner-advance-dx-4935i"
+  to = "/automation-one-canon-imagerunner-advance-dx-4935i.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imagerunner-advance-dx-4925i"
+  to = "/automation-one-canon-imagerunner-advance-dx-4925i.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imagerunner-advance-dx-4945i"
+  to = "/automation-one-canon-imagerunner-advance-dx-4945i.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/color-imagerunner-c3326i"
+  to = "/automation-one-canon-color-imagerunner-c3326i.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageclass-x-mf1333c"
+  to = "/automation-one-canon-imageclass-x-mf1333c.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c1333p"
+  to = "/automation-one-canon-imageforce-c1333p.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c7165"
+  to = "/automation-one-canon-imageforce-c7165.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c3150"
+  to = "/automation-one-canon-imageforce-c3150.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imagepress-v1000"
+  to = "/automation-one-canon-imagepress-v1000.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c5150"
+  to = "/automation-one-canon-imageforce-c5150.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-1440p"
+  to = "/automation-one-canon-imageforce-1440p.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c5170"
+  to = "/automation-one-canon-imageforce-c5170.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c1333"
+  to = "/automation-one-canon-imageforce-c1333.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c5160"
+  to = "/automation-one-canon-imageforce-c5160.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c5140"
+  to = "/automation-one-canon-imageforce-c5140.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-8105"
+  to = "/automation-one-canon-imageforce-8105.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-6160"
+  to = "/automation-one-canon-imageforce-6160.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-8186"
+  to = "/automation-one-canon-imageforce-8186.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/versalink-c7120"
+  to = "/automation-one-xerox-versalink-c7120.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c431"
+  to = "/automation-one-canon-imageforce-c431.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-6170"
+  to = "/automation-one-canon-imageforce-6170.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c611"
+  to = "/automation-one-canon-imageforce-c611.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-1440"
+  to = "/automation-one-canon-imageforce-1440.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imagepress-v800"
+  to = "/automation-one-canon-imagepress-v800.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/versalink-b7130"
+  to = "/automation-one-xerox-versalink-b7130.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/versalink-c7130"
+  to = "/automation-one-xerox-versalink-c7130.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/primelink-b9125"
+  to = "/automation-one-xerox-primelink-b9125.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-8195"
+  to = "/automation-one-canon-imageforce-8195.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c521"
+  to = "/automation-one-canon-imageforce-c521.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-c331"
+  to = "/automation-one-canon-imageforce-c331.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/versalink-b7125"
+  to = "/automation-one-xerox-versalink-b7125.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/versalink-c7125"
+  to = "/automation-one-xerox-versalink-c7125.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/primelink-c9281"
+  to = "/automation-one-xerox-primelink-c9281.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/primelink-b9110"
+  to = "/automation-one-xerox-primelink-b9110.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/primelink-c9275"
+  to = "/automation-one-xerox-primelink-c9275.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/primelink-b9100"
+  to = "/automation-one-xerox-primelink-b9100.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/versalink-b7135"
+  to = "/automation-one-xerox-versalink-b7135.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imagepress-v700"
+  to = "/automation-one-canon-imagepress-v700.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/primelink-b9136"
+  to = "/automation-one-xerox-primelink-b9136.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/primelink-c9265"
+  to = "/automation-one-xerox-primelink-c9265.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imagepress-v900"
+  to = "/automation-one-canon-imagepress-v900.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-6155"
+  to = "/automation-one-canon-imageforce-6155.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8130"
+  to = "/automation-one-xerox-altalink-c8130.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8235"
+  to = "/automation-one-xerox-altalink-c8235.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8255"
+  to = "/automation-one-xerox-altalink-c8255.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-b8255"
+  to = "/automation-one-xerox-altalink-b8255.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-610"
+  to = "/automation-one-canon-imageforce-610.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-b8170"
+  to = "/automation-one-xerox-altalink-b8170.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8170"
+  to = "/automation-one-xerox-altalink-c8170.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8245"
+  to = "/automation-one-xerox-altalink-c8245.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-b8245"
+  to = "/automation-one-xerox-altalink-b8245.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-b8155"
+  to = "/automation-one-xerox-altalink-b8155.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8155"
+  to = "/automation-one-xerox-altalink-c8155.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8270"
+  to = "/automation-one-xerox-altalink-c8270.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-b8270"
+  to = "/automation-one-xerox-altalink-b8270.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8135"
+  to = "/automation-one-xerox-altalink-c8135.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-710"
+  to = "/automation-one-canon-imageforce-710.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8230"
+  to = "/automation-one-xerox-altalink-c8230.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-b8145"
+  to = "/automation-one-xerox-altalink-b8145.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/altalink-c8145"
+  to = "/automation-one-xerox-altalink-c8145.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-520"
+  to = "/automation-one-canon-imageforce-520.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xm3350br"
+  to = "/automation-one-lexmark-xm3350br.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xc4352"
+  to = "/automation-one-lexmark-xc4352.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xm3142"
+  to = "/automation-one-lexmark-xm3142.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xc4342"
+  to = "/automation-one-lexmark-xc4342.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xm7370"
+  to = "/automation-one-lexmark-xm7370.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xc2326"
+  to = "/automation-one-lexmark-xc2326.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xm1342"
+  to = "/automation-one-lexmark-xm1342.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xm5365"
+  to = "/automation-one-lexmark-xm5365.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xm7355"
+  to = "/automation-one-lexmark-xm7355.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/xc2335"
+  to = "/automation-one-lexmark-xc2335.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/m5270"
+  to = "/automation-one-lexmark-m5270.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/m3350"
+  to = "/automation-one-lexmark-m3350.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/m5255"
+  to = "/automation-one-lexmark-m5255.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/c4352"
+  to = "/automation-one-lexmark-c4352.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/m1342"
+  to = "/automation-one-lexmark-m1342.html"
+  status = 200
+
+[[redirects]]
+  from = "/lexmark/c4342"
+  to = "/automation-one-lexmark-c4342.html"
+  status = 200
+
+# --- Main section pretty URLs (200) ---
+
 [[redirects]]
   from = "/about"
   to = "/automation-one-about.html"
+  status = 200
+
+[[redirects]]
+  from = "/billable-confirmation"
+  to = "/automation-one-billable-confirmation.html"
   status = 200
 
 [[redirects]]
@@ -17,22 +426,17 @@
   status = 200
 
 [[redirects]]
-  from = "/faq"
-  to = "/automation-one-faq.html"
-  status = 200
-
-[[redirects]]
   from = "/digital-solutions"
   to = "/automation-one-digital-solutions.html"
   status = 200
 
 [[redirects]]
-  from = "/fp"
-  to = "/automation-one-fp.html"
+  from = "/faq"
+  to = "/automation-one-faq.html"
   status = 200
 
 [[redirects]]
-  from = "/francotyp-postalia"
+  from = "/fp"
   to = "/automation-one-fp.html"
   status = 200
 
@@ -44,6 +448,11 @@
 [[redirects]]
   from = "/lexmark"
   to = "/automation-one-lexmark.html"
+  status = 200
+
+[[redirects]]
+  from = "/network-survey"
+  to = "/automation-one-network-installation-survey.html"
   status = 200
 
 [[redirects]]
@@ -62,8 +471,8 @@
   status = 200
 
 [[redirects]]
-  from = "/service-support"
-  to = "/automation-one-service-support.html"
+  from = "/printer-bash"
+  to = "/automation-one-smash-it.html"
   status = 200
 
 [[redirects]]
@@ -86,6 +495,566 @@
   to = "/automation-one-xerox.html"
   status = 200
 
+[[redirects]]
+  from = "/service-support"
+  to = "/automation-one-service-support.html"
+  status = 200
+
+[[redirects]]
+  from = "/francotyp-postalia"
+  to = "/automation-one-fp.html"
+  status = 200
+
+# --- Legacy long .html paths (301) -> short public URLs ---
+
+[[redirects]]
+  from = "/automation-one-canon-color-imagerunner-advance-dx-c3930i.html"
+  to = "/canon/color-imagerunner-advance-dx-c3930i"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-color-imagerunner-advance-dx-c3935i.html"
+  to = "/canon/color-imagerunner-advance-dx-c3935i"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-color-imagerunner-advance-dx-c3926i.html"
+  to = "/canon/color-imagerunner-advance-dx-c3926i"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imagerunner-advance-dx-4935i.html"
+  to = "/canon/imagerunner-advance-dx-4935i"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imagerunner-advance-dx-4925i.html"
+  to = "/canon/imagerunner-advance-dx-4925i"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imagerunner-advance-dx-4945i.html"
+  to = "/canon/imagerunner-advance-dx-4945i"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-color-imagerunner-c3326i.html"
+  to = "/canon/color-imagerunner-c3326i"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-network-installation-survey.html"
+  to = "/network-survey"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageclass-x-mf1333c.html"
+  to = "/canon/imageclass-x-mf1333c"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c1333p.html"
+  to = "/canon/imageforce-c1333p"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c7165.html"
+  to = "/canon/imageforce-c7165"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c3150.html"
+  to = "/canon/imageforce-c3150"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imagepress-v1000.html"
+  to = "/canon/imagepress-v1000"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c5150.html"
+  to = "/canon/imageforce-c5150"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-1440p.html"
+  to = "/canon/imageforce-1440p"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c5170.html"
+  to = "/canon/imageforce-c5170"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c1333.html"
+  to = "/canon/imageforce-c1333"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c5160.html"
+  to = "/canon/imageforce-c5160"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c5140.html"
+  to = "/canon/imageforce-c5140"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-billable-confirmation.html"
+  to = "/billable-confirmation"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-8105.html"
+  to = "/canon/imageforce-8105"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-6160.html"
+  to = "/canon/imageforce-6160"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-8186.html"
+  to = "/canon/imageforce-8186"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-versalink-c7120.html"
+  to = "/xerox/versalink-c7120"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c431.html"
+  to = "/canon/imageforce-c431"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-6170.html"
+  to = "/canon/imageforce-6170"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c611.html"
+  to = "/canon/imageforce-c611"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-1440.html"
+  to = "/canon/imageforce-1440"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imagepress-v800.html"
+  to = "/canon/imagepress-v800"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-versalink-b7130.html"
+  to = "/xerox/versalink-b7130"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-versalink-c7130.html"
+  to = "/xerox/versalink-c7130"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-primelink-b9125.html"
+  to = "/xerox/primelink-b9125"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-8195.html"
+  to = "/canon/imageforce-8195"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c521.html"
+  to = "/canon/imageforce-c521"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c331.html"
+  to = "/canon/imageforce-c331"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-versalink-b7125.html"
+  to = "/xerox/versalink-b7125"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-versalink-c7125.html"
+  to = "/xerox/versalink-c7125"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-primelink-c9281.html"
+  to = "/xerox/primelink-c9281"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-primelink-b9110.html"
+  to = "/xerox/primelink-b9110"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-primelink-c9275.html"
+  to = "/xerox/primelink-c9275"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-primelink-b9100.html"
+  to = "/xerox/primelink-b9100"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-versalink-b7135.html"
+  to = "/xerox/versalink-b7135"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imagepress-v700.html"
+  to = "/canon/imagepress-v700"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-primelink-b9136.html"
+  to = "/xerox/primelink-b9136"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-primelink-c9265.html"
+  to = "/xerox/primelink-c9265"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imagepress-v900.html"
+  to = "/canon/imagepress-v900"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-6155.html"
+  to = "/canon/imageforce-6155"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8130.html"
+  to = "/xerox/altalink-c8130"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8235.html"
+  to = "/xerox/altalink-c8235"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8255.html"
+  to = "/xerox/altalink-c8255"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-b8255.html"
+  to = "/xerox/altalink-b8255"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-610.html"
+  to = "/canon/imageforce-610"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-b8170.html"
+  to = "/xerox/altalink-b8170"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8170.html"
+  to = "/xerox/altalink-c8170"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8245.html"
+  to = "/xerox/altalink-c8245"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-b8245.html"
+  to = "/xerox/altalink-b8245"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-b8155.html"
+  to = "/xerox/altalink-b8155"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8155.html"
+  to = "/xerox/altalink-c8155"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8270.html"
+  to = "/xerox/altalink-c8270"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-b8270.html"
+  to = "/xerox/altalink-b8270"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8135.html"
+  to = "/xerox/altalink-c8135"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-710.html"
+  to = "/canon/imageforce-710"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8230.html"
+  to = "/xerox/altalink-c8230"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-b8145.html"
+  to = "/xerox/altalink-b8145"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox-altalink-c8145.html"
+  to = "/xerox/altalink-c8145"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-520.html"
+  to = "/canon/imageforce-520"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-digital-solutions.html"
+  to = "/digital-solutions"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xm3350br.html"
+  to = "/lexmark/xm3350br"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-service-support.html"
+  to = "/service"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xc4352.html"
+  to = "/lexmark/xc4352"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xm3142.html"
+  to = "/lexmark/xm3142"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xc4342.html"
+  to = "/lexmark/xc4342"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xm7370.html"
+  to = "/lexmark/xm7370"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xc2326.html"
+  to = "/lexmark/xc2326"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xm1342.html"
+  to = "/lexmark/xm1342"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xm5365.html"
+  to = "/lexmark/xm5365"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xm7355.html"
+  to = "/lexmark/xm7355"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-xc2335.html"
+  to = "/lexmark/xc2335"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-m5270.html"
+  to = "/lexmark/m5270"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-m3350.html"
+  to = "/lexmark/m3350"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-m5255.html"
+  to = "/lexmark/m5255"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-c4352.html"
+  to = "/lexmark/c4352"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-m1342.html"
+  to = "/lexmark/m1342"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark-c4342.html"
+  to = "/lexmark/c4342"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-testimonials.html"
+  to = "/testimonials"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-what-we-do.html"
+  to = "/what-we-do"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-ideal-mbm.html"
+  to = "/ideal-mbm"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-resources.html"
+  to = "/resources"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-products.html"
+  to = "/products"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-smash-it.html"
+  to = "/printer-bash"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-contact.html"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-lexmark.html"
+  to = "/lexmark"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-about.html"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-canon.html"
+  to = "/canon"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-toner.html"
+  to = "/toner"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-xerox.html"
+  to = "/xerox"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-faq.html"
+  to = "/faq"
+  status = 301
+
+[[redirects]]
+  from = "/automation-one-fp.html"
+  to = "/fp"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# --- WordPress slug legacy (301) for .ca cutover ---
+
+[[redirects]]
+  from = "/faqs"
+  to = "/faq"
+  status = 301
+
+[[redirects]]
+  from = "/faqs/"
+  to = "/faq"
+  status = 301
+
+[[redirects]]
+  from = "/what-we-do-for-you"
+  to = "/what-we-do"
+  status = 301
+
+[[redirects]]
+  from = "/what-we-do-for-you/"
+  to = "/what-we-do"
+  status = 301
+
+[[redirects]]
+  from = "/idealmbm"
+  to = "/ideal-mbm"
+  status = 301
+
+[[redirects]]
+  from = "/idealmbm/"
+  to = "/ideal-mbm"
+  status = 301
+
+[[redirects]]
+  from = "/solutions"
+  to = "/digital-solutions"
+  status = 301
+
+[[redirects]]
+  from = "/solutions/"
+  to = "/digital-solutions"
+  status = 301
+
+# Duplicate homepage variant
+
+[[redirects]]
+  from = "/automation-one-homepage-6.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
 [[headers]]
   for = "/*.html"
   [headers.values]

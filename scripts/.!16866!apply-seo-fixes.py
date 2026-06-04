@@ -6,11 +6,7 @@ import html
 import json
 import re
 import sys
-import sys
 from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from url_paths import build_path_map
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://automationone.org"
@@ -24,11 +20,26 @@ HOME_DESC = (
 )
 
 
-def public_paths() -> dict[str, str]:
-    return build_path_map()
+PRETTY_CANONICAL: dict[str, str] = {
+    "index.html": "/",
+    "automation-one-about.html": "/about",
+    "automation-one-canon.html": "/canon",
+    "automation-one-contact.html": "/contact",
+    "automation-one-faq.html": "/faq",
+    "automation-one-digital-solutions.html": "/digital-solutions",
+    "automation-one-fp.html": "/fp",
+    "automation-one-ideal-mbm.html": "/ideal-mbm",
+    "automation-one-lexmark.html": "/lexmark",
+    "automation-one-products.html": "/products",
+    "automation-one-resources.html": "/resources",
+    "automation-one-service-support.html": "/service",
+    "automation-one-testimonials.html": "/testimonials",
+    "automation-one-toner.html": "/toner",
+    "automation-one-what-we-do.html": "/what-we-do",
+    "automation-one-xerox.html": "/xerox",
+}
 
-
-PRETTY_CANONICAL: dict[str, str] = public_paths()
+SITEMAP_PRETTY = sorted(set(PRETTY_CANONICAL.values()))
 
 GENERIC_CANON_TITLE = "Canon Products | Authorized Dealer in Vancouver | Automation One"
 GENERIC_CANON_DESC_PREFIX = "Explore Canon imageFORCE"
@@ -67,9 +78,7 @@ ORG_JSON = {
 
 
 def canonical_url(filename: str) -> str:
-    if filename == "automation-one-homepage-6.html":
-        return f"{SITE}/"
-    path = public_paths().get(filename)
+    path = PRETTY_CANONICAL.get(filename)
     if path:
         return f"{SITE}{path if path != '/' else '/'}"
     return f"{SITE}/{filename}"
@@ -94,27 +103,19 @@ def get_title(page_html: str) -> str | None:
 
 def get_description(page_html: str) -> str | None:
     m = re.search(
-        r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1',
+        r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']*)["\']',
         page_html,
-        re.I | re.S,
+        re.I,
     )
-    return html.unescape(m.group(2).strip()) if m else None
+    return html.unescape(m.group(1).strip()) if m else None
 
 
 def set_title(page_html: str, title: str) -> str:
     return re.sub(r"<title>[^<]*</title>", f"<title>{html.escape(title)}</title>", page_html, count=1, flags=re.I)
 
 
-def attr_escape(value: str) -> str:
-    return (
-        value.replace("&", "&amp;")
-        .replace('"', "&quot;")
-        .replace("'", "&#39;")
-    )
-
-
 def set_or_insert_description(page_html: str, desc: str) -> str:
-    esc = attr_escape(desc)
+    esc = html.escape(desc, quote=True)
     tag = f'<meta name="description" content="{esc}" />'
     if re.search(r'<meta\s+name=["\']description["\']', page_html, re.I):
         return re.sub(
@@ -137,9 +138,9 @@ def remove_seo_block(page_html: str) -> str:
 
 
 def build_og_twitter(canonical: str, title: str, description: str) -> str:
-    t = attr_escape(title)
-    d = attr_escape(description)
-    c = attr_escape(canonical)
+    t = html.escape(title, quote=True)
+    d = html.escape(description, quote=True)
+    c = html.escape(canonical, quote=True)
     return f"""{SEO_MARKER_START}
 <link rel="canonical" href="{c}" />
 <meta property="og:type" content="website" />
@@ -283,8 +284,6 @@ def add_lazy_loading_products(page_html: str, filename: str) -> str:
 
     def repl(match: re.Match) -> str:
         tag = match.group(0)
-        if re.search(r'\bloading\s*=\s*["\']lazy["\']', tag, re.I):
-            return tag
         if re.search(r"\bloading\s*=", tag, re.I):
             return tag
         return tag.replace("<img ", '<img loading="lazy" ', 1)
@@ -388,14 +387,14 @@ def write_llms() -> None:
 
 
 def write_sitemap() -> None:
-    paths = public_paths()
-    skip = {"automation-one-homepage-6.html"}
     urls: list[str] = []
-    for fname in sorted(paths.keys()):
-        if fname in skip:
-            continue
-        p = paths[fname]
+    for p in sorted(PRETTY_CANONICAL.values()):
         urls.append(f"{SITE}{p if p != '/' else '/'}")
+    skip = {"automation-one-homepage-6.html"}
+    for path in sorted(ROOT.glob("*.html")):
+        if path.name in skip or path.name in PRETTY_CANONICAL:
+            continue
+        urls.append(f"{SITE}/{path.name}")
 
     # stable unique order
     seen = set()
@@ -438,24 +437,3 @@ def generate_og_image() -> None:
         ly = 120
         img.paste(logo, (lx, ly), logo)
     draw.text((80, 430), "Automation One", fill="white")
-    draw.text((80, 490), "Business printing and systems - Vancouver, BC", fill="#d9e6ff")
-    draw.text((80, 540), "automationone.org", fill="#b3ccff")
-    img.save(out, "PNG", optimize=True)
-    print(f"Wrote {out}")
-
-
-def main() -> None:
-    changed = 0
-    for path in sorted(ROOT.glob("*.html")):
-        if process_html(path):
-            changed += 1
-            print(f"updated {path.name}")
-    write_robots()
-    write_llms()
-    write_sitemap()
-    generate_og_image()
-    print(f"Done. {changed} HTML files updated.")
-
-
-if __name__ == "__main__":
-    main()
