@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -57,6 +58,20 @@ body.news-article-page .subpage-hero {
   max-width: 900px;
 }
 .news-article-hero-card h1 em { color: var(--blue-500); font-style: italic; }
+.news-date {
+  flex: 0 0 100%;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+.news-article-date {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
 .news-article-return { margin-top: 24px; }
 .news-article-shell { padding: clamp(28px, 5vw, 56px) 0 clamp(48px, 8vw, 88px); }
 .news-article {
@@ -368,6 +383,14 @@ ARTICLES = [
     },
 ]
 
+BASE_PUBLISH_DATE = date(2026, 6, 7)
+
+
+def publish_date_for_index(index: int) -> tuple[str, str]:
+    published = BASE_PUBLISH_DATE - timedelta(days=index)
+    return published.isoformat(), f"{published.strftime('%B')} {published.day}, {published.year}"
+
+
 BRAND_LOGOS: dict[str, tuple[str, str]] = {
     "canon": ("brand-logo-canon.png", "Canon logo"),
     "xerox": ("brand-logo-xerox.png", "Xerox logo"),
@@ -400,12 +423,14 @@ def sources_html(sources: list[tuple[str, str]]) -> str:
 
 def article_body(article: dict) -> str:
     logo_src, logo_alt = BRAND_LOGOS[article["slug"]]
+    date_iso, date_display = article["date_iso"], article["date_display"]
     return f"""<section class="subpage-hero subpage-hero--photo news-article-hero">
   <img class="subpage-hero-photo" src="latest-news-hero-newsroom.png" width="1920" height="1080" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high" />
   <div class="container">
     <div class="news-article-hero-card reveal">
       <span class="news-article-brand-pill" data-brand="{article['slug']}"><img class="news-article-hero-logo" src="{logo_src}" alt="{logo_alt}" decoding="async" /></span>
       <h1>{article['headline']}</h1>
+      <p class="news-article-date"><time datetime="{date_iso}">{date_display}</time></p>
       <a href="automation-one-latest-news.html" class="cta cta-primary cta-pill-arrow news-article-return">Return to News</a>
     </div>
   </div>
@@ -416,7 +441,7 @@ def article_body(article: dict) -> str:
     <article class="news-article reveal">
       <div class="news-article-photo"><img src="{article['image']}" alt="{article['image_alt']}" loading="eager" decoding="async" /></div>
       <div class="news-article-body">
-        <div class="news-meta">{pills_html(article['pills'])}</div>
+        <div class="news-meta"><time class="news-date" datetime="{date_iso}">{date_display}</time>{pills_html(article['pills'])}</div>
         <p class="news-article-lead">{article['lead']}</p>
         {sections_html(article['sections'])}
         <div class="news-why"><strong>Why it matters</strong>{article['why']}</div>
@@ -478,10 +503,12 @@ def patch_template(html: str, article: dict) -> str:
 
 def main() -> None:
     template = TEMPLATE.read_text(encoding="utf-8")
-    for article in ARTICLES:
+    for index, article in enumerate(ARTICLES):
+        date_iso, date_display = publish_date_for_index(index)
+        article = {**article, "date_iso": date_iso, "date_display": date_display}
         path = ROOT / article["filename"]
         path.write_text(patch_template(template, article), encoding="utf-8")
-        print(f"Wrote {path.name}")
+        print(f"Wrote {path.name} ({date_display})")
 
 
 if __name__ == "__main__":
