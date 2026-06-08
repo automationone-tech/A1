@@ -125,10 +125,10 @@ def build_story():
         )
     )
     scores = [
-        ("New site (.org) overall readiness", 74, "SEO/AEO foundation deployed; performance gap remains"),
-        ("Old site (.ca) SEO maturity", 68, "Many URLs indexed; weak H1s, heavy pages"),
-        ("New vs old performance", 85, "New site wins on payload and TTFB on key pages"),
-        ("Migration readiness", 45, "Redirect map and .ca on Netlify not done yet"),
+        ("New site (.org) overall readiness", 78, "Live on Netlify; footers/nav/products UX updated June 2026"),
+        ("Old site (.ca) SEO maturity", 68, "WordPress still on many URLs; products page still ~1.2 MB"),
+        ("New vs old performance", 88, "Products page ~4x smaller on .org (live check June 2026)"),
+        ("Migration readiness", 58, "Short product URLs done; WordPress 301 map + .ca DNS still needed"),
     ]
     score_table = [["Category", "Score", "Notes"]] + [[a, str(b), c] for a, b, c in scores]
     story.append(styled_table(score_table, [2.2 * inch, 0.7 * inch, 3.4 * inch]))
@@ -145,9 +145,9 @@ def build_story():
     compare = [
         ["Area", "automationone.ca (current)", "automationone.org (new)", "Winner"],
         ["Platform", "WordPress + Yoast SEO", "Static HTML on Netlify", "New (simpler, faster ops)"],
-        ["Homepage HTML", "~414 KB, ~0.36s", "~406 KB, ~0.34s", "Tie (both large HTML)"],
-        ["Products page", "~1,235 KB, ~1.22s", "~278 KB, ~0.32s", "New (4x smaller)"],
-        ["Contact page", "~350 KB, ~1.0s", "~118 KB, ~0.29s", "New"],
+        ["Homepage HTML", "~424 KB, ~0.45s (live)", "~424 KB, ~0.54s (live)", "Tie (both large HTML)"],
+        ["Products page", "~1,235 KB, ~1.6s (live)", "~279 KB, ~0.57s (live)", "New (4x smaller)"],
+        ["Contact page", "~350 KB (typical WP)", "~123 KB, ~0.35s (live)", "New"],
         ["Canon hub (/canon)", "~818 KB, ~1.2s", "Lighter static pages", "New"],
         ["Homepage title", "Keyword-heavy (Printing Vancouver...)", "Brand-focused", "New"],
         ["H1 on homepage", "0 H1 detected", "1 H1", "New"],
@@ -165,9 +165,9 @@ def build_story():
     story.append(Paragraph("Live HTML document metrics (.org)", h2))
     org_perf = [
         ["URL", "Time (s)", "HTML size", "Est. mobile PSI perf*"],
-        ["/", "0.29", "406 KB", "52-62"],
-        ["/products", "0.52", "278 KB", "48-58"],
-        ["/contact", "0.51", "119 KB", "58-68"],
+        ["/", "0.54", "424 KB", "52-62"],
+        ["/products", "0.57", "279 KB", "48-58"],
+        ["/contact", "0.35", "123 KB", "58-68"],
         ["/faq", "0.57", "121 KB", "58-68"],
         ["/about", "0.47", "142 KB", "55-65"],
         ["hero-printer-loop.mp4", "-", "6.7 MB", "Hurts LCP if autoplay"],
@@ -191,7 +191,7 @@ def build_story():
     story.append(priority_table([
         ("P1", "Submit sitemap after .ca cutover; verify Search Console on automationone.ca"),
         ("P1", "301 map every high-traffic WordPress URL to new paths"),
-        ("P2", "Short public URLs for product pages (see next section)"),
+        ("P2", "Verify short URLs in Search Console after .ca cutover (implemented on .org)"),
         ("P2", "Product + BreadcrumbList JSON-LD on all SKU pages"),
         ("P2", "Decide blog strategy: redirect 51 posts vs migrate vs 410"),
         ("P3", "Organization sameAs (Google Business Profile); lastmod in sitemap"),
@@ -206,7 +206,9 @@ def build_story():
             "<b>automation-one-canon-color-imagerunner-advance-dx-c3926i.html</b> (61 characters). "
             "There are ~70+ product pages with the automation-one-{brand}- prefix. Main pages already "
             "have short browser paths (/products, /faq); <b>product pages still show long .html URLs</b> "
-            "in the address bar and in some canonicals.",
+            "in the address bar. <b>Status (June 2026):</b> Short paths are live on automationone.org "
+            "via netlify.toml (/canon/..., /lexmark/..., /xerox/..., plus utility pages). "
+            "Canonicals and sitemap should use short URLs; re-point to automationone.ca at cutover.",
             body,
         )
     )
@@ -373,7 +375,7 @@ def build_story():
         ["New site", "Canon unique titles (35 pages)", "Done"],
         ["New site", "FAQPage + LocalBusiness JSON-LD", "Done"],
         ["New site", "robots.txt + sitemap + llms.txt", "Done"],
-        ["URLs", "Short product URLs (/canon/..., /lexmark/...)", "To do"],
+        ["URLs", "Short product URLs (/canon/..., /lexmark/...)", "Done on .org"],
         ["Migration", "WordPress 301 redirect map", "To do"],
         ["Migration", ".ca on Netlify (same deploy)", "To do"],
         ["Migration", "GSC sitemap on .ca", "To do"],
@@ -383,6 +385,40 @@ def build_story():
         ["Trust", "GBP linked in schema", "To do"],
     ]
     story.append(styled_table(checklist, [0.9 * inch, 3.5 * inch, 1.0 * inch], font_size=8))
+
+    story.append(PageBreak())
+
+    # ---- Simple next-steps (plain language) ----
+    story.append(Paragraph("Simple To-Do List (Start Here)", h1))
+    story.append(
+        Paragraph(
+            "Think of this like moving houses: the <b>new house</b> is built (automationone.org on Netlify). "
+            "Your <b>old address</b> (automationone.ca) still has the old furniture (WordPress). "
+            "You need to put a sign on the old address that says \"we moved here\" (301 redirects), "
+            "then tell Google the new address.",
+            body,
+        )
+    )
+    simple_steps = [
+        ("1", "Open the new site", "Visit https://automationone.org and click around. If something looks wrong, fix it before switching .ca."),
+        ("2", "Make a list of old links", "Export every URL from https://automationone.ca/sitemap_index.xml (like a phone book of old pages)."),
+        ("3", "Match old to new", "For each old link, write which new page it should open (example: /faqs/ goes to /faq). Save as docs/redirects-wp.csv."),
+        ("4", "Add redirects in Netlify", "Put those rules in netlify.toml so old .ca links automatically jump to the right new page."),
+        ("5", "Connect .ca to Netlify", "In Netlify: add automationone.ca as a custom domain. At your domain registrar: point .ca DNS to Netlify."),
+        ("6", "Tell Google", "In Google Search Console: add automationone.ca, submit the new sitemap, watch for 404 errors for 2-4 weeks."),
+        ("7", "Update the real world", "Change Google Business Profile, email signatures, and printed stuff to say automationone.ca."),
+        ("8", "Turn off WordPress", "Only after .ca works and redirects are good for ~30 days. Cancel old hosting."),
+        ("9", "Later: .org to .ca", "When everything is calm, make automationone.org automatically forward to automationone.ca (one permanent address)."),
+    ]
+    story.append(
+        styled_table(
+            [["Step", "What to do", "Why"]] + [[a, b, c] for a, b, c in simple_steps],
+            [0.45 * inch, 2.5 * inch, 3.2 * inch],
+            font_size=8,
+        )
+    )
+    story.append(Spacer(1, 0.1 * inch))
+    story.append(Paragraph("<b>Already done for you:</b> New site design updates pushed to Netlify; short product URLs on .org; SEO tags on all pages.", body))
 
     story.append(Spacer(1, 0.15 * inch))
     story.append(HRFlowable(width="100%", color=colors.HexColor("#d9e6ff")))

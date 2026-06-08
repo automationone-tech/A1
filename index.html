@@ -4165,6 +4165,34 @@
       width: auto;
     }
   }
+  @media (max-width: 760px) {
+    .service-stats {
+      padding-block: clamp(72px, 14vw, 108px);
+    }
+    .service-stats::before {
+      background-image: url("service-promise-banner.jpg");
+      background-position: center 88%;
+      background-size: cover;
+      opacity: 0.24;
+      filter: saturate(0.84) contrast(1.06) brightness(0.96);
+    }
+    .service-stats::after {
+      background:
+        linear-gradient(to bottom, rgba(248, 251, 255, 0.94) 0%, rgba(248, 251, 255, 0.98) 34%, rgba(248, 251, 255, 0.9) 58%, rgba(238, 244, 255, 0.55) 78%, rgba(238, 244, 255, 0.2) 100%);
+    }
+    .service-stats-panel {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9));
+      border-color: rgba(126, 167, 255, 0.36);
+      box-shadow: 0 28px 70px -42px rgba(15, 56, 158, 0.55);
+    }
+    .service-stats .stat-card {
+      background: rgba(255, 255, 255, 0.98);
+      border-color: rgba(126, 167, 255, 0.28);
+    }
+    .service-stats .section-head h2 {
+      font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+  }
   .service-stats .stat-card {
     text-align: center;
   }
@@ -6705,7 +6733,7 @@ html { background-color: #ffffff; }
   <!-- SITE HEADER -->
   <header class="site-header">
   <nav class="nav">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
 <span class="logo-mark-wrap" aria-hidden="true">
         <img class="logo-mark" src="data:image/png;base64,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" alt="Automation One logo" />
       </span>
@@ -7379,21 +7407,28 @@ html { background-color: #ffffff; }
     if (!section) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) {
+    const isMobile = window.matchMedia('(max-width: 760px)').matches;
+    if (reduceMotion || isMobile) {
       section.classList.add('is-service-intro-complete');
       return;
     }
 
     section.classList.add('is-service-intro-pending');
 
+    const completeIntro = () => {
+      section.classList.remove('is-service-intro-pending', 'is-service-intro-active');
+      section.classList.add('is-service-intro-complete');
+    };
+
     const playIntro = () => {
       if (section.classList.contains('is-service-intro-complete')) return;
       section.classList.add('is-service-intro-active');
-      window.setTimeout(() => {
-        section.classList.remove('is-service-intro-pending', 'is-service-intro-active');
-        section.classList.add('is-service-intro-complete');
-      }, 1900);
+      window.setTimeout(completeIntro, 1900);
     };
+
+    window.setTimeout(() => {
+      if (!section.classList.contains('is-service-intro-complete')) completeIntro();
+    }, 2400);
 
     if (!('IntersectionObserver' in window)) {
       window.requestAnimationFrame(playIntro);
@@ -7404,7 +7439,7 @@ html { background-color: #ffffff; }
       if (!entries.some((entry) => entry.isIntersecting)) return;
       observer.disconnect();
       window.requestAnimationFrame(playIntro);
-    }, { threshold: 0.26 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
     observer.observe(section);
   })();
@@ -8084,7 +8119,7 @@ html { background-color: #ffffff; }
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
@@ -8149,6 +8184,7 @@ html { background-color: #ffffff; }
           <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
           <li><a href="automation-one-about.html">About Us &amp; Our History</a></li>
           <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-latest-news.html">Latest News</a></li>
           <li><a href="automation-one-faq.html">FAQs</a></li>
           <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
           <li><a href="automation-one-contact.html">Contact Us</a></li>
@@ -9420,7 +9456,7 @@ html { background-color: #ffffff; }
     </button>
   </div>
   <div class="sticky-bar-links-desktop">
-    <a href="index.html" class="home-link" data-nav="home" aria-label="Home">
+    <a href="/" class="home-link" data-nav="home" aria-label="Home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
       <span class="sticky-nav-text">Home</span>
     </a>
@@ -9454,7 +9490,7 @@ html { background-color: #ffffff; }
   </div>
 </nav>
 <div class="mobile-nav-sheet" id="mobile-nav-sheet" hidden>
-  <a href="index.html">
+  <a href="/">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/></svg>
     Home
   </a>
@@ -9555,6 +9591,7 @@ html { background-color: #ffffff; }
       });
 
       var file = currentFile();
+      var path = (window.location.pathname || '').toLowerCase();
       var hash = (window.location.hash || '').toLowerCase();
       var home = bar.querySelector('[data-nav="home"]');
       var offer = bar.querySelector('[data-nav="offer"] .sticky-nav-trigger');
@@ -9564,7 +9601,9 @@ html { background-color: #ffffff; }
 
       if (file.indexOf('contact') !== -1) {
         target = contact;
-      } else if (file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1) {
+      } else if (path.indexOf('/latest-news') !== -1 || file.indexOf('latest-news') !== -1 || file.indexOf('automation-one-latest-news') !== -1) {
+        target = offer;
+      } else if (file === 'service' || file === 'service' || file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1) {
         target = offer;
       } else if (file.indexOf('what-we-do') !== -1 || file.indexOf('about') !== -1 || file.indexOf('testimonials') !== -1) {
         target = who;

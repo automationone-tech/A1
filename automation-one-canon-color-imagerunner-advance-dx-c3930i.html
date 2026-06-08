@@ -2819,7 +2819,7 @@
 <body class="canon-page canon-product-detail-page canon-c3930-page">
 <header class="site-header">
   <nav class="nav">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       <span class="logo-mark-wrap" aria-hidden="true">
         <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
       </span>
@@ -2852,7 +2852,7 @@
         <div class="canon-hero-actions">
           <a href="#specifications" class="cta cta-secondary">View Specifications</a>
           <a href="#brochure" class="cta cta-secondary">View Brochure</a>
-          <a href="automation-one-products.html#catalog" class="cta cta-primary hero-catalogue">Return to Catalogue</a>
+          <a href="automation-one-products.html" class="cta cta-primary hero-catalogue">Return to Catalogue</a>
 
           <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer hero-quote">Request a Quote</a>
         </div>
@@ -2998,7 +2998,7 @@
   </section>
 
   <section class="product-return-actions" aria-label="Return to product catalogue">
-    <a href="automation-one-products.html#catalog" class="cta cta-primary cta-pill-arrow">Return to Catalogue</a>
+    <a href="automation-one-products.html" class="cta cta-primary cta-pill-arrow">Return to Catalogue</a>
   </section>
 </main>
 
@@ -3131,7 +3131,7 @@
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
@@ -3196,6 +3196,7 @@
           <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
           <li><a href="automation-one-about.html">About Us &amp; Our History</a></li>
           <li><a href="automation-one-testimonials.html">Testimonials</a></li>
+          <li><a href="automation-one-latest-news.html">Latest News</a></li>
           <li><a href="automation-one-faq.html">FAQs</a></li>
           <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
           <li><a href="automation-one-contact.html">Contact Us</a></li>
@@ -3231,7 +3232,7 @@
     </button>
   </div>
   <div class="sticky-bar-links-desktop">
-    <a href="index.html" class="home-link" data-nav="home" aria-label="Home">
+    <a href="/" class="home-link" data-nav="home" aria-label="Home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
       <span class="sticky-nav-text">Home</span>
     </a>
@@ -3265,7 +3266,7 @@
   </div>
 </nav>
 <div class="mobile-nav-sheet" id="mobile-nav-sheet" hidden>
-  <a href="index.html">
+  <a href="/">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13V10.5"/></svg>
     Home
   </a>
@@ -3366,6 +3367,7 @@
       });
 
       var file = currentFile();
+      var path = (window.location.pathname || '').toLowerCase();
       var hash = (window.location.hash || '').toLowerCase();
       var home = bar.querySelector('[data-nav="home"]');
       var offer = bar.querySelector('[data-nav="offer"] .sticky-nav-trigger');
@@ -3375,7 +3377,9 @@
 
       if (file.indexOf('contact') !== -1) {
         target = contact;
-      } else if (file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1 || file.indexOf('canon') !== -1 || file.indexOf('xerox') !== -1 || file.indexOf('lexmark') !== -1 || file.indexOf('automation-one-fp') !== -1 || file.indexOf('ideal-mbm') !== -1) {
+      } else if (path.indexOf('/latest-news') !== -1 || file.indexOf('latest-news') !== -1 || file.indexOf('automation-one-latest-news') !== -1) {
+        target = offer;
+      } else if (file === 'service' || file === 'service' || file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1 || file.indexOf('canon') !== -1 || file.indexOf('xerox') !== -1 || file.indexOf('lexmark') !== -1 || file.indexOf('automation-one-fp') !== -1 || file.indexOf('ideal-mbm') !== -1) {
         target = offer;
       } else if (file.indexOf('what-we-do') !== -1 || file.indexOf('about') !== -1 || file.indexOf('testimonials') !== -1) {
         target = who;

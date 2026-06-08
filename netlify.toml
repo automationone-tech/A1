@@ -94,6 +94,11 @@
   status = 200
 
 [[redirects]]
+  from = "/latest-news/ideal-mbm"
+  to = "/automation-one-latest-news-ideal-mbm.html"
+  status = 200
+
+[[redirects]]
   from = "/canon/imageforce-8105"
   to = "/automation-one-canon-imageforce-8105.html"
   status = 200
@@ -229,6 +234,11 @@
   status = 200
 
 [[redirects]]
+  from = "/latest-news/industry"
+  to = "/automation-one-latest-news-industry.html"
+  status = 200
+
+[[redirects]]
   from = "/xerox/altalink-c8130"
   to = "/automation-one-xerox-altalink-c8130.html"
   status = 200
@@ -324,8 +334,28 @@
   status = 200
 
 [[redirects]]
+  from = "/latest-news/lexmark"
+  to = "/automation-one-latest-news-lexmark.html"
+  status = 200
+
+[[redirects]]
+  from = "/latest-news/canon"
+  to = "/automation-one-latest-news-canon.html"
+  status = 200
+
+[[redirects]]
+  from = "/latest-news/xerox"
+  to = "/automation-one-latest-news-xerox.html"
+  status = 200
+
+[[redirects]]
   from = "/lexmark/xm3350br"
   to = "/automation-one-lexmark-xm3350br.html"
+  status = 200
+
+[[redirects]]
+  from = "/latest-news/fp"
+  to = "/automation-one-latest-news-fp.html"
   status = 200
 
 [[redirects]]
@@ -403,23 +433,6 @@
   to = "/automation-one-lexmark-c4342.html"
   status = 200
 
-# Product detail pages are served from nested pretty URLs such as
-# /canon/imageforce-1440p. Keep relative image/CSS/PDF paths working there.
-[[redirects]]
-  from = "/canon/*"
-  to = "/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/xerox/*"
-  to = "/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/lexmark/*"
-  to = "/:splat"
-  status = 200
-
 # --- Main section pretty URLs (200) ---
 
 [[redirects]]
@@ -428,9 +441,21 @@
   status = 200
 
 [[redirects]]
+  from = "/about/"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/billable-confirmation"
   to = "/automation-one-billable-confirmation.html"
   status = 200
+
+[[redirects]]
+  from = "/billable-confirmation/"
+  to = "/billable-confirmation"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/canon"
@@ -438,9 +463,21 @@
   status = 200
 
 [[redirects]]
+  from = "/canon/"
+  to = "/canon"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/contact"
   to = "/automation-one-contact.html"
   status = 200
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/digital-solutions"
@@ -448,9 +485,21 @@
   status = 200
 
 [[redirects]]
+  from = "/digital-solutions/"
+  to = "/digital-solutions"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/faq"
   to = "/automation-one-faq.html"
   status = 200
+
+[[redirects]]
+  from = "/faq/"
+  to = "/faq"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/fp"
@@ -458,9 +507,32 @@
   status = 200
 
 [[redirects]]
+  from = "/fp/"
+  to = "/fp"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/ideal-mbm"
   to = "/automation-one-ideal-mbm.html"
   status = 200
+
+[[redirects]]
+  from = "/ideal-mbm/"
+  to = "/ideal-mbm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news"
+  to = "/automation-one-latest-news.html"
+  status = 200
+
+[[redirects]]
+  from = "/latest-news/"
+  to = "/latest-news"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/lexmark"
@@ -468,9 +540,21 @@
   status = 200
 
 [[redirects]]
+  from = "/lexmark/"
+  to = "/lexmark"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/network-survey"
   to = "/automation-one-network-installation-survey.html"
   status = 200
+
+[[redirects]]
+  from = "/network-survey/"
+  to = "/network-survey"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/products"
@@ -478,9 +562,21 @@
   status = 200
 
 [[redirects]]
+  from = "/products/"
+  to = "/products"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/resources"
   to = "/automation-one-resources.html"
   status = 200
+
+[[redirects]]
+  from = "/resources/"
+  to = "/resources"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/service"
@@ -488,9 +584,21 @@
   status = 200
 
 [[redirects]]
+  from = "/service/"
+  to = "/service"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/printer-bash"
   to = "/automation-one-smash-it.html"
   status = 200
+
+[[redirects]]
+  from = "/printer-bash/"
+  to = "/printer-bash"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/testimonials"
@@ -498,9 +606,21 @@
   status = 200
 
 [[redirects]]
+  from = "/testimonials/"
+  to = "/testimonials"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/toner"
   to = "/automation-one-toner.html"
   status = 200
+
+[[redirects]]
+  from = "/toner/"
+  to = "/toner"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/what-we-do"
@@ -508,9 +628,21 @@
   status = 200
 
 [[redirects]]
+  from = "/what-we-do/"
+  to = "/what-we-do"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/xerox"
   to = "/automation-one-xerox.html"
   status = 200
+
+[[redirects]]
+  from = "/xerox/"
+  to = "/xerox"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/service-support"
@@ -531,7 +663,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/color-imagerunner-advance-dx-c3930i/"
+  to = "/canon/color-imagerunner-advance-dx-c3930i"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-color-imagerunner-advance-dx-c3935i.html"
+  to = "/canon/color-imagerunner-advance-dx-c3935i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/color-imagerunner-advance-dx-c3935i/"
   to = "/canon/color-imagerunner-advance-dx-c3935i"
   status = 301
   force = true
@@ -543,7 +687,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/color-imagerunner-advance-dx-c3926i/"
+  to = "/canon/color-imagerunner-advance-dx-c3926i"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imagerunner-advance-dx-4935i.html"
+  to = "/canon/imagerunner-advance-dx-4935i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imagerunner-advance-dx-4935i/"
   to = "/canon/imagerunner-advance-dx-4935i"
   status = 301
   force = true
@@ -555,13 +711,31 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imagerunner-advance-dx-4925i/"
+  to = "/canon/imagerunner-advance-dx-4925i"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imagerunner-advance-dx-4945i.html"
   to = "/canon/imagerunner-advance-dx-4945i"
   status = 301
   force = true
 
 [[redirects]]
+  from = "/canon/imagerunner-advance-dx-4945i/"
+  to = "/canon/imagerunner-advance-dx-4945i"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-color-imagerunner-c3326i.html"
+  to = "/canon/color-imagerunner-c3326i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/color-imagerunner-c3326i/"
   to = "/canon/color-imagerunner-c3326i"
   status = 301
   force = true
@@ -579,7 +753,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageclass-x-mf1333c/"
+  to = "/canon/imageclass-x-mf1333c"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-c1333p.html"
+  to = "/canon/imageforce-c1333p"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c1333p/"
   to = "/canon/imageforce-c1333p"
   status = 301
   force = true
@@ -591,7 +777,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-c7165/"
+  to = "/canon/imageforce-c7165"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-c3150.html"
+  to = "/canon/imageforce-c3150"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c3150/"
   to = "/canon/imageforce-c3150"
   status = 301
   force = true
@@ -603,7 +801,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imagepress-v1000/"
+  to = "/canon/imagepress-v1000"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-c5150.html"
+  to = "/canon/imageforce-c5150"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c5150/"
   to = "/canon/imageforce-c5150"
   status = 301
   force = true
@@ -615,7 +825,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-1440p/"
+  to = "/canon/imageforce-1440p"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-c5170.html"
+  to = "/canon/imageforce-c5170"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c5170/"
   to = "/canon/imageforce-c5170"
   status = 301
   force = true
@@ -627,7 +849,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-c1333/"
+  to = "/canon/imageforce-c1333"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-c5160.html"
+  to = "/canon/imageforce-c5160"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c5160/"
   to = "/canon/imageforce-c5160"
   status = 301
   force = true
@@ -635,6 +869,24 @@
 [[redirects]]
   from = "/automation-one-canon-imageforce-c5140.html"
   to = "/canon/imageforce-c5140"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c5140/"
+  to = "/canon/imageforce-c5140"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-latest-news-ideal-mbm.html"
+  to = "/latest-news/ideal-mbm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news/ideal-mbm/"
+  to = "/latest-news/ideal-mbm"
   status = 301
   force = true
 
@@ -651,7 +903,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-8105/"
+  to = "/canon/imageforce-8105"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-6160.html"
+  to = "/canon/imageforce-6160"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-6160/"
   to = "/canon/imageforce-6160"
   status = 301
   force = true
@@ -663,7 +927,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-8186/"
+  to = "/canon/imageforce-8186"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-versalink-c7120.html"
+  to = "/xerox/versalink-c7120"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/versalink-c7120/"
   to = "/xerox/versalink-c7120"
   status = 301
   force = true
@@ -675,7 +951,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-c431/"
+  to = "/canon/imageforce-c431"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-6170.html"
+  to = "/canon/imageforce-6170"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-6170/"
   to = "/canon/imageforce-6170"
   status = 301
   force = true
@@ -687,7 +975,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-c611/"
+  to = "/canon/imageforce-c611"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-1440.html"
+  to = "/canon/imageforce-1440"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-1440/"
   to = "/canon/imageforce-1440"
   status = 301
   force = true
@@ -699,7 +999,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imagepress-v800/"
+  to = "/canon/imagepress-v800"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-versalink-b7130.html"
+  to = "/xerox/versalink-b7130"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/versalink-b7130/"
   to = "/xerox/versalink-b7130"
   status = 301
   force = true
@@ -711,7 +1023,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/versalink-c7130/"
+  to = "/xerox/versalink-c7130"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-primelink-b9125.html"
+  to = "/xerox/primelink-b9125"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/primelink-b9125/"
   to = "/xerox/primelink-b9125"
   status = 301
   force = true
@@ -723,7 +1047,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-8195/"
+  to = "/canon/imageforce-8195"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-c521.html"
+  to = "/canon/imageforce-c521"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c521/"
   to = "/canon/imageforce-c521"
   status = 301
   force = true
@@ -735,7 +1071,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-c331/"
+  to = "/canon/imageforce-c331"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-versalink-b7125.html"
+  to = "/xerox/versalink-b7125"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/versalink-b7125/"
   to = "/xerox/versalink-b7125"
   status = 301
   force = true
@@ -747,7 +1095,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/versalink-c7125/"
+  to = "/xerox/versalink-c7125"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-primelink-c9281.html"
+  to = "/xerox/primelink-c9281"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/primelink-c9281/"
   to = "/xerox/primelink-c9281"
   status = 301
   force = true
@@ -759,7 +1119,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/primelink-b9110/"
+  to = "/xerox/primelink-b9110"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-primelink-c9275.html"
+  to = "/xerox/primelink-c9275"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/primelink-c9275/"
   to = "/xerox/primelink-c9275"
   status = 301
   force = true
@@ -771,7 +1143,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/primelink-b9100/"
+  to = "/xerox/primelink-b9100"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-versalink-b7135.html"
+  to = "/xerox/versalink-b7135"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/versalink-b7135/"
   to = "/xerox/versalink-b7135"
   status = 301
   force = true
@@ -783,7 +1167,19 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imagepress-v700/"
+  to = "/canon/imagepress-v700"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-primelink-b9136.html"
+  to = "/xerox/primelink-b9136"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/primelink-b9136/"
   to = "/xerox/primelink-b9136"
   status = 301
   force = true
@@ -795,7 +1191,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/primelink-c9265/"
+  to = "/xerox/primelink-c9265"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imagepress-v900.html"
+  to = "/canon/imagepress-v900"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imagepress-v900/"
   to = "/canon/imagepress-v900"
   status = 301
   force = true
@@ -807,7 +1215,31 @@
   force = true
 
 [[redirects]]
+  from = "/canon/imageforce-6155/"
+  to = "/canon/imageforce-6155"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-latest-news-industry.html"
+  to = "/latest-news/industry"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news/industry/"
+  to = "/latest-news/industry"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-altalink-c8130.html"
+  to = "/xerox/altalink-c8130"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/altalink-c8130/"
   to = "/xerox/altalink-c8130"
   status = 301
   force = true
@@ -819,7 +1251,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-c8235/"
+  to = "/xerox/altalink-c8235"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-altalink-c8255.html"
+  to = "/xerox/altalink-c8255"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/altalink-c8255/"
   to = "/xerox/altalink-c8255"
   status = 301
   force = true
@@ -831,7 +1275,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-b8255/"
+  to = "/xerox/altalink-b8255"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-610.html"
+  to = "/canon/imageforce-610"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-610/"
   to = "/canon/imageforce-610"
   status = 301
   force = true
@@ -843,7 +1299,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-b8170/"
+  to = "/xerox/altalink-b8170"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-altalink-c8170.html"
+  to = "/xerox/altalink-c8170"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/altalink-c8170/"
   to = "/xerox/altalink-c8170"
   status = 301
   force = true
@@ -855,7 +1323,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-c8245/"
+  to = "/xerox/altalink-c8245"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-altalink-b8245.html"
+  to = "/xerox/altalink-b8245"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/altalink-b8245/"
   to = "/xerox/altalink-b8245"
   status = 301
   force = true
@@ -867,7 +1347,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-b8155/"
+  to = "/xerox/altalink-b8155"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-altalink-c8155.html"
+  to = "/xerox/altalink-c8155"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/altalink-c8155/"
   to = "/xerox/altalink-c8155"
   status = 301
   force = true
@@ -879,7 +1371,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-c8270/"
+  to = "/xerox/altalink-c8270"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-altalink-b8270.html"
+  to = "/xerox/altalink-b8270"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/altalink-b8270/"
   to = "/xerox/altalink-b8270"
   status = 301
   force = true
@@ -891,7 +1395,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-c8135/"
+  to = "/xerox/altalink-c8135"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-710.html"
+  to = "/canon/imageforce-710"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-710/"
   to = "/canon/imageforce-710"
   status = 301
   force = true
@@ -903,7 +1419,19 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-c8230/"
+  to = "/xerox/altalink-c8230"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-xerox-altalink-b8145.html"
+  to = "/xerox/altalink-b8145"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/altalink-b8145/"
   to = "/xerox/altalink-b8145"
   status = 301
   force = true
@@ -915,8 +1443,32 @@
   force = true
 
 [[redirects]]
+  from = "/xerox/altalink-c8145/"
+  to = "/xerox/altalink-c8145"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageforce-520.html"
   to = "/canon/imageforce-520"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-520/"
+  to = "/canon/imageforce-520"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-latest-news-lexmark.html"
+  to = "/latest-news/lexmark"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news/lexmark/"
+  to = "/latest-news/lexmark"
   status = 301
   force = true
 
@@ -927,7 +1479,37 @@
   force = true
 
 [[redirects]]
+  from = "/automation-one-latest-news-canon.html"
+  to = "/latest-news/canon"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news/canon/"
+  to = "/latest-news/canon"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-latest-news-xerox.html"
+  to = "/latest-news/xerox"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news/xerox/"
+  to = "/latest-news/xerox"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-xm3350br.html"
+  to = "/lexmark/xm3350br"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/xm3350br/"
   to = "/lexmark/xm3350br"
   status = 301
   force = true
@@ -939,7 +1521,25 @@
   force = true
 
 [[redirects]]
+  from = "/automation-one-latest-news-fp.html"
+  to = "/latest-news/fp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news/fp/"
+  to = "/latest-news/fp"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-xc4352.html"
+  to = "/lexmark/xc4352"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/xc4352/"
   to = "/lexmark/xc4352"
   status = 301
   force = true
@@ -951,7 +1551,19 @@
   force = true
 
 [[redirects]]
+  from = "/lexmark/xm3142/"
+  to = "/lexmark/xm3142"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-xc4342.html"
+  to = "/lexmark/xc4342"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/xc4342/"
   to = "/lexmark/xc4342"
   status = 301
   force = true
@@ -963,7 +1575,19 @@
   force = true
 
 [[redirects]]
+  from = "/lexmark/xm7370/"
+  to = "/lexmark/xm7370"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-xc2326.html"
+  to = "/lexmark/xc2326"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/xc2326/"
   to = "/lexmark/xc2326"
   status = 301
   force = true
@@ -975,7 +1599,19 @@
   force = true
 
 [[redirects]]
+  from = "/lexmark/xm1342/"
+  to = "/lexmark/xm1342"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-xm5365.html"
+  to = "/lexmark/xm5365"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/xm5365/"
   to = "/lexmark/xm5365"
   status = 301
   force = true
@@ -987,7 +1623,19 @@
   force = true
 
 [[redirects]]
+  from = "/lexmark/xm7355/"
+  to = "/lexmark/xm7355"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-xc2335.html"
+  to = "/lexmark/xc2335"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/xc2335/"
   to = "/lexmark/xc2335"
   status = 301
   force = true
@@ -999,7 +1647,19 @@
   force = true
 
 [[redirects]]
+  from = "/lexmark/m5270/"
+  to = "/lexmark/m5270"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-m3350.html"
+  to = "/lexmark/m3350"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/m3350/"
   to = "/lexmark/m3350"
   status = 301
   force = true
@@ -1011,7 +1671,19 @@
   force = true
 
 [[redirects]]
+  from = "/lexmark/m5255/"
+  to = "/lexmark/m5255"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-c4352.html"
+  to = "/lexmark/c4352"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/c4352/"
   to = "/lexmark/c4352"
   status = 301
   force = true
@@ -1023,7 +1695,19 @@
   force = true
 
 [[redirects]]
+  from = "/lexmark/m1342/"
+  to = "/lexmark/m1342"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-lexmark-c4342.html"
+  to = "/lexmark/c4342"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/c4342/"
   to = "/lexmark/c4342"
   status = 301
   force = true
@@ -1031,6 +1715,12 @@
 [[redirects]]
   from = "/automation-one-testimonials.html"
   to = "/testimonials"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-latest-news.html"
+  to = "/latest-news"
   status = 301
   force = true
 
