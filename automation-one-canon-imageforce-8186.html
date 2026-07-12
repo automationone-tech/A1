@@ -1829,7 +1829,8 @@
     flex-shrink: 0;
     background: rgba(255, 255, 255, 0.38);
   }
-  .cta-contact-bar .cta-contact-phone {
+  .cta-contact-bar .cta-contact-phone,
+  .cta-contact-tollfree .cta-contact-phone {
     color: rgba(255, 255, 255, 0.94);
     text-decoration: none;
     font-size: 20px;
@@ -1838,7 +1839,8 @@
     white-space: nowrap;
     transition: color 0.2s ease;
   }
-  .cta-contact-bar .cta-contact-phone:hover {
+  .cta-contact-bar .cta-contact-phone:hover,
+  .cta-contact-tollfree .cta-contact-phone:hover {
     color: #b9d0ff;
   }
   @media (max-width: 560px) {
@@ -1858,7 +1860,8 @@
       height: 22px;
       margin: 0 8px;
     }
-    .cta-contact-bar .cta-contact-phone {
+    .cta-contact-bar .cta-contact-phone,
+  .cta-contact-tollfree .cta-contact-phone {
       font-size: 14px;
       letter-spacing: 0.01em;
     }
@@ -2880,6 +2883,7 @@
 <link rel="stylesheet" href="ao-subpage-mobile-header.css?v=safari-blue1">
 <link rel="stylesheet" href="ao-footer.css">
 <link rel="stylesheet" href="automation-one-cta.css">
+  <link rel="stylesheet" href="ao-remote-support.css">
 </head>
 <body class="canon-page canon-product-detail-page canon-8186-page">
 <header class="site-header">
@@ -3098,7 +3102,8 @@
       <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
     </div>
 
-    <div class="cta-contact-bar" aria-label="Contact us">
+    <div class="cta-contact-stack">
+      <div class="cta-contact-bar" aria-label="Contact us">
       <a
         href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743"
         class="cta-contact-icon"
@@ -3109,11 +3114,13 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </a>
       <span class="cta-contact-divider" aria-hidden="true"></span>
-      <a href="tel:+16042556622" class="cta-contact-phone">604-255-6622</a>
+      <a href="tel:+16042556622" class="cta-contact-phone">Local&nbsp;&nbsp;604-255-6622</a>
       <span class="cta-contact-divider" aria-hidden="true"></span>
       <a href="mailto:info@automationone.ca" class="cta-contact-icon" aria-label="Email info@automationone.ca">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
+      </div>
+      <p class="cta-contact-tollfree"><a href="tel:+18886305880" class="cta-contact-phone">Toll-free&nbsp;&nbsp;1-888-630-5880</a></p>
     </div>
   </div>
 </section>
@@ -3222,7 +3229,8 @@
           </span>
         </a>
         <p>Vancouver's locally owned printing and office equipment leader since 1981. Independent, multi-brand, and always at your service.</p>
-        <p>Call us today at <a href="tel:+16042556622" class="foot-phone">604-255-6622</a>.</p>
+        <p>Call us today at <a href="tel:+16042556622" class="foot-phone">604-255-6622</a></p>
+        <p>Toll-free <a href="tel:+18886305880" class="foot-phone">1-888-630-5880</a></p>
         <div class="foot-addr">
           <strong>Vancouver Head Office</strong>
           1365 Boundary Rd., Vancouver, BC V5K 4T9
@@ -3678,5 +3686,6 @@
     window.addEventListener('resize', requestPastState);
   })();
 </script>
+<script src="ao-remote-support.js"></script>
 </body>
 </html>

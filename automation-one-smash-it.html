@@ -743,7 +743,8 @@ canvas#stage { position: absolute; inset: 0; width: 100%; height: 100%; display:
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.38);
 }
-.cta-contact-bar .cta-contact-phone {
+.cta-contact-bar .cta-contact-phone,
+.cta-contact-tollfree .cta-contact-phone {
   color: rgba(255, 255, 255, 0.94);
   text-decoration: none;
   font-size: 20px;
@@ -752,13 +753,15 @@ canvas#stage { position: absolute; inset: 0; width: 100%; height: 100%; display:
   white-space: nowrap;
   transition: color 0.2s ease;
 }
-.cta-contact-bar .cta-contact-phone:hover { color: #b9d0ff; }
+.cta-contact-bar .cta-contact-phone:hover,
+.cta-contact-tollfree .cta-contact-phone:hover { color: #b9d0ff; }
 @media (max-width: 560px) {
   .cta-section .cta-contact-bar { flex-wrap: nowrap; max-width: 100%; }
   .cta-contact-bar .cta-contact-icon { width: 32px; height: 32px; }
   .cta-contact-bar .cta-contact-icon svg { width: 18px; height: 18px; }
   .cta-contact-bar .cta-contact-divider { height: 22px; margin: 0 8px; }
-  .cta-contact-bar .cta-contact-phone { font-size: 14px; letter-spacing: 0.01em; }
+  .cta-contact-bar .cta-contact-phone,
+  .cta-contact-tollfree .cta-contact-phone { font-size: 14px; letter-spacing: 0.01em; }
 }
 body.quote-drawer-open { overflow: hidden; }
 .quote-drawer-overlay {
@@ -1622,6 +1625,7 @@ footer .container {
 </style>
 <link rel="stylesheet" href="ao-subpage-mobile-header.css?v=safari-blue1">
 <link rel="stylesheet" href="automation-one-cta.css">
+  <link rel="stylesheet" href="ao-remote-support.css">
 </head>
 <body class="canon-page">
 <script>
@@ -7798,5 +7802,6 @@ footer .container {
   requestAnimationFrame(loop);
 })();
 </script>
+<script src="ao-remote-support.js"></script>
 </body>
 </html>

@@ -779,7 +779,8 @@
     flex-shrink: 0;
     background: rgba(255, 255, 255, 0.38);
   }
-  .cta-contact-bar .cta-contact-phone {
+  .cta-contact-bar .cta-contact-phone,
+  .cta-contact-tollfree .cta-contact-phone {
     color: rgba(255, 255, 255, 0.94);
     text-decoration: none;
     font-size: 20px;
@@ -788,7 +789,8 @@
     white-space: nowrap;
     transition: color 0.2s ease;
   }
-  .cta-contact-bar .cta-contact-phone:hover {
+  .cta-contact-bar .cta-contact-phone:hover,
+  .cta-contact-tollfree .cta-contact-phone:hover {
     color: #b9d0ff;
   }
   @media (max-width: 560px) {
@@ -808,7 +810,8 @@
       height: 22px;
       margin: 0 8px;
     }
-    .cta-contact-bar .cta-contact-phone {
+    .cta-contact-bar .cta-contact-phone,
+  .cta-contact-tollfree .cta-contact-phone {
       font-size: 14px;
       letter-spacing: 0.01em;
     }
@@ -3725,6 +3728,7 @@ html { background-color: #ffffff; }
 <link rel="stylesheet" href="ao-footer.css">
 <link rel="stylesheet" href="automation-one-cta.css">
 <link rel="stylesheet" href="ao-subpage-section-head.css">
+  <link rel="stylesheet" href="ao-remote-support.css">
 </head>
 <body class="subpage products-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
@@ -3973,7 +3977,7 @@ html { background-color: #ffffff; }
       <div class="catalog-banner-copy">
         <span class="section-eyebrow">Browse &amp; refine</span>
         <h2 class="catalog-banner-title">Catalogue</h2>
-        <p class="catalog-count" id="catalog-count">Showing 80 devices</p>
+        <p class="catalog-count" id="catalog-count">Showing 82 devices</p>
       </div>
       <div class="catalog-sort">
         <label>
@@ -4080,6 +4084,36 @@ html { background-color: #ffffff; }
           <button type="button" class="active-filters-clear" id="active-filters-clear">Clear all</button>
         </div>
         <div class="product-grid" id="product-grid">
+      <article class="product-card" data-product-type="other" data-brand="fp" data-category="mailing" data-name="fp postbase mini">
+        <div class="product-card-visual">
+          <img loading="lazy" src="fp-postbase-mini-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img loading="lazy" class="brand-logo-img" src="brand-logo-fp.png?v=2" alt="FP" /></span>
+          </div>
+          <h3>PostBase Mini</h3>
+          <p class="product-card-spec">Postage Meter | 17 letters/min | 2 kg scale</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-fp-postbase-mini.html">View Details</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-product-type="other" data-brand="fp" data-category="mailing" data-name="fp postbase fusion semi-auto">
+        <div class="product-card-visual">
+          <img loading="lazy" src="fp-postbase-fusion-front.png" alt="" loading="lazy" decoding="async" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-meta">
+            <span class="product-tag brand-logo-tag"><img loading="lazy" class="brand-logo-img" src="brand-logo-fp.png?v=2" alt="FP" /></span>
+          </div>
+          <h3>PostBase Fusion Semi-Auto</h3>
+          <p class="product-card-spec">Postage Meter | 50 letters/min | 7 kg scale</p>
+          <div class="product-card-actions">
+            <a class="btn-view-details" href="automation-one-fp-postbase-fusion-semi-auto.html">View Details</a>
+          </div>
+        </div>
+      </article>
       <article data-media="a3" class="product-card" data-product-type="other" data-brand="xerox" data-category="production" data-color="mono" data-speed="75-plus" data-name="xerox primelink b9136">
         <div class="product-card-visual">
           <img loading="lazy" loading="lazy" loading="lazy" loading="lazy" src="xerox-primelink-b9100-main.png" alt="" loading="lazy" decoding="async" />
@@ -5402,7 +5436,8 @@ html { background-color: #ffffff; }
       <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
     </div>
 
-    <div class="cta-contact-bar" aria-label="Contact us">
+    <div class="cta-contact-stack">
+      <div class="cta-contact-bar" aria-label="Contact us">
       <a
         href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743"
         class="cta-contact-icon"
@@ -5413,11 +5448,13 @@ html { background-color: #ffffff; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </a>
       <span class="cta-contact-divider" aria-hidden="true"></span>
-      <a href="tel:+16042556622" class="cta-contact-phone">604-255-6622</a>
+      <a href="tel:+16042556622" class="cta-contact-phone">Local&nbsp;&nbsp;604-255-6622</a>
       <span class="cta-contact-divider" aria-hidden="true"></span>
       <a href="mailto:info@automationone.ca" class="cta-contact-icon" aria-label="Email info@automationone.ca">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
+      </div>
+      <p class="cta-contact-tollfree"><a href="tel:+18886305880" class="cta-contact-phone">Toll-free&nbsp;&nbsp;1-888-630-5880</a></p>
     </div>
   </div>
 </section>
@@ -5526,7 +5563,8 @@ html { background-color: #ffffff; }
           </span>
         </a>
         <p>Vancouver's locally owned printing and office equipment leader since 1981. Independent, multi-brand, and always at your service.</p>
-        <p>Call us today at <a href="tel:+16042556622" class="foot-phone">604-255-6622</a>.</p>
+        <p>Call us today at <a href="tel:+16042556622" class="foot-phone">604-255-6622</a></p>
+        <p>Toll-free <a href="tel:+18886305880" class="foot-phone">1-888-630-5880</a></p>
         <div class="foot-addr">
           <strong>Vancouver Head Office</strong>
           1365 Boundary Rd., Vancouver, BC V5K 4T9
@@ -6714,5 +6752,6 @@ html { background-color: #ffffff; }
   })();
 </script>
 
+<script src="ao-remote-support.js"></script>
 </body>
 </html>

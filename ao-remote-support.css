@@ -1,0 +1,198 @@
+/* Remote Support — slide-in drawer with Windows / Mac tabs.
+   Shares the visual language of the Request a Quote drawer. */
+
+body.remote-drawer-open { overflow: hidden; }
+
+.remote-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  background: rgba(8, 14, 36, 0.58);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+.remote-drawer-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.remote-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 221;
+  width: min(520px, 44vw);
+  max-width: 100%;
+  height: 100%;
+  height: 100dvh;
+  background: linear-gradient(180deg, #0f389e 0%, #0a2870 48%, #061a4a 100%);
+  color: #ffffff;
+  box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.remote-drawer.is-open { transform: translateX(0); }
+
+.remote-drawer-header,
+.remote-drawer-body { position: relative; z-index: 1; }
+
+.remote-drawer-watermark { display: none; }
+@media (min-width: 721px) and (max-width: 1024px) {
+  .remote-drawer { width: min(420px, 52vw); }
+}
+@media (min-width: 721px) {
+  .remote-drawer-watermark {
+    display: block;
+    position: absolute;
+    right: 12px;
+    bottom: 16px;
+    width: min(260px, 52%);
+    height: auto;
+    object-fit: contain;
+    object-position: right bottom;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.remote-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 12px;
+  flex-shrink: 0;
+}
+.remote-drawer-header h2 {
+  font-family: var(--font-display, "Montserrat", sans-serif);
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #ffffff;
+}
+.remote-drawer-close {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.remote-drawer-close:hover,
+.remote-drawer-close:active { background: rgba(255, 255, 255, 0.1); }
+.remote-drawer-close:focus,
+.remote-drawer-close:focus-visible { outline: none; background: transparent; }
+
+.remote-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 24px 28px;
+}
+
+.remote-drawer-intro {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Tabs */
+.remote-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(6, 26, 74, 0.55);
+  border: 1px solid rgba(126, 167, 255, 0.35);
+  margin-bottom: 20px;
+}
+.remote-tab {
+  flex: 1;
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.remote-tab svg { width: 18px; height: 18px; flex-shrink: 0; }
+.remote-tab:hover { color: #ffffff; }
+.remote-tab.is-active {
+  background: #ffffff;
+  color: var(--blue-800, #0a2870);
+}
+
+.remote-panel { display: none; }
+.remote-panel.is-active { display: block; }
+
+.remote-panel h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.remote-panel ol {
+  margin: 0 0 20px;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.remote-panel ol li { margin-bottom: 6px; }
+
+.remote-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--blue-800, #0a2870);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.remote-download svg { width: 20px; height: 20px; }
+.remote-download:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.35);
+}
+
+.remote-drawer-hint {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(185, 208, 255, 0.75);
+}
+.remote-drawer-hint a { color: #b9d0ff; text-decoration: underline; }
+
+@media (max-width: 720px) {
+  .remote-drawer { width: 100%; }
+}

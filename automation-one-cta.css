@@ -159,7 +159,8 @@
   background: rgba(255, 255, 255, 0.38);
 }
 
-.cta-contact-bar .cta-contact-phone {
+.cta-contact-bar .cta-contact-phone,
+.cta-contact-tollfree .cta-contact-phone {
   color: rgba(255, 255, 255, 0.94);
   text-decoration: none;
   font-size: 20px;
@@ -169,8 +170,20 @@
   transition: color 0.2s ease;
 }
 
-.cta-contact-bar .cta-contact-phone:hover {
+.cta-contact-bar .cta-contact-phone:hover,
+.cta-contact-tollfree .cta-contact-phone:hover {
   color: #b9d0ff;
+}
+
+.cta-contact-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-contact-tollfree {
+  margin: 0;
 }
 
 @media (max-width: 560px) {
@@ -196,7 +209,8 @@
     margin: 0 8px;
   }
 
-  .cta-contact-bar .cta-contact-phone {
+  .cta-contact-bar .cta-contact-phone,
+  .cta-contact-tollfree .cta-contact-phone {
     font-size: 14px;
     letter-spacing: 0.01em;
   }
