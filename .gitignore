@@ -4,6 +4,18 @@ __MACOSX/
 .cursor/
 .pydeps/
 
+# Scratch / working artifacts (not deployed)
+.pdf-cache/
+_brand-refresh-preview/
+_info-pkg-assets/
+_info-pkg-out/
+_info-pkg-ref/
+_source-brochure-preview/
+*.bak
+*.bak-wjs
+generate-info-package-2026.py
+remake-info-package-brand-refresh.py
+
 # Local pretty-URL symlinks (python3 scripts/apply-short-urls.py)
 /about
 /billable-confirmation
