@@ -58,6 +58,22 @@ remake-info-package-brand-refresh.py
 /contact
 /digital-solutions
 /faq
+/faqs
+/news
+/solutions
+/what-we-do
+/what-we-do-for-you
+/office-printers
+/multifunction-printers
+/production-printers
+/wide-format-printers
+/colour-printers
+/monochrome-printers
+/document-scanners
+/paper-cutters
+/paper-shredders
+/mailing-machines
+/envelope-inserters
 /fp
 /ideal-mbm
 /lexmark
@@ -116,4 +132,10 @@ remake-info-package-brand-refresh.py
 /xerox/versalink-c7125
 /xerox/versalink-c7130
 /latest-news
+/news/canon
+/news/fp
+/news/ideal-mbm
+/news/industry
+/news/lexmark
+/news/xerox
 

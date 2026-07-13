@@ -12,7 +12,7 @@
   --cta-letter-rotate: -13deg;
   --cta-letter-scale: 1.16;
   --cta-watermark-left: 66%;
-  --cta-watermark-scale: 1;
+  --cta-watermark-scale: 1.0752;
 }
 
 .cta-section::after {

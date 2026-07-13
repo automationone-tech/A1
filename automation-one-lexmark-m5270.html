@@ -1628,7 +1628,7 @@
     --cta-letter-rotate: -13deg;
     --cta-letter-scale: 1.16;
     --cta-watermark-left: 66%;
-    --cta-watermark-scale: 1;
+    --cta-watermark-scale: 1.0752;
   }
   .cta-section::after {
     content: "";
@@ -2884,7 +2884,7 @@ body.lexmark-m5270-page .product-stat-strip {
   <section class="canon-hero">
     <div class="container canon-hero-grid">
       <div class="canon-hero-copy">
-        <a class="canon-logo-pill" href="automation-one-lexmark.html" aria-label="Lexmark products page">
+        <a class="canon-logo-pill" href="/lexmark" aria-label="Lexmark products page">
           <img src="solution-brochures/logos/lexmark.png" alt="Lexmark" width="180" height="54" />
           <span>Authorized Dealer</span>
         </a>
@@ -2893,7 +2893,7 @@ body.lexmark-m5270-page .product-stat-strip {
         <div class="canon-hero-actions">
           <a href="#specifications" class="cta cta-secondary">View Specifications</a>
           <a href="#brochure" class="cta cta-secondary">View Brochure</a>
-          <a href="automation-one-products.html" class="cta cta-primary hero-catalogue">Return to Catalogue</a>
+          <a href="/products" class="cta cta-primary hero-catalogue">Return to Catalogue</a>
 
           <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer hero-quote">Request a Quote</a>
         </div>
@@ -3036,7 +3036,7 @@ body.lexmark-m5270-page .product-stat-strip {
   </section>
 
   <section class="product-return-actions" aria-label="Return to product catalogue">
-    <a href="automation-one-products.html" class="cta cta-primary cta-pill-arrow">Return to Catalogue</a>
+    <a href="/products" class="cta cta-primary cta-pill-arrow">Return to Catalogue</a>
   </section>
 </main>
 
@@ -3099,7 +3099,7 @@ body.lexmark-m5270-page .product-stat-strip {
     function setWatermarkProgress(t) {
       t = smoothstep(t);
       section.style.setProperty('--cta-watermark-left', lerp(60.67, 66, t).toFixed(2) + '%');
-      section.style.setProperty('--cta-watermark-scale', lerp(1.15, 1, t).toFixed(4));
+      section.style.setProperty('--cta-watermark-scale', lerp(1.2365, 1.0752, t).toFixed(4));
     }
     function setFinalState() {
       section.style.setProperty('--cta-letter-bg-size', '100%');
@@ -3110,7 +3110,7 @@ body.lexmark-m5270-page .product-stat-strip {
     }
     function setWatermarkFinalState() {
       section.style.setProperty('--cta-watermark-left', '66%');
-      section.style.setProperty('--cta-watermark-scale', '1');
+      section.style.setProperty('--cta-watermark-scale', '1.0752');
     }
     function lockFinalState() {
       if (lockedFinal) return;
@@ -3196,38 +3196,38 @@ body.lexmark-m5270-page .product-stat-strip {
       <div class="foot-col">
         <h6>Products</h6>
         <ul>
-          <li><a href="automation-one-products.html#catalog">Full Catalogue</a></li>
-          <li><a href="automation-one-products.html?category=office-printers#catalog">Office Printers</a></li>
-          <li><a href="automation-one-products.html?category=multifunction#catalog">Multifunction</a></li>
-          <li><a href="automation-one-products.html?category=production#catalog">Production</a></li>
-          <li><a href="automation-one-products.html?category=large-format#catalog">Wide-Format</a></li>
-          <li><a href="automation-one-products.html?category=mailing#catalog">Mailing Solutions</a></li>
-          <li><a href="automation-one-products.html?category=document-management#catalog">Document Management</a></li>
-          <li><a href="automation-one-digital-solutions.html">Digital Solutions</a></li>
-          <li><a href="automation-one-products.html?category=more#catalog">More</a></li>
+          <li><a href="/products#catalog">Full Catalogue</a></li>
+          <li><a href="/office-printers">Office Printers</a></li>
+          <li><a href="/multifunction-printers">Multifunction</a></li>
+          <li><a href="/production-printers">Production</a></li>
+          <li><a href="/wide-format-printers">Wide-Format</a></li>
+          <li><a href="/mailing-machines">Mailing Solutions</a></li>
+          <li><a href="/document-scanners">Document Management</a></li>
+          <li><a href="/solutions">Digital Solutions</a></li>
+          <li><a href="/products#catalog">More</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Brands</h6>
         <ul>
-          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
-          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
-          <li><a href="automation-one-lexmark.html">Lexmark</a></li>
-          <li><a href="automation-one-fp.html">Francotyp Postalia</a></li>
-          <li><a href="automation-one-ideal-mbm.html">Ideal MBM</a></li>
+          <li><a href="/lexmark">Lexmark</a></li>
+          <li><a href="/lexmark">Lexmark</a></li>
+          <li><a href="/lexmark">Lexmark</a></li>
+          <li><a href="/fp">Francotyp Postalia</a></li>
+          <li><a href="/ideal-mbm">Ideal MBM</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h6>Service</h6>
         <ul>
-          <li><a href="automation-one-service-support.html#request-service">Request Service</a></li>
-          <li><a href="automation-one-toner.html">Order Toner &amp; Supplies</a></li>
-          <li><a href="automation-one-network-installation-survey.html">Network Survey</a></li>
-          <li><a href="automation-one-billable-confirmation.html">Billable Request</a></li>
-          <li><a href="automation-one-service-support.html#service-support-emails">Meter Readings</a></li>
-          <li><a href="automation-one-resources.html#manufacturer-support">Drivers &amp; Downloads</a></li>
+          <li><a href="/service#request-service">Request Service</a></li>
+          <li><a href="/toner">Order Toner &amp; Supplies</a></li>
+          <li><a href="/network-survey">Network Survey</a></li>
+          <li><a href="/billable-confirmation">Billable Request</a></li>
+          <li><a href="/service#service-support-emails">Meter Readings</a></li>
+          <li><a href="/resources#manufacturer-support">Drivers &amp; Downloads</a></li>
           <li><a href="#">Remote Support</a></li>
         </ul>
       </div>
@@ -3235,13 +3235,13 @@ body.lexmark-m5270-page .product-stat-strip {
       <div class="foot-col">
         <h6>Company</h6>
         <ul>
-          <li><a href="automation-one-what-we-do.html">What We Do for You</a></li>
-          <li><a href="automation-one-about.html">About Us &amp; Our History</a></li>
-          <li><a href="automation-one-testimonials.html">Testimonials</a></li>
-          <li><a href="automation-one-latest-news.html">Latest News</a></li>
-          <li><a href="automation-one-faq.html">FAQs</a></li>
-          <li><a href="automation-one-smash-it.html">Printer Bash</a></li>
-          <li><a href="automation-one-contact.html">Contact Us</a></li>
+          <li><a href="/what-we-do-for-you">What We Do for You</a></li>
+          <li><a href="/about">About Us &amp; Our History</a></li>
+          <li><a href="/testimonials">Testimonials</a></li>
+          <li><a href="/news">Latest News</a></li>
+          <li><a href="/faqs">FAQs</a></li>
+          <li><a href="/printer-bash">Printer Bash</a></li>
+          <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -3284,10 +3284,10 @@ body.lexmark-m5270-page .product-stat-strip {
         What We Offer
       </button>
       <div class="sticky-nav-dropdown" hidden>
-        <a href="automation-one-products.html">Products &amp; Solutions</a>
-        <a href="automation-one-service-support.html">Service &amp; Support</a>
-        <a href="automation-one-toner.html">Toner &amp; Supplies</a>
-        <a href="automation-one-resources.html">Resources</a>
+        <a href="/products">Products &amp; Solutions</a>
+        <a href="/service">Service &amp; Support</a>
+        <a href="/toner">Toner &amp; Supplies</a>
+        <a href="/resources">Resources</a>
       </div>
     </div>
     <div class="sticky-nav-group" data-nav="who">
@@ -3296,12 +3296,12 @@ body.lexmark-m5270-page .product-stat-strip {
         Who We Are
       </button>
       <div class="sticky-nav-dropdown" hidden>
-        <a href="automation-one-what-we-do.html">What We Do for You</a>
-        <a href="automation-one-about.html">About Us &amp; Our History</a>
-        <a href="automation-one-testimonials.html">Testimonials</a>
+        <a href="/what-we-do-for-you">What We Do for You</a>
+        <a href="/about">About Us &amp; Our History</a>
+        <a href="/testimonials">Testimonials</a>
       </div>
     </div>
-    <a href="automation-one-contact.html" data-nav="contact">
+    <a href="/contact" data-nav="contact">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Get in Touch
     </a>
@@ -3314,18 +3314,18 @@ body.lexmark-m5270-page .product-stat-strip {
   </a>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">What We Offer</span>
-    <a href="automation-one-products.html" class="mobile-nav-sub">Products &amp; Solutions</a>
-    <a href="automation-one-service-support.html" class="mobile-nav-sub">Service &amp; Support</a>
-    <a href="automation-one-toner.html" class="mobile-nav-sub">Toner &amp; Supplies</a>
-    <a href="automation-one-resources.html" class="mobile-nav-sub">Resources</a>
+    <a href="/products" class="mobile-nav-sub">Products &amp; Solutions</a>
+    <a href="/service" class="mobile-nav-sub">Service &amp; Support</a>
+    <a href="/toner" class="mobile-nav-sub">Toner &amp; Supplies</a>
+    <a href="/resources" class="mobile-nav-sub">Resources</a>
   </div>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">Who We Are</span>
-    <a href="automation-one-what-we-do.html" class="mobile-nav-sub">What We Do for You</a>
-    <a href="automation-one-about.html" class="mobile-nav-sub">About Us &amp; Our History</a>
-    <a href="automation-one-testimonials.html" class="mobile-nav-sub">Testimonials</a>
+    <a href="/what-we-do-for-you" class="mobile-nav-sub">What We Do for You</a>
+    <a href="/about" class="mobile-nav-sub">About Us &amp; Our History</a>
+    <a href="/testimonials" class="mobile-nav-sub">Testimonials</a>
   </div>
-  <a href="automation-one-contact.html" aria-current="page">
+  <a href="/contact" aria-current="page">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     Get in Touch
   </a>
@@ -3421,7 +3421,7 @@ body.lexmark-m5270-page .product-stat-strip {
         target = contact;
       } else if (path.indexOf('/latest-news') !== -1 || file.indexOf('latest-news') !== -1 || file.indexOf('automation-one-latest-news') !== -1) {
         target = offer;
-      } else if (file === 'service' || file === 'service' || file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1 || file.indexOf('canon') !== -1 || file.indexOf('lexmark') !== -1 || file.indexOf('lexmark') !== -1 || file.indexOf('automation-one-fp') !== -1 || file.indexOf('ideal-mbm') !== -1) {
+      } else if (file === 'service' || file === 'service' || file === 'service' || file === 'service' || file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 || file.indexOf('products') !== -1 || file.indexOf('canon') !== -1 || file.indexOf('lexmark') !== -1 || file.indexOf('lexmark') !== -1 || file.indexOf('automation-one-fp') !== -1 || file.indexOf('ideal-mbm') !== -1) {
         target = offer;
       } else if (file.indexOf('what-we-do') !== -1 || file.indexOf('about') !== -1 || file.indexOf('testimonials') !== -1) {
         target = who;

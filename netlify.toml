@@ -34,13 +34,28 @@
   status = 200
 
 [[redirects]]
+  from = "/canon/imageformula-scanfront-400"
+  to = "/automation-one-canon-imageformula-scanfront-400.html"
+  status = 200
+
+[[redirects]]
   from = "/canon/color-imagerunner-c3326i"
   to = "/automation-one-canon-color-imagerunner-c3326i.html"
   status = 200
 
 [[redirects]]
+  from = "/canon/imageprograf-gp-4000"
+  to = "/automation-one-canon-imageprograf-gp-4000.html"
+  status = 200
+
+[[redirects]]
   from = "/canon/imageclass-x-mf1333c"
   to = "/automation-one-canon-imageclass-x-mf1333c.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageprograf-gp-2000"
+  to = "/automation-one-canon-imageprograf-gp-2000.html"
   status = 200
 
 [[redirects]]
@@ -91,11 +106,6 @@
 [[redirects]]
   from = "/canon/imageforce-c5140"
   to = "/automation-one-canon-imageforce-c5140.html"
-  status = 200
-
-[[redirects]]
-  from = "/latest-news/ideal-mbm"
-  to = "/automation-one-latest-news-ideal-mbm.html"
   status = 200
 
 [[redirects]]
@@ -234,11 +244,6 @@
   status = 200
 
 [[redirects]]
-  from = "/latest-news/industry"
-  to = "/automation-one-latest-news-industry.html"
-  status = 200
-
-[[redirects]]
   from = "/xerox/altalink-c8130"
   to = "/automation-one-xerox-altalink-c8130.html"
   status = 200
@@ -334,28 +339,13 @@
   status = 200
 
 [[redirects]]
-  from = "/latest-news/lexmark"
-  to = "/automation-one-latest-news-lexmark.html"
-  status = 200
-
-[[redirects]]
-  from = "/latest-news/canon"
-  to = "/automation-one-latest-news-canon.html"
-  status = 200
-
-[[redirects]]
-  from = "/latest-news/xerox"
-  to = "/automation-one-latest-news-xerox.html"
-  status = 200
-
-[[redirects]]
   from = "/lexmark/xm3350br"
   to = "/automation-one-lexmark-xm3350br.html"
   status = 200
 
 [[redirects]]
-  from = "/latest-news/fp"
-  to = "/automation-one-latest-news-fp.html"
+  from = "/news/ideal-mbm"
+  to = "/automation-one-latest-news-ideal-mbm.html"
   status = 200
 
 [[redirects]]
@@ -404,6 +394,11 @@
   status = 200
 
 [[redirects]]
+  from = "/news/industry"
+  to = "/automation-one-latest-news-industry.html"
+  status = 200
+
+[[redirects]]
   from = "/lexmark/m5270"
   to = "/automation-one-lexmark-m5270.html"
   status = 200
@@ -431,6 +426,26 @@
 [[redirects]]
   from = "/lexmark/c4342"
   to = "/automation-one-lexmark-c4342.html"
+  status = 200
+
+[[redirects]]
+  from = "/news/lexmark"
+  to = "/automation-one-latest-news-lexmark.html"
+  status = 200
+
+[[redirects]]
+  from = "/news/canon"
+  to = "/automation-one-latest-news-canon.html"
+  status = 200
+
+[[redirects]]
+  from = "/news/xerox"
+  to = "/automation-one-latest-news-xerox.html"
+  status = 200
+
+[[redirects]]
+  from = "/news/fp"
+  to = "/automation-one-latest-news-fp.html"
   status = 200
 
 # --- Main section pretty URLs (200) ---
@@ -480,24 +495,24 @@
   force = true
 
 [[redirects]]
-  from = "/digital-solutions"
+  from = "/solutions"
   to = "/automation-one-digital-solutions.html"
   status = 200
 
 [[redirects]]
-  from = "/digital-solutions/"
-  to = "/digital-solutions"
+  from = "/solutions/"
+  to = "/solutions"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/faq"
+  from = "/faqs"
   to = "/automation-one-faq.html"
   status = 200
 
 [[redirects]]
-  from = "/faq/"
-  to = "/faq"
+  from = "/faqs/"
+  to = "/faqs"
   status = 301
   force = true
 
@@ -524,13 +539,13 @@
   force = true
 
 [[redirects]]
-  from = "/latest-news"
+  from = "/news"
   to = "/automation-one-latest-news.html"
   status = 200
 
 [[redirects]]
-  from = "/latest-news/"
-  to = "/latest-news"
+  from = "/news/"
+  to = "/news"
   status = 301
   force = true
 
@@ -623,13 +638,13 @@
   force = true
 
 [[redirects]]
-  from = "/what-we-do"
+  from = "/what-we-do-for-you"
   to = "/automation-one-what-we-do.html"
   status = 200
 
 [[redirects]]
-  from = "/what-we-do/"
-  to = "/what-we-do"
+  from = "/what-we-do-for-you/"
+  to = "/what-we-do-for-you"
   status = 301
   force = true
 
@@ -653,6 +668,129 @@
   from = "/francotyp-postalia"
   to = "/automation-one-fp.html"
   status = 200
+
+# --- Catalog category pretty URLs (200) -> products page ---
+
+[[redirects]]
+  from = "/multifunction-printers"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/multifunction-printers/"
+  to = "/multifunction-printers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wide-format-printers"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/wide-format-printers/"
+  to = "/wide-format-printers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/production-printers"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/production-printers/"
+  to = "/production-printers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/monochrome-printers"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/monochrome-printers/"
+  to = "/monochrome-printers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/envelope-inserters"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/envelope-inserters/"
+  to = "/envelope-inserters"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/document-scanners"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/document-scanners/"
+  to = "/document-scanners"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mailing-machines"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/mailing-machines/"
+  to = "/mailing-machines"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/office-printers"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/office-printers/"
+  to = "/office-printers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/colour-printers"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/colour-printers/"
+  to = "/colour-printers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/paper-shredders"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/paper-shredders/"
+  to = "/paper-shredders"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/paper-cutters"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/paper-cutters/"
+  to = "/paper-cutters"
+  status = 301
+  force = true
 
 # --- Legacy long .html paths (301) -> short public URLs ---
 
@@ -729,6 +867,18 @@
   force = true
 
 [[redirects]]
+  from = "/automation-one-canon-imageformula-scanfront-400.html"
+  to = "/canon/imageformula-scanfront-400"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageformula-scanfront-400/"
+  to = "/canon/imageformula-scanfront-400"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-color-imagerunner-c3326i.html"
   to = "/canon/color-imagerunner-c3326i"
   status = 301
@@ -747,6 +897,18 @@
   force = true
 
 [[redirects]]
+  from = "/automation-one-canon-imageprograf-gp-4000.html"
+  to = "/canon/imageprograf-gp-4000"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageprograf-gp-4000/"
+  to = "/canon/imageprograf-gp-4000"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/automation-one-canon-imageclass-x-mf1333c.html"
   to = "/canon/imageclass-x-mf1333c"
   status = 301
@@ -755,6 +917,18 @@
 [[redirects]]
   from = "/canon/imageclass-x-mf1333c/"
   to = "/canon/imageclass-x-mf1333c"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-canon-imageprograf-gp-2000.html"
+  to = "/canon/imageprograf-gp-2000"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageprograf-gp-2000/"
+  to = "/canon/imageprograf-gp-2000"
   status = 301
   force = true
 
@@ -880,13 +1054,13 @@
 
 [[redirects]]
   from = "/automation-one-latest-news-ideal-mbm.html"
-  to = "/latest-news/ideal-mbm"
+  to = "/news/ideal-mbm"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/latest-news/ideal-mbm/"
-  to = "/latest-news/ideal-mbm"
+  from = "/news/ideal-mbm/"
+  to = "/news/ideal-mbm"
   status = 301
   force = true
 
@@ -1222,13 +1396,13 @@
 
 [[redirects]]
   from = "/automation-one-latest-news-industry.html"
-  to = "/latest-news/industry"
+  to = "/news/industry"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/latest-news/industry/"
-  to = "/latest-news/industry"
+  from = "/news/industry/"
+  to = "/news/industry"
   status = 301
   force = true
 
@@ -1462,43 +1636,43 @@
 
 [[redirects]]
   from = "/automation-one-latest-news-lexmark.html"
-  to = "/latest-news/lexmark"
+  to = "/news/lexmark"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/latest-news/lexmark/"
-  to = "/latest-news/lexmark"
+  from = "/news/lexmark/"
+  to = "/news/lexmark"
   status = 301
   force = true
 
 [[redirects]]
   from = "/automation-one-digital-solutions.html"
-  to = "/digital-solutions"
+  to = "/solutions"
   status = 301
   force = true
 
 [[redirects]]
   from = "/automation-one-latest-news-canon.html"
-  to = "/latest-news/canon"
+  to = "/news/canon"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/latest-news/canon/"
-  to = "/latest-news/canon"
+  from = "/news/canon/"
+  to = "/news/canon"
   status = 301
   force = true
 
 [[redirects]]
   from = "/automation-one-latest-news-xerox.html"
-  to = "/latest-news/xerox"
+  to = "/news/xerox"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/latest-news/xerox/"
-  to = "/latest-news/xerox"
+  from = "/news/xerox/"
+  to = "/news/xerox"
   status = 301
   force = true
 
@@ -1522,13 +1696,13 @@
 
 [[redirects]]
   from = "/automation-one-latest-news-fp.html"
-  to = "/latest-news/fp"
+  to = "/news/fp"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/latest-news/fp/"
-  to = "/latest-news/fp"
+  from = "/news/fp/"
+  to = "/news/fp"
   status = 301
   force = true
 
@@ -1720,13 +1894,13 @@
 
 [[redirects]]
   from = "/automation-one-latest-news.html"
-  to = "/latest-news"
+  to = "/news"
   status = 301
   force = true
 
 [[redirects]]
   from = "/automation-one-what-we-do.html"
-  to = "/what-we-do"
+  to = "/what-we-do-for-you"
   status = 301
   force = true
 
@@ -1792,7 +1966,7 @@
 
 [[redirects]]
   from = "/automation-one-faq.html"
-  to = "/faq"
+  to = "/faqs"
   status = 301
   force = true
 
@@ -1811,23 +1985,103 @@
 # --- WordPress slug legacy (301) for .ca cutover ---
 
 [[redirects]]
-  from = "/faqs"
-  to = "/faq"
+  from = "/faq"
+  to = "/faqs"
   status = 301
 
 [[redirects]]
-  from = "/faqs/"
-  to = "/faq"
+  from = "/faq/"
+  to = "/faqs"
   status = 301
 
 [[redirects]]
-  from = "/what-we-do-for-you"
-  to = "/what-we-do"
+  from = "/what-we-do"
+  to = "/what-we-do-for-you"
   status = 301
 
 [[redirects]]
-  from = "/what-we-do-for-you/"
-  to = "/what-we-do"
+  from = "/what-we-do/"
+  to = "/what-we-do-for-you"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news"
+  to = "/news"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/"
+  to = "/news"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/canon"
+  to = "/news/canon"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/canon/"
+  to = "/news/canon"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/xerox"
+  to = "/news/xerox"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/xerox/"
+  to = "/news/xerox"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/lexmark"
+  to = "/news/lexmark"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/lexmark/"
+  to = "/news/lexmark"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/fp"
+  to = "/news/fp"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/fp/"
+  to = "/news/fp"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/ideal-mbm"
+  to = "/news/ideal-mbm"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/ideal-mbm/"
+  to = "/news/ideal-mbm"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/industry"
+  to = "/news/industry"
+  status = 301
+
+[[redirects]]
+  from = "/latest-news/industry/"
+  to = "/news/industry"
+  status = 301
+
+[[redirects]]
+  from = "/digital-solutions"
+  to = "/solutions"
+  status = 301
+
+[[redirects]]
+  from = "/digital-solutions/"
+  to = "/solutions"
   status = 301
 
 [[redirects]]
@@ -1841,13 +2095,13 @@
   status = 301
 
 [[redirects]]
-  from = "/solutions"
-  to = "/digital-solutions"
+  from = "/ideal.mbm"
+  to = "/ideal-mbm"
   status = 301
 
 [[redirects]]
-  from = "/solutions/"
-  to = "/digital-solutions"
+  from = "/ideal.mbm/"
+  to = "/ideal-mbm"
   status = 301
 
 # Duplicate homepage variant

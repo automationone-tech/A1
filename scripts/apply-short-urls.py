@@ -11,7 +11,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from url_paths import ROOT, build_path_map
+from url_paths import ROOT, CATEGORY_PATHS, build_path_map
 
 HEADERS_BLOCK = """
 [[headers]]
@@ -36,16 +36,57 @@ EXTRA_REWRITES = [
     ("/francotyp-postalia", "/automation-one-fp.html"),
 ]
 
-# WordPress-era paths on automationone.ca (301 when .ca points to Netlify)
+# Legacy paths -> current canonical short URLs
 WP_LEGACY_301 = [
-    ("/faqs", "/faq"),
-    ("/faqs/", "/faq"),
-    ("/what-we-do-for-you", "/what-we-do"),
-    ("/what-we-do-for-you/", "/what-we-do"),
+    ("/faq", "/faqs"),
+    ("/faq/", "/faqs"),
+    ("/what-we-do", "/what-we-do-for-you"),
+    ("/what-we-do/", "/what-we-do-for-you"),
+    ("/latest-news", "/news"),
+    ("/latest-news/", "/news"),
+    ("/latest-news/canon", "/news/canon"),
+    ("/latest-news/canon/", "/news/canon"),
+    ("/latest-news/xerox", "/news/xerox"),
+    ("/latest-news/xerox/", "/news/xerox"),
+    ("/latest-news/lexmark", "/news/lexmark"),
+    ("/latest-news/lexmark/", "/news/lexmark"),
+    ("/latest-news/fp", "/news/fp"),
+    ("/latest-news/fp/", "/news/fp"),
+    ("/latest-news/ideal-mbm", "/news/ideal-mbm"),
+    ("/latest-news/ideal-mbm/", "/news/ideal-mbm"),
+    ("/latest-news/industry", "/news/industry"),
+    ("/latest-news/industry/", "/news/industry"),
+    ("/digital-solutions", "/solutions"),
+    ("/digital-solutions/", "/solutions"),
     ("/idealmbm", "/ideal-mbm"),
     ("/idealmbm/", "/ideal-mbm"),
-    ("/solutions", "/digital-solutions"),
-    ("/solutions/", "/digital-solutions"),
+    ("/ideal.mbm", "/ideal-mbm"),
+    ("/ideal.mbm/", "/ideal-mbm"),
+]
+
+# Old query-string catalog links -> category pretty paths
+CATEGORY_LINK_REPLACEMENTS = [
+    ("automation-one-products.html?category=office-printers#catalog", "/office-printers"),
+    ("automation-one-products.html?category=multifunction#catalog", "/multifunction-printers"),
+    ("automation-one-products.html?category=production#catalog", "/production-printers"),
+    ("automation-one-products.html?category=large-format#catalog", "/wide-format-printers"),
+    ("automation-one-products.html?category=mailing#catalog", "/mailing-machines"),
+    ("automation-one-products.html?category=document-management#catalog", "/document-scanners"),
+    ("automation-one-products.html?category=more#catalog", "/products#catalog"),
+    ("/automation-one-products.html?category=office-printers#catalog", "/office-printers"),
+    ("/automation-one-products.html?category=multifunction#catalog", "/multifunction-printers"),
+    ("/automation-one-products.html?category=production#catalog", "/production-printers"),
+    ("/automation-one-products.html?category=large-format#catalog", "/wide-format-printers"),
+    ("/automation-one-products.html?category=mailing#catalog", "/mailing-machines"),
+    ("/automation-one-products.html?category=document-management#catalog", "/document-scanners"),
+    ("/automation-one-products.html?category=more#catalog", "/products#catalog"),
+    ("/products?category=office-printers#catalog", "/office-printers"),
+    ("/products?category=multifunction#catalog", "/multifunction-printers"),
+    ("/products?category=production#catalog", "/production-printers"),
+    ("/products?category=large-format#catalog", "/wide-format-printers"),
+    ("/products?category=mailing#catalog", "/mailing-machines"),
+    ("/products?category=document-management#catalog", "/document-scanners"),
+    ("/products?category=more#catalog", "/products#catalog"),
 ]
 
 
@@ -105,6 +146,25 @@ def write_netlify_toml(path_map: dict[str, str]) -> None:
             f'  from = "{alias_from}"',
             f'  to = "{alias_to}"',
             "  status = 200",
+        ]
+
+    lines.append("")
+    lines.append("# --- Catalog category pretty URLs (200) -> products page ---")
+    for public_path in sorted(CATEGORY_PATHS.keys(), key=len, reverse=True):
+        lines += [
+            "",
+            "[[redirects]]",
+            f'  from = "{public_path}"',
+            '  to = "/automation-one-products.html"',
+            "  status = 200",
+        ]
+        lines += [
+            "",
+            "[[redirects]]",
+            f'  from = "{public_path}/"',
+            f'  to = "{public_path}"',
+            "  status = 301",
+            "  force = true",
         ]
 
     lines.append("")
@@ -216,7 +276,8 @@ def replace_internal_links(path_map: dict[str, str], use_pretty_paths: bool = Fa
     for html_path in sorted(ROOT.glob("*.html")):
         text = html_path.read_text(encoding="utf-8")
         new_text = pattern.sub(sub_href, text)
-        new_text = pretty_pattern.sub(sub_pretty_href, new_text)
+        if not use_pretty_paths:
+            new_text = pretty_pattern.sub(sub_pretty_href, new_text)
         if new_text != text:
             html_path.write_text(new_text, encoding="utf-8")
             changed += 1
@@ -227,6 +288,9 @@ def replace_internal_links(path_map: dict[str, str], use_pretty_paths: bool = Fa
 def write_redirects_file(path_map: dict[str, str]) -> None:
     """Netlify _redirects mirror (200 rewrites + 301 legacy .html)."""
     lines: list[str] = []
+    for public_path in sorted(CATEGORY_PATHS.keys(), key=len, reverse=True):
+        lines.append(f"{public_path}  /automation-one-products.html  200")
+        lines.append(f"{public_path}/  {public_path}  301!")
     for filename, public_path in sorted(path_map.items(), key=lambda x: -len(x[1])):
         if public_path == "/":
             continue
@@ -291,25 +355,55 @@ def setup_local_symlinks(path_map: dict[str, str]) -> int:
     return created
 
 
-def fix_sticky_nav_service_path() -> int:
-    """Recognize /service pretty URL in sticky bar current-page logic."""
-    old = (
-        "file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 "
-        "|| file.indexOf('resources') !== -1 || file.indexOf('products') !== -1"
-    )
-    new = (
-        "file === 'service' || file.indexOf('service-support') !== -1 "
-        "|| file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 "
-        "|| file.indexOf('products') !== -1"
-    )
+def replace_category_links() -> int:
     changed = 0
     for html_path in sorted(ROOT.glob("*.html")):
         text = html_path.read_text(encoding="utf-8")
-        if old not in text:
-            continue
-        html_path.write_text(text.replace(old, new), encoding="utf-8")
-        changed += 1
-        print(f"  nav: {html_path.name}")
+        new_text = text
+        for old, new in CATEGORY_LINK_REPLACEMENTS:
+            new_text = new_text.replace(f'href="{old}"', f'href="{new}"')
+            new_text = new_text.replace(f"href='{old}'", f"href='{new}'")
+        if new_text != text:
+            html_path.write_text(new_text, encoding="utf-8")
+            changed += 1
+            print(f"  category links: {html_path.name}")
+    return changed
+
+
+def fix_sticky_nav_service_path() -> int:
+    """Recognize pretty URLs in sticky bar current-page logic."""
+    replacements = [
+        (
+            "file.indexOf('service-support') !== -1 || file.indexOf('toner') !== -1 "
+            "|| file.indexOf('resources') !== -1 || file.indexOf('products') !== -1",
+            "file === 'service' || file.indexOf('service-support') !== -1 "
+            "|| file.indexOf('toner') !== -1 || file.indexOf('resources') !== -1 "
+            "|| file.indexOf('products') !== -1",
+        ),
+        (
+            "file.indexOf('about') !== -1 || file.indexOf('what-we-do') !== -1 "
+            "|| file.indexOf('testimonials') !== -1 || file.indexOf('latest-news') !== -1 "
+            "|| file.indexOf('faq') !== -1 || file.indexOf('contact') !== -1",
+            "file.indexOf('about') !== -1 || file.indexOf('what-we-do') !== -1 "
+            "|| file.indexOf('testimonials') !== -1 || file.indexOf('news') !== -1 "
+            "|| file.indexOf('faqs') !== -1 || file.indexOf('faq') !== -1 "
+            "|| file.indexOf('contact') !== -1",
+        ),
+        (
+            "file.indexOf('digital-solutions') !== -1",
+            "file.indexOf('solutions') !== -1 || file.indexOf('digital-solutions') !== -1",
+        ),
+    ]
+    changed = 0
+    for html_path in sorted(ROOT.glob("*.html")):
+        text = html_path.read_text(encoding="utf-8")
+        new_text = text
+        for old, new in replacements:
+            new_text = new_text.replace(old, new)
+        if new_text != text:
+            html_path.write_text(new_text, encoding="utf-8")
+            changed += 1
+            print(f"  nav: {html_path.name}")
     return changed
 
 
@@ -319,8 +413,10 @@ def main() -> int:
     write_netlify_toml(path_map)
     write_redirects_file(path_map)
     setup_local_symlinks(path_map)
-    n = replace_internal_links(path_map, use_pretty_paths=False)
+    n = replace_internal_links(path_map, use_pretty_paths=True)
     print(f"Updated links in {n} HTML files")
+    cat_n = replace_category_links()
+    print(f"Updated category links in {cat_n} HTML files")
     nav_n = fix_sticky_nav_service_path()
     print(f"Updated sticky nav path checks in {nav_n} HTML files")
     seo_script = ROOT / "scripts" / "apply-seo-fixes.py"
