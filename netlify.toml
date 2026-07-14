@@ -2132,9 +2132,12 @@
 # Any old URL not matched above (legacy WordPress pages, tags, feeds, etc.)
 # 301s to the homepage. Non-forced, so real files and every pretty URL rule
 # above still take precedence; only genuinely missing paths fall through.
+# NOTE: must target /index.html (a real file), not "/" — Netlify ignores
+# non-forced splat rules that point at "/". The forced /index.html -> /
+# rule above then normalizes the URL back to the clean homepage.
 [[redirects]]
   from = "/*"
-  to = "/"
+  to = "/index.html"
   status = 301
 
 [[headers]]
