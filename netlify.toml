@@ -2085,6 +2085,16 @@
   status = 301
 
 [[redirects]]
+  from = "/large-format-printers"
+  to = "/wide-format-printers"
+  status = 301
+
+[[redirects]]
+  from = "/large-format-printers/"
+  to = "/wide-format-printers"
+  status = 301
+
+[[redirects]]
   from = "/idealmbm"
   to = "/ideal-mbm"
   status = 301
