@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#1f5cf5" />
 <meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: dark)" />
@@ -31,8 +31,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="fonts-jeton.css">
-<script src="automation-one-homepage-videos.js" defer></script>
+<link rel="stylesheet" href="/fonts-jeton.css">
+<script src="/automation-one-homepage-videos.js" defer></script>
 <style>
   :root {
     --blue-50:  #eef4ff;
@@ -51,9 +51,9 @@
     --white:    #ffffff;
 
     /* Pill cap: same chevron as process-flow; PNGs sit on colored circle (see .cta-pill-arrow*::after) */
-    --cta-pill-chevron-white: url("process-flow-arrow-white.png");
-    --cta-pill-chevron-blue-700: url("process-flow-arrow.png");
-    --cta-pill-chevron-blue-800: url("process-flow-arrow-blue-800.png");
+    --cta-pill-chevron-white: url("/process-flow-arrow-white.png");
+    --cta-pill-chevron-blue-700: url("/process-flow-arrow.png");
+    --cta-pill-chevron-blue-800: url("/process-flow-arrow-blue-800.png");
 
     
     
@@ -121,7 +121,7 @@
     content: "";
     position: absolute; inset: 0;
     z-index: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(/%23n)'/></svg>");
     pointer-events: none;
     mix-blend-mode: overlay;
     opacity: .55;
@@ -2845,7 +2845,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(/%23n)'/></svg>");
     pointer-events: none;
     mix-blend-mode: overlay;
     opacity: 0.85;
@@ -2859,7 +2859,7 @@
     width: min(1080px, 78vw);
     aspect-ratio: 2116 / 1505;
     transform: translateY(-50%);
-    background-image: url("cta-section-ao-watermark.png");
+    background-image: url("/cta-section-ao-watermark.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -4406,7 +4406,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("testimonials-consulting-bg.png");
+    background-image: url("/testimonials-consulting-bg.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -4857,7 +4857,7 @@
     content: "";
     position: absolute;
     inset: -16% -12%;
-    background-image: url("automation-one-footer-bg.png");
+    background-image: url("/automation-one-footer-bg.png");
     background-size: var(--cta-letter-bg-size) auto;
     background-position: left var(--cta-letter-bg-y);
     background-repeat: no-repeat;
@@ -5043,8 +5043,8 @@
     height: 36px;
     width: calc(36px * 416 / 288);
     background-color: currentColor;
-    -webkit-mask-image: url("ao-nav-logo.png");
-    mask-image: url("ao-nav-logo.png");
+    -webkit-mask-image: url("/ao-nav-logo.png");
+    mask-image: url("/ao-nav-logo.png");
     -webkit-mask-size: auto 100%;
     mask-size: auto 100%;
     -webkit-mask-repeat: no-repeat;
@@ -6796,17 +6796,17 @@ html { background-color: #ffffff; }
   }
 }
 </style>
-<link rel="stylesheet" href="ao-logo-lockup.css">
-<link rel="stylesheet" href="ao-footer.css">
-<link rel="stylesheet" href="automation-one-cta.css">
-  <link rel="stylesheet" href="ao-remote-support.css">
+<link rel="stylesheet" href="/ao-logo-lockup.css">
+<link rel="stylesheet" href="/ao-footer.css">
+<link rel="stylesheet" href="/automation-one-cta.css">
+  <link rel="stylesheet" href="/ao-remote-support.css">
 </head>
 <body class="home-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
   <div class="pt-grid" id="pt-grid"></div>
-  <img class="pt-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" decoding="async" fetchpriority="low" />
+  <img class="pt-watermark" src="/cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" decoding="async" fetchpriority="low" />
   <div class="pt-logo" aria-hidden="true">
-    <span class="pt-mark-wrap" aria-hidden="true"><img class="pt-mark" src="ao-nav-logo.png" width="416" height="288" alt="" decoding="sync" fetchpriority="high" /></span>
+    <span class="pt-mark-wrap" aria-hidden="true"><img class="pt-mark" src="/ao-nav-logo.png" width="416" height="288" alt="" decoding="sync" fetchpriority="high" /></span>
     <span class="pt-text">
         <span class="pt-name">Automation&nbsp;One</span>
         <span class="pt-sub">Business&nbsp;Systems</span>
@@ -6821,7 +6821,7 @@ html { background-color: #ffffff; }
   <div class="blob blob-b"></div>
   <video
     class="hero-video"
-    src="hero-printer-loop.mp4?v=9clips-7491"
+    src="/hero-printer-loop.mp4?v=9clips-7491"
     autoplay
     muted
     loop
@@ -6829,7 +6829,7 @@ html { background-color: #ffffff; }
     webkit-playsinline
     preload="auto"
   >
-    <source src="hero-printer-loop.mp4?v=9clips-7491" type="video/mp4" />
+    <source src="/hero-printer-loop.mp4?v=9clips-7491" type="video/mp4" />
   </video>
   <script>
   (function (v) {
@@ -6883,7 +6883,7 @@ html { background-color: #ffffff; }
       </div>
     </div>
       <a href="https://www.ccaward.com/award-winners/vancouver/best-office-equipment/automation-one-business-systems-inc/" class="quote-award-link" target="_blank" rel="noopener noreferrer" aria-label="Automation One on Consumer Choice Award – Vancouver Best Office Equipment">
-      <img class="quote-award-logo" src="service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
+      <img class="quote-award-logo" src="/service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
       </a>
     </div>
     <div class="nav-contact" aria-label="Contact us">
@@ -6946,7 +6946,7 @@ html { background-color: #ffffff; }
   <div class="process-scroll-track">
     <img
       class="process-track-photo"
-      src="canon-flex-lease-hero.jpg"
+      src="/canon-flex-lease-hero.jpg"
       width="1920"
       height="1280"
       alt="Canon imageRUNNER in an office"
@@ -6996,7 +6996,7 @@ html { background-color: #ffffff; }
             </article>
           </div>
           <div class="process-mobile-flow-arrow process-mobile-flow-arrow--12" aria-hidden="true">
-            <img src="process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
           </div>
           <div class="process-tab-anchor process-tab-anchor--2">
             <article class="process-tab process-tab--accent-mint">
@@ -7006,7 +7006,7 @@ html { background-color: #ffffff; }
             </article>
           </div>
           <div class="process-mobile-flow-arrow process-mobile-flow-arrow--23" aria-hidden="true">
-            <img src="process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
           </div>
           <div class="process-tab-anchor process-tab-anchor--3">
             <article class="process-tab process-tab--accent-blush">
@@ -7016,7 +7016,7 @@ html { background-color: #ffffff; }
             </article>
           </div>
           <div class="process-mobile-flow-arrow process-mobile-flow-arrow--34" aria-hidden="true">
-            <img src="process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
           </div>
           <div class="process-tab-anchor process-tab-anchor--4">
             <article class="process-tab process-tab--accent-frame">
@@ -7026,7 +7026,7 @@ html { background-color: #ffffff; }
             </article>
           </div>
           <div class="process-mobile-flow-arrow process-mobile-flow-arrow--45" aria-hidden="true">
-            <img src="process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="48" height="36" alt="" loading="lazy" decoding="async" />
           </div>
           <div class="process-tab-anchor process-tab-anchor--5">
             <article class="process-tab process-tab--accent-slate">
@@ -7038,19 +7038,19 @@ html { background-color: #ffffff; }
         </div>
         <div class="process-flow-arrows" aria-hidden="true">
           <span class="process-flow-arrow process-flow-arrow--12">
-            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
           </span>
           <span class="process-flow-arrow process-flow-arrow--23">
-            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
           </span>
           <span class="process-flow-arrow process-flow-arrow--34">
-            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
           </span>
           <span class="process-flow-arrow process-flow-arrow--45">
-            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
           </span>
           <span class="process-flow-arrow process-flow-arrow--51">
-            <img src="process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
+            <img src="/process-flow-arrow.png" width="120" height="90" alt="" loading="lazy" decoding="async" />
           </span>
         </div>
         <div class="process-cta-wrap">
@@ -7079,7 +7079,7 @@ html { background-color: #ffffff; }
       <div class="brands-scene-photo" aria-hidden="true">
         <video
           class="brands-scene-photo-video"
-          src="brands-scene-bg.mp4"
+          src="/brands-scene-bg.mp4"
           muted
           loop
           playsinline
@@ -7089,7 +7089,7 @@ html { background-color: #ffffff; }
           disableremoteplayback
           aria-hidden="true"
         >
-          <source src="brands-scene-bg.mp4" type="video/mp4" />
+          <source src="/brands-scene-bg.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="brands-scene-inner">
@@ -7126,7 +7126,7 @@ html { background-color: #ffffff; }
             <div class="brand-strip-frame">
               <img
                 class="brand-strip-image"
-                src="authorized-dealer-brands.png"
+                src="/authorized-dealer-brands.png"
                 width="1024"
                 height="107"
                 alt="Authorized dealer: Canon, Ideal MBM, Lexmark, FP, Xerox"
@@ -7169,7 +7169,7 @@ html { background-color: #ffffff; }
      SECTION 4 — PRODUCTS BANNER
      =================================================== -->
 <section class="products-banner" id="products-solutions">
-  <img class="products-banner-bg-photo" src="solutions-office-bg.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="products-banner-bg-photo" src="/solutions-office-bg.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="container">
     <div class="products-banner-copy">
       <span class="section-eyebrow">Our Products &amp; Solutions</span>
@@ -7183,45 +7183,45 @@ html { background-color: #ffffff; }
       <a href="/products" class="cta cta-primary cta-pill-arrow">All Products &amp; Solutions</a>
       <div class="solutions-brochures" aria-label="Featured solution brochures">
         <a class="solution-brochure-card solution-brochure-card--postbase" href="/fp" aria-label="Explore Francotyp Postalia products">
-          <img class="solution-brochure" src="solution-brochures/postbase-vision.png" alt="PostBase Vision mailing brochure" loading="lazy" decoding="async" />
-          <span class="solution-brochure-tab" aria-hidden="true"><img src="solution-brochures/logos/fp.png" alt="" loading="lazy" decoding="async" /></span>
+          <img class="solution-brochure" src="/solution-brochures/postbase-vision.png" alt="PostBase Vision mailing brochure" loading="lazy" decoding="async" />
+          <span class="solution-brochure-tab" aria-hidden="true"><img src="/solution-brochures/logos/fp.png" alt="" loading="lazy" decoding="async" /></span>
         </a>
         <a class="solution-brochure-card solution-brochure-card--xerox" href="/xerox" aria-label="Explore Xerox products">
-          <img class="solution-brochure" src="solution-brochures/xerox-versalink.png" alt="Xerox VersaLink brochure" loading="lazy" decoding="async" />
-          <span class="solution-brochure-tab" aria-hidden="true"><img src="solution-brochures/logos/xerox.png" alt="" loading="lazy" decoding="async" /></span>
+          <img class="solution-brochure" src="/solution-brochures/xerox-versalink.png" alt="Xerox VersaLink brochure" loading="lazy" decoding="async" />
+          <span class="solution-brochure-tab" aria-hidden="true"><img src="/solution-brochures/logos/xerox.png" alt="" loading="lazy" decoding="async" /></span>
         </a>
         <a class="solution-brochure-card solution-brochure-card--canon" href="/canon" aria-label="Explore Canon products">
-          <img class="solution-brochure" src="solution-brochures/canon-imageforce-c3150.png" alt="Canon imageFORCE C3150 brochure" loading="lazy" decoding="async" />
-          <span class="solution-brochure-tab" aria-hidden="true"><img src="solution-brochures/logos/canon.png" alt="" loading="lazy" decoding="async" /></span>
+          <img class="solution-brochure" src="/solution-brochures/canon-imageforce-c3150.png" alt="Canon imageFORCE C3150 brochure" loading="lazy" decoding="async" />
+          <span class="solution-brochure-tab" aria-hidden="true"><img src="/solution-brochures/logos/canon.png" alt="" loading="lazy" decoding="async" /></span>
         </a>
         <a class="solution-brochure-card solution-brochure-card--lexmark" href="/lexmark" aria-label="Explore Lexmark products">
-          <img class="solution-brochure" src="solution-brochures/lexmark-xc4140.png" alt="Lexmark XC4140 brochure" loading="lazy" decoding="async" />
-          <span class="solution-brochure-tab" aria-hidden="true"><img src="solution-brochures/logos/lexmark.png" alt="" loading="lazy" decoding="async" /></span>
+          <img class="solution-brochure" src="/solution-brochures/lexmark-xc4140.png" alt="Lexmark XC4140 brochure" loading="lazy" decoding="async" />
+          <span class="solution-brochure-tab" aria-hidden="true"><img src="/solution-brochures/logos/lexmark.png" alt="" loading="lazy" decoding="async" /></span>
         </a>
         <a class="solution-brochure-card solution-brochure-card--destroyit" href="/ideal-mbm" aria-label="Explore Ideal.MBM products">
-          <img class="solution-brochure" src="solution-brochures/destroyit-shredders.png" alt="Destroyit paper shredders brochure" loading="lazy" decoding="async" />
-          <span class="solution-brochure-tab" aria-hidden="true"><img src="solution-brochures/logos/ideal-mbm.png" alt="" loading="lazy" decoding="async" /></span>
+          <img class="solution-brochure" src="/solution-brochures/destroyit-shredders.png" alt="Destroyit paper shredders brochure" loading="lazy" decoding="async" />
+          <span class="solution-brochure-tab" aria-hidden="true"><img src="/solution-brochures/logos/ideal-mbm.png" alt="" loading="lazy" decoding="async" /></span>
         </a>
       </div>
     </div>
     <div class="solutions-rail" aria-label="Solutions we offer">
       <div class="solutions-printer" data-active-photo="default" aria-hidden="true">
-        <img class="solutions-printer-img solutions-printer-img--default" src="imageforce-c5100.png" alt="" />
-        <img class="solutions-printer-img solutions-printer-img--office" src="lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--home-office" src="lexmark-xc2326-main.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--production" src="canon-iprc910-production.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--large-format" src="canon-large-format-printer.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--mailing" src="postbase-mailing-solutions.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--shredders" src="ideal-shredder-product.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--document-scanners" src="document-scanners-transparent.png?v=restore1" alt="" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--folder-inserters" src="folder-inserter-transparent.png" alt="" loading="lazy" decoding="async" />
-        <img class="solutions-printer-img solutions-printer-img--cutters" src="triumph-6655-cutter-transparent.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--default" src="/imageforce-c5100.png" alt="" />
+        <img class="solutions-printer-img solutions-printer-img--office" src="/lexmark-office-printer.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--home-office" src="/lexmark-xc2326-main.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--production" src="/canon-iprc910-production.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--large-format" src="/canon-large-format-printer.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--mailing" src="/postbase-mailing-solutions.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--shredders" src="/ideal-shredder-product.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--document-scanners" src="/document-scanners-transparent.png?v=restore1" alt="" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--folder-inserters" src="/folder-inserter-transparent.png" alt="" loading="lazy" decoding="async" />
+        <img class="solutions-printer-img solutions-printer-img--cutters" src="/triumph-6655-cutter-transparent.png" alt="" loading="lazy" decoding="async" />
         <div class="solutions-printer-img solutions-printer-img--digital-solutions digital-solutions-cloud" aria-hidden="true">
-          <span class="digital-logo-orb digital-logo-orb--uniflow"><img src="solution-brochures/digital-logos/uniflow-crop.png" alt="" loading="lazy" decoding="async" /></span>
-          <span class="digital-logo-orb digital-logo-orb--pharos"><img src="solution-brochures/digital-logos/pharos-uniprint-crop.png" alt="" loading="lazy" decoding="async" /></span>
-          <span class="digital-logo-orb digital-logo-orb--vera"><img src="solution-brochures/digital-logos/vera-crop.png" alt="" loading="lazy" decoding="async" /></span>
-          <span class="digital-logo-orb digital-logo-orb--therefore"><img src="solution-brochures/digital-logos/therefore-crop.png" alt="" loading="lazy" decoding="async" /></span>
-          <span class="digital-logo-orb digital-logo-orb--kofax"><img src="solution-brochures/digital-logos/kofax-capture-crop.png" alt="" loading="lazy" decoding="async" /></span>
+          <span class="digital-logo-orb digital-logo-orb--uniflow"><img src="/solution-brochures/digital-logos/uniflow-crop.png" alt="" loading="lazy" decoding="async" /></span>
+          <span class="digital-logo-orb digital-logo-orb--pharos"><img src="/solution-brochures/digital-logos/pharos-uniprint-crop.png" alt="" loading="lazy" decoding="async" /></span>
+          <span class="digital-logo-orb digital-logo-orb--vera"><img src="/solution-brochures/digital-logos/vera-crop.png" alt="" loading="lazy" decoding="async" /></span>
+          <span class="digital-logo-orb digital-logo-orb--therefore"><img src="/solution-brochures/digital-logos/therefore-crop.png" alt="" loading="lazy" decoding="async" /></span>
+          <span class="digital-logo-orb digital-logo-orb--kofax"><img src="/solution-brochures/digital-logos/kofax-capture-crop.png" alt="" loading="lazy" decoding="async" /></span>
           <span class="digital-logo-orb digital-logo-orb--more"><span>&amp; More</span></span>
         </div>
       </div>
@@ -7479,7 +7479,7 @@ html { background-color: #ffffff; }
 
         <div class="stat-card toner-inventory" id="toner">
           <div class="icon-wrap">
-            <img src="service-stats/xerox-toners-cartoon.svg" alt="Cartoon Xerox toner cartridges" loading="lazy" decoding="async" />
+            <img src="/service-stats/xerox-toners-cartoon.svg" alt="Cartoon Xerox toner cartridges" loading="lazy" decoding="async" />
           </div>
           <div class="big">15,000<sub>ft²</sub></div>
           <div class="lbl">Parts & toner inventory</div>
@@ -7497,7 +7497,7 @@ html { background-color: #ffffff; }
 
         <div class="stat-card consumer-choice">
           <div class="icon-wrap">
-            <img src="service-stats/consumer-choice-award-2026.png" alt="Consumer Choice Award 2026 Vancouver badge" loading="lazy" decoding="async" />
+            <img src="/service-stats/consumer-choice-award-2026.png" alt="Consumer Choice Award 2026 Vancouver badge" loading="lazy" decoding="async" />
           </div>
           <div class="big">24<sub>yrs</sub></div>
           <div class="lbl">Consumer Choice Award</div>
@@ -7506,7 +7506,7 @@ html { background-color: #ffffff; }
 
         <div class="stat-card bbb-rating">
           <div class="icon-wrap">
-            <img src="service-stats/bbb-a-plus-rating.png" alt="A+ BBB Accredited Business logo" loading="lazy" decoding="async" />
+            <img src="/service-stats/bbb-a-plus-rating.png" alt="A+ BBB Accredited Business logo" loading="lazy" decoding="async" />
           </div>
           <div class="big">A<sub>+</sub></div>
           <div class="lbl">BBB rating</div>
@@ -7595,7 +7595,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-easy-therapy.png" alt="Easy Therapy" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-easy-therapy.png" alt="Easy Therapy" loading="lazy" decoding="async" />
             <span class="t-name">Easy Therapy</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7605,7 +7605,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-northview.png?v=2" alt="Northview Compounding Pharmacy" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-northview.png?v=2" alt="Northview Compounding Pharmacy" loading="lazy" decoding="async" />
             <span class="t-name">Northview Compounding Pharmacy</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7615,7 +7615,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-pain-free-health.png?v=2" alt="Pain Free Health" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-pain-free-health.png?v=2" alt="Pain Free Health" loading="lazy" decoding="async" />
             <span class="t-name">Pain Free Health</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7625,7 +7625,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-remax-rossetti.png?v=3" alt="RE/MAX Rossetti Realty Team" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-remax-rossetti.png?v=3" alt="RE/MAX Rossetti Realty Team" loading="lazy" decoding="async" />
             <span class="t-name">RE/MAX Rossetti Realty Team</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7635,7 +7635,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-nova-team.png" alt="The Nova Team Mortgage Consultants" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-nova-team.png" alt="The Nova Team Mortgage Consultants" loading="lazy" decoding="async" />
             <span class="t-name">The Nova Team Mortgage Consultants</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7655,7 +7655,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card is-clone" aria-hidden="true">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-easy-therapy.png" alt="" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-easy-therapy.png" alt="" loading="lazy" decoding="async" />
             <span class="t-name">Easy Therapy</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7665,7 +7665,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card is-clone" aria-hidden="true">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-northview.png?v=2" alt="" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-northview.png?v=2" alt="" loading="lazy" decoding="async" />
             <span class="t-name">Northview Compounding Pharmacy</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7675,7 +7675,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card is-clone" aria-hidden="true">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-pain-free-health.png?v=2" alt="" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-pain-free-health.png?v=2" alt="" loading="lazy" decoding="async" />
             <span class="t-name">Pain Free Health</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7685,7 +7685,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card is-clone" aria-hidden="true">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-remax-rossetti.png?v=3" alt="" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-remax-rossetti.png?v=3" alt="" loading="lazy" decoding="async" />
             <span class="t-name">RE/MAX Rossetti Realty Team</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -7695,7 +7695,7 @@ html { background-color: #ffffff; }
 
         <article class="t-card is-clone" aria-hidden="true">
           <div class="t-logo-bar">
-            <img src="testimonial-logos/logo-nova-team.png" alt="" loading="lazy" decoding="async" />
+            <img src="/testimonial-logos/logo-nova-team.png" alt="" loading="lazy" decoding="async" />
             <span class="t-name">The Nova Team Mortgage Consultants</span>
           </div>
           <div class="t-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
@@ -8103,7 +8103,7 @@ html { background-color: #ffffff; }
      SECTION 7 — FINAL CTA
      =================================================== -->
 <section class="cta-section" id="resources">
-  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="cta-watermark" src="/cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="container">
     <h2>Ready to take <em>your business to the next level?</em></h2>
     <p>Tell us a bit about your office and we'll send back a no-pressure recommendation, usually within one business day.</p>
@@ -8235,7 +8235,7 @@ html { background-color: #ffffff; }
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="/" class="logo">
-          <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
+          <img class="logo-mark" src="/ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
             <span class="sub">Business&nbsp;Systems</span>
@@ -8336,7 +8336,7 @@ html { background-color: #ffffff; }
   const brandsSection = document.querySelector('.brands');
   if (aoLogo && brandsSection) {
     const src = aoLogo.currentSrc || aoLogo.getAttribute('src');
-    if (src) brandsSection.style.setProperty('--ao-logo-mask', `url("${src}")`);
+    if (src) brandsSection.style.setProperty('--ao-logo-mask', `url("/${src}")`);
   }
 
   (function initProcessConverge() {
@@ -9631,7 +9631,7 @@ html { background-color: #ffffff; }
 
 <div class="quote-drawer-overlay" id="quote-drawer-overlay" aria-hidden="true"></div>
 <aside class="quote-drawer" id="quote-drawer" aria-hidden="true" aria-labelledby="quote-drawer-title" role="dialog">
-  <img class="quote-drawer-watermark" src="ao-nav-logo.png" width="416" height="288" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="quote-drawer-watermark" src="/ao-nav-logo.png" width="416" height="288" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="quote-drawer-header">
     <h2 id="quote-drawer-title">Request a Quote</h2>
     <button type="button" class="quote-drawer-close" id="quote-drawer-close" aria-label="Close request form">&times;</button>
@@ -9910,7 +9910,7 @@ html { background-color: #ffffff; }
 </script>
 
 
-<script src="ao-logo-lockup.js"></script>
+<script src="/ao-logo-lockup.js"></script>
 <script>
   (function initPageTransition() {
     var overlay = document.getElementById('page-transition');
@@ -10213,5 +10213,5 @@ html { background-color: #ffffff; }
   })();
 </script>
 
-<script src="ao-remote-support.js"></script>
+<script src="/ao-remote-support.js"></script>
 </body>

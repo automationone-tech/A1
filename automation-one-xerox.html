@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#1f5cf5" />
 <meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: dark)" />
@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="fonts-jeton.css">
+<link rel="stylesheet" href="/fonts-jeton.css">
 <style>
   :root {
     --blue-50: #eef4ff;
@@ -44,9 +44,9 @@
     --ink-soft: #4a5274;
     --paper: #f8faff;
     --white: #ffffff;
-    --cta-pill-chevron-white: url("process-flow-arrow-white.png");
-    --cta-pill-chevron-blue-700: url("process-flow-arrow.png");
-    --cta-pill-chevron-blue-800: url("process-flow-arrow-blue-800.png");
+    --cta-pill-chevron-white: url("/process-flow-arrow-white.png");
+    --cta-pill-chevron-blue-700: url("/process-flow-arrow.png");
+    --cta-pill-chevron-blue-800: url("/process-flow-arrow-blue-800.png");
     --nav-logo-ink: #2b4593;
     --nav-logo-mark-height: 50px;
     --nav-logo-mark-width: calc(var(--nav-logo-mark-height) * 416 / 288);
@@ -103,8 +103,8 @@
     height: var(--nav-logo-mark-height);
     width: var(--nav-logo-mark-width);
     background-color: currentColor;
-    -webkit-mask-image: url("ao-nav-logo.png");
-    mask-image: url("ao-nav-logo.png");
+    -webkit-mask-image: url("/ao-nav-logo.png");
+    mask-image: url("/ao-nav-logo.png");
     -webkit-mask-size: auto 100%;
     mask-size: auto 100%;
     -webkit-mask-repeat: no-repeat;
@@ -665,8 +665,8 @@
     aspect-ratio: 416 / 288;
     background: var(--blue-800);
     opacity: 0.045;
-    -webkit-mask: url("ao-nav-logo.png") center / contain no-repeat;
-    mask: url("ao-nav-logo.png") center / contain no-repeat;
+    -webkit-mask: url("/ao-nav-logo.png") center / contain no-repeat;
+    mask: url("/ao-nav-logo.png") center / contain no-repeat;
     pointer-events: none;
     transform-origin: left bottom;
     animation: canonHeroWatermarkSlide 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
@@ -951,7 +951,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url("canon-imageforce-lifestyle-bg.png") center / cover no-repeat;
+    background: url("/canon-imageforce-lifestyle-bg.png") center / cover no-repeat;
     transform: translateX(2%) scale(1);
     transform-origin: center right;
     transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1450,7 +1450,7 @@
     right: 0;
     bottom: 0;
     width: min(72%, 980px);
-    background: url("canon-support-bg.png") center right / cover no-repeat;
+    background: url("/canon-support-bg.png") center right / cover no-repeat;
     opacity: 0.48;
     filter: grayscale(1) saturate(0) contrast(0.9);
     transform: translateX(2%) scale(1);
@@ -1560,7 +1560,7 @@
     content: "";
     position: absolute;
     inset: -16% -12%;
-    background-image: url("automation-one-footer-bg.png");
+    background-image: url("/automation-one-footer-bg.png");
     background-size: var(--cta-letter-bg-size) auto;
     background-position: left var(--cta-letter-bg-y);
     background-repeat: no-repeat;
@@ -1839,8 +1839,8 @@
     height: 36px;
     width: calc(36px * 416 / 288);
     background-color: currentColor;
-    -webkit-mask-image: url("ao-nav-logo.png");
-    mask-image: url("ao-nav-logo.png");
+    -webkit-mask-image: url("/ao-nav-logo.png");
+    mask-image: url("/ao-nav-logo.png");
     -webkit-mask-size: auto 100%;
     mask-size: auto 100%;
     -webkit-mask-repeat: no-repeat;
@@ -2452,7 +2452,7 @@
       0 0 34px rgba(10, 40, 112, 0.2);
   }
   body.xerox-page .quick-links-panel a:first-child { text-transform: none; }
-  body.xerox-page .intro-band::before { background-image: url("xerox-discover-office-printer-bg.png"); }
+  body.xerox-page .intro-band::before { background-image: url("/xerox-discover-office-printer-bg.png"); }
   body.xerox-page .canon-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 960px; margin: 0 auto; }
   body.xerox-page .canon-product-card { min-height: 430px; }
   body.xerox-page #office-printers .canon-card-visual img { max-height: 170px; }
@@ -2462,7 +2462,7 @@
   body.xerox-page .canon-awards-flyer { width: min(78%, 420px); }
   body.xerox-page .canon-awards-product { width: min(68%, 470px); right: -4%; }
   body.xerox-page .canon-awards-badge strong { font-size: 22px; letter-spacing: -0.04em; }
-  body.xerox-page .canon-awards-resources::before { background-image: url("xerox-sign-bg.png"); }
+  body.xerox-page .canon-awards-resources::before { background-image: url("/xerox-sign-bg.png"); }
   body.xerox-page .xerox-digital-solutions-box {
     display: flex;
     align-items: center;
@@ -2512,17 +2512,17 @@
   }
 
 </style>
-<link rel="stylesheet" href="ao-subpage-mobile-header.css?v=safari-blue1">
-<link rel="stylesheet" href="ao-footer.css">
-<link rel="stylesheet" href="automation-one-cta.css">
-  <link rel="stylesheet" href="ao-remote-support.css">
+<link rel="stylesheet" href="/ao-subpage-mobile-header.css?v=safari-blue1">
+<link rel="stylesheet" href="/ao-footer.css">
+<link rel="stylesheet" href="/automation-one-cta.css">
+  <link rel="stylesheet" href="/ao-remote-support.css">
 </head>
 <body class="canon-page xerox-page">
 <header class="site-header">
   <nav class="nav">
     <a href="/" class="logo">
       <span class="logo-mark-wrap" aria-hidden="true">
-        <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
+        <img class="logo-mark" src="/ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
       </span>
       <span class="logo-text">
         <span class="name">Automation&nbsp;One</span>
@@ -2534,7 +2534,7 @@
       <a href="#" class="btn btn-ghost">Remote Support</a>
       <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
       <a href="https://www.ccaward.com/award-winners/vancouver/best-office-equipment/automation-one-business-systems-inc/" class="quote-award-link" target="_blank" rel="noopener noreferrer" aria-label="Automation One on Consumer Choice Award – Vancouver Best Office Equipment">
-        <img class="quote-award-logo" src="service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
+        <img class="quote-award-logo" src="/service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
       </a>
     </div>
   </nav>
@@ -2545,7 +2545,7 @@
     <div class="container canon-hero-grid">
       <div class="canon-hero-copy">
         <a class="canon-logo-pill" href="/xerox" aria-label="Xerox products page">
-          <img src="solution-brochures/logos/xerox.png" alt="Xerox" width="180" height="54" />
+          <img src="/solution-brochures/logos/xerox.png" alt="Xerox" width="180" height="54" />
           <span>Authorized Dealer</span>
         </a>
         <h1>Xerox for every <em>business workflow.</em></h1>
@@ -2556,9 +2556,9 @@
         </div>
       </div>
       <div class="canon-hero-visual" aria-label="Xerox business products">
-        <img class="hero-bg" src="xerox-empty-office-generated.png" alt="" aria-hidden="true" />
-        <img class="canon-hero-brochure" src="xerox-altalink-c8100-brochure-front.png" alt="Xerox AltaLink C8100 series brochure front page" />
-        <img class="canon-hero-printer" src="xerox-altalink-c8135-transparent.png" alt="Xerox AltaLink C8135 multifunction printer" />
+        <img class="hero-bg" src="/xerox-empty-office-generated.png" alt="" aria-hidden="true" />
+        <img class="canon-hero-brochure" src="/xerox-altalink-c8100-brochure-front.png" alt="Xerox AltaLink C8100 series brochure front page" />
+        <img class="canon-hero-printer" src="/xerox-altalink-c8135-transparent.png" alt="Xerox AltaLink C8135 multifunction printer" />
         <div class="hero-stat-card">
           <strong>Xerox technology, Automation One support.</strong>
           <span>Right-sized recommendations, delivery, networking, training, toner programs, and local response after install.</span>
@@ -2606,7 +2606,7 @@
 
       <div class="canon-product-grid">
         <article class="canon-product-card" id="office-printers">
-          <div class="canon-card-visual"><img src="xerox-printer-transparent.png" alt="Xerox office printer" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-visual"><img src="/xerox-printer-transparent.png" alt="Xerox office printer" loading="lazy" decoding="async" /></div>
           <div class="canon-card-body">
             <span class="canon-card-kicker">Office Printers</span>
             <h3>Reliable Xerox printers for everyday document output.</h3>
@@ -2616,7 +2616,7 @@
         </article>
 
         <article class="canon-product-card" id="multifunction-printers">
-          <div class="canon-card-visual"><img src="xerox-altalink-compact-transparent.png" alt="Xerox AltaLink multifunction printer" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-visual"><img src="/xerox-altalink-compact-transparent.png" alt="Xerox AltaLink multifunction printer" loading="lazy" decoding="async" /></div>
           <div class="canon-card-body">
             <span class="canon-card-kicker">Multifunction Printers</span>
             <h3>Print, copy, scan, and fax from one connected hub.</h3>
@@ -2626,7 +2626,7 @@
         </article>
 
         <article class="canon-product-card" id="production-printers">
-          <div class="canon-card-visual"><img src="xerox-production-printer-transparent.png" alt="Xerox production printer" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-visual"><img src="/xerox-production-printer-transparent.png" alt="Xerox production printer" loading="lazy" decoding="async" /></div>
           <div class="canon-card-body">
             <span class="canon-card-kicker">Production Printers</span>
             <h3>Production print power for demanding output.</h3>
@@ -2636,7 +2636,7 @@
         </article>
 
         <article class="canon-product-card" id="xerox-toner">
-          <div class="canon-card-visual"><img src="service-stats/xerox-toners-cartoon.svg" alt="Xerox toner and supplies" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-visual"><img src="/service-stats/xerox-toners-cartoon.svg" alt="Xerox toner and supplies" loading="lazy" decoding="async" /></div>
           <div class="canon-card-body">
             <span class="canon-card-kicker">Toner &amp; Supplies</span>
             <h3>Genuine Xerox supplies that keep work moving.</h3>
@@ -2647,7 +2647,7 @@
       </div>
       <div class="xerox-digital-solutions-box" aria-label="Xerox digital solutions">
         <div class="xerox-digital-solutions-copy">
-          <img src="solution-brochures/logos/xerox.png" alt="Xerox" loading="lazy" decoding="async" />
+          <img src="/solution-brochures/logos/xerox.png" alt="Xerox" loading="lazy" decoding="async" />
           <span class="xerox-digital-solutions-divider" aria-hidden="true"></span>
           <h3>Digital Solutions</h3>
         </div>
@@ -2677,8 +2677,8 @@
 
           <div class="canon-awards-art">
             <div class="canon-awards-orbit" aria-hidden="true"></div>
-            <img class="canon-awards-flyer" src="xerox-workplace-award-front.png" alt="Front page of Xerox Workplace Cloud 2026 Pick Award flyer from Keypoint Intelligence" loading="lazy" decoding="async" width="612" height="792" />
-            <img class="canon-awards-product" src="xerox-production-printer-transparent.png" alt="Xerox production printer" loading="lazy" decoding="async" />
+            <img class="canon-awards-flyer" src="/xerox-workplace-award-front.png" alt="Front page of Xerox Workplace Cloud 2026 Pick Award flyer from Keypoint Intelligence" loading="lazy" decoding="async" width="612" height="792" />
+            <img class="canon-awards-product" src="/xerox-production-printer-transparent.png" alt="Xerox production printer" loading="lazy" decoding="async" />
             <div class="canon-awards-badge">
               <strong>Award Winner</strong>
               <span>Xerox Workplace Cloud recognized by Keypoint Intelligence.</span>
@@ -2704,7 +2704,7 @@
 
       <div class="canon-awards-link-row">
         <a href="https://www.xeroxbusinesssolutions.com/en-us/products" target="_blank" rel="noopener noreferrer">View Xerox Business Solutions Products</a>
-        <a href="xerox-workplace-award.pdf" target="_blank" rel="noopener noreferrer">Open Xerox Workplace Cloud Award PDF</a>
+        <a href="/xerox-workplace-award.pdf" target="_blank" rel="noopener noreferrer">Open Xerox Workplace Cloud Award PDF</a>
       </div>
     </div>
   </section>
@@ -2722,7 +2722,7 @@
 </main>
 
 <section class="cta-section" id="resources">
-  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="cta-watermark" src="/cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="container">
     <h2>Ready to take <em>your business to the next level?</em></h2>
     <p>Tell us a bit about your office and we'll send back a no-pressure recommendation, usually within one business day.</p>
@@ -2854,7 +2854,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="/" class="logo">
-          <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
+          <img class="logo-mark" src="/ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
             <span class="sub">Business&nbsp;Systems</span>
@@ -3014,7 +3014,7 @@
 
 <div class="quote-drawer-overlay" id="quote-drawer-overlay" aria-hidden="true"></div>
 <aside class="quote-drawer" id="quote-drawer" aria-hidden="true" aria-labelledby="quote-drawer-title" role="dialog">
-  <img class="quote-drawer-watermark" src="ao-nav-logo.png" width="416" height="288" alt="" aria-hidden="true" decoding="async" />
+  <img class="quote-drawer-watermark" src="/ao-nav-logo.png" width="416" height="288" alt="" aria-hidden="true" decoding="async" />
   <div class="quote-drawer-header">
     <h2 id="quote-drawer-title">Request a Quote</h2>
     <button type="button" class="quote-drawer-close" id="quote-drawer-close" aria-label="Close request form">&times;</button>
@@ -3318,6 +3318,6 @@
     window.addEventListener('resize', requestPastState);
   })();
 </script>
-<script src="ao-remote-support.js"></script>
+<script src="/ao-remote-support.js"></script>
 </body>
 </html>

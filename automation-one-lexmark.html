@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#1f5cf5" />
 <meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1f5cf5" media="(prefers-color-scheme: dark)" />
@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="fonts-jeton.css">
+<link rel="stylesheet" href="/fonts-jeton.css">
 <style>
   :root {
     --blue-50: #eef4ff;
@@ -44,9 +44,9 @@
     --ink-soft: #4a5274;
     --paper: #f8faff;
     --white: #ffffff;
-    --cta-pill-chevron-white: url("process-flow-arrow-white.png");
-    --cta-pill-chevron-blue-700: url("process-flow-arrow.png");
-    --cta-pill-chevron-blue-800: url("process-flow-arrow-blue-800.png");
+    --cta-pill-chevron-white: url("/process-flow-arrow-white.png");
+    --cta-pill-chevron-blue-700: url("/process-flow-arrow.png");
+    --cta-pill-chevron-blue-800: url("/process-flow-arrow-blue-800.png");
     --nav-logo-ink: #2b4593;
     --nav-logo-mark-height: 50px;
     --nav-logo-mark-width: calc(var(--nav-logo-mark-height) * 416 / 288);
@@ -103,8 +103,8 @@
     height: var(--nav-logo-mark-height);
     width: var(--nav-logo-mark-width);
     background-color: currentColor;
-    -webkit-mask-image: url("ao-nav-logo.png");
-    mask-image: url("ao-nav-logo.png");
+    -webkit-mask-image: url("/ao-nav-logo.png");
+    mask-image: url("/ao-nav-logo.png");
     -webkit-mask-size: auto 100%;
     mask-size: auto 100%;
     -webkit-mask-repeat: no-repeat;
@@ -665,8 +665,8 @@
     aspect-ratio: 416 / 288;
     background: var(--blue-800);
     opacity: 0.045;
-    -webkit-mask: url("ao-nav-logo.png") center / contain no-repeat;
-    mask: url("ao-nav-logo.png") center / contain no-repeat;
+    -webkit-mask: url("/ao-nav-logo.png") center / contain no-repeat;
+    mask: url("/ao-nav-logo.png") center / contain no-repeat;
     pointer-events: none;
     transform-origin: left bottom;
     animation: canonHeroWatermarkSlide 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
@@ -951,7 +951,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url("canon-imageforce-lifestyle-bg.png") center / cover no-repeat;
+    background: url("/canon-imageforce-lifestyle-bg.png") center / cover no-repeat;
     transform: translateX(2%) scale(1);
     transform-origin: center right;
     transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1450,7 +1450,7 @@
     right: 0;
     bottom: 0;
     width: min(72%, 980px);
-    background: url("canon-support-bg.png") center right / cover no-repeat;
+    background: url("/canon-support-bg.png") center right / cover no-repeat;
     opacity: 0.48;
     filter: grayscale(1) saturate(0) contrast(0.9);
     transform: translateX(2%) scale(1);
@@ -1560,7 +1560,7 @@
     content: "";
     position: absolute;
     inset: -16% -12%;
-    background-image: url("automation-one-footer-bg.png");
+    background-image: url("/automation-one-footer-bg.png");
     background-size: var(--cta-letter-bg-size) auto;
     background-position: left var(--cta-letter-bg-y);
     background-repeat: no-repeat;
@@ -1839,8 +1839,8 @@
     height: 36px;
     width: calc(36px * 416 / 288);
     background-color: currentColor;
-    -webkit-mask-image: url("ao-nav-logo.png");
-    mask-image: url("ao-nav-logo.png");
+    -webkit-mask-image: url("/ao-nav-logo.png");
+    mask-image: url("/ao-nav-logo.png");
     -webkit-mask-size: auto 100%;
     mask-size: auto 100%;
     -webkit-mask-repeat: no-repeat;
@@ -2444,7 +2444,7 @@
   body.xerox-page .canon-hero-printer { width: min(82%, 520px); right: 2%; bottom: 8%; }
   body.xerox-page .canon-hero-brochure { width: min(38%, 210px); left: 8%; top: 9%; }
   body.xerox-page .quick-links-panel a:first-child { text-transform: none; }
-  body.xerox-page .intro-band::before { background-image: url("xerox-versalink-lifestyle-bg.png"); }
+  body.xerox-page .intro-band::before { background-image: url("/xerox-versalink-lifestyle-bg.png"); }
   body.xerox-page .canon-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 960px; margin: 0 auto; }
   body.xerox-page .canon-product-card { min-height: 430px; }
   body.xerox-page #office-printers .canon-card-visual img,
@@ -2454,7 +2454,7 @@
   body.xerox-page .canon-awards-flyer { width: min(78%, 420px); }
   body.xerox-page .canon-awards-product { width: min(50%, 350px); right: 0; }
   body.xerox-page .canon-awards-badge strong { font-size: 22px; letter-spacing: -0.04em; }
-  body.xerox-page .canon-awards-resources::before { background-image: url("xerox-support-bg.png"); }
+  body.xerox-page .canon-awards-resources::before { background-image: url("/xerox-support-bg.png"); }
   @media (max-width: 1024px) {
     body.xerox-page .canon-product-grid { grid-template-columns: 1fr; }
   }
@@ -2488,7 +2488,7 @@
   body.lexmark-page .canon-hero-printer { width: min(82%, 520px); right: 0; bottom: 8%; }
   body.lexmark-page .canon-hero-brochure { width: min(38%, 210px); left: 8%; top: 9%; }
   body.lexmark-page .quick-links-panel a:first-child { text-transform: none; }
-  body.lexmark-page .intro-band::before { background-image: url("lexmark-office-copier-bg.png"); }
+  body.lexmark-page .intro-band::before { background-image: url("/lexmark-office-copier-bg.png"); }
   body.lexmark-page .canon-product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1160px; margin: 0 auto; }
   body.lexmark-page .canon-product-card { min-height: 430px; }
   body.lexmark-page #office-printers .canon-card-visual img { max-height: 160px; }
@@ -2497,24 +2497,24 @@
   body.lexmark-page .canon-awards-flyer { width: min(78%, 420px); }
   body.lexmark-page .canon-awards-product { width: min(52%, 360px); right: 0; }
   body.lexmark-page .canon-awards-badge strong { font-size: 22px; letter-spacing: -0.04em; }
-  body.lexmark-page .canon-awards-resources::before { background-image: url("lexmark-building-bg.png"); }
+  body.lexmark-page .canon-awards-resources::before { background-image: url("/lexmark-building-bg.png"); }
   body.lexmark-page #lexmark-solutions .canon-awards-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (max-width: 1180px) {
     body.lexmark-page .canon-product-grid { grid-template-columns: 1fr; max-width: 760px; }
   }
 
 </style>
-<link rel="stylesheet" href="ao-subpage-mobile-header.css?v=safari-blue1">
-<link rel="stylesheet" href="ao-footer.css">
-<link rel="stylesheet" href="automation-one-cta.css">
-  <link rel="stylesheet" href="ao-remote-support.css">
+<link rel="stylesheet" href="/ao-subpage-mobile-header.css?v=safari-blue1">
+<link rel="stylesheet" href="/ao-footer.css">
+<link rel="stylesheet" href="/automation-one-cta.css">
+  <link rel="stylesheet" href="/ao-remote-support.css">
 </head>
 <body class="canon-page lexmark-page">
 <header class="site-header">
   <nav class="nav">
     <a href="/" class="logo">
       <span class="logo-mark-wrap" aria-hidden="true">
-        <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
+        <img class="logo-mark" src="/ao-nav-logo.png" width="120" height="120" alt="" decoding="async" />
       </span>
       <span class="logo-text">
         <span class="name">Automation&nbsp;One</span>
@@ -2526,7 +2526,7 @@
       <a href="#" class="btn btn-ghost">Remote Support</a>
       <a href="#request-quote" class="cta cta-primary cta-pill-arrow js-open-quote-drawer">Request a Quote</a>
       <a href="https://www.ccaward.com/award-winners/vancouver/best-office-equipment/automation-one-business-systems-inc/" class="quote-award-link" target="_blank" rel="noopener noreferrer" aria-label="Automation One on Consumer Choice Award – Vancouver Best Office Equipment">
-        <img class="quote-award-logo" src="service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
+        <img class="quote-award-logo" src="/service-stats/consumer-choice-award-2026.png" width="216" height="216" decoding="async" alt="Consumer Choice Award badge" />
       </a>
     </div>
   </nav>
@@ -2537,7 +2537,7 @@
     <div class="container canon-hero-grid">
       <div class="canon-hero-copy">
         <a class="canon-logo-pill" href="/lexmark" aria-label="Lexmark products page">
-          <img src="solution-brochures/logos/lexmark.png" alt="Lexmark" width="180" height="54" />
+          <img src="/solution-brochures/logos/lexmark.png" alt="Lexmark" width="180" height="54" />
           <span>Authorized Dealer</span>
         </a>
         <h1>Lexmark for <em>elevated<br>performance<br>at low cost.</em></h1>
@@ -2548,9 +2548,9 @@
         </div>
       </div>
       <div class="canon-hero-visual" aria-label="Lexmark business products">
-        <img class="hero-bg" src="lexmark-empty-office-bg.png" alt="" aria-hidden="true" />
-        <img class="canon-hero-brochure" src="solution-brochures/lexmark-xc4140.png" alt="Lexmark XC4140 brochure" />
-        <img class="canon-hero-printer" src="lexmark-xc4140-transparent.png" alt="Lexmark XC4140 colour laser printer" />
+        <img class="hero-bg" src="/lexmark-empty-office-bg.png" alt="" aria-hidden="true" />
+        <img class="canon-hero-brochure" src="/solution-brochures/lexmark-xc4140.png" alt="Lexmark XC4140 brochure" />
+        <img class="canon-hero-printer" src="/lexmark-xc4140-transparent.png" alt="Lexmark XC4140 colour laser printer" />
         <div class="hero-stat-card">
           <strong>Lexmark technology, Automation One support.</strong>
           <span>Right-sized recommendations, delivery, networking, training, supplies, and local response after install.</span>
@@ -2597,7 +2597,7 @@
 
       <div class="canon-product-grid">
         <article class="canon-product-card" id="office-printers">
-          <div class="canon-card-visual"><img src="lexmark-office-printer.png" alt="Lexmark office printer" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-visual"><img src="/lexmark-office-printer.png" alt="Lexmark office printer" loading="lazy" decoding="async" /></div>
           <div class="canon-card-body">
             <span class="canon-card-kicker">Office Printers</span>
             <h3>Reliable Lexmark printers for everyday output.</h3>
@@ -2607,7 +2607,7 @@
         </article>
 
         <article class="canon-product-card" id="multifunction-printers">
-          <div class="canon-card-visual"><img src="lexmark-xc9255-transparent.png" alt="Lexmark XC9255 colour laser multifunction printer" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-visual"><img src="/lexmark-xc9255-transparent.png" alt="Lexmark XC9255 colour laser multifunction printer" loading="lazy" decoding="async" /></div>
           <div class="canon-card-body">
             <span class="canon-card-kicker">Multifunction Printers</span>
             <h3>Print, copy, scan, and workflow tools in one device.</h3>
@@ -2617,7 +2617,7 @@
         </article>
 
         <article class="canon-product-card" id="lexmark-toner">
-          <div class="canon-card-visual"><img src="lexmark-toner-transparent.png" alt="Lexmark toner and supplies" loading="lazy" decoding="async" /></div>
+          <div class="canon-card-visual"><img src="/lexmark-toner-transparent.png" alt="Lexmark toner and supplies" loading="lazy" decoding="async" /></div>
           <div class="canon-card-body">
             <span class="canon-card-kicker">Toner &amp; Supplies</span>
             <h3>Genuine Lexmark supplies for dependable uptime.</h3>
@@ -2649,8 +2649,8 @@
 
           <div class="canon-awards-art">
             <div class="canon-awards-orbit" aria-hidden="true"></div>
-            <img class="canon-awards-flyer" src="lexmark-bli-retail-pacesetter-award-2023-2024-front.png" alt="Front page of Lexmark BLI 2023-2024 Pacesetter Award in Retail flyer from Keypoint Intelligence" loading="lazy" decoding="async" width="612" height="792" />
-            <img class="canon-awards-product" src="lexmark-xc9255-transparent.png" alt="Lexmark colour laser multifunction printer" loading="lazy" decoding="async" />
+            <img class="canon-awards-flyer" src="/lexmark-bli-retail-pacesetter-award-2023-2024-front.png" alt="Front page of Lexmark BLI 2023-2024 Pacesetter Award in Retail flyer from Keypoint Intelligence" loading="lazy" decoding="async" width="612" height="792" />
+            <img class="canon-awards-product" src="/lexmark-xc9255-transparent.png" alt="Lexmark colour laser multifunction printer" loading="lazy" decoding="async" />
             <div class="canon-awards-badge">
               <strong>Award Winner</strong>
               <span>Recognized for retail-focused imaging and smart technology solutions.</span>
@@ -2676,7 +2676,7 @@
 
       <div class="canon-awards-link-row">
         <a href="https://www.lexmark.com/en_us/printers.html" target="_blank" rel="noopener noreferrer">View Lexmark Printers</a>
-        <a href="lexmark-bli-retail-pacesetter-award-2023-2024.pdf" target="_blank" rel="noopener noreferrer">Open BLI Retail Award PDF</a>
+        <a href="/lexmark-bli-retail-pacesetter-award-2023-2024.pdf" target="_blank" rel="noopener noreferrer">Open BLI Retail Award PDF</a>
       </div>
     </div>
   </section>
@@ -2694,7 +2694,7 @@
 </main>
 
 <section class="cta-section" id="resources">
-  <img class="cta-watermark" src="cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+  <img class="cta-watermark" src="/cta-section-ao-watermark.png" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
   <div class="container">
     <h2>Ready to take <em>your business to the next level?</em></h2>
     <p>Tell us a bit about your office and we'll send back a no-pressure recommendation, usually within one business day.</p>
@@ -2826,7 +2826,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="/" class="logo">
-          <img class="logo-mark" src="ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
+          <img class="logo-mark" src="/ao-nav-logo.png" width="120" height="120" alt="Automation One logo" decoding="async" />
           <span class="logo-text">
             <span class="name">Automation&nbsp;One</span>
             <span class="sub">Business&nbsp;Systems</span>
@@ -2986,7 +2986,7 @@
 
 <div class="quote-drawer-overlay" id="quote-drawer-overlay" aria-hidden="true"></div>
 <aside class="quote-drawer" id="quote-drawer" aria-hidden="true" aria-labelledby="quote-drawer-title" role="dialog">
-  <img class="quote-drawer-watermark" src="ao-nav-logo.png" width="416" height="288" alt="" aria-hidden="true" decoding="async" />
+  <img class="quote-drawer-watermark" src="/ao-nav-logo.png" width="416" height="288" alt="" aria-hidden="true" decoding="async" />
   <div class="quote-drawer-header">
     <h2 id="quote-drawer-title">Request a Quote</h2>
     <button type="button" class="quote-drawer-close" id="quote-drawer-close" aria-label="Close request form">&times;</button>
@@ -3290,6 +3290,6 @@
     window.addEventListener('resize', requestPastState);
   })();
 </script>
-<script src="ao-remote-support.js"></script>
+<script src="/ao-remote-support.js"></script>
 </body>
 </html>
