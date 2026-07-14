@@ -1,10 +1,11 @@
-/* Remote Support drawer ù self-contained.
+/* Remote Support drawer ? self-contained.
    Injects a slide-in drawer with Windows / Mac tabs and wires up every
    "Remote Support" link on the page to open it. */
 (function () {
   'use strict';
 
-  var AO_REMOTE_DOWNLOAD_URL = 'https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/A8J2Z1OHNWFF/A1AnyDeskClient.exe';
+  var AO_REMOTE_DOWNLOAD_URL_WINDOWS = 'https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/JJTSCFPPBUIW/A1-AnyDeskClient.exe';
+  var AO_REMOTE_DOWNLOAD_URL_MAC = 'https://my.anydesk.com/v2/api/v2/custom-clients/downloads/public/A8J2Z1OHNWFF/A1AnyDeskClient.exe';
 
   function build() {
     if (document.getElementById('remote-drawer')) return;
@@ -45,7 +46,7 @@
       '      <li>Open the downloaded file and allow it to run.</li>',
       '      <li>Give the ID and code shown to Automation One.</li>',
       '    </ol>',
-      '    <a href="' + AO_REMOTE_DOWNLOAD_URL + '" class="remote-download" data-remote-download="windows" download rel="noopener">',
+      '    <a href="' + AO_REMOTE_DOWNLOAD_URL_WINDOWS + '" class="remote-download" data-remote-download="windows" download rel="noopener">',
       '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
       '      Download for Windows',
       '    </a>',
@@ -57,7 +58,7 @@
       '      <li>Open the downloaded file and follow the prompts.</li>',
       '      <li>Give the ID and code shown to Automation One.</li>',
       '    </ol>',
-      '    <a href="' + AO_REMOTE_DOWNLOAD_URL + '" class="remote-download" data-remote-download="mac" download rel="noopener">',
+      '    <a href="' + AO_REMOTE_DOWNLOAD_URL_MAC + '" class="remote-download" data-remote-download="mac" download rel="noopener">',
       '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
       '      Download for Mac',
       '    </a>',
