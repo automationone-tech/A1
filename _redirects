@@ -370,3 +370,9 @@
 /idealmbm/  /ideal-mbm  301
 /ideal.mbm  /ideal-mbm  301
 /ideal.mbm/  /ideal-mbm  301
+
+# --- Catch-all for the .ca cutover ---
+# Any old URL not matched above (legacy WordPress pages, tags, feeds, etc.)
+# 301s to the homepage. This is non-forced, so real files and every pretty
+# URL rule above still take precedence; only genuinely missing paths fall through.
+/*  /  301

@@ -1030,11 +1030,7 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     c.setFillColorRGB(1, 1, 1, alpha=0.68)
     c.setFont(FONT_MED, 8)
     c.drawRightString(PAGE_W - MARGIN - 12 * mm, MARGIN + 11 * mm,
-                      "INTERNAL USE   ·   © 2026 AUTOMATION ONE BUSINESS SYSTEMS INC.")
-
-    c.setFillColorRGB(1, 1, 1, alpha=0.68)
-    c.setFont(FONT_MED, 8)
-    c.drawString(MARGIN + 12 * mm, MARGIN + 4 * mm, "1")
+                      "© 2026 AUTOMATION ONE BUSINESS SYSTEMS INC.")
 
     c.showPage()
 

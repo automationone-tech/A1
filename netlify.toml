@@ -2117,6 +2117,16 @@
   to = "/"
   status = 301
   force = true
+
+# --- Catch-all for the .ca cutover ---
+# Any old URL not matched above (legacy WordPress pages, tags, feeds, etc.)
+# 301s to the homepage. Non-forced, so real files and every pretty URL rule
+# above still take precedence; only genuinely missing paths fall through.
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 301
+
 [[headers]]
   for = "/*.html"
   [headers.values]
