@@ -2128,6 +2128,262 @@
   status = 301
   force = true
 
+# --- FP / Ideal.MBM pretty URLs ---
+[[redirects]]
+  from = "/fp/fpi-700"
+  to = "/automation-one-fp-fpi-700.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/fpi-700/"
+  to = "/fp/fpi-700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-fpi-700.html"
+  to = "/fp/fpi-700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/fpi-2700"
+  to = "/automation-one-fp-fpi-2700.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/fpi-2700/"
+  to = "/fp/fpi-2700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-fpi-2700.html"
+  to = "/fp/fpi-2700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/fpi-4800"
+  to = "/automation-one-fp-fpi-4800.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/fpi-4800/"
+  to = "/fp/fpi-4800"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-fpi-4800.html"
+  to = "/fp/fpi-4800"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/fpi-5700"
+  to = "/automation-one-fp-fpi-5700.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/fpi-5700/"
+  to = "/fp/fpi-5700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-fpi-5700.html"
+  to = "/fp/fpi-5700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/fpi-6700"
+  to = "/automation-one-fp-fpi-6700.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/fpi-6700/"
+  to = "/fp/fpi-6700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-fpi-6700.html"
+  to = "/fp/fpi-6700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-mini"
+  to = "/automation-one-fp-postbase-mini.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-mini/"
+  to = "/fp/postbase-mini"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-mini.html"
+  to = "/fp/postbase-mini"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-fusion-a120"
+  to = "/automation-one-fp-postbase-fusion-a120.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-fusion-a120/"
+  to = "/fp/postbase-fusion-a120"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-fusion-a120.html"
+  to = "/fp/postbase-fusion-a120"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-fusion-advanced"
+  to = "/automation-one-fp-postbase-fusion-advanced.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-fusion-advanced/"
+  to = "/fp/postbase-fusion-advanced"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-fusion-advanced.html"
+  to = "/fp/postbase-fusion-advanced"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-fusion-auto"
+  to = "/automation-one-fp-postbase-fusion-auto.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-fusion-auto/"
+  to = "/fp/postbase-fusion-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-fusion-auto.html"
+  to = "/fp/postbase-fusion-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-fusion-semi-auto"
+  to = "/automation-one-fp-postbase-fusion-semi-auto.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-fusion-semi-auto/"
+  to = "/fp/postbase-fusion-semi-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-fusion-semi-auto.html"
+  to = "/fp/postbase-fusion-semi-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-vision-advanced"
+  to = "/automation-one-fp-postbase-vision-advanced.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-vision-advanced/"
+  to = "/fp/postbase-vision-advanced"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-vision-advanced.html"
+  to = "/fp/postbase-vision-advanced"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-vision-auto"
+  to = "/automation-one-fp-postbase-vision-auto.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-vision-auto/"
+  to = "/fp/postbase-vision-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-vision-auto.html"
+  to = "/fp/postbase-vision-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fp/postbase-vision-semi-auto"
+  to = "/automation-one-fp-postbase-vision-semi-auto.html"
+  status = 200
+
+[[redirects]]
+  from = "/fp/postbase-vision-semi-auto/"
+  to = "/fp/postbase-vision-semi-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-fp-postbase-vision-semi-auto.html"
+  to = "/fp/postbase-vision-semi-auto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ideal-mbm/destroyit-2503"
+  to = "/automation-one-ideal-destroyit-2503.html"
+  status = 200
+
+[[redirects]]
+  from = "/ideal-mbm/destroyit-2503/"
+  to = "/ideal-mbm/destroyit-2503"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-ideal-destroyit-2503.html"
+  to = "/ideal-mbm/destroyit-2503"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ideal-mbm/triumph-4305"
+  to = "/automation-one-ideal-triumph-4305.html"
+  status = 200
+
+[[redirects]]
+  from = "/ideal-mbm/triumph-4305/"
+  to = "/ideal-mbm/triumph-4305"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-ideal-triumph-4305.html"
+  to = "/ideal-mbm/triumph-4305"
+  status = 301
+  force = true
+
 # --- Catch-all for the .ca cutover ---
 # Any old URL not matched above (legacy WordPress pages, tags, feeds, etc.)
 # 301s to the homepage. Non-forced, so real files and every pretty URL rule
@@ -2150,7 +2406,53 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Netlify header rules don't support brace expansion, so each type gets its own rule.
 [[headers]]
-  for = "/*.{png,jpg,jpeg,webp,svg,woff2,mp4,MP4}"
+  for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.mov"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

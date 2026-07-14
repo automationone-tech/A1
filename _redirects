@@ -373,6 +373,53 @@
 /ideal.mbm  /ideal-mbm  301
 /ideal.mbm/  /ideal-mbm  301
 
+# --- FP / Ideal.MBM pretty URLs ---
+/fp/fpi-700  /automation-one-fp-fpi-700.html  200
+/fp/fpi-700/  /fp/fpi-700  301!
+/automation-one-fp-fpi-700.html  /fp/fpi-700  301!
+/fp/fpi-2700  /automation-one-fp-fpi-2700.html  200
+/fp/fpi-2700/  /fp/fpi-2700  301!
+/automation-one-fp-fpi-2700.html  /fp/fpi-2700  301!
+/fp/fpi-4800  /automation-one-fp-fpi-4800.html  200
+/fp/fpi-4800/  /fp/fpi-4800  301!
+/automation-one-fp-fpi-4800.html  /fp/fpi-4800  301!
+/fp/fpi-5700  /automation-one-fp-fpi-5700.html  200
+/fp/fpi-5700/  /fp/fpi-5700  301!
+/automation-one-fp-fpi-5700.html  /fp/fpi-5700  301!
+/fp/fpi-6700  /automation-one-fp-fpi-6700.html  200
+/fp/fpi-6700/  /fp/fpi-6700  301!
+/automation-one-fp-fpi-6700.html  /fp/fpi-6700  301!
+/fp/postbase-mini  /automation-one-fp-postbase-mini.html  200
+/fp/postbase-mini/  /fp/postbase-mini  301!
+/automation-one-fp-postbase-mini.html  /fp/postbase-mini  301!
+/fp/postbase-fusion-a120  /automation-one-fp-postbase-fusion-a120.html  200
+/fp/postbase-fusion-a120/  /fp/postbase-fusion-a120  301!
+/automation-one-fp-postbase-fusion-a120.html  /fp/postbase-fusion-a120  301!
+/fp/postbase-fusion-advanced  /automation-one-fp-postbase-fusion-advanced.html  200
+/fp/postbase-fusion-advanced/  /fp/postbase-fusion-advanced  301!
+/automation-one-fp-postbase-fusion-advanced.html  /fp/postbase-fusion-advanced  301!
+/fp/postbase-fusion-auto  /automation-one-fp-postbase-fusion-auto.html  200
+/fp/postbase-fusion-auto/  /fp/postbase-fusion-auto  301!
+/automation-one-fp-postbase-fusion-auto.html  /fp/postbase-fusion-auto  301!
+/fp/postbase-fusion-semi-auto  /automation-one-fp-postbase-fusion-semi-auto.html  200
+/fp/postbase-fusion-semi-auto/  /fp/postbase-fusion-semi-auto  301!
+/automation-one-fp-postbase-fusion-semi-auto.html  /fp/postbase-fusion-semi-auto  301!
+/fp/postbase-vision-advanced  /automation-one-fp-postbase-vision-advanced.html  200
+/fp/postbase-vision-advanced/  /fp/postbase-vision-advanced  301!
+/automation-one-fp-postbase-vision-advanced.html  /fp/postbase-vision-advanced  301!
+/fp/postbase-vision-auto  /automation-one-fp-postbase-vision-auto.html  200
+/fp/postbase-vision-auto/  /fp/postbase-vision-auto  301!
+/automation-one-fp-postbase-vision-auto.html  /fp/postbase-vision-auto  301!
+/fp/postbase-vision-semi-auto  /automation-one-fp-postbase-vision-semi-auto.html  200
+/fp/postbase-vision-semi-auto/  /fp/postbase-vision-semi-auto  301!
+/automation-one-fp-postbase-vision-semi-auto.html  /fp/postbase-vision-semi-auto  301!
+/ideal-mbm/destroyit-2503  /automation-one-ideal-destroyit-2503.html  200
+/ideal-mbm/destroyit-2503/  /ideal-mbm/destroyit-2503  301!
+/automation-one-ideal-destroyit-2503.html  /ideal-mbm/destroyit-2503  301!
+/ideal-mbm/triumph-4305  /automation-one-ideal-triumph-4305.html  200
+/ideal-mbm/triumph-4305/  /ideal-mbm/triumph-4305  301!
+/automation-one-ideal-triumph-4305.html  /ideal-mbm/triumph-4305  301!
+
 # --- Catch-all for the .ca cutover ---
 # Any old URL not matched above (legacy WordPress pages, tags, feeds, etc.)
 # 301s to the homepage. This is non-forced, so real files and every pretty
