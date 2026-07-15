@@ -1824,9 +1824,9 @@ html { background-color: #ffffff; }
         <div class="billable-rates">
           <p><strong>This is a signed acknowledgement of the charges for service provided by Automation One&rsquo;s Service and I.T. departments. The following rates apply.</strong></p>
           <ol>
-            <li>Technical Service &mdash; $149.00 per hour &mdash; minimum 1 hour charge. Parts as required plus travel time and taxes.</li>
-            <li>I.T. Remote Support &mdash; $169.00 per hour &mdash; minimum 30 minutes. Taxes not included.</li>
-            <li>I.T. Onsite Support &mdash; $169.00 per hour &mdash; minimum 1 hour charge. Plus travel time and taxes. (This service is provided under condition of release of any liabilities to Automation One)</li>
+            <li>Technical Service &mdash; $169.00 per hour &mdash; minimum 1 hour charge. Parts as required plus travel time and taxes.</li>
+            <li>I.T. Remote Support &mdash; $189.00 per hour &mdash; minimum 30 minutes. Taxes not included.</li>
+            <li>I.T. Onsite Support &mdash; $189.00 per hour &mdash; minimum 1 hour charge. Plus travel time and taxes. (This service is provided under condition of release of any liabilities to Automation One)</li>
           </ol>
           <p>Please sign below to acknowledge that charges will be billed to your account after service is completed.</p>
         </div>
@@ -1835,7 +1835,7 @@ html { background-color: #ffffff; }
         <label class="billable-ack"><input type="checkbox" name="acknowledgement" value="Yes" required /> I acknowledge the above rates and authorize charges to be billed to our account after service is completed.</label>
 
         <button type="submit">Submit confirmation</button>
-        <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:info@automationone.ca">info@automationone.ca</a>.</p>
+        <p class="form-hint">Submitting opens your email app with a draft to <a href="mailto:dispatch@automationone.ca">dispatch@automationone.ca</a>.</p>
       </form>
     </div>
   </div>
@@ -2343,7 +2343,7 @@ html { background-color: #ffffff; }
       });
       var subject = encodeURIComponent('Billable confirmation request');
       var body = encodeURIComponent(lines.join('\n'));
-      window.location.href = 'mailto:info@automationone.ca?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:dispatch@automationone.ca?subject=' + subject + '&body=' + body;
     });
   })();
 </script>
