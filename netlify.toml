@@ -3,18 +3,52 @@
 
 # --- Domain aliases: automationone.org -> automationone.ca (301, all paths) ---
 [[redirects]]
-  from = "/*"
+  from = "https://automationone.org/*"
   to = "https://automationone.ca/:splat"
   status = 301
   force = true
-  conditions = {Host = ["automationone.org"]}
 
 [[redirects]]
-  from = "/*"
+  from = "https://automationone.org"
+  to = "https://automationone.ca"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationone.org/*"
   to = "https://automationone.ca/:splat"
   status = 301
   force = true
-  conditions = {Host = ["www.automationone.org"]}
+
+[[redirects]]
+  from = "https://www.automationone.org"
+  to = "https://automationone.ca"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://automationone.org/*"
+  to = "https://automationone.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://automationone.org"
+  to = "https://automationone.ca"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.automationone.org/*"
+  to = "https://automationone.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.automationone.org"
+  to = "https://automationone.ca"
+  status = 301
+  force = true
 
 # --- Short URL rewrites (200) -> physical HTML files ---
 

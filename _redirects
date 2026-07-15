@@ -1,3 +1,11 @@
+https://automationone.org/*  https://automationone.ca/:splat  301!
+https://automationone.org  https://automationone.ca  301!
+https://www.automationone.org/*  https://automationone.ca/:splat  301!
+https://www.automationone.org  https://automationone.ca  301!
+http://automationone.org/*  https://automationone.ca/:splat  301!
+http://automationone.org  https://automationone.ca  301!
+http://www.automationone.org/*  https://automationone.ca/:splat  301!
+http://www.automationone.org  https://automationone.ca  301!
 /multifunction-printers  /automation-one-products.html  200
 /multifunction-printers/  /multifunction-printers  301!
 /wide-format-printers  /automation-one-products.html  200
