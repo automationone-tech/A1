@@ -1,6 +1,21 @@
 [build]
   publish = "."
 
+# --- Domain aliases: automationone.org -> automationone.ca (301, all paths) ---
+[[redirects]]
+  from = "/*"
+  to = "https://automationone.ca/:splat"
+  status = 301
+  force = true
+  conditions = {Host = ["automationone.org"]}
+
+[[redirects]]
+  from = "/*"
+  to = "https://automationone.ca/:splat"
+  status = 301
+  force = true
+  conditions = {Host = ["www.automationone.org"]}
+
 # --- Short URL rewrites (200) -> physical HTML files ---
 
 [[redirects]]
