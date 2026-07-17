@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+  Automation One - Email signature - Craig Achtem
+  Table-based + inline styles for Outlook / Gmail / Apple Mail compatibility.
+  Images are hosted on automationone.ca so they load for every recipient.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<style>
+  @media (prefers-color-scheme: dark) {
+    body { background:#1c1c1e !important; }
+    .sig-bar { border-left-color:#ffffff !important; }
+    .sig-text, .sig-text a, .sig-link { color:#ffffff !important; }
+    .sig-logo-light { display:none !important; }
+    .sig-logo-dark { display:inline-block !important; }
+    .sig-brand-light { display:none !important; }
+    .sig-brand-dark { display:block !important; }
+  }
+  /* Outlook.com / Outlook apps dark mode */
+  [data-ogsc] .sig-text, [data-ogsc] .sig-text a, [data-ogsc] .sig-link { color:#ffffff !important; }
+  [data-ogsb] .sig-bar, [data-ogsc] .sig-bar { border-left-color:#ffffff !important; }
+  [data-ogsc] .sig-logo-light { display:none !important; }
+  [data-ogsc] .sig-logo-dark { display:inline-block !important; }
+  [data-ogsc] .sig-brand-light { display:none !important; }
+  [data-ogsc] .sig-brand-dark { display:block !important; }
+</style>
+<title>Automation One - Email Signature - Craig Achtem</title>
+</head>
+<body style="margin:0; padding:36px;">
+<!-- ===== SIGNATURE START (copy from here) ===== -->
+<table cellpadding="0" cellspacing="0" border="0" role="presentation"
+       style="border-collapse:collapse; font-family:'Sequel Sans', Arial, Helvetica, sans-serif; color:#0a2870;">
+  <tr>
+    <!-- Content (left border draws the accent bar; borders survive mobile rendering) -->
+    <td class="sig-bar" style="border-left:5px solid #002a76; padding:2px 0 2px 18px;">
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+        <!-- Name -->
+        <tr>
+          <td class="sig-text" style="font-family:'Sequel Sans', Arial, Helvetica, sans-serif; font-size:19px; line-height:22px; font-weight:700; color:#002a76; letter-spacing:.2px; padding-bottom:3px;">
+            Craig Achtem
+          </td>
+        </tr>
+        <!-- Title -->
+        <tr>
+          <td class="sig-text" style="font-family:'Sequel Sans', Arial, Helvetica, sans-serif; font-size:12.5px; line-height:17px; font-weight:400; letter-spacing:1.8px; text-transform:uppercase; color:#002a76; padding-bottom:14px;">
+            I.T. Manager
+          </td>
+        </tr>
+
+        <!-- Contact rows -->
+        <tr>
+          <td style="padding-bottom:4px;">
+            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse; font-family:'Sequel Sans', Arial, Helvetica, sans-serif; font-size:14.5px; line-height:20px;">
+              <tr>
+                <td class="sig-text" style="color:#002a76; font-weight:400; font-size:11.5px; letter-spacing:.6px; padding:0 7px 3px 0; white-space:nowrap;">PHONE</td>
+                <td class="sig-text" style="color:#0a2870; padding:0 0 3px 0; white-space:nowrap;">
+                  <a href="tel:+16042556622;ext=243" class="sig-link" style="color:#0a2870; text-decoration:none; font-weight:600;">(604) 255-6622 ext 243</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="sig-text" style="color:#002a76; font-weight:400; font-size:11.5px; letter-spacing:.6px; padding:0 7px 3px 0; white-space:nowrap; vertical-align:top;">EMAIL</td>
+                <td class="sig-text" style="color:#0a2870; padding:0 0 3px 0;">
+                  <a href="mailto:cachtem@automationone.ca" class="sig-link" style="color:#0a2870; text-decoration:none; font-weight:600;">cachtem@automationone.ca</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="sig-text" style="color:#002a76; font-weight:400; font-size:11.5px; letter-spacing:.6px; padding:0 7px 3px 0; white-space:nowrap; vertical-align:top;">WEB</td>
+                <td class="sig-text" style="color:#0a2870; padding:0 0 3px 0;">
+                  <a href="https://automationone.ca" class="sig-link" style="color:#0a2870; text-decoration:none; font-weight:600;">automationone.ca</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="sig-text" style="color:#002a76; font-weight:400; font-size:11.5px; letter-spacing:.6px; padding:0 7px 0 0; white-space:nowrap; vertical-align:top;">ADDRESS</td>
+                <td class="sig-text" style="color:#0a2870; font-weight:600; padding:0;">
+                  <a href="https://www.google.ca/maps/place/Automation+One+Business+Systems+Inc./@49.27213,-123.025937,17z/data=!3m1!4b1!4m5!3m4!1s0x548670d45e38023d:0x208ef41e71d011d3!8m2!3d49.27213!4d-123.023743" target="_blank" class="sig-link" style="color:#0a2870; text-decoration:none; font-weight:600;">1365 Boundary Rd<br>Vancouver, BC V5K 4T9</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Logo -->
+        <tr>
+          <td align="center" style="padding:18px 0 14px 0; text-align:center;">
+            <a href="https://automationone.ca" target="_blank" style="text-decoration:none; border:0;">
+              <img class="sig-logo-light" src="https://automationone.ca/assets/logo/automation-one-logo-transparent.png"
+                   alt="Automation One - Business Systems" width="280"
+                   style="display:block; width:280px; max-width:280px; height:auto; border:0; outline:none; text-decoration:none; margin:0 auto;">
+              <img class="sig-logo-dark" src="https://automationone.ca/assets/logo/automation-one-logo-white.png"
+                   alt="Automation One - Business Systems" width="280"
+                   style="display:none; mso-hide:all; width:280px; max-width:280px; height:auto; border:0; outline:none; text-decoration:none; margin:0 auto;">
+            </a>
+          </td>
+        </tr>
+
+        <!-- Brands + Authorized Dealer -->
+        <tr>
+          <td align="center">
+            <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="border-collapse:collapse; width:330px; margin:0 auto;">
+              <tr>
+                <td align="center" style="text-align:center; padding-bottom:7px;">
+                  <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="border-collapse:collapse; margin:0 auto;">
+                    <tr>
+                      <td valign="middle" style="vertical-align:middle; padding:0 4px;">
+                        <a href="https://automationone.ca/canon" target="_blank" style="text-decoration:none; border:0;">
+                          <img src="https://automationone.ca/brand-logo-canon.png" alt="Canon" width="76" height="16"
+                               style="display:block; width:76px; height:16px; border:0; outline:none; text-decoration:none;">
+                        </a>
+                      </td>
+                      <td valign="middle" style="vertical-align:middle; padding:0 4px;">
+                        <a href="https://automationone.ca/fp" target="_blank" style="text-decoration:none; border:0;">
+                          <img src="https://automationone.ca/brand-logo-fp.png" alt="FP" width="43" height="22"
+                               style="display:block; width:43px; height:22px; border:0; outline:none; text-decoration:none;">
+                        </a>
+                      </td>
+                      <td valign="middle" style="vertical-align:middle; padding:0 4px;">
+                        <a href="https://automationone.ca/lexmark" target="_blank" style="text-decoration:none; border:0;">
+                          <img class="sig-brand-light" src="https://automationone.ca/brand-logo-lexmark.png" alt="Lexmark" width="73" height="15"
+                               style="display:block; width:73px; height:15px; border:0; outline:none; text-decoration:none;">
+                          <img class="sig-brand-dark" src="https://automationone.ca/brand-logo-lexmark-dark.png" alt="Lexmark" width="73" height="15"
+                               style="display:none; mso-hide:all; width:73px; height:15px; border:0; outline:none; text-decoration:none;">
+                        </a>
+                      </td>
+                      <td valign="middle" style="vertical-align:middle; padding:0 4px;">
+                        <a href="https://automationone.ca/ideal-mbm" target="_blank" style="text-decoration:none; border:0;">
+                          <img class="sig-brand-light" src="https://automationone.ca/brand-logo-ideal.png" alt="Ideal.MBM" width="37" height="20"
+                               style="display:block; width:37px; height:20px; border:0; outline:none; text-decoration:none;">
+                          <img class="sig-brand-dark" src="https://automationone.ca/brand-logo-ideal-dark.png" alt="Ideal.MBM" width="37" height="20"
+                               style="display:none; mso-hide:all; width:37px; height:20px; border:0; outline:none; text-decoration:none;">
+                        </a>
+                      </td>
+                      <td valign="middle" style="vertical-align:middle; padding:0 4px;">
+                        <a href="https://automationone.ca/xerox" target="_blank" style="text-decoration:none; border:0;">
+                          <img src="https://automationone.ca/brand-logo-xerox.png" alt="Xerox" width="73" height="16"
+                               style="display:block; width:73px; height:16px; border:0; outline:none; text-decoration:none;">
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" class="sig-text" style="text-align:center; font-family:'Sequel Sans', Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; letter-spacing:2.6px; text-transform:uppercase; color:#002a76;">
+                  Authorized Dealer
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ===== SIGNATURE END (copy to here) ===== -->
+</body>
+</html>
