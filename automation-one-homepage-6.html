@@ -6802,7 +6802,12 @@ html { background-color: #ffffff; }
   <link rel="stylesheet" href="/ao-remote-support.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBYWKRRKG3"></script>
-<script src="/ao-analytics.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DBYWKRRKG3');
+</script>
 </head>
 <body class="home-page">
 <div id="page-transition" class="page-transition" aria-hidden="true">
