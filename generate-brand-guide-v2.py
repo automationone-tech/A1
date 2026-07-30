@@ -1066,7 +1066,7 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     c.setFillColor(WHITE)
     c.setFont(FONT_MED, 28)
     c.drawString(tagline_x, PAGE_H * 0.275, "Business solutions")
-    c.drawString(tagline_x, PAGE_H * 0.235, "made simple")
+    c.drawString(tagline_x, PAGE_H * 0.235, "made simple.")
 
     c.setFillColor(WHITE)
     c.setFont(FONT_MED, 10)
