@@ -52,26 +52,29 @@ LOCKUP_HORIZONTAL_PRIMARY = BASE / "ao-logo-lockup-horizontal-primary.png"
 LOCKUP_HORIZONTAL_BLUE500 = BASE / ".pdf-cache" / "horizontal-lockup-blue500.png"
 LOCKUP_HORIZONTAL_BLUE800 = BASE / ".pdf-cache" / "horizontal-lockup-blue800.png"
 LOCKUP_HORIZONTAL_WHITE = BASE / ".pdf-cache" / "horizontal-lockup-white.png"
+LOCKUP_HORIZONTAL_BASE = BASE / ".pdf-cache" / "horizontal-lockup-base.png"
 LOCKUP_STACKED_BASE = BASE / ".pdf-cache" / "stacked-lockup-base.png"
 LOCKUP_STACKED_BLUE500 = BASE / ".pdf-cache" / "stacked-lockup-blue500.png"
 LOCKUP_STACKED_BLUE800 = BASE / ".pdf-cache" / "stacked-lockup-blue800.png"
 FONT_DISPLAY_SEMI = FONTS_DIR / "SequelSans-DisplaySemi.BFge39nV.ttf"
 FONT_DISPLAY_MED = FONTS_DIR / "SequelSans-DisplayMedium.BYsR-9NK.ttf"
-STACKED_SUB_Y0 = 1720
-STACKED_SUB_Y1 = 1875
-STACKED_SUB_RIGHT = 1935
-STACKED_SUB_SIZE = 145
-STACKED_NAME_Y0 = 1495
-STACKED_NAME_Y1 = 1715
-STACKED_NAME_CENTER_Y = 1601
-STACKED_NAME_SIZE = 240
-STACKED_NAME_WORD_GAP = -14
-STACKED_NAME_INK = (49, 80, 171)
-STACKED_BG = (248, 250, 255)
+LOCKUP_TEXT_BG = (248, 250, 255)
+LOCKUP_TEXT_BLOCK = BASE / ".pdf-cache" / "lockup-text-block.png"
+STACKED_CANVAS_H = 2055
+STACKED_CANVAS_W = 2112
+STACKED_TEXT_Y0 = 1495
+STACKED_TEXT_Y1 = 1860
+STACKED_TEXT_PASTE_X = 172
+STACKED_TEXT_PASTE_Y = 1495
+HORIZONTAL_CANVAS_H = 136
+HORIZONTAL_CANVAS_W = 636
+HORIZONTAL_MARK_GAP = 22  # px between mark and wordmark at 636×136 reference size
+HORIZONTAL_TEXT_SCALE = HORIZONTAL_CANVAS_W / STACKED_CANVAS_W
 LOCKUP_ASPECT = 685 / 704  # stacked lockup height / width (reference proportions)
 LOCKUP_H_ASPECT = 136 / 636  # horizontal lockup height / width (reference screenshot)
 LOCKUP_COVER_WHITE = BASE / ".pdf-cache" / "cover-lockup-white-on-black.png"
-STACKED_LOCKUP_REV = 3  # bump when stacked name/subline repair changes
+STACKED_LOCKUP_REV = 10  # bump when lockup base pipeline changes
+HORIZONTAL_LOCKUP_REV = 10
 BLACK_COLORKEY = [0, 0, 0, 0, 0, 0]  # knock out black bg → crisp #FFFFFF logo
 
 PAGE_W, PAGE_H = letter
@@ -290,92 +293,130 @@ def _recolor_lockup_rgba(im: "Image.Image", hex_color: str) -> "Image.Image":
     for y in range(im.size[1]):
         for x in range(im.size[0]):
             r, g, b, a = px[x, y]
+            if a < 6:
+                continue
             if r > 240 and g > 242 and b > 248:
                 continue
             dist = math.sqrt((r - bg[0]) ** 2 + (g - bg[1]) ** 2 + (b - bg[2]) ** 2)
-            alpha = min(255, max(0, int(255 * dist / max_dist)))
+            alpha = min(255, max(0, int(a * dist / max_dist)))
             if alpha < 6:
                 continue
             op[x, y] = (tr, tg, tb, alpha)
     return out
 
 
-def _render_stacked_name_rgba() -> "Image.Image | None":
-    """Render Automation One for stacked lockup — Semi weight, tighter word gap."""
-    from PIL import ImageDraw, ImageFont
+def _is_lockup_ink(r: int, g: int, b: int, a: int, bg: tuple[int, int, int] = LOCKUP_TEXT_BG) -> bool:
+    if a < 50:
+        return False
+    return math.sqrt((r - bg[0]) ** 2 + (g - bg[1]) ** 2 + (b - bg[2]) ** 2) > 25
 
-    if not FONT_DISPLAY_SEMI.exists():
+
+def _cover_weight_lockup(src: Path) -> "Image.Image | None":
+    """Apply the cover's hard mask so every lockup has identical type weight."""
+    if not src.exists() or Image is None:
         return None
 
-    font = ImageFont.truetype(str(FONT_DISPLAY_SEMI), STACKED_NAME_SIZE)
-    ink = (*STACKED_NAME_INK, 255)
+    pil = Image.open(src).convert("RGBA")
+    px = pil.load()
+    out = Image.new("RGBA", pil.size, (0, 0, 0, 0))
+    op = out.load()
+    for y in range(pil.height):
+        for x in range(pil.width):
+            r, g, b, a = px[x, y]
+            # These are exactly the inclusion rules used by the cover artwork.
+            if a < 128 or (r > 235 and g > 235 and b > 235):
+                continue
+            op[x, y] = (49, 80, 171, 255)
+    return out
 
-    scratch = Image.new("RGBA", (2400, 320), (0, 0, 0, 0))
-    d = ImageDraw.Draw(scratch)
-    d.text((0, 0), "Automation", font=font, fill=ink, anchor="lt")
-    auto_bb = scratch.getbbox()
-    if not auto_bb:
+
+def _extract_lockup_text_block(src: Path) -> "Image.Image | None":
+    """Crop the wordmark after applying the cover's exact weight mask."""
+    im = _cover_weight_lockup(src)
+    if im is None:
         return None
-    auto_w = auto_bb[2] - auto_bb[0]
 
-    space_bb = font.getbbox(" ")
-    space_w = (space_bb[2] - space_bb[0]) + STACKED_NAME_WORD_GAP
-
-    layer = Image.new("RGBA", (2400, 320), (0, 0, 0, 0))
-    d2 = ImageDraw.Draw(layer)
-    d2.text((0, 0), "Automation", font=font, fill=ink, anchor="lt")
-    d2.text((auto_w + space_w, 0), "One", font=font, fill=ink, anchor="lt")
-    bb = layer.getbbox()
-    if not bb:
+    band = im.crop((0, STACKED_TEXT_Y0, im.width, STACKED_TEXT_Y1 + 1))
+    px = band.load()
+    bw, bh = band.size
+    min_x, min_y, max_x, max_y = bw, bh, -1, -1
+    for y in range(bh):
+        for x in range(bw):
+            if _is_lockup_ink(*px[x, y]):
+                min_x = min(min_x, x)
+                min_y = min(min_y, y)
+                max_x = max(max_x, x)
+                max_y = max(max_y, y)
+    if max_x < 0:
         return None
-    return layer.crop(bb)
+    return band.crop((min_x, min_y, max_x + 1, max_y + 1))
 
 
-def _repair_stacked_name_line(im: "Image.Image") -> "Image.Image":
-    """Re-render Automation One at Semi weight with tighter tracking."""
+def _horizontal_mark_right(im: "Image.Image") -> int:
+    """Right edge of the mark: first contiguous ink run from the left."""
     px = im.load()
-    w, _h = im.size
-    for y in range(STACKED_NAME_Y0, STACKED_NAME_Y1 + 1):
-        for x in range(w):
-            px[x, y] = (*STACKED_BG, 255)
+    w, h = im.size
 
-    name = _render_stacked_name_rgba()
-    if name is None:
+    def col_has_ink(x: int) -> bool:
+        return any(_is_lockup_ink(*px[x, y]) for y in range(h))
+
+    x = 0
+    while x < w and not col_has_ink(x):
+        x += 1
+    while x < w and col_has_ink(x):
+        x += 1
+    return x - 1
+
+
+def _get_lockup_text_block() -> "Image.Image | None":
+    """Canonical wordmark cropped from the baked stacked lockup (cover reference)."""
+    if (
+        LOCKUP_TEXT_BLOCK.exists()
+        and Image is not None
+        and LOCKUP_STACKED_PRIMARY.exists()
+        and LOCKUP_TEXT_BLOCK.stat().st_mtime >= LOCKUP_STACKED_PRIMARY.stat().st_mtime
+    ):
+        cached = Image.open(LOCKUP_TEXT_BLOCK).convert("RGBA")
+        if cached.width > 1:
+            return cached
+
+    block = _extract_lockup_text_block(LOCKUP_STACKED_PRIMARY)
+    if block is None or Image is None:
+        return None
+
+    LOCKUP_TEXT_BLOCK.parent.mkdir(exist_ok=True)
+    block.save(LOCKUP_TEXT_BLOCK)
+    return block
+
+
+def _repair_horizontal_text(im: "Image.Image") -> "Image.Image":
+    """Paste cover wordmark pixels, uniformly scaled (same bitmap as cover)."""
+    text_block = _get_lockup_text_block()
+    if text_block is None:
         return im
 
-    tx = (w - name.width) // 2
-    ty = int(STACKED_NAME_CENTER_Y - name.height / 2)
-    im.paste(name, (tx, ty), name)
-    return im
-
-
-def _repair_stacked_subline(im: "Image.Image") -> "Image.Image":
-    """Re-render Business Systems at Medium weight (lighter than baked Semi)."""
-    from PIL import ImageDraw, ImageFont
+    mark_right = _horizontal_mark_right(im)
+    text_x = mark_right + 1 + HORIZONTAL_MARK_GAP
+    scale = HORIZONTAL_TEXT_SCALE
+    avail_w = im.width - text_x - 4
+    if text_block.width * scale > avail_w:
+        scale = avail_w / text_block.width
+    tw = max(1, round(text_block.width * scale))
+    th = max(1, round(text_block.height * scale))
+    text_small = text_block.resize((tw, th), Image.LANCZOS)
 
     px = im.load()
     w, h = im.size
-    for y in range(STACKED_SUB_Y0, STACKED_SUB_Y1 + 1):
-        for x in range(w):
-            px[x, y] = (*STACKED_BG, 255)
+    for y in range(h):
+        for x in range(mark_right + 1, w):
+            px[x, y] = (*LOCKUP_TEXT_BG, 255)
 
-    if not FONT_DISPLAY_MED.exists():
-        return im
-
-    font = ImageFont.truetype(str(FONT_DISPLAY_MED), STACKED_SUB_SIZE)
-    text = "Business Systems"
-    bbox = font.getbbox(text)
-    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    tx = STACKED_SUB_RIGHT - tw - bbox[0]
-    ty = 1731 + (1860 - 1731 + 1 - th) // 2 - bbox[1]
-
-    layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    ImageDraw.Draw(layer).text((tx, ty), text, fill=(*STACKED_NAME_INK, 255), font=font)
-    return Image.alpha_composite(im.convert("RGBA"), layer)
+    im.paste(text_small, (text_x, (h - text_small.height) // 2), text_small)
+    return im
 
 
 def build_stacked_lockup_base() -> Path | None:
-    """Stacked reference with corrected subline weight."""
+    """Stacked reference using the cover's exact weight and spacing mask."""
     src = LOCKUP_STACKED_PRIMARY
     if not src.exists() or Image is None:
         return None
@@ -388,7 +429,9 @@ def build_stacked_lockup_base() -> Path | None:
     ):
         return LOCKUP_STACKED_BASE
 
-    im = _repair_stacked_subline(_repair_stacked_name_line(Image.open(src).convert("RGBA")))
+    im = _cover_weight_lockup(src)
+    if im is None:
+        return None
     LOCKUP_STACKED_BASE.parent.mkdir(exist_ok=True)
     im.save(LOCKUP_STACKED_BASE)
     rev_path.write_text(str(STACKED_LOCKUP_REV))
@@ -415,13 +458,34 @@ def build_stacked_lockup_blue800() -> Path | None:
     return build_stacked_lockup("#0a2870", LOCKUP_STACKED_BLUE800)
 
 
-def build_horizontal_lockup(hex_color: str, dest: Path) -> Path | None:
-    """Reference horizontal lockup → target colour, preserving stroke weight."""
+def build_horizontal_lockup_base() -> Path | None:
+    """Horizontal reference with shared wordmark typography."""
     src = LOCKUP_HORIZONTAL_PRIMARY
     if not src.exists() or Image is None:
         return None
+    rev_path = LOCKUP_HORIZONTAL_BASE.with_suffix(".rev")
+    if (
+        LOCKUP_HORIZONTAL_BASE.exists()
+        and rev_path.exists()
+        and rev_path.read_text().strip() == str(HORIZONTAL_LOCKUP_REV)
+        and LOCKUP_HORIZONTAL_BASE.stat().st_mtime >= src.stat().st_mtime
+    ):
+        return LOCKUP_HORIZONTAL_BASE
 
-    out = _recolor_lockup_rgba(Image.open(src).convert("RGBA"), hex_color)
+    im = _repair_horizontal_text(Image.open(src).convert("RGBA"))
+    LOCKUP_HORIZONTAL_BASE.parent.mkdir(exist_ok=True)
+    im.save(LOCKUP_HORIZONTAL_BASE)
+    rev_path.write_text(str(HORIZONTAL_LOCKUP_REV))
+    return LOCKUP_HORIZONTAL_BASE
+
+
+def build_horizontal_lockup(hex_color: str, dest: Path) -> Path | None:
+    """Reference horizontal lockup → target colour, preserving stroke weight."""
+    base = build_horizontal_lockup_base()
+    if not base or Image is None:
+        return None
+
+    out = _recolor_lockup_rgba(Image.open(base).convert("RGBA"), hex_color)
     out = out.resize((out.width * 2, out.height * 2), Image.LANCZOS)
     dest.parent.mkdir(exist_ok=True)
     out.save(dest)
