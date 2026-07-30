@@ -61,11 +61,17 @@ STACKED_SUB_Y0 = 1720
 STACKED_SUB_Y1 = 1875
 STACKED_SUB_RIGHT = 1935
 STACKED_SUB_SIZE = 145
+STACKED_NAME_Y0 = 1495
+STACKED_NAME_Y1 = 1715
+STACKED_NAME_CENTER_Y = 1601
+STACKED_NAME_SIZE = 240
+STACKED_NAME_WORD_GAP = -14
 STACKED_NAME_INK = (49, 80, 171)
 STACKED_BG = (248, 250, 255)
 LOCKUP_ASPECT = 685 / 704  # stacked lockup height / width (reference proportions)
 LOCKUP_H_ASPECT = 136 / 636  # horizontal lockup height / width (reference screenshot)
 LOCKUP_COVER_WHITE = BASE / ".pdf-cache" / "cover-lockup-white-on-black.png"
+STACKED_LOCKUP_REV = 3  # bump when stacked name/subline repair changes
 BLACK_COLORKEY = [0, 0, 0, 0, 0, 0]  # knock out black bg → crisp #FFFFFF logo
 
 PAGE_W, PAGE_H = letter
@@ -294,6 +300,55 @@ def _recolor_lockup_rgba(im: "Image.Image", hex_color: str) -> "Image.Image":
     return out
 
 
+def _render_stacked_name_rgba() -> "Image.Image | None":
+    """Render Automation One for stacked lockup — Semi weight, tighter word gap."""
+    from PIL import ImageDraw, ImageFont
+
+    if not FONT_DISPLAY_SEMI.exists():
+        return None
+
+    font = ImageFont.truetype(str(FONT_DISPLAY_SEMI), STACKED_NAME_SIZE)
+    ink = (*STACKED_NAME_INK, 255)
+
+    scratch = Image.new("RGBA", (2400, 320), (0, 0, 0, 0))
+    d = ImageDraw.Draw(scratch)
+    d.text((0, 0), "Automation", font=font, fill=ink, anchor="lt")
+    auto_bb = scratch.getbbox()
+    if not auto_bb:
+        return None
+    auto_w = auto_bb[2] - auto_bb[0]
+
+    space_bb = font.getbbox(" ")
+    space_w = (space_bb[2] - space_bb[0]) + STACKED_NAME_WORD_GAP
+
+    layer = Image.new("RGBA", (2400, 320), (0, 0, 0, 0))
+    d2 = ImageDraw.Draw(layer)
+    d2.text((0, 0), "Automation", font=font, fill=ink, anchor="lt")
+    d2.text((auto_w + space_w, 0), "One", font=font, fill=ink, anchor="lt")
+    bb = layer.getbbox()
+    if not bb:
+        return None
+    return layer.crop(bb)
+
+
+def _repair_stacked_name_line(im: "Image.Image") -> "Image.Image":
+    """Re-render Automation One at Semi weight with tighter tracking."""
+    px = im.load()
+    w, _h = im.size
+    for y in range(STACKED_NAME_Y0, STACKED_NAME_Y1 + 1):
+        for x in range(w):
+            px[x, y] = (*STACKED_BG, 255)
+
+    name = _render_stacked_name_rgba()
+    if name is None:
+        return im
+
+    tx = (w - name.width) // 2
+    ty = int(STACKED_NAME_CENTER_Y - name.height / 2)
+    im.paste(name, (tx, ty), name)
+    return im
+
+
 def _repair_stacked_subline(im: "Image.Image") -> "Image.Image":
     """Re-render Business Systems at Medium weight (lighter than baked Semi)."""
     from PIL import ImageDraw, ImageFont
@@ -324,12 +379,19 @@ def build_stacked_lockup_base() -> Path | None:
     src = LOCKUP_STACKED_PRIMARY
     if not src.exists() or Image is None:
         return None
-    if LOCKUP_STACKED_BASE.exists() and LOCKUP_STACKED_BASE.stat().st_mtime >= src.stat().st_mtime:
+    rev_path = LOCKUP_STACKED_BASE.with_suffix(".rev")
+    if (
+        LOCKUP_STACKED_BASE.exists()
+        and rev_path.exists()
+        and rev_path.read_text().strip() == str(STACKED_LOCKUP_REV)
+        and LOCKUP_STACKED_BASE.stat().st_mtime >= src.stat().st_mtime
+    ):
         return LOCKUP_STACKED_BASE
 
-    im = _repair_stacked_subline(Image.open(src).convert("RGBA"))
+    im = _repair_stacked_subline(_repair_stacked_name_line(Image.open(src).convert("RGBA")))
     LOCKUP_STACKED_BASE.parent.mkdir(exist_ok=True)
     im.save(LOCKUP_STACKED_BASE)
+    rev_path.write_text(str(STACKED_LOCKUP_REV))
     return LOCKUP_STACKED_BASE
 
 
@@ -340,7 +402,6 @@ def build_stacked_lockup(hex_color: str, dest: Path) -> Path | None:
         return None
 
     out = _recolor_lockup_rgba(Image.open(base).convert("RGBA"), hex_color)
-    out = out.resize((out.width * 2, out.height * 2), Image.LANCZOS)
     dest.parent.mkdir(exist_ok=True)
     out.save(dest)
     return dest
