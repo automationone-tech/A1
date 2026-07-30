@@ -1166,6 +1166,116 @@ p { color: #3d4666; line-height: 1.6; }
   }
 }
 
+/* Brand guidelines download strip */
+.band--compact { padding: clamp(36px, 5vw, 56px) 0; }
+.brand-guidelines-strip {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+  padding: clamp(22px, 3.5vw, 32px) clamp(24px, 4vw, 36px);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 56, 158, 0.12);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(238, 244, 255, 0.92) 100%);
+  box-shadow:
+    0 22px 48px -28px rgba(10, 40, 112, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+.brand-guidelines-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 92% 18%, rgba(31, 92, 245, 0.1) 0%, transparent 42%),
+    radial-gradient(circle at 8% 88%, rgba(10, 40, 112, 0.07) 0%, transparent 38%);
+  pointer-events: none;
+}
+.brand-guidelines-strip > * { position: relative; z-index: 1; }
+.brand-guidelines-strip__cover {
+  flex-shrink: 0;
+  width: clamp(72px, 11vw, 96px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 16px 32px -18px rgba(10, 40, 112, 0.55),
+    0 0 0 1px rgba(15, 56, 158, 0.08);
+}
+.brand-guidelines-strip__cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.brand-guidelines-strip__eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+}
+.brand-guidelines-strip__title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.brand-guidelines-strip__title em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--blue-500), var(--blue-700) 65%, var(--blue-900));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.brand-guidelines-strip__desc {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.55;
+  color: #3d4666;
+}
+.brand-guidelines-strip__action {
+  flex-shrink: 0;
+}
+.brand-guidelines-strip__action .cta.cta-primary.cta-pill-arrow {
+  margin: 0;
+  white-space: nowrap;
+}
+@media (max-width: 820px) {
+  .brand-guidelines-strip {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+  .brand-guidelines-strip__cover { grid-row: 1 / span 2; }
+  .brand-guidelines-strip__action {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+@media (max-width: 560px) {
+  .brand-guidelines-strip {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+  }
+  .brand-guidelines-strip__cover {
+    grid-row: auto;
+    margin-inline: auto;
+  }
+  .brand-guidelines-strip__desc { margin-inline: auto; }
+  .brand-guidelines-strip__action {
+    grid-column: 1;
+    justify-self: center;
+  }
+}
+
 /* Brand chip grid */
 .brand-chip-grid {
   display: grid;
@@ -2139,7 +2249,23 @@ html { background-color: #ffffff; }
   </div>
 </section>
 
-
+<section class="band band--compact" id="brand-guidelines">
+  <div class="container">
+    <div class="brand-guidelines-strip reveal">
+      <div class="brand-guidelines-strip__cover">
+        <img src="/brand-guidelines-cover.png" width="244" height="316" alt="" loading="lazy" decoding="async" aria-hidden="true" />
+      </div>
+      <div class="brand-guidelines-strip__copy">
+        <span class="brand-guidelines-strip__eyebrow">Brand identity</span>
+        <h3 class="brand-guidelines-strip__title">Automation One <em>Brand Guidelines</em></h3>
+        <p class="brand-guidelines-strip__desc">Official logo usage, colour palettes, typography, and templates for partners and team members.</p>
+      </div>
+      <div class="brand-guidelines-strip__action">
+        <a href="/Automation-One-Brand-Guidelines.pdf" class="cta cta-primary cta-pill-arrow" target="_blank" rel="noopener noreferrer">Brand Guidelines</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="cta-section" id="resources">
   <img class="cta-watermark" src="/cta-section-ao-watermark.webp" width="2116" height="1505" alt="" aria-hidden="true" loading="lazy" decoding="async" />
