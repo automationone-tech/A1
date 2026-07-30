@@ -150,16 +150,66 @@ def hex_to_rgb(h: str) -> tuple[int, int, int]:
     return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
 
 
+_ICC_SRGB = Path("/System/Library/ColorSync/Profiles/sRGB Profile.icc")
+_ICC_CMYK = Path("/System/Library/ColorSync/Profiles/Generic CMYK Profile.icc")
+_CMYK_CACHE: dict[str, tuple[int, int, int, int]] = {}
+
+
 def hex_to_cmyk(h: str) -> tuple[int, int, int, int]:
+    """sRGB → CMYK via ColorSync when available (closer print match than naive math)."""
+    key = h.lower()
+    if key in _CMYK_CACHE:
+        return _CMYK_CACHE[key]
+
     r, g, b = hex_to_rgb(h)
-    rf, gf, bf = r / 255, g / 255, b / 255
-    k = 1 - max(rf, gf, bf)
-    if k >= 1:
-        return (0, 0, 0, 100)
-    c = (1 - rf - k) / (1 - k)
-    m = (1 - gf - k) / (1 - k)
-    y = (1 - bf - k) / (1 - k)
-    return tuple(round(v * 100) for v in (c, m, y, k))
+    cmyk_vals: tuple[int, int, int, int] | None = None
+    if Image is not None and _ICC_SRGB.exists() and _ICC_CMYK.exists():
+        try:
+            from PIL import ImageCms
+
+            srgb = ImageCms.getOpenProfile(str(_ICC_SRGB))
+            cmyk_prof = ImageCms.getOpenProfile(str(_ICC_CMYK))
+            im = Image.new("RGB", (1, 1), (r, g, b))
+            out = ImageCms.profileToProfile(
+                im,
+                srgb,
+                cmyk_prof,
+                outputMode="CMYK",
+                renderingIntent=ImageCms.Intent.RELATIVE_COLORIMETRIC,
+                inPlace=False,
+            )
+            C, M, Y, K = out.getpixel((0, 0))
+            cmyk_vals = tuple(int(round(v / 255 * 100)) for v in (C, M, Y, K))
+        except Exception:
+            cmyk_vals = None
+
+    if cmyk_vals is None:
+        # Fallback: rich (K=0-biased) conversion — preserves chroma vs undercolour-removed blues
+        rf, gf, bf = r / 255, g / 255, b / 255
+        c = 1 - rf
+        m = 1 - gf
+        y = 1 - bf
+        k = min(c, m, y)
+        # Pull only a light black plate so blues stay cleaner
+        k *= 0.35
+        if k >= 1:
+            cmyk_vals = (0, 0, 0, 100)
+        else:
+            c = (c - k) / (1 - k)
+            m = (m - k) / (1 - k)
+            y = (y - k) / (1 - k)
+            cmyk_vals = tuple(round(v * 100) for v in (c, m, y, k))
+
+    _CMYK_CACHE[key] = cmyk_vals
+    return cmyk_vals
+
+
+def cmyk_label(h: str, *, compact: bool = False) -> str:
+    """Format ICC CMYK for captions (e.g. 79 · 52 · 0 · 0)."""
+    c, m, y, k = hex_to_cmyk(h)
+    if compact:
+        return f"{c}·{m}·{y}·{k}"
+    return f"{c}  ·  {m}  ·  {y}  ·  {k}"
 
 
 def draw_vertical_gradient(c: canvas_mod.Canvas, x: float, y: float, w: float, h: float,
@@ -502,7 +552,7 @@ def _draw_lockup_label(c: canvas_mod.Canvas, x: float, y: float, role: str,
     c.setFillColor(BLUE_700)
     c.setFont(FONT_MED, 8)
     line1 = role.upper()
-    line2 = f"{colour_name}  ·  {hex_code}"
+    line2 = f"{colour_name}  ·  {cmyk_label(hex_code)}"
     if align == "right":
         c.drawRightString(x, y, line1)
         c.setFillColor(TEXT_SOFT)
@@ -577,9 +627,9 @@ def _draw_dual_colour_cage(
 
         label_y = cage_y - 3 * mm
         _draw_lockup_label(c, primary_x + lockup_w / 2, label_y,
-                           "Primary", "Blue 500", "#1f5cf5", align="center")
+                           "Primary", "Blue 800", "#0a2870", align="center")
         _draw_lockup_label(c, secondary_x + lockup_w / 2, label_y,
-                           "Secondary", "Blue 800", "#0a2870", align="center")
+                           "Secondary", "Blue 500", "#1f5cf5", align="center")
         return cage_y - label_h
     else:
         max_lockup_h = (block_h - 14 * mm) / 2.8
@@ -601,9 +651,9 @@ def _draw_dual_colour_cage(
 
         if label_x is not None:
             _draw_lockup_label(c, label_x, primary_y + lockup_h * 0.35,
-                               "Primary", "Blue 500", "#1f5cf5", align="right")
+                               "Primary", "Blue 800", "#0a2870", align="right")
             _draw_lockup_label(c, label_x, secondary_y + lockup_h * 0.35,
-                               "Secondary", "Blue 800", "#0a2870", align="right")
+                               "Secondary", "Blue 500", "#1f5cf5", align="right")
         return cage_y
 
 
@@ -617,7 +667,7 @@ def draw_logo_page(c: canvas_mod.Canvas) -> None:
 
     y = draw_section_head(
         c, 2, "Stacked lockup & wordmark",
-        "Blue 500 is primary. Blue 800 is secondary — same mark, two colourways.",
+        "Blue 800 is primary. Blue 500 is secondary — same mark, two colourways.",
     )
 
     gap = 4 * mm
@@ -654,10 +704,10 @@ def draw_logo_page(c: canvas_mod.Canvas) -> None:
     stacked_block_h = lockup_area * 0.58
     wordmark_block_h = lockup_area * 0.42
 
-    stacked_primary = build_stacked_lockup_blue500()
-    stacked_secondary = build_stacked_lockup_blue800()
-    wordmark_primary = build_horizontal_lockup_blue500()
-    wordmark_secondary = build_horizontal_lockup_blue800()
+    stacked_primary = build_stacked_lockup_blue800()
+    stacked_secondary = build_stacked_lockup_blue500()
+    wordmark_primary = build_horizontal_lockup_blue800()
+    wordmark_secondary = build_horizontal_lockup_blue500()
 
     y_cursor = body_top
     _draw_section_kicker(c, y_cursor, "THE MARK")
@@ -730,7 +780,7 @@ def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
 
     y = draw_section_head(
         c, 3, "Reverse wordmarks",
-        "White wordmarks on Blue 500 and Blue 800 backgrounds.",
+        "White wordmarks on Blue 800 and Blue 500 backgrounds.",
     )
 
     white_path = build_horizontal_lockup_white()
@@ -764,8 +814,8 @@ def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
     panel_y = panel_top - panel_h
 
     reverse_cells = [
-        ("Primary reverse", "Blue 500", "#1f5cf5", BLUE_500),
-        ("Secondary reverse", "Blue 800", "#0a2870", BLUE_800),
+        ("Primary reverse", "Blue 800", "#0a2870", BLUE_800),
+        ("Secondary reverse", "Blue 500", "#1f5cf5", BLUE_500),
     ]
     for i, (role, colour_name, hex_code, bg) in enumerate(reverse_cells):
         px = MARGIN + i * (panel_w + panel_gap)
@@ -780,7 +830,7 @@ def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
         c.setFont(FONT_BOOK, 7.5)
         c.setFillColorRGB(1, 1, 1, alpha=0.82)
         c.drawCentredString(px + panel_w / 2, panel_y + panel_h - 4 * mm,
-                            f"{colour_name}  ·  {hex_code}")
+                            f"{colour_name}  ·  {cmyk_label(hex_code)}")
 
     ensure_blue800_logo()
     ensure_blue900_logo()
@@ -794,10 +844,10 @@ def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
     if grid_bottom < base_y + 28 * mm + marks_note_h + 8 * mm:
         grid_top = base_y + 28 * mm + marks_note_h + 8 * mm + cell_h
     cells = [
-        ("Primary",           LOGO_PRIMARY,  WHITE,    BLUE_500,  HexColor("#dbe5fc"), BLUE_500),
-        ("Secondary",         LOGO_BLUE_800, WHITE,    BLUE_800,  HexColor("#dbe5fc"), BLUE_800),
-        ("Primary reverse",   LOGO_REVERSE,  BLUE_500, WHITE,     None,                WHITE),
-        ("Secondary reverse", LOGO_REVERSE,  BLUE_800, WHITE,     None,                WHITE),
+        ("Primary",           LOGO_BLUE_800, WHITE,    BLUE_800,  HexColor("#dbe5fc"), BLUE_800),
+        ("Secondary",         LOGO_PRIMARY,  WHITE,    BLUE_500,  HexColor("#dbe5fc"), BLUE_500),
+        ("Primary reverse",   LOGO_REVERSE,  BLUE_800, WHITE,     None,                WHITE),
+        ("Secondary reverse", LOGO_REVERSE,  BLUE_500, WHITE,     None,                WHITE),
         ("Mono",              LOGO_BLACK,    WHITE,    BLUE_900,  HexColor("#dbe5fc"), BLUE_900),
     ]
     for i, (name, logo, bg, _border_fill, border, label_color) in enumerate(cells):
@@ -911,7 +961,8 @@ def draw_slogans_page(c: canvas_mod.Canvas) -> None:
         c.drawString(MARGIN + 8 * mm, card_y + card_h - 10 * mm, role.upper())
         c.setFillColor(TEXT_SOFT)
         c.setFont(FONT_BOOK, 8)
-        c.drawString(MARGIN + 8 * mm, card_y + card_h - 16 * mm, "Blue 800  ·  #0a2870")
+        c.drawString(MARGIN + 8 * mm, card_y + card_h - 16 * mm,
+                     f"Blue 800  ·  {cmyk_label('#0a2870')}")
 
         c.setFillColor(BLUE_800)
         c.setFont(FONT_MED, slogan_size)
@@ -994,7 +1045,7 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     c.setFillColorRGB(1, 1, 1, alpha=0.78)
     c.setFont(FONT_MED, 9)
     c.drawRightString(PAGE_W - MARGIN - 12 * mm, PAGE_H - MARGIN - 12 * mm,
-                      "VOL. 01  ·  JUN 2026")
+                      "VOL. 1 - Jul 2026")
 
     # Stacked lockup — original proportions, rendered white
     c.setFillColor(WHITE)  # reset fill alpha (glow/eyebrow leave ca < 1 → grey logo)
@@ -1014,8 +1065,8 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     tagline_x = MARGIN + 12 * mm
     c.setFillColor(WHITE)
     c.setFont(FONT_MED, 28)
-    c.drawString(tagline_x, PAGE_H * 0.275, "Business Solutions")
-    c.drawString(tagline_x, PAGE_H * 0.235, "Made Simple.")
+    c.drawString(tagline_x, PAGE_H * 0.275, "Business solutions")
+    c.drawString(tagline_x, PAGE_H * 0.235, "made simple")
 
     c.setFillColor(WHITE)
     c.setFont(FONT_MED, 10)
@@ -1027,7 +1078,7 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     c.line(MARGIN + 12 * mm, MARGIN + 18 * mm,
            PAGE_W - MARGIN - 12 * mm, MARGIN + 18 * mm)
 
-    c.setFillColorRGB(1, 1, 1, alpha=0.68)
+    c.setFillColor(WHITE)
     c.setFont(FONT_MED, 8)
     c.drawRightString(PAGE_W - MARGIN - 12 * mm, MARGIN + 11 * mm,
                       "© 2026 AUTOMATION ONE BUSINESS SYSTEMS INC.")
@@ -1100,9 +1151,9 @@ def draw_colour_page(c: canvas_mod.Canvas) -> None:
     c.setFont(FONT_MED, 9)
     c.setFillColor(WHITE)
     lines = [
+        f"CMYK   {cmyk[0]}  ·  {cmyk[1]}  ·  {cmyk[2]}  ·  {cmyk[3]}",
         f"HEX     #1F5CF5",
         f"RGB     {rgb[0]}  ·  {rgb[1]}  ·  {rgb[2]}",
-        f"CMYK   {cmyk[0]}  ·  {cmyk[1]}  ·  {cmyk[2]}  ·  {cmyk[3]}",
         f"PANTONE  2728 C (closest)",
     ]
     for i, line in enumerate(lines):
@@ -1113,19 +1164,22 @@ def draw_colour_page(c: canvas_mod.Canvas) -> None:
     rw = PAGE_W - MARGIN - rx
     # Blue 900 card
     ink_h = (hero_h - 6 * mm) / 2
+    c900 = hex_to_cmyk("#061a4a")
     c.setFillColor(BLUE_900)
     c.rect(rx, hero_y + hero_h - ink_h, rw, ink_h, stroke=0, fill=1)
     c.setFillColor(WHITE)
     c.setFont(FONT_MED, 9)
     c.drawString(rx + 6 * mm, hero_y + hero_h - 10 * mm, "BLUE 900")
-    c.setFont(FONT_MED, 20)
-    c.drawString(rx + 6 * mm, hero_y + hero_h - 22 * mm, "#061A4A")
+    c.setFont(FONT_MED, 16)
+    c.drawString(rx + 6 * mm, hero_y + hero_h - 20 * mm,
+                 f"{c900[0]}  ·  {c900[1]}  ·  {c900[2]}  ·  {c900[3]}")
     c.setFont(FONT_BOOK, 9)
     c.setFillColorRGB(1, 1, 1, alpha=0.78)
-    c.drawString(rx + 6 * mm, hero_y + hero_h - 30 * mm,
+    c.drawString(rx + 6 * mm, hero_y + hero_h - 28 * mm,
                  "Body text on light surfaces.")
 
     # Paper card
+    paper_cmyk = hex_to_cmyk("#f8faff")
     c.setFillColor(PAPER)
     c.rect(rx, hero_y, rw, ink_h, stroke=0, fill=1)
     c.setStrokeColor(HexColor("#dbe5fc"))
@@ -1135,11 +1189,12 @@ def draw_colour_page(c: canvas_mod.Canvas) -> None:
     c.setFont(FONT_MED, 9)
     c.drawString(rx + 6 * mm, hero_y + ink_h - 10 * mm, "PAPER")
     c.setFillColor(BLUE_900)
-    c.setFont(FONT_MED, 20)
-    c.drawString(rx + 6 * mm, hero_y + ink_h - 22 * mm, "#F8FAFF")
+    c.setFont(FONT_MED, 16)
+    c.drawString(rx + 6 * mm, hero_y + ink_h - 20 * mm,
+                 f"{paper_cmyk[0]}  ·  {paper_cmyk[1]}  ·  {paper_cmyk[2]}  ·  {paper_cmyk[3]}")
     c.setFillColor(TEXT_SOFT)
     c.setFont(FONT_BOOK, 9)
-    c.drawString(rx + 6 * mm, hero_y + ink_h - 30 * mm,
+    c.drawString(rx + 6 * mm, hero_y + ink_h - 28 * mm,
                  "Section background, off-white.")
 
     # ---- Full scale row (Blue 50 → 900) ----
@@ -1150,7 +1205,7 @@ def draw_colour_page(c: canvas_mod.Canvas) -> None:
     c.setFillColor(BLUE_900)
     c.setFont(FONT_BOOK, 9)
     c.drawRightString(PAGE_W - MARGIN, scale_y + 6 * mm,
-                      "Tints expand for backgrounds, hover states, and depth.")
+                      "CMYK values · tints for backgrounds, hover states, and depth.")
 
     swatch_w = (PAGE_W - 2 * MARGIN - 9 * 2) / 10
     swatch_h = 28 * mm
@@ -1167,9 +1222,9 @@ def draw_colour_page(c: canvas_mod.Canvas) -> None:
         c.setFillColor(text_color)
         c.setFont(FONT_MED, 7)
         short_name = name.replace("Blue ", "")
-        c.drawString(sx + 3 * mm, sy + swatch_h - 6 * mm, short_name)
-        c.setFont(FONT_BOOK, 6.5)
-        c.drawString(sx + 3 * mm, sy + 3 * mm, hexcode.upper())
+        c.drawString(sx + 2 * mm, sy + swatch_h - 6 * mm, short_name)
+        c.setFont(FONT_BOOK, 5.5)
+        c.drawString(sx + 2 * mm, sy + 3 * mm, cmyk_label(hexcode, compact=True))
 
     # ---- Usage note ----
     note_y = sy - 18 * mm
@@ -1320,12 +1375,17 @@ def build(path: Path) -> None:
 
 def main() -> None:
     build(OUTPUT_SITE)
-    try:
-        shutil.copy2(OUTPUT_SITE, OUTPUT_DOWNLOADS)
-    except Exception as exc:
-        print(f"Warning: could not copy to Downloads: {exc}")
+    fixed = BASE / "_bg-guidelines-fixed.pdf"
+    desktop = Path.home() / "Desktop" / "Automation-One-Brand-Guidelines.pdf"
+    shutil.copy2(OUTPUT_SITE, fixed)
+    for dest in (OUTPUT_DOWNLOADS, desktop):
+        try:
+            shutil.copy2(OUTPUT_SITE, dest)
+            print(f"Wrote: {dest}")
+        except Exception as exc:
+            print(f"Warning: could not copy to {dest}: {exc}")
     print(f"Wrote: {OUTPUT_SITE}")
-    print(f"Wrote: {OUTPUT_DOWNLOADS}")
+    print(f"Wrote: {fixed}")
     print(f"Size:  {OUTPUT_SITE.stat().st_size / 1024:.1f} KB")
 
 
