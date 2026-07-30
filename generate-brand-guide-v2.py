@@ -41,6 +41,7 @@ OUTPUT_SITE = BASE / "Automation-One-Brand-Guidelines.pdf"
 OUTPUT_DOWNLOADS = Path.home() / "Downloads" / "Automation-One-Brand-Guidelines.pdf"
 
 LOGO_PRIMARY = BASE / "ao-nav-logo-primary.png"   # brand blue mark
+LOGO_BLUE_500 = BASE / ".pdf-cache" / "nav-logo-blue500.png"
 LOGO_BLUE_800 = BASE / "ao-nav-logo-0a2870.png"   # Blue 800 mark
 LOGO_BLUE_900 = BASE / "ao-nav-logo-061a4a.png"   # Blue 900 mark
 LOGO_REVERSE = BASE / "ao-nav-logo-ffffff.png"    # white mark
@@ -81,7 +82,8 @@ BLUE_100 = HexColor("#d9e6ff")
 BLUE_200 = HexColor("#b3ccff")
 BLUE_300 = HexColor("#7ea7ff")
 BLUE_400 = HexColor("#4a82ff")
-BLUE_500 = HexColor("#1f5cf5")
+BLUE_500_HEX = "#1e5cf5"  # ICC CMYK 80 · 52 · 0 · 0
+BLUE_500 = HexColor(BLUE_500_HEX)
 BLUE_600 = HexColor("#1547d1")
 BLUE_700 = HexColor("#0f389e")
 BLUE_800 = HexColor("#0a2870")
@@ -96,7 +98,7 @@ PALETTE = [
     ("Blue 200", "#b3ccff"),
     ("Blue 300", "#7ea7ff"),
     ("Blue 400", "#4a82ff"),
-    ("Blue 500", "#1f5cf5"),   # primary
+    ("Blue 500", BLUE_500_HEX),   # secondary
     ("Blue 600", "#1547d1"),
     ("Blue 700", "#0f389e"),
     ("Blue 800", "#0a2870"),
@@ -205,7 +207,7 @@ def hex_to_cmyk(h: str) -> tuple[int, int, int, int]:
 
 
 def cmyk_label(h: str, *, compact: bool = False) -> str:
-    """Format ICC CMYK for captions (e.g. 79 · 52 · 0 · 0)."""
+    """Format ICC CMYK for captions (e.g. 80 · 52 · 0 · 0)."""
     c, m, y, k = hex_to_cmyk(h)
     if compact:
         return f"{c}·{m}·{y}·{k}"
@@ -250,6 +252,13 @@ def _recolor_mark(src: Path, dest: Path, hex_color: str) -> Path:
             px[x, y] = (tr, tg, tb, a)
     im.save(dest)
     return dest
+
+
+def ensure_blue500_logo() -> Path:
+    """Build Blue 500 mark asset from the primary mark."""
+    if LOGO_BLUE_500.exists():
+        LOGO_BLUE_500.unlink()
+    return _recolor_mark(LOGO_PRIMARY, LOGO_BLUE_500, BLUE_500_HEX)
 
 
 def ensure_blue800_logo() -> Path:
@@ -338,7 +347,7 @@ def build_stacked_lockup(hex_color: str, dest: Path) -> Path | None:
 
 
 def build_stacked_lockup_blue500() -> Path | None:
-    return build_stacked_lockup("#1f5cf5", LOCKUP_STACKED_BLUE500)
+    return build_stacked_lockup(BLUE_500_HEX, LOCKUP_STACKED_BLUE500)
 
 
 def build_stacked_lockup_blue800() -> Path | None:
@@ -359,7 +368,7 @@ def build_horizontal_lockup(hex_color: str, dest: Path) -> Path | None:
 
 
 def build_horizontal_lockup_blue500() -> Path | None:
-    return build_horizontal_lockup("#1f5cf5", LOCKUP_HORIZONTAL_BLUE500)
+    return build_horizontal_lockup(BLUE_500_HEX, LOCKUP_HORIZONTAL_BLUE500)
 
 
 def build_horizontal_lockup_blue800() -> Path | None:
@@ -629,7 +638,7 @@ def _draw_dual_colour_cage(
         _draw_lockup_label(c, primary_x + lockup_w / 2, label_y,
                            "Primary", "Blue 800", "#0a2870", align="center")
         _draw_lockup_label(c, secondary_x + lockup_w / 2, label_y,
-                           "Secondary", "Blue 500", "#1f5cf5", align="center")
+                           "Secondary", "Blue 500", BLUE_500_HEX, align="center")
         return cage_y - label_h
     else:
         max_lockup_h = (block_h - 14 * mm) / 2.8
@@ -653,7 +662,7 @@ def _draw_dual_colour_cage(
             _draw_lockup_label(c, label_x, primary_y + lockup_h * 0.35,
                                "Primary", "Blue 800", "#0a2870", align="right")
             _draw_lockup_label(c, label_x, secondary_y + lockup_h * 0.35,
-                               "Secondary", "Blue 500", "#1f5cf5", align="right")
+                               "Secondary", "Blue 500", BLUE_500_HEX, align="right")
         return cage_y
 
 
@@ -815,7 +824,7 @@ def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
 
     reverse_cells = [
         ("Primary reverse", "Blue 800", "#0a2870", BLUE_800),
-        ("Secondary reverse", "Blue 500", "#1f5cf5", BLUE_500),
+        ("Secondary reverse", "Blue 500", BLUE_500_HEX, BLUE_500),
     ]
     for i, (role, colour_name, hex_code, bg) in enumerate(reverse_cells):
         px = MARGIN + i * (panel_w + panel_gap)
@@ -832,6 +841,7 @@ def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
         c.drawCentredString(px + panel_w / 2, panel_y + panel_h - 4 * mm,
                             f"{colour_name}  ·  {cmyk_label(hex_code)}")
 
+    ensure_blue500_logo()
     ensure_blue800_logo()
     ensure_blue900_logo()
     marks_top = panel_y - grid_gap
@@ -845,7 +855,7 @@ def draw_logo_reverse_page(c: canvas_mod.Canvas) -> None:
         grid_top = base_y + 28 * mm + marks_note_h + 8 * mm + cell_h
     cells = [
         ("Primary",           LOGO_BLUE_800, WHITE,    BLUE_800,  HexColor("#dbe5fc"), BLUE_800),
-        ("Secondary",         LOGO_PRIMARY,  WHITE,    BLUE_500,  HexColor("#dbe5fc"), BLUE_500),
+        ("Secondary",         LOGO_BLUE_500, WHITE,    BLUE_500,  HexColor("#dbe5fc"), BLUE_500),
         ("Primary reverse",   LOGO_REVERSE,  BLUE_800, WHITE,     None,                WHITE),
         ("Secondary reverse", LOGO_REVERSE,  BLUE_500, WHITE,     None,                WHITE),
         ("Mono",              LOGO_BLACK,    WHITE,    BLUE_900,  HexColor("#dbe5fc"), BLUE_900),
@@ -1034,7 +1044,7 @@ def draw_cover(c: canvas_mod.Canvas) -> None:
     draw_radial_glow(c, PAGE_W * 0.82, PAGE_H * 0.88, PAGE_W * 0.55,
                      HexColor("#3868f7"), alpha=0.50, rings=70)
     draw_radial_glow(c, PAGE_W * 0.16, PAGE_H * 0.10, PAGE_W * 0.55,
-                     HexColor("#1f5cf5"), alpha=0.42, rings=70)
+                     HexColor(BLUE_500_HEX), alpha=0.42, rings=70)
 
     # Hairline frame
     c.setStrokeColorRGB(1, 1, 1, alpha=0.22)
@@ -1146,13 +1156,13 @@ def draw_colour_page(c: canvas_mod.Canvas) -> None:
     c.drawString(hero_x + 8 * mm, hero_y + hero_h - 35 * mm,
                  "brand surfaces, and headline accents.")
 
-    rgb = hex_to_rgb("#1f5cf5")
-    cmyk = hex_to_cmyk("#1f5cf5")
+    rgb = hex_to_rgb(BLUE_500_HEX)
+    cmyk = hex_to_cmyk(BLUE_500_HEX)
     c.setFont(FONT_MED, 9)
     c.setFillColor(WHITE)
     lines = [
         f"CMYK   {cmyk[0]}  ·  {cmyk[1]}  ·  {cmyk[2]}  ·  {cmyk[3]}",
-        f"HEX     #1F5CF5",
+        f"HEX     {BLUE_500_HEX.upper()}",
         f"RGB     {rgb[0]}  ·  {rgb[1]}  ·  {rgb[2]}",
         f"PANTONE  2728 C (closest)",
     ]
