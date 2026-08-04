@@ -1,6 +1,24 @@
 [build]
   publish = "."
 
+# --- Branded links page ---
+[[redirects]]
+  from = "/links"
+  to = "/automation-one-links.html"
+  status = 200
+
+[[redirects]]
+  from = "/links/"
+  to = "/links"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-links.html"
+  to = "/links"
+  status = 301
+  force = true
+
 # --- Domain aliases: automationone.org -> automationone.ca (301, all paths) ---
 [[redirects]]
   from = "https://automationone.org/*"

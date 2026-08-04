@@ -18,6 +18,7 @@ MAIN_PATHS: dict[str, str] = {
     "automation-one-fp.html": "/fp",
     "automation-one-ideal-mbm.html": "/ideal-mbm",
     "automation-one-lexmark.html": "/lexmark",
+    "automation-one-links.html": "/links",
     "automation-one-latest-news.html": "/news",
     "automation-one-latest-news-canon.html": "/news/canon",
     "automation-one-latest-news-xerox.html": "/news/xerox",

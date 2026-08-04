@@ -1,3 +1,6 @@
+/links  /automation-one-links.html  200
+/links/  /links  301!
+/automation-one-links.html  /links  301!
 https://automationone.org/*  https://automationone.ca/:splat  301!
 https://automationone.org  https://automationone.ca  301!
 https://www.automationone.org/*  https://automationone.ca/:splat  301!
