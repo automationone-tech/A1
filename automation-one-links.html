@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/fonts-jeton.css" />
+  <link rel="stylesheet" href="/ao-remote-support.css" />
   <style>
     :root {
       --blue-300: #7ea7ff;
@@ -283,14 +284,14 @@
     }
 
     .socials {
-      gap: 10px;
-      margin-top: 22px;
+      gap: 14px;
+      margin: 0 0 24px;
     }
 
     .social-link {
       display: grid;
-      width: 42px;
-      height: 42px;
+      width: 54px;
+      height: 54px;
       place-items: center;
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 50%;
@@ -305,8 +306,8 @@
     }
 
     .social-link svg {
-      width: 19px;
-      height: 19px;
+      width: 24px;
+      height: 24px;
     }
 
     .copyright {
@@ -314,6 +315,243 @@
       color: rgba(255, 255, 255, 0.46);
       font-size: 11px;
       text-align: center;
+    }
+
+    body.quote-drawer-open {
+      overflow: hidden;
+    }
+
+    .quote-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 220;
+      background: rgba(8, 14, 36, 0.58);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .quote-drawer-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .quote-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 221;
+      display: flex;
+      width: min(520px, 44vw);
+      max-width: 100%;
+      height: 100%;
+      height: 100dvh;
+      flex-direction: column;
+      overflow: hidden;
+      color: var(--white);
+      background: linear-gradient(180deg, #0f389e 0%, #0a2870 48%, #061a4a 100%);
+      box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+      transform: translateX(100%);
+      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .quote-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .quote-drawer-header,
+    .quote-drawer-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-drawer-watermark {
+      display: none;
+    }
+
+    .quote-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 24px 12px;
+      flex-shrink: 0;
+    }
+
+    .quote-drawer-header h2 {
+      margin: 0;
+      color: var(--white);
+      font-size: clamp(26px, 3vw, 32px);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .quote-drawer-close {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border: 0;
+      border-radius: 50%;
+      color: var(--white);
+      background: transparent;
+      font: inherit;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .quote-drawer-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .quote-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 24px 28px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .quote-drawer-form .row2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .quote-drawer-form .field {
+      margin-bottom: 12px;
+    }
+
+    .quote-drawer-form input,
+    .quote-drawer-form textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid rgba(126, 167, 255, 0.55);
+      border-radius: 16px;
+      color: var(--white);
+      background: rgba(6, 26, 74, 0.72);
+      font: inherit;
+      font-size: 15px;
+    }
+
+    .quote-drawer-form input::placeholder,
+    .quote-drawer-form textarea::placeholder {
+      color: rgba(185, 208, 255, 0.72);
+    }
+
+    .quote-drawer-form input:focus,
+    .quote-drawer-form textarea:focus {
+      outline: none;
+      border-color: rgba(185, 208, 255, 0.95);
+      box-shadow: 0 0 0 2px rgba(126, 167, 255, 0.25);
+    }
+
+    .quote-drawer-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .quote-drawer-form .phone-row-fields {
+      display: grid;
+      grid-template-columns: 1fr 88px;
+      gap: 12px;
+    }
+
+    .quote-drawer-recaptcha {
+      margin: 16px 0 18px;
+      padding: 14px 12px;
+      border: 1px solid #d3d3d3;
+      border-radius: 16px;
+      color: #222;
+      background: #f9f9f9;
+    }
+
+    .quote-drawer-recaptcha-inner,
+    .quote-drawer-recaptcha-check {
+      display: flex;
+      align-items: center;
+    }
+
+    .quote-drawer-recaptcha-inner {
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .quote-drawer-recaptcha-check {
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .quote-drawer-recaptcha-check input {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--blue-600);
+    }
+
+    .quote-drawer-recaptcha-badge {
+      color: #6b6b6b;
+      font-size: 10px;
+      line-height: 1.3;
+      text-align: right;
+    }
+
+    .quote-drawer-submit {
+      padding: 12px 28px;
+      border: 0;
+      border-radius: 999px;
+      color: #1a2a5c;
+      background: var(--white);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .quote-drawer-hint {
+      margin-top: 14px;
+      color: rgba(185, 208, 255, 0.75);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .quote-drawer-hint a {
+      color: #b9d0ff;
+    }
+
+    @media (min-width: 721px) {
+      .quote-drawer-watermark {
+        position: absolute;
+        right: 12px;
+        bottom: 16px;
+        z-index: 0;
+        display: block;
+        width: min(260px, 52%);
+        height: auto;
+        opacity: 0.14;
+        pointer-events: none;
+      }
+    }
+
+    @media (min-width: 721px) and (max-width: 1024px) {
+      .quote-drawer {
+        width: min(420px, 52vw);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .quote-drawer {
+        width: 100%;
+      }
+
+      .quote-drawer-form .row2,
+      .quote-drawer-form .phone-row-fields {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 420px) {
@@ -369,14 +607,29 @@
       </a>
     </header>
 
+    <div class="socials" aria-label="Social media">
+      <a class="social-link" href="https://ca.linkedin.com/company/automation-one-business-systems" target="_blank" rel="noopener noreferrer" aria-label="Automation One on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.34 3.5A2.34 2.34 0 1 1 .66 3.5a2.34 2.34 0 0 1 4.68 0zM.9 7.5h4.9V23H.9V7.5zm7.65 0h4.7v2.12h.07c.65-1.24 2.25-2.55 4.64-2.55 4.96 0 5.88 3.27 5.88 7.52V23h-4.9v-7.46c0-1.78-.03-4.07-2.48-4.07-2.49 0-2.87 1.94-2.87 3.94V23h-4.9V7.5h-.14z"/></svg>
+      </a>
+      <a class="social-link" href="https://www.instagram.com/automationone/" target="_blank" rel="noopener noreferrer" aria-label="Automation One on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="social-link" href="https://www.youtube.com/user/AutomationOneLTD" target="_blank" rel="noopener noreferrer" aria-label="Automation One on YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a class="social-link" href="https://x.com/automation_one" target="_blank" rel="noopener noreferrer" aria-label="Automation One on X">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-6.4L6.5 22H3.4l7.2-8.2L2.9 2h6.3l4.4 5.8L18.9 2zm-1.1 17.8h1.7L8.3 4.1H6.5l11.3 15.7z"/></svg>
+      </a>
+    </div>
+
     <nav aria-label="Automation One links">
       <ul class="links">
         <li>
-          <a class="link-card link-card--primary" href="https://automationone.ca/contact">
+          <a class="link-card link-card--primary js-open-quote-drawer" href="#request-quote">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8M8 13h5"/></svg>
             </span>
-            <span class="link-copy"><strong>Get a Quote</strong><span>Tell us what your business needs</span></span>
+            <span class="link-copy"><strong>Request a Quote</strong><span>Tell us what your business needs</span></span>
             <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
           </a>
         </li>
@@ -386,6 +639,15 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
             </span>
             <span class="link-copy"><strong>Book a Consultation</strong><span>Choose a time that works for you</span></span>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="link-card js-open-remote-drawer" href="#">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m9 10 2 2 4-4"/></svg>
+            </span>
+            <span class="link-copy"><strong>Remote Support</strong><span>Connect securely with our support team</span></span>
             <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
           </a>
         </li>
@@ -417,6 +679,15 @@
           </a>
         </li>
         <li>
+          <a class="link-card" href="https://automationone.ca/contact">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            </span>
+            <span class="link-copy"><strong>Get in Touch</strong><span>Contact our Vancouver or Burnaby team</span></span>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+          </a>
+        </li>
+        <li>
           <a class="link-card" href="https://automationone.ca/">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
@@ -429,31 +700,115 @@
     </nav>
 
     <footer class="contact">
-      <p class="contact-label">Connect with us</p>
       <div class="contact-actions">
         <a class="footer-link" href="tel:+16042556622">604-255-6622</a>
         <a class="footer-link" href="mailto:info@automationone.ca">info@automationone.ca</a>
-      </div>
-      <div class="socials" aria-label="Social media">
-        <a class="social-link" href="https://ca.linkedin.com/company/automation-one-business-systems" target="_blank" rel="noopener noreferrer" aria-label="Automation One on LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.34 3.5A2.34 2.34 0 1 1 .66 3.5a2.34 2.34 0 0 1 4.68 0zM.9 7.5h4.9V23H.9V7.5zm7.65 0h4.7v2.12h.07c.65-1.24 2.25-2.55 4.64-2.55 4.96 0 5.88 3.27 5.88 7.52V23h-4.9v-7.46c0-1.78-.03-4.07-2.48-4.07-2.49 0-2.87 1.94-2.87 3.94V23h-4.9V7.5h-.14z"/></svg>
-        </a>
-        <a class="social-link" href="https://www.instagram.com/automationone/" target="_blank" rel="noopener noreferrer" aria-label="Automation One on Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a class="social-link" href="https://www.youtube.com/user/AutomationOneLTD" target="_blank" rel="noopener noreferrer" aria-label="Automation One on YouTube">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
-        </a>
-        <a class="social-link" href="https://x.com/automation_one" target="_blank" rel="noopener noreferrer" aria-label="Automation One on X">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-6.4L6.5 22H3.4l7.2-8.2L2.9 2h6.3l4.4 5.8L18.9 2zm-1.1 17.8h1.7L8.3 4.1H6.5l11.3 15.7z"/></svg>
-        </a>
       </div>
       <p class="copyright">&copy; <span id="year">2026</span> Automation One Business Systems Inc.</p>
     </footer>
   </main>
 
+  <div class="quote-drawer-overlay" id="quote-drawer-overlay" aria-hidden="true"></div>
+  <aside class="quote-drawer" id="quote-drawer" aria-hidden="true" aria-labelledby="quote-drawer-title" role="dialog">
+    <img class="quote-drawer-watermark" src="/ao-nav-logo.webp" width="416" height="288" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+    <div class="quote-drawer-header">
+      <h2 id="quote-drawer-title">Request a Quote</h2>
+      <button type="button" class="quote-drawer-close" id="quote-drawer-close" aria-label="Close request form">&times;</button>
+    </div>
+    <div class="quote-drawer-body">
+      <form class="quote-drawer-form" id="quote-drawer-form" autocomplete="on">
+        <div class="row2">
+          <div class="field"><input name="firstName" type="text" placeholder="First Name" autocomplete="given-name" /></div>
+          <div class="field"><input name="lastName" type="text" placeholder="Last Name" autocomplete="family-name" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><input name="position" type="text" placeholder="Position" autocomplete="organization-title" /></div>
+          <div class="field"><input name="company" type="text" placeholder="Company" autocomplete="organization" /></div>
+        </div>
+        <div class="field phone-row-fields">
+          <input name="phone" type="tel" placeholder="Phone" autocomplete="tel" required />
+          <input name="phoneExt" type="text" placeholder="Ext." inputmode="numeric" />
+        </div>
+        <div class="field"><input name="email" type="email" placeholder="Email" autocomplete="email" required /></div>
+        <div class="field"><textarea name="message" rows="5" placeholder="Message"></textarea></div>
+        <div class="quote-drawer-recaptcha" aria-label="Security check">
+          <div class="quote-drawer-recaptcha-inner">
+            <label class="quote-drawer-recaptcha-check">
+              <input type="checkbox" name="notRobot" required />
+              <span>I'm not a robot</span>
+            </label>
+            <span class="quote-drawer-recaptcha-badge">reCAPTCHA<br />Privacy &middot; Terms</span>
+          </div>
+        </div>
+        <button type="submit" class="quote-drawer-submit">Send</button>
+        <p class="quote-drawer-hint">Submitting opens your email app with a draft to <a href="mailto:info@automationone.ca">info@automationone.ca</a>.</p>
+      </form>
+    </div>
+  </aside>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function initQuoteDrawer() {
+      var overlay = document.getElementById("quote-drawer-overlay");
+      var drawer = document.getElementById("quote-drawer");
+      var closeButton = document.getElementById("quote-drawer-close");
+      var form = document.getElementById("quote-drawer-form");
+      var lastFocus = null;
+      if (!overlay || !drawer) return;
+
+      function setOpen(open) {
+        drawer.classList.toggle("is-open", open);
+        overlay.classList.toggle("is-open", open);
+        drawer.setAttribute("aria-hidden", open ? "false" : "true");
+        overlay.setAttribute("aria-hidden", open ? "false" : "true");
+        document.body.classList.toggle("quote-drawer-open", open);
+        if (open) {
+          lastFocus = document.activeElement;
+          var firstField = drawer.querySelector("input, textarea");
+          if (firstField) firstField.focus();
+        } else if (lastFocus && lastFocus.focus) {
+          lastFocus.focus();
+        }
+      }
+
+      document.querySelectorAll(".js-open-quote-drawer").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          setOpen(true);
+        });
+      });
+
+      if (closeButton) closeButton.addEventListener("click", function () { setOpen(false); });
+      overlay.addEventListener("click", function () { setOpen(false); });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && drawer.classList.contains("is-open")) setOpen(false);
+      });
+
+      if (form) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var data = new FormData(form);
+          var name = [data.get("firstName"), data.get("lastName")].filter(Boolean).join(" ").trim();
+          var extension = (data.get("phoneExt") || "").toString().trim();
+          var phone = (data.get("phone") || "").toString().trim();
+          var lines = [
+            "Request: Quote",
+            name ? "Name: " + name : null,
+            data.get("position") ? "Position: " + data.get("position") : null,
+            data.get("company") ? "Company: " + data.get("company") : null,
+            phone ? "Phone: " + phone + (extension ? " ext. " + extension : "") : null,
+            "Email: " + data.get("email"),
+            "",
+            data.get("message") || "(no message body)"
+          ].filter(Boolean);
+          window.location.href = "mailto:info@automationone.ca?subject=" +
+            encodeURIComponent("Website quote request") + "&body=" + encodeURIComponent(lines.join("\n"));
+          setOpen(false);
+        });
+      }
+    })();
   </script>
+  <script src="/ao-remote-support.js"></script>
 </body>
 </html>

@@ -106,7 +106,7 @@
     var links = document.querySelectorAll('a');
     for (var i = 0; i < links.length; i++) {
       var txt = (links[i].textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
-      if (txt === 'remote support') {
+      if (txt === 'remote support' || links[i].classList.contains('js-open-remote-drawer')) {
         links[i].addEventListener('click', openDrawer);
       }
     }
