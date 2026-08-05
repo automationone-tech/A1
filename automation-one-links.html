@@ -69,6 +69,18 @@
       mix-blend-mode: overlay;
     }
 
+    body::after {
+      content: "";
+      position: fixed;
+      left: -4vw;
+      bottom: -4vw;
+      width: clamp(180px, 28vw, 420px);
+      aspect-ratio: 1024 / 760;
+      pointer-events: none;
+      background: url("/ao-nav-logo-ffffff.png") center / contain no-repeat;
+      opacity: 0.1;
+    }
+
     a {
       color: inherit;
     }
