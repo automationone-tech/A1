@@ -234,6 +234,16 @@
   status = 200
 
 [[redirects]]
+  from = "/xerox/c2432"
+  to = "/automation-one-xerox-c2432.html"
+  status = 200
+
+[[redirects]]
+  from = "/xerox/xc2432"
+  to = "/automation-one-xerox-xc2432.html"
+  status = 200
+
+[[redirects]]
   from = "/canon/imageforce-c431"
   to = "/automation-one-canon-imageforce-c431.html"
   status = 200
@@ -1268,6 +1278,30 @@
 [[redirects]]
   from = "/xerox/versalink-c7120/"
   to = "/xerox/versalink-c7120"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-xerox-c2432.html"
+  to = "/xerox/c2432"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/c2432/"
+  to = "/xerox/c2432"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-xerox-xc2432.html"
+  to = "/xerox/xc2432"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/xerox/xc2432/"
+  to = "/xerox/xc2432"
   status = 301
   force = true
 
