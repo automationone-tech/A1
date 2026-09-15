@@ -2662,6 +2662,15 @@
     object-fit: contain;
     filter: drop-shadow(0 24px 32px rgba(10, 40, 112, 0.18));
   }
+  body.canon-4145-page .product-photo-panel--photo {
+    padding: clamp(14px, 2.2vw, 20px);
+  }
+  body.canon-4145-page .product-photo-panel--photo img {
+    width: 100%;
+    border-radius: 24px;
+    filter: none;
+    box-shadow: 0 22px 48px -30px rgba(10, 40, 112, 0.55);
+  }
   body.canon-4145-page .spec-table {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2702,70 +2711,6 @@
   body.canon-4145-page .canon-hero-actions .hero-quote {
     grid-column: auto;
     justify-self: auto;
-  }
-  body.canon-4145-page .imageforce-lineup {
-    padding: clamp(40px, 5vw, 76px) 0 clamp(72px, 8vw, 112px);
-    background:
-      radial-gradient(circle at 16% 0%, rgba(126, 167, 255, 0.24), transparent 34%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(238, 244, 255, 0.68));
-  }
-  body.canon-4145-page .imageforce-lineup-panel {
-    overflow: hidden;
-    border-radius: 30px;
-    background: #fff;
-    border: 1px solid rgba(126, 167, 255, 0.24);
-    box-shadow: 0 28px 72px -52px rgba(10, 40, 112, 0.64);
-  }
-  body.canon-4145-page .imageforce-lineup-title {
-    margin: 0;
-    padding: 18px clamp(18px, 4vw, 42px);
-    background: linear-gradient(90deg, var(--blue-600), var(--blue-900));
-    color: #fff;
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: clamp(23px, 3.4vw, 42px);
-    line-height: 1;
-    letter-spacing: 0.01em;
-  }
-  body.canon-4145-page .imageforce-lineup-subtitle {
-    margin: 0;
-    padding: 16px 22px 0;
-    color: var(--blue-900);
-    text-align: center;
-    font-size: clamp(14px, 1.8vw, 18px);
-    font-weight: 750;
-  }
-  body.canon-4145-page .imageforce-lineup-art {
-    display: block;
-    width: 100%;
-    height: auto;
-    padding: clamp(10px, 2vw, 22px);
-    background: #fff;
-  }
-  body.canon-4145-page .imageforce-lineup-scroll picture {
-    display: block;
-  }
-  body.canon-4145-page .imageforce-lineup-actions {
-    display: flex;
-    justify-content: center;
-    padding: 36px 22px 0;
-  }
-  body.canon-4145-page .imageforce-lineup-actions .cta.cta-primary.cta-pill-arrow {
-    min-height: 60px;
-    padding: 14px 74px 14px 28px;
-    background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    box-shadow: 0 18px 38px -24px rgba(10, 40, 112, 0.68);
-  }
-  body.canon-4145-page .imageforce-lineup-actions .cta.cta-primary.cta-pill-arrow::after {
-    background-color: #fff;
-    background-image: var(--cta-pill-chevron-blue-700);
-    box-shadow: 0 12px 24px -16px rgba(10, 40, 112, 0.5);
-  }
-  body.canon-4145-page .imageforce-lineup-actions .cta.cta-primary.cta-pill-arrow:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 24px 44px -26px rgba(10, 40, 112, 0.76);
   }
   body.canon-4145-page .brochure-embed-section {
     padding: clamp(64px, 8vw, 104px) 0;
@@ -2834,11 +2779,6 @@
       width: clamp(82px, 24vw, 118px);
       left: 14px;
       bottom: 14px;
-    }
-    body.canon-4145-page .imageforce-lineup-panel { border-radius: 22px; }
-    body.canon-4145-page .imageforce-lineup-title { padding-block: 14px; }
-    body.canon-4145-page .imageforce-lineup-art {
-      padding: 10px;
     }
     body.canon-4145-page .brochure-frame-toolbar {
       align-items: flex-start;
@@ -2944,8 +2884,8 @@
       </div>
       <div class="canon-hero-product" aria-label="Canon imageFORCE 4145 product images">
         <img class="canon-hero-colour-symbol" src="/catalog-symbol-mono.png" alt="Monochrome" loading="lazy" decoding="async" />
-        <img class="canon-hero-printer-main" src="/canon-imageforce-4145-finisher.png" alt="Canon imageFORCE 4145 with finisher" />
-        <img class="canon-hero-screen" src="/canon-imageforce-4145-panel.png" alt="Canon imageFORCE 4145 touch panel detail" />
+        <img class="canon-hero-printer-main" src="/canon-imageforce-4100-finisher.png" alt="Canon imageFORCE 4145 with optional finisher and paper deck" />
+        <img class="canon-hero-screen" src="/canon-imageforce-4100-screen.png" alt="Canon imageFORCE 4145 10.1-inch colour touch panel" />
       </div>
     </div>
   </section>
@@ -2964,8 +2904,8 @@
 
   <section class="product-band" id="overview">
     <div class="container product-photo-split">
-      <div class="product-photo-panel">
-        <img src="/canon-imageforce-4145-pod.png" alt="Canon imageFORCE 4145 high-capacity configuration" loading="lazy" decoding="async" />
+      <div class="product-photo-panel product-photo-panel--photo">
+        <img src="/canon-imageforce-4100-office.webp" alt="Canon imageFORCE 4145 installed in an open-plan office" width="1230" height="608" loading="lazy" decoding="async" />
       </div>
       <div class="intro-copy">
         <span class="section-eyebrow">Overview</span>
@@ -3029,7 +2969,7 @@
         </div>
       </div>
       <div class="product-photo-panel">
-        <img src="/canon-imageforce-4145-panel.png" alt="Canon imageFORCE 4145 control panel" loading="lazy" decoding="async" />
+        <img src="/canon-imageforce-4100-panel.png" alt="Canon imageFORCE 4145 control panel and output area" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
@@ -3079,24 +3019,6 @@
     </div>
   </section>
 
-  <section class="imageforce-lineup" aria-labelledby="imageforce-lineup-title">
-    <div class="container">
-      <div class="imageforce-lineup-panel">
-        <h2 class="imageforce-lineup-title" id="imageforce-lineup-title">Discover the Full imageFORCE Lineup</h2>
-        <p class="imageforce-lineup-subtitle">Colour A3, black-and-white A3, and compact A4 models for every office workflow.</p>
-        <div class="imageforce-lineup-scroll">
-          <picture>
-            <source media="(max-width: 640px)" srcset="/canon-imageforce-full-lineup-mobile.webp" />
-            <source media="(max-width: 1100px)" srcset="/canon-imageforce-full-lineup-tablet.webp" />
-            <img class="imageforce-lineup-art" src="/canon-imageforce-full-lineup.png" alt="Canon imageFORCE product lineup including C7165, C5100 Series, C3150, 8100 Series, 6100 Series, C611 Series, 710 Series, C1333 Series, and 1440 Series" loading="lazy" decoding="async" />
-          </picture>
-        </div>
-      </div>
-      <div class="imageforce-lineup-actions">
-        <a href="/products" class="cta cta-primary cta-pill-arrow">Return to Catalogue</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <section class="cta-section" id="resources">
