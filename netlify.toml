@@ -485,8 +485,9 @@
 
 [[redirects]]
   from = "/lexmark/xc2326"
-  to = "/automation-one-lexmark-xc2326.html"
-  status = 200
+  to = "/products"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/lexmark/xm1342"
@@ -1948,13 +1949,13 @@
 
 [[redirects]]
   from = "/automation-one-lexmark-xc2326.html"
-  to = "/lexmark/xc2326"
+  to = "/products"
   status = 301
   force = true
 
 [[redirects]]
   from = "/lexmark/xc2326/"
-  to = "/lexmark/xc2326"
+  to = "/products"
   status = 301
   force = true
 
