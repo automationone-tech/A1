@@ -116,9 +116,37 @@
   status = 200
 
 [[redirects]]
-  from = "/canon/imageclass-x-mf1333c"
-  to = "/automation-one-canon-imageclass-x-mf1333c.html"
+  from = "/canon/imageforce-4125"
+  to = "/automation-one-canon-imageforce-4125.html"
   status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-4135"
+  to = "/automation-one-canon-imageforce-4135.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageforce-4145"
+  to = "/automation-one-canon-imageforce-4145.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon/imageclass-x-mf1333c"
+  to = "/products"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageclass-x-mf1333c/"
+  to = "/products"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-canon-imageclass-x-mf1333c.html"
+  to = "/products"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/canon/imageprograf-gp-2000"
@@ -976,14 +1004,38 @@
   force = true
 
 [[redirects]]
-  from = "/automation-one-canon-imageclass-x-mf1333c.html"
-  to = "/canon/imageclass-x-mf1333c"
+  from = "/automation-one-canon-imageforce-4125.html"
+  to = "/canon/imageforce-4125"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/canon/imageclass-x-mf1333c/"
-  to = "/canon/imageclass-x-mf1333c"
+  from = "/canon/imageforce-4125/"
+  to = "/canon/imageforce-4125"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-4135.html"
+  to = "/canon/imageforce-4135"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-4135/"
+  to = "/canon/imageforce-4135"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-4145.html"
+  to = "/canon/imageforce-4145"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-4145/"
+  to = "/canon/imageforce-4145"
   status = 301
   force = true
 
