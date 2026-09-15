@@ -164,6 +164,11 @@
   status = 200
 
 [[redirects]]
+  from = "/canon/imageforce-c3026"
+  to = "/automation-one-canon-imageforce-c3026.html"
+  status = 200
+
+[[redirects]]
   from = "/canon/imageforce-c3150"
   to = "/automation-one-canon-imageforce-c3150.html"
   status = 200
@@ -1072,6 +1077,18 @@
 [[redirects]]
   from = "/canon/imageforce-c7165/"
   to = "/canon/imageforce-c7165"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c3026.html"
+  to = "/canon/imageforce-c3026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c3026/"
+  to = "/canon/imageforce-c3026"
   status = 301
   force = true
 
