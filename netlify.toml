@@ -509,6 +509,11 @@
   status = 200
 
 [[redirects]]
+  from = "/lexmark/c2335"
+  to = "/automation-one-lexmark-c2335.html"
+  status = 200
+
+[[redirects]]
   from = "/news/industry"
   to = "/automation-one-latest-news-industry.html"
   status = 200
@@ -1998,6 +2003,18 @@
 [[redirects]]
   from = "/lexmark/xc2335/"
   to = "/lexmark/xc2335"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-lexmark-c2335.html"
+  to = "/lexmark/c2335"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark/c2335/"
+  to = "/lexmark/c2335"
   status = 301
   force = true
 
