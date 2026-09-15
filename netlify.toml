@@ -159,6 +159,11 @@
   status = 200
 
 [[redirects]]
+  from = "/canon/imageforce-c1935p"
+  to = "/automation-one-canon-imageforce-c1935p.html"
+  status = 200
+
+[[redirects]]
   from = "/canon/imageforce-c7165"
   to = "/automation-one-canon-imageforce-c7165.html"
   status = 200
@@ -1065,6 +1070,18 @@
 [[redirects]]
   from = "/canon/imageforce-c1333p/"
   to = "/canon/imageforce-c1333p"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-canon-imageforce-c1935p.html"
+  to = "/canon/imageforce-c1935p"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon/imageforce-c1935p/"
+  to = "/canon/imageforce-c1935p"
   status = 301
   force = true
 
