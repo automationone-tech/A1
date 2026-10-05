@@ -6376,15 +6376,17 @@
     height: 100dvh;
     background: linear-gradient(180deg, #0f389e 0%, #0a2870 48%, #061a4a 100%);
     color: var(--white);
-    box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+    /* Transparent while closed: the off-canvas shadow otherwise bleeds onto the page's right edge */
+    box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0);
     transform: translateX(100%);
-    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease;
     display: flex;
     flex-direction: column;
     overflow: hidden;
   }
   .quote-drawer.is-open {
     transform: translateX(0);
+    box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
   }
   .quote-drawer-header,
   .quote-drawer-body {
@@ -7518,7 +7520,7 @@ html { background-color: #ffffff; }
 <link rel="stylesheet" href="/ao-subpage-mobile-header.css?v=safari-blue1">
 <link rel="stylesheet" href="/ao-footer.css">
 <link rel="stylesheet" href="/automation-one-cta.css">
-  <link rel="stylesheet" href="/ao-remote-support.css">
+  <link rel="stylesheet" href="/ao-remote-support.css?v=shadow1">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBYWKRRKG3"></script>
 <script>
