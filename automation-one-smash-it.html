@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preload" as="image" href="/smashit-office-parking-bg.jpg?v=20261004bg" fetchpriority="high" />
+<link rel="preload" as="image" href="/smashit-player-frame-0.png?v=20260525c" fetchpriority="high" />
+<link rel="preload" as="image" href="/smashit-copier.png?v=20261004s5" fetchpriority="high" />
 <link rel="icon" href="/favicon.ico?v=ao2" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=ao2" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=ao2" />
@@ -368,10 +371,11 @@ canvas#stage { position: absolute; inset: 0; width: 100%; height: 100%; display:
 .banner {
   position: absolute;
   left: 50%;
-  bottom: 22px;
+  top: 58px;
+  bottom: auto;
   transform: translate(-50%, 0);
-  width: min(520px, calc(100% - 32px));
-  padding: 18px 18px 16px;
+  width: min(340px, calc(100% - 150px));
+  padding: 8px 14px 7px;
   border-radius: 20px;
   background: rgba(11, 19, 40, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -384,8 +388,8 @@ canvas#stage { position: absolute; inset: 0; width: 100%; height: 100%; display:
   transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease;
 }
 .banner[hidden] { display: block; opacity: 0; transform: translate(-50%, 32px); pointer-events: none; }
-.banner h2 { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -0.04em; line-height: 1.05; }
-.banner p { margin: 6px auto 12px; color: rgba(244, 247, 255, 0.78); font-size: 14.5px; line-height: 1.5; }
+.banner h2 { font-family: var(--font-display); font-size: clamp(15px, 1.7vw, 20px); letter-spacing: -0.03em; line-height: 1.05; }
+.banner p { margin: 2px auto 0; color: rgba(244, 247, 255, 0.78); font-size: 12.5px; line-height: 1.35; }
 .banner .key {
   display: inline-flex;
   align-items: center;
@@ -776,12 +780,13 @@ body.quote-drawer-open { overflow: hidden; }
   width: min(520px, 44vw); max-width: 100%; height: 100%; height: 100dvh;
   background: linear-gradient(180deg, #0f389e 0%, #0a2870 48%, #061a4a 100%);
   color: var(--white);
-  box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+  box-shadow: none;
   transform: translateX(100%);
-  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease;
   display: flex; flex-direction: column; overflow: hidden;
 }
-.quote-drawer.is-open { transform: translateX(0); }
+.quote-drawer.is-open { transform: translateX(0);   box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+}
 .quote-drawer-header,
 .quote-drawer-body { position: relative; z-index: 1; }
 .quote-drawer-watermark { display: none; }
@@ -1098,8 +1103,9 @@ body.quote-drawer-open { overflow: hidden; }
   filter:
     drop-shadow(-10px 0 0 rgba(31, 92, 245, 0.64))
     drop-shadow(14px 18px 16px rgba(0, 0, 0, 0.66));
+  opacity: 1;
   transform: rotate(-2deg) translateY(7px);
-  animation: smashIntroPlayerPop 0.82s cubic-bezier(0.16, 1, 0.3, 1) 0.52s both;
+  animation: none;
 }
 .smash-intro-copier {
   justify-self: start;
@@ -1354,9 +1360,10 @@ footer .container {
     padding: 8px 11px;
   }
   .banner {
-    bottom: 64px;
-    width: min(480px, calc(100% - 28px));
-    padding: 14px 14px 13px;
+    top: 54px;
+    bottom: auto;
+    width: min(300px, calc(100% - 28px));
+    padding: 8px 12px 7px;
   }
   .end-modal { padding: 18px; }
 .end-card {
@@ -1467,11 +1474,12 @@ footer .container {
     font-size: 10px;
   }
   .banner {
-    bottom: 56px;
+    top: 52px;
+    bottom: auto;
     width: auto;
     max-width: calc(100% - 32px);
     border-radius: 999px;
-    padding: 10px 16px;
+    padding: 8px 14px;
   }
   .banner h2 {
     font-family: var(--font-body);
@@ -1634,6 +1642,24 @@ footer .container {
   gtag('js', new Date());
   gtag('config', 'G-DBYWKRRKG3');
 </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2456558778169341');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2456558778169341&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <script src="/ao-conversions.js?v=2" defer></script>
 </head>
 <body class="canon-page">
@@ -1912,6 +1938,55 @@ footer .container {
     stableFootX: 0,
     sizeMultiplier: 2.44
   };
+  function measurePlayerFrame(img) {
+    var fw = img.naturalWidth;
+    var fh = img.naturalHeight;
+    if (!fw || !fh) return null;
+    var c = document.createElement('canvas');
+    c.width = fw;
+    c.height = fh;
+    var cctx = c.getContext('2d', { willReadFrequently: true });
+    cctx.clearRect(0, 0, fw, fh);
+    cctx.drawImage(img, 0, 0, fw, fh);
+    var data = cctx.getImageData(0, 0, fw, fh).data;
+    var minX = fw, minY = fh, maxX = -1, maxY = -1;
+    for (var y = 0; y < fh; y++) {
+      for (var x = 0; x < fw; x++) {
+        var a = data[(y * fw + x) * 4 + 3];
+        if (a > 16) {
+          if (x < minX) minX = x;
+          if (y < minY) minY = y;
+          if (x > maxX) maxX = x;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+    if (maxX < 0 || maxY < 0) return null;
+    var bodyMinX = minX, bodyMinY = minY, bodyMaxX = maxX, bodyMaxY = maxY;
+    var pad = 14;
+    minX = Math.max(0, bodyMinX - pad);
+    minY = Math.max(0, bodyMinY - pad);
+    maxX = Math.min(fw - 1, bodyMaxX + pad);
+    maxY = Math.min(fh - 1, bodyMaxY + pad);
+    var footSum = 0, footCount = 0;
+    var footStartY = Math.max(bodyMinY, bodyMaxY - 2);
+    for (var fy = footStartY; fy <= bodyMaxY; fy++) {
+      for (var fx = bodyMinX; fx <= bodyMaxX; fx++) {
+        if (data[(fy * fw + fx) * 4 + 3] > 16) { footSum += fx; footCount += 1; }
+      }
+    }
+    var footXAbs = footCount ? (footSum / footCount) : ((bodyMinX + bodyMaxX) * 0.5);
+    return {
+      img: img,
+      sx: minX,
+      sy: minY,
+      sw: maxX - minX + 1,
+      sh: maxY - minY + 1,
+      footX: footXAbs - minX,
+      footY: bodyMaxY - minY + 1,
+      bodyH: bodyMaxY - bodyMinY + 1
+    };
+  }
   function analyzePlayerSprite() {
     var imgs = playerSprite.imgs;
     if (!imgs.length) return;
@@ -1984,10 +2059,21 @@ footer .container {
     (function (idx) {
       var img = new Image();
       img.onload = function () {
+        if (idx === 0) {
+          var first = measurePlayerFrame(img);
+          if (first) {
+            playerSprite.frames[0] = first;
+            playerSprite.refHeight = first.bodyH;
+            playerSprite.stableFootX = first.footX;
+            playerSprite.frame0Ready = true;
+            if (introPlayerAnim.running) drawIntroPlayerGraphic(0);
+          }
+        }
         playerSprite.loaded += 1;
         if (playerSprite.loaded === playerSprite.cols) {
           analyzePlayerSprite();
           playerSprite.ready = playerSprite.frames.length === playerSprite.cols;
+          if (introPlayerAnim.running) drawIntroPlayerGraphic(0);
         }
       };
       img.onerror = function () { playerSprite.ready = false; };
@@ -2001,7 +2087,17 @@ footer .container {
   };
   sceneBg.img.onload = function () { sceneBg.ready = true; };
   sceneBg.img.onerror = function () { sceneBg.ready = false; };
-  sceneBg.img.src = 'smashit-office-parking-bg.png?v=20260525c';
+  sceneBg.img.src = 'smashit-office-parking-bg.jpg?v=20261004bg';
+
+  // One copier image only. Do not draw anything until this file is ready.
+  var copierSprite = {
+    img: new Image(),
+    ready: false,
+    scratch: null
+  };
+  copierSprite.img.onload = function () { copierSprite.ready = true; };
+  copierSprite.img.onerror = function () { copierSprite.ready = false; };
+  copierSprite.img.src = 'smashit-copier.png?v=20261004s5';
 
   var W = 0, H = 0;
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -2050,7 +2146,7 @@ footer .container {
 
     if (printer && (state === 'play' || state === 'end')) {
       printer.x = centeredPrinterX();
-      printer.y = H * (ACTION_GROUND_Y - 0.04) - (170 * printer.scale) / 2;
+      printer.y = H * (ACTION_GROUND_Y) - (170 * printer.scale) / 2;
       camera.targetX = 0;
       camera.x = 0;
     }
@@ -2186,7 +2282,7 @@ footer .container {
         vy: rand(-opts.upspeed || -640, -120),
         rot: rand(0, Math.PI * 2),
         vrot: rand(-10, 10),
-        size: rand(4, 12),
+        size: rand(opts.sizeMin || 4, opts.sizeMax || 12),
         color: palette[Math.floor(Math.random() * palette.length)],
         type: 'rect',
         life: 0,
@@ -2262,7 +2358,7 @@ footer .container {
 
       // Mix of long slivers and small chips for natural variety.
       var sliver = i % 3 !== 0;
-      var len = sliver ? rand(11, 26) : rand(5, 13);
+      var len = sliver ? rand(3.2, 6.5) : rand(2.2, 4.4);
       var shardShape;
       if (sliver) {
         shardShape = [
@@ -2339,20 +2435,28 @@ footer .container {
   }
   function spawnSmoke(x, y, count, opts) {
     opts = opts || {};
+    var spread = opts.spread == null ? 12 : opts.spread;
+    var lifeMin = opts.lifeMin == null ? 2.0 : opts.lifeMin;
+    var lifeMax = opts.lifeMax == null ? 3.6 : opts.lifeMax;
+    var sizeMin = opts.sizeMin == null ? 18 : opts.sizeMin;
+    var sizeMax = opts.sizeMax == null ? 38 : opts.sizeMax;
+    var rise = opts.rise == null ? 1 : opts.rise;
     for (var i = 0; i < count; i++) {
       particles.push({
-        x: x + rand(-12, 12),
-        y: y + rand(-6, 6),
-        vx: rand(-22, 22),
-        vy: rand(-95, -55),
-        size: rand(18, 38),
+        x: x + rand(-spread, spread),
+        y: y + rand(-8, 8),
+        vx: rand(-22, 22) * (opts.drift || 1),
+        vy: rand(-95, -55) * rise,
+        size: rand(sizeMin, sizeMax),
         color: opts.color || 'rgba(48, 48, 54,',
         type: 'smoke',
         life: 0,
-        maxLife: rand(2.0, 3.6),
-        gravity: -55,
+        maxLife: rand(lifeMin, lifeMax),
+        gravity: opts.gravity == null ? -55 : opts.gravity,
         bounce: 0,
-        wobble: rand(0, Math.PI * 2)
+        wobble: rand(0, Math.PI * 2),
+        grow: opts.grow == null ? 28 : opts.grow,
+        dense: opts.dense == null ? 1 : opts.dense
       });
     }
   }
@@ -2400,7 +2504,7 @@ footer .container {
         p.vx *= 0.97;
         p.vy *= 0.985;
         p.vy += p.gravity * dt;
-        p.size += 28 * dt;
+        p.size += (p.grow == null ? 28 : p.grow) * dt;
       } else if (p.type === 'mote') {
         p.x += p.vx * dt + Math.sin((p.life + p.maxLife) * 3.2) * 6 * dt;
         p.y += p.vy * dt;
@@ -2459,8 +2563,9 @@ footer .container {
         ctx.fill();
       } else if (p.type === 'smoke') {
         var srad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
-        srad.addColorStop(0, p.color + (0.5 * a) + ')');
-        srad.addColorStop(0.55, p.color + (0.22 * a) + ')');
+        var dense = p.dense == null ? 1 : p.dense;
+        srad.addColorStop(0, p.color + (0.5 * dense * a) + ')');
+        srad.addColorStop(0.45, p.color + (0.28 * dense * a) + ')');
         srad.addColorStop(1, p.color + '0)');
         ctx.fillStyle = srad;
         ctx.beginPath();
@@ -3489,11 +3594,144 @@ footer .container {
     ctx.restore();
   }
 
+  function drawCopierPhoto(dmg) {
+    var img = copierSprite.img;
+    var iw = img.naturalWidth;
+    var ih = img.naturalHeight;
+    if (!iw || !ih) return false;
+
+    // Match the vector copier body: 170 tall, centered on the origin, feet at
+    // local y=85. Landing, shadow, and curb code all use printer.y + 85*scale.
+    var bodyH = 170;
+    var drawH = bodyH;
+    var drawW = iw * (bodyH / ih);
+    var destX = -drawW / 2;
+    var destY = bodyH / 2 - drawH;
+    var source = img;
+
+    if (dmg > 4) {
+      if (!copierSprite.scratch) copierSprite.scratch = document.createElement('canvas');
+      var scratch = copierSprite.scratch;
+      if (scratch.width !== iw || scratch.height !== ih) {
+        scratch.width = iw;
+        scratch.height = ih;
+      }
+      var sctx = scratch.getContext('2d');
+      sctx.clearRect(0, 0, iw, ih);
+      sctx.drawImage(img, 0, 0);
+      var destruction = clamp(dmg / 100, 0, 1);
+      sctx.save();
+      sctx.globalCompositeOperation = 'source-atop';
+      // Mild overall soil, not a black wash.
+      sctx.fillStyle = 'rgba(10, 8, 12, ' + (destruction * 0.16) + ')';
+      sctx.fillRect(0, 0, iw, ih);
+
+      function dent(cx, cy, rx, ry, amt) {
+        var g = sctx.createRadialGradient(cx, cy, rx * 0.15, cx, cy, Math.max(rx, ry));
+        g.addColorStop(0, 'rgba(0, 0, 0, ' + amt + ')');
+        g.addColorStop(0.62, 'rgba(0, 0, 0, ' + (amt * 0.28) + ')');
+        g.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        sctx.fillStyle = g;
+        sctx.beginPath();
+        sctx.ellipse(cx, cy, rx, ry, -0.15, 0, Math.PI * 2);
+        sctx.fill();
+        sctx.strokeStyle = 'rgba(255, 255, 255, ' + (amt * 0.22) + ')';
+        sctx.lineWidth = 1.1;
+        sctx.stroke();
+      }
+      if (dmg > 8) {
+        var da = 0.18 + destruction * 0.45;
+        // Front cabinet (right side of the source, which faces the batter).
+        dent(iw * 0.74, ih * 0.46, iw * 0.07, ih * 0.045, da);
+        dent(iw * 0.62, ih * 0.58, iw * 0.05, ih * 0.03, da * 0.75);
+        if (dmg > 40) dent(iw * 0.80, ih * 0.62, iw * 0.045, ih * 0.028, da * 0.9);
+      }
+      if (dmg > 10) {
+        sctx.lineCap = 'round';
+        sctx.strokeStyle = 'rgba(210, 210, 214, ' + (0.12 + destruction * 0.28) + ')';
+        sctx.lineWidth = 1.1;
+        sctx.beginPath();
+        sctx.moveTo(iw * 0.58, ih * 0.42);
+        sctx.lineTo(iw * 0.78, ih * 0.40);
+        sctx.moveTo(iw * 0.64, ih * 0.55);
+        sctx.lineTo(iw * 0.86, ih * 0.57);
+        sctx.moveTo(iw * 0.70, ih * 0.68);
+        sctx.lineTo(iw * 0.88, ih * 0.66);
+        sctx.stroke();
+        sctx.strokeStyle = 'rgba(0, 0, 0, ' + (0.18 + destruction * 0.35) + ')';
+        sctx.lineWidth = 1.4;
+        sctx.beginPath();
+        sctx.moveTo(iw * 0.60, ih * 0.48);
+        sctx.lineTo(iw * 0.83, ih * 0.51);
+        sctx.moveTo(iw * 0.66, ih * 0.63);
+        sctx.lineTo(iw * 0.84, ih * 0.60);
+        sctx.stroke();
+      }
+      // Cracked glass on the small touchscreen only.
+      if (dmg > 18) {
+        var sx0 = iw * 0.545, sy0 = ih * 0.137, sx1 = iw * 0.801, sy1 = ih * 0.278;
+        var scx = (sx0 + sx1) / 2, scy = (sy0 + sy1) / 2;
+        sctx.save();
+        sctx.beginPath();
+        sctx.rect(sx0, sy0, sx1 - sx0, sy1 - sy0);
+        sctx.clip();
+        sctx.strokeStyle = 'rgba(230, 236, 242, ' + (0.35 + destruction * 0.5) + ')';
+        sctx.lineWidth = 1.15;
+        sctx.beginPath();
+        sctx.moveTo(scx, scy);
+        sctx.lineTo(sx0 + 4, sy0 + 3);
+        sctx.moveTo(scx, scy);
+        sctx.lineTo(sx1 - 3, sy0 + 6);
+        sctx.moveTo(scx, scy);
+        sctx.lineTo(sx1 - 5, sy1 - 3);
+        sctx.moveTo(scx, scy);
+        sctx.lineTo(sx0 + 6, sy1 - 2);
+        sctx.moveTo(scx - 4, scy);
+        sctx.lineTo(scx + 8, sy0 + 2);
+        sctx.stroke();
+        sctx.strokeStyle = 'rgba(8, 10, 14, 0.55)';
+        sctx.lineWidth = 0.6;
+        sctx.stroke();
+        sctx.restore();
+      }
+      // Tray front knocked loose.
+      if (dmg > 48) {
+        var loose = clamp((dmg - 48) / 52, 0, 1);
+        var tx = iw * 0.10, ty = ih * 0.705, tw = iw * 0.78, th = ih * 0.11;
+        sctx.fillStyle = 'rgba(6, 6, 8, ' + (0.25 + loose * 0.45) + ')';
+        sctx.fillRect(tx, ty, tw, th * 0.45);
+        sctx.drawImage(img, tx, ty, tw, th, tx - 8 * loose, ty + 18 * loose, tw, th);
+        sctx.strokeStyle = 'rgba(0, 0, 0, ' + (0.35 + loose * 0.4) + ')';
+        sctx.lineWidth = 2;
+        sctx.strokeRect(tx - 8 * loose, ty + 18 * loose, tw, th);
+      }
+      sctx.restore();
+      source = scratch;
+    }
+
+    ctx.save();
+    // Source photo faces right; batter stands to the left of the copier.
+    ctx.scale(-1, 1);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(source, destX, destY, drawW, drawH);
+    ctx.restore();
+    return true;
+  }
+
   function drawPrinter(x, y, rot, scale, dmg) {
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(rot);
     ctx.scale(scale, scale);
+
+    if (copierSprite.ready && drawCopierPhoto(dmg)) {
+      ctx.restore();
+      return;
+    }
+    // Never flash the old vector copier, even for the first frame.
+    ctx.restore();
+    return;
 
     // Realistic multi-function copier — internal dims w=180, h=170, centered on (0,0)
     var w = 180, h = 170;
@@ -3924,17 +4162,24 @@ footer .container {
   }
 
   function drawIntroPlayerGraphic(frame) {
-    if (!smashIntroPlayer || !playerSprite.ready) return;
-    setupIntroPlayerCanvas();
-    var fd = playerSprite.frames[frame] || playerSprite.frames[0];
+    if (!smashIntroPlayer) return;
+    var fd = null;
+    if (playerSprite.ready && playerSprite.frames[frame] && playerSprite.frames[frame].sw) {
+      fd = playerSprite.frames[frame];
+    } else if (playerSprite.frames[0] && playerSprite.frames[0].sw) {
+      fd = playerSprite.frames[0];
+    }
     if (!fd) return;
-
+    setupIntroPlayerCanvas();
     var introDpr = Math.min(window.devicePixelRatio || 1, 2);
     var cw = 340;
     var ch = 400;
     var introCtx = smashIntroPlayer.getContext('2d');
     introCtx.setTransform(introDpr, 0, 0, introDpr, 0, 0);
     introCtx.clearRect(0, 0, cw, ch);
+
+    var footX = cw * 0.54;
+    var footY = ch - 10;
 
     var targetH = ch * 0.92;
     var drawScale = targetH / Math.max(1, playerSprite.refHeight || fd.sh);
@@ -3944,8 +4189,6 @@ footer .container {
     var frameFootX = fd.footX * drawScale;
     var anchorX = stableFootX * 0.7 + frameFootX * 0.3;
     var anchorY = fd.footY * drawScale;
-    var footX = cw * 0.54;
-    var footY = ch - 10;
 
     introCtx.save();
     introCtx.translate(footX, footY);
@@ -3978,15 +4221,16 @@ footer .container {
         return;
       }
       drawIntroCopierGraphic(now);
-      if (playerSprite.ready && smashIntroPlayer) {
+      if (smashIntroPlayer) {
         var cycleMs = 1200;
         var cycleT = ((now - introPlayerAnim.startTime) % cycleMs) / cycleMs;
-        drawIntroPlayerGraphic(getIntroSwingFrame(cycleT));
+        drawIntroPlayerGraphic(playerSprite.ready ? getIntroSwingFrame(cycleT) : 0);
       }
       introPlayerAnim.raf = requestAnimationFrame(tick);
     }
 
     drawIntroCopierGraphic(introPlayerAnim.startTime);
+    drawIntroPlayerGraphic(0);
     introPlayerAnim.raf = requestAnimationFrame(tick);
   }
 
@@ -4061,13 +4305,6 @@ footer .container {
   if (smashIntro) startIntroPlayerAnim();
 
   function drawPlayerSprite(x, y, scale) {
-    if (!playerSprite.ready) {
-      if (!playerSprite.warned) {
-        playerSprite.warned = true;
-        console.info('Player sprite frames not loaded. Using fallback vector player.');
-      }
-      return false;
-    }
     var cols = playerSprite.cols || 8;
 
     // Map gameplay motion to sprite frames.
@@ -4087,14 +4324,31 @@ footer .container {
     }
     frame = clamp(frame, 0, cols - 1);
 
-    // Use precomputed crop bounds so empty transparent margins don't affect
-    // scale or anchoring.
-    var fd = playerSprite.frames[frame];
-    if (!fd) {
-      return false;
+    function frameReady(i) {
+      var f = playerSprite.frames[i];
+      return (f && f.sw && f.img) ? f : null;
     }
+    // Requested swing frame, or the nearest painted frame already decoded.
+    var fd = frameReady(frame);
+    if (!fd) {
+      var best = null;
+      var bestDist = 99;
+      var bestIndex = 99;
+      for (var fi = 0; fi < cols; fi++) {
+        var candidate = frameReady(fi);
+        if (!candidate) continue;
+        var dist = Math.abs(fi - frame);
+        if (dist < bestDist || (dist === bestDist && fi < bestIndex)) {
+          best = candidate;
+          bestDist = dist;
+          bestIndex = fi;
+        }
+      }
+      fd = best;
+    }
+    if (!fd) return true;
+    playerSprite.lastFrame = fd;
     var img = fd.img;
-    if (!img) return false;
 
     // Match prior vector-character physical height (about 190 model units).
     var sizeMul = (playerSprite.sizeMultiplier || 1) * mobileStageScale();
@@ -4144,7 +4398,8 @@ footer .container {
   }
 
   function drawPlayer(x, y, scale) {
-    if (drawPlayerSprite(x, y, scale)) return;
+    drawPlayerSprite(x, y, scale);
+    return;
     ctx.save();
     ctx.translate(x, y);
     ctx.scale(scale, scale);
@@ -5095,7 +5350,8 @@ footer .container {
   }
 
   function drawPlayer(x, y, scale) {
-    if (drawPlayerSprite(x, y, scale)) return;
+    drawPlayerSprite(x, y, scale);
+    return;
     ctx.save();
     ctx.translate(x, y);
     ctx.scale(scale, scale);
@@ -6314,7 +6570,7 @@ footer .container {
       // Aim for landing at targetLandingX, targetLandingY using projectile math
       var targetX = centeredPrinterX() + rand(-W * 0.015, W * 0.015); // keeps the final player/printer pair centered
       // Land near the curb (just in front of the building base), not deep in the lot.
-      var targetY = H * (ACTION_GROUND_Y - 0.04);
+      var targetY = H * (ACTION_GROUND_Y);
       var dx = targetX - wr.x;
       var dy = targetY - wr.y;
       var flightTime = 1.05; // seconds
@@ -6328,7 +6584,7 @@ footer .container {
       // Remember start/end of the scale ramp so the printer grows smoothly
       // from window-size to gameplay-size as it falls and settles.
       printer.startY = wr.y;
-      printer.endY = H * (ACTION_GROUND_Y - 0.04);
+      printer.endY = H * (ACTION_GROUND_Y);
       printer.startScale = 0.32 * stageScale;
       printer.midScale = 0.66 * stageScale;   // scale at the moment of impact
       printer.endScale = 0.82 * stageScale;   // final gameplay scale
@@ -6339,15 +6595,15 @@ footer .container {
       flash(0.65);
       // Lay a trail of glass shards from the curb beneath the window out to
       // the copier landing zone.
-      spawnGlass(wr.x, wr.y, 275, { endX: targetX });
+      // A few small chips under the broken window only. Not a field of shards around the copier.
+      spawnGlass(wr.x, wr.y, 14, { endX: wr.x + (targetX >= wr.x ? 28 : -28) });
     } else if (s === 'impact') {
       shake(28);
       flash(0.85);
       timeScale = 0.35;
       // Massive debris
       var px = printer.x, py = printer.y;
-      spawnDebris(px, py, 26, { spread: 26, speed: 580, upspeed: -780, colors: ['#a5b1c9', '#8c98b1', '#dbe1ee', '#5a6783'] });
-      spawnDebris(px, py, 14, { spread: 30, speed: 380, upspeed: -480, colors: ['#11203f', '#5e2424', '#ffce4a'] });
+      spawnDebris(px, py, 5, { spread: 16, speed: 220, upspeed: -260, sizeMin: 2, sizeMax: 5, colors: ['#6a7078', '#3c4046', '#c5cad2'] });
       spawnSparks(px, py, 24);
       spawnDust(px, py + 8, 16, { power: 1.3 });
       // Crater
@@ -6364,7 +6620,7 @@ footer .container {
       printer.x = centeredPrinterX();
       printer.scale = printer.endScale || 0.82;
       printer.rot = rand(-0.06, 0.06);
-      printer.y = H * (ACTION_GROUND_Y - 0.04) - (170 * printer.scale) / 2;
+      printer.y = H * (ACTION_GROUND_Y) - (170 * printer.scale) / 2;
       player.visible = true;
       player.enterT = 0;
       // Seed a handful of motes for atmosphere
@@ -6378,11 +6634,24 @@ footer .container {
       timeScale = 0.6;
       finalHits.textContent = hits;
       game.classList.add('is-end');
+      hideBanner();
       shake(30);
       flash(0.8);
-      spawnDebris(printer.x, printer.y, 40, { spread: 50, speed: 700, upspeed: -900, colors: ['#a5b1c9', '#8c98b1', '#dbe1ee', '#5a6783', '#11203f'] });
-      spawnSparks(printer.x, printer.y, 36);
-      spawnDust(printer.x, printer.y + 8, 24, { power: 1.5 });
+      spawnDebris(printer.x, printer.y, 6, { spread: 18, speed: 180, upspeed: -220, sizeMin: 2, sizeMax: 5, colors: ['#4e535a', '#2a2c30', '#aeb4bc'] });
+      spawnSparks(printer.x, printer.y, 18);
+      spawnDust(printer.x, printer.y + 8, 10, { power: 0.8 });
+      spawnSmoke(printer.x, printer.y - 78, 5, {
+        color: 'rgba(120, 120, 120,',
+        lifeMin: 1.6,
+        lifeMax: 2.8,
+        sizeMin: 7,
+        sizeMax: 14,
+        rise: 1.15,
+        grow: 3,
+        dense: 0.42,
+        spread: 16,
+        gravity: -36
+      });
     }
   }
 
@@ -6413,7 +6682,7 @@ footer .container {
     timeScale = 0.45;
     // Particles burst from the impact point on top of the printer
     var px = printer.x, py = printer.y - 50;
-    spawnDebris(px, py, 10 + Math.floor(damage / 6), { spread: 24, speed: 460, upspeed: -560, colors: ['#a5b1c9', '#8c98b1', '#dbe1ee', '#5a6783'] });
+    spawnDebris(px, py, 3, { spread: 12, speed: 140, upspeed: -160, sizeMin: 2, sizeMax: 4, colors: ['#5c6168', '#2e3136', '#b7bcc4'] });
     spawnSparks(px, py, 14);
     spawnDust(px, py + 30, 4);
     spawnSmoke(px, py - 10, 2);
@@ -6511,7 +6780,7 @@ footer .container {
       // Trail dust
       if (Math.random() < 0.4) spawnDust(printer.x, printer.y + 8, 1, { power: 0.4 });
       // Ground check — stop when the printer's bottom touches the curb line.
-      var groundY = H * (ACTION_GROUND_Y - 0.04);
+      var groundY = H * (ACTION_GROUND_Y);
       var bottomY = printer.y + 85 * printer.scale;
       if (bottomY >= groundY) {
         printer.y = groundY - 85 * printer.scale;
@@ -6536,7 +6805,7 @@ footer .container {
       // 2) Explosive downstroke (fast acceleration)
       // 3) Follow-through/recovery
       if (player.swingT < 1.08) {
-        player.swingT = Math.min(1.08, player.swingT + dt / 0.62);
+        player.swingT = Math.min(1.08, player.swingT + dt / 1.2);
         // Impact slightly after mid-swing when bat head crosses the machine
         if (player.impactPending && player.swingT >= 0.43) {
           player.impactPending = false;
@@ -6621,14 +6890,20 @@ footer .container {
         camera.targetX = 0;
         camera.targetY = (printer.y - 80 - H / 2) * actionPunch * 0.45;
       }
-      // Continuous smoke column from the wreck (more as damage rises)
-      var smokeChance = 0.22 + Math.min(0.55, damage * 0.015);
+      var smokeChance = 0.03 + Math.min(0.08, damage * 0.004);
       if (Math.random() < smokeChance) {
-        spawnSmoke(printer.x + rand(-30, 30), printer.y - 70, 1);
-      }
-      // Occasional darker smoke puff
-      if (damage > 25 && Math.random() < 0.08) {
-        spawnSmoke(printer.x + rand(-22, 22), printer.y - 60, 1, { color: 'rgba(22, 18, 26,' });
+        spawnSmoke(printer.x + rand(-16, 12), printer.y - 78, 1, {
+          color: 'rgba(125, 125, 125,',
+          lifeMin: 1.3,
+          lifeMax: 2.2,
+          sizeMin: 6,
+          sizeMax: 12,
+          rise: 1.2,
+          grow: 2.5,
+          dense: 0.38,
+          spread: 10,
+          gravity: -34
+        });
       }
       // Lingering dust at the impact site
       if (Math.random() < 0.08) {
@@ -6641,8 +6916,24 @@ footer .container {
         spawnAmberMote();
       }
     } else if (state === 'end') {
-      // Drift camera
-      camera.targetZoom = 1.4;
+      // Keep the play framing. Zooming out enlarged the batter and slid him left.
+      camera.targetZoom = 1;
+      camera.targetX = 0;
+      camera.targetY = 0;
+      if (Math.random() < 0.28) {
+        spawnSmoke(printer.x + rand(-14, 10), printer.y - 82, 1, {
+          color: 'rgba(132, 132, 132,',
+          lifeMin: 1.5,
+          lifeMax: 2.6,
+          sizeMin: 6,
+          sizeMax: 13,
+          rise: 1.25,
+          grow: 2.2,
+          dense: 0.36,
+          spread: 8,
+          gravity: -40
+        });
+      }
     }
   }
 
@@ -6675,7 +6966,7 @@ footer .container {
       // floating because that line sits lower than the copier's curb position.
       var pScale = printer.scale;
       var baseY = printer.y + 85 * pScale;
-      var groundLineY = H * (ACTION_GROUND_Y - 0.04);
+      var groundLineY = H * (ACTION_GROUND_Y);
       var distFromGround = Math.max(0, groundLineY - baseY);
       var ground = clamp(1 - distFromGround / 260, 0, 1); // 0 in the air, 1 on the curb
       var shadowY = baseY + 3 * pScale;
@@ -6796,8 +7087,12 @@ footer .container {
   // This keeps proportions stable and eliminates glass drift.
   // ============================================================
   if (sceneBg) {
-    sceneBg.ready = false;
-    sceneBg.img.src = 'smashit-office-parking-bg.png?v=20260525f';
+    var plateSrc = 'smashit-office-parking-bg.jpg?v=20261004bg';
+    // Same URL as the head preload. Don't restart the load or clear ready.
+    if (sceneBg.img.getAttribute('src') !== plateSrc) {
+      sceneBg.ready = false;
+      sceneBg.img.src = plateSrc;
+    }
   }
 
   var scenePlate = {

@@ -1,4 +1,4 @@
-/* Remote Support — slide-in drawer with Windows / Mac tabs.
+/* Remote Support  -  slide-in drawer with Windows / Mac tabs.
    Shares the visual language of the Request a Quote drawer. */
 
 body.remote-drawer-open { overflow: hidden; }
@@ -30,14 +30,28 @@ body.remote-drawer-open { overflow: hidden; }
   height: 100dvh;
   background: linear-gradient(180deg, #0f389e 0%, #0a2870 48%, #061a4a 100%);
   color: #ffffff;
-  box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+  /* Shadow only while open â€” closed drawers sit at translateX(100%) and a
+     left-cast shadow painted a ~60px dark band on the right edge sitewide. */
+  box-shadow: none;
   transform: translateX(100%);
-  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
-.remote-drawer.is-open { transform: translateX(0); }
+.remote-drawer.is-open {
+  transform: translateX(0);
+  box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+}
+
+/* Quote drawer CSS is inlined per page. Prefer shadow only on .is-open
+   (pages updated to match remote-drawer). Belt-and-suspenders while closed. */
+.quote-drawer:not(.is-open) {
+  box-shadow: none !important;
+}
+.quote-drawer.is-open {
+  box-shadow: -24px 0 60px -12px rgba(0, 0, 0, 0.45);
+}
 
 .remote-drawer-header,
 .remote-drawer-body { position: relative; z-index: 1; }

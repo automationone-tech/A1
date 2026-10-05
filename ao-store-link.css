@@ -1,0 +1,83 @@
+/* Store links in the phone/contact row.
+   Desktop homepage (>=1025px, .nav-quote-contact): pin | phone | cart Store (word kept).
+   Mobile homepage (<=560px, .nav-contact): pin | phone | cart icon only.
+   Gap between cart icon and "Store" is 16px (double the previous 8px). */
+
+.nav-actions .nav-store-link { display: none !important; }
+
+.nav-quote-contact .nav-contact-store,
+.nav-quote-contact .nav-contact-divider--store,
+.nav-contact .nav-contact-store,
+.nav-contact .nav-contact-divider--store {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .nav-quote-contact .nav-contact-divider--store {
+    display: block;
+  }
+  .nav-quote-contact .nav-contact-store--desktop {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px; /* double the former 8px icon/label gap */
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.94);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    line-height: 1;
+    transition: color 0.2s ease;
+  }
+  .nav-quote-contact .nav-contact-store--desktop .nav-contact-store-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-quote-contact .nav-contact-store--desktop svg {
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .nav-quote-contact .nav-contact-store--desktop:hover {
+    color: #b9d0ff;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-contact {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+  .nav-contact .nav-contact-divider--store {
+    display: block;
+  }
+  /* Mobile: icon-only store control (hide any desktop-labelled twin if present) */
+  .nav-contact .nav-contact-store--desktop { display: none !important; }
+  .nav-contact .nav-contact-store:not(.nav-contact-store--desktop) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .nav-contact .nav-contact-store:not(.nav-contact-store--desktop) svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  .nav-contact .nav-contact-store:hover {
+    color: #b9d0ff;
+  }
+}
+@media (max-width: 374px) {
+  .nav-contact .nav-contact-divider {
+    margin: 0 12px;
+  }
+}

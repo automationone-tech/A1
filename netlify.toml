@@ -1,3 +1,14 @@
+[[redirects]]
+  from = "/page-index"
+  to = "/automation-one-page-index.html"
+  status = 200
+
+[[redirects]]
+  from = "/page-index/"
+  to = "/page-index"
+  status = 301
+  force = true
+
 [build]
   publish = "."
 
@@ -559,6 +570,37 @@
   to = "/automation-one-latest-news-canon.html"
   status = 200
 
+
+[[redirects]]
+  from = "/news/canon-imageforce-c3100"
+  to = "/automation-one-latest-news-canon-imageforce-c3100.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/news/canon-imageforce-c3100/"
+  to = "/news/canon-imageforce-c3100"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-latest-news-canon-imageforce-c3100.html"
+  to = "/news/canon-imageforce-c3100"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/latest-news/canon-imageforce-c3100"
+  to = "/news/canon-imageforce-c3100"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/latest-news/canon-imageforce-c3100/"
+  to = "/news/canon-imageforce-c3100"
+  status = 301
+  force = false
+
 [[redirects]]
   from = "/news/xerox"
   to = "/automation-one-latest-news-xerox.html"
@@ -597,6 +639,29 @@
   from = "/canon"
   to = "/automation-one-canon.html"
   status = 200
+
+[[redirects]]
+  from = "/canon-professional-services-cps-support-center"
+  to = "/automation-one-canon-cps.html"
+  status = 200
+
+[[redirects]]
+  from = "/canon-cps"
+  to = "/canon-professional-services-cps-support-center"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon-cps/"
+  to = "/canon-cps"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/canon-professional-services-cps-support-center/"
+  to = "/canon-professional-services-cps-support-center"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/canon/"
@@ -649,6 +714,18 @@
   force = true
 
 [[redirects]]
+  from = "/francotyp-postalia"
+  to = "/fp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/francotyp-postalia/"
+  to = "/fp"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/ideal-mbm"
   to = "/automation-one-ideal-mbm.html"
   status = 200
@@ -667,6 +744,18 @@
 [[redirects]]
   from = "/news/"
   to = "/news"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-m1246"
+  to = "/lexmark"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-m1246/"
+  to = "/lexmark"
   status = 301
   force = true
 
@@ -837,13 +926,48 @@
   force = true
 
 [[redirects]]
+  from = "/folder-inserters"
+  to = "/automation-one-folder-inserters.html"
+  status = 200
+
+[[redirects]]
+  from = "/folder-inserters/"
+  to = "/folder-inserters"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/envelope-inserters"
+  to = "/folder-inserters"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/envelope-inserters/"
+  to = "/folder-inserters"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/catalog"
+  to = "/catalogue"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/catalog/"
+  to = "/catalogue"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/catalogue"
   to = "/automation-one-products.html"
   status = 200
 
 [[redirects]]
-  from = "/envelope-inserters/"
-  to = "/envelope-inserters"
+  from = "/catalogue/"
+  to = "/catalogue"
   status = 301
   force = true
 
@@ -2293,11 +2417,123 @@
   from = "/large-format-printers"
   to = "/wide-format-printers"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/large-format-printers/"
   to = "/wide-format-printers"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/large-format"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/large-format/"
+  to = "/large-format"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wide-format"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/wide-format/"
+  to = "/wide-format"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/a4"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/a4/"
+  to = "/a4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/letter"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/letter/"
+  to = "/letter"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/8.5x11"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/8.5x11/"
+  to = "/8.5x11"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal/"
+  to = "/legal"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/a3"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/a3/"
+  to = "/a3"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ledger"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/ledger/"
+  to = "/ledger"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tabloid"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/tabloid/"
+  to = "/tabloid"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/11x17"
+  to = "/automation-one-products.html"
+  status = 200
+
+[[redirects]]
+  from = "/11x17/"
+  to = "/11x17"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/idealmbm"
@@ -2596,10 +2832,2662 @@
 # NOTE: must target /index.html (a real file), not "/" — Netlify ignores
 # non-forced splat rules that point at "/". The forced /index.html -> /
 # rule above then normalizes the URL back to the clean homepage.
+
+# Grace SEO landers 2026-10-01
+[[redirects]]
+  from = "/copiers"
+  to = "/automation-one-copiers.html"
+  status = 200
+
+[[redirects]]
+  from = "/photocopiers"
+  to = "/copiers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/photocopiers/"
+  to = "/copiers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/copiers/"
+  to = "/copiers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/managed-print"
+  to = "/automation-one-managed-print.html"
+  status = 200
+
+[[redirects]]
+  from = "/managed-print/"
+  to = "/managed-print"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mps"
+  to = "/managed-print"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mps/"
+  to = "/managed-print"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/it-services"
+  to = "/automation-one-it-services.html"
+  status = 200
+
+[[redirects]]
+  from = "/it-services/"
+  to = "/it-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/vancouver"
+  to = "/automation-one-vancouver.html"
+  status = 200
+
+[[redirects]]
+  from = "/vancouver/"
+  to = "/vancouver"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/burnaby"
+  to = "/automation-one-burnaby.html"
+  status = 200
+
+[[redirects]]
+  from = "/burnaby/"
+  to = "/burnaby"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/metro-vancouver"
+  to = "/vancouver"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/metro-vancouver/"
+  to = "/vancouver"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-copiers.html"
+  to = "/copiers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-folder-inserters.html"
+  to = "/folder-inserters"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-managed-print.html"
+  to = "/managed-print"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-it-services.html"
+  to = "/it-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-vancouver.html"
+  to = "/vancouver"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-burnaby.html"
+  to = "/burnaby"
+  status = 301
+  force = true
+
+
+# --- Privacy ---
+[[redirects]]
+  from = "/privacy"
+  to = "/automation-one-privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy/"
+  to = "/privacy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-privacy.html"
+  to = "/privacy"
+  status = 301
+  force = true
+
+# --- Careers ---
+[[redirects]]
+  from = "/careers"
+  to = "/automation-one-careers.html"
+  status = 200
+
+[[redirects]]
+  from = "/careers/"
+  to = "/careers"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/automation-one-careers.html"
+  to = "/careers"
+  status = 301
+  force = true
+
+# --- Legacy Search Console 404s (explicit paths only, 2026-10-04) ---
+# Old /product/ URLs that already have a matching modern page.
+[[redirects]]
+  from = "/product/lexmark-m5255"
+  to = "/lexmark/m5255"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-m5255/"
+  to = "/lexmark/m5255"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8245"
+  to = "/xerox/altalink-c8245"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8245/"
+  to = "/xerox/altalink-c8245"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-v700"
+  to = "/canon/imagepress-v700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-v700/"
+  to = "/canon/imagepress-v700"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8230"
+  to = "/xerox/altalink-c8230"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8230/"
+  to = "/xerox/altalink-c8230"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8145"
+  to = "/xerox/altalink-b8145"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8145/"
+  to = "/xerox/altalink-b8145"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm5365"
+  to = "/lexmark/xm5365"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm5365/"
+  to = "/lexmark/xm5365"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8130"
+  to = "/xerox/altalink-c8130"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8130/"
+  to = "/xerox/altalink-c8130"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8170"
+  to = "/xerox/altalink-b8170"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8170/"
+  to = "/xerox/altalink-b8170"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8155"
+  to = "/xerox/altalink-c8155"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8155/"
+  to = "/xerox/altalink-c8155"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4925i"
+  to = "/canon/imagerunner-advance-dx-4925i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4925i/"
+  to = "/canon/imagerunner-advance-dx-4925i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8270"
+  to = "/xerox/altalink-c8270"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8270/"
+  to = "/xerox/altalink-c8270"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4945i"
+  to = "/canon/imagerunner-advance-dx-4945i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4945i/"
+  to = "/canon/imagerunner-advance-dx-4945i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8155"
+  to = "/xerox/altalink-b8155"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8155/"
+  to = "/xerox/altalink-b8155"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8255"
+  to = "/xerox/altalink-c8255"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8255/"
+  to = "/xerox/altalink-c8255"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9125"
+  to = "/xerox/primelink-b9125"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9125/"
+  to = "/xerox/primelink-b9125"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8145"
+  to = "/xerox/altalink-c8145"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8145/"
+  to = "/xerox/altalink-c8145"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9100"
+  to = "/xerox/primelink-b9100"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9100/"
+  to = "/xerox/primelink-b9100"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-v1000"
+  to = "/canon/imagepress-v1000"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-v1000/"
+  to = "/canon/imagepress-v1000"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-v900"
+  to = "/canon/imagepress-v900"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-v900/"
+  to = "/canon/imagepress-v900"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8255"
+  to = "/xerox/altalink-b8255"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8255/"
+  to = "/xerox/altalink-b8255"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8135"
+  to = "/xerox/altalink-c8135"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8135/"
+  to = "/xerox/altalink-c8135"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8235"
+  to = "/xerox/altalink-c8235"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8235/"
+  to = "/xerox/altalink-c8235"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9110"
+  to = "/xerox/primelink-b9110"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9110/"
+  to = "/xerox/primelink-b9110"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8170"
+  to = "/xerox/altalink-c8170"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-c8170/"
+  to = "/xerox/altalink-c8170"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8245"
+  to = "/xerox/altalink-b8245"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8245/"
+  to = "/xerox/altalink-b8245"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8270"
+  to = "/xerox/altalink-b8270"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-altalink-b8270/"
+  to = "/xerox/altalink-b8270"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9136"
+  to = "/xerox/primelink-b9136"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-b9136/"
+  to = "/xerox/primelink-b9136"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4935i"
+  to = "/canon/imagerunner-advance-dx-4935i"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4935i/"
+  to = "/canon/imagerunner-advance-dx-4935i"
+  status = 301
+  force = true
+
+# Other old URLs in the gap list with no replacement page.
+[[redirects]]
+  from = "/lease-a-printer-for-office"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lease-a-printer-for-office/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/paper-folders"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/paper-folders/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-2525"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-2525/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-the-technology-of-photocopiers-and-printers-has-changed-in-the-past-few-years"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-the-technology-of-photocopiers-and-printers-has-changed-in-the-past-few-years/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/different-types-of-scanners-to-select-from-for-the-office-use"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/different-types-of-scanners-to-select-from-for-the-office-use/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5840"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5840/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5740i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5740i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5850"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5850/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/employment"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/employment/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/best-printers-for-small-business-and-home-office"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/best-printers-for-small-business-and-home-office/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/best-copier-photocopier-repair-services-vancouver"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/best-copier-photocopier-repair-services-vancouver/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark-printers-for-small-and-medium-business"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lexmark-printers-for-small-and-medium-business/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/what-are-the-major-types-of-printers-are-common-in-offices"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/what-are-the-major-types-of-printers-are-common-in-offices/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/whats-the-difference-between-inkjet-and-laser-printers"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/whats-the-difference-between-inkjet-and-laser-printers/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pros-and-cons-of-having-large-format-print-technology-in-your-business"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pros-and-cons-of-having-large-format-print-technology-in-your-business/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-multifunction-printers-can-make-your-office-work-easier"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-multifunction-printers-can-make-your-office-work-easier/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-essential-guide-to-choosing-the-right-business-printer"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-essential-guide-to-choosing-the-right-business-printer/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-new-photocopiers-are-helping-small-businesses"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-new-photocopiers-are-helping-small-businesses/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-your-business-should-prefer-digital-copiers-over-analog-ones"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-your-business-should-prefer-digital-copiers-over-analog-ones/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-c6160"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-c6160/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/discover-the-all-new-imagerunner-advance-dx-c3700-series-by-canon"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/discover-the-all-new-imagerunner-advance-dx-c3700-series-by-canon/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-printers-vancouver-equipment-benefits-for-new-businesses"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-printers-vancouver-equipment-benefits-for-new-businesses/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-30"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-30/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3725i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3725i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-the-rise-of-large-format-printers-have-affected-business-growth"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-the-rise-of-large-format-printers-have-affected-business-growth/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/discontinued"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/discontinued/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-photocopying-machines-play-a-crucial-role-in-making-your-business-successful"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-photocopying-machines-play-a-crucial-role-in-making-your-business-successful/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-one"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-one/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-to-buy-office-equipment-vancouver-products"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-to-buy-office-equipment-vancouver-products/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-8595"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-8595/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/what-consider-when-buying-a-photocopier-for-your-office"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/what-consider-when-buying-a-photocopier-for-your-office/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-130"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-130/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-2530"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-2530/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3926i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3926i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/what-you-need-know-before-buying-multifunction-laser-printer"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/what-you-need-know-before-buying-multifunction-laser-printer/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c7765i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c7765i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-most-preferred-commercial-office-printers-of-the-last-1-year"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-most-preferred-commercial-office-printers-of-the-last-1-year/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c256if"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c256if/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-should-you-consider-buying-a-multifunction-laser-printer-for-your-business"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-should-you-consider-buying-a-multifunction-laser-printer-for-your-business/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/main-points-to-remember-when-buying-a-copier-machine"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/main-points-to-remember-when-buying-a-copier-machine/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc4240"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc4240/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c357if"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c357if/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3826i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3826i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5540i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5540i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc4140"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc4140/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/business-benefits-of-having-large-format-printers"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/business-benefits-of-having-large-format-printers/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-c225-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-c225-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3835"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3835/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c710ca"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c710ca/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c710"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c710/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3730i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3730i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5750i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5750i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reasons-why-you-need-to-upgrade-your-office-equipment"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reasons-why-you-need-to-upgrade-your-office-equipment/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-your-business-should-invest-in-large-format-printers"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-your-business-should-invest-in-large-format-printers/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-using-large-format-printers-can-benefit-your-new-business"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-using-large-format-printers-can-benefit-your-new-business/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-2700-folder-inserter"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-2700-folder-inserter/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-choose-innovative-and-advanced-office-equipment-vancouver-products"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-choose-innovative-and-advanced-office-equipment-vancouver-products/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4735i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4735i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-8786i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-8786i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-c4150"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-c4150/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-m1242"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-m1242/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-m3250"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-m3250/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3830i-copy"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3830i-copy/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-65"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-65/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/home-small-office"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/home-small-office/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4525"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4525/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5760i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5760i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-5700-folder-inserter-2"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-5700-folder-inserter-2/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3930i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3930i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5860"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5860/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-700-folder-inserter"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-700-folder-inserter/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5735i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5735i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-pro-4000"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-pro-4000/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c259if"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c259if/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5535i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5535i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5870"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c5870/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-can-copy-machines-is-a-better-option-for-your-new-business"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-can-copy-machines-is-a-better-option-for-your-new-business/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-p-215-ii-personal-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-p-215-ii-personal-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-715"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-715/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4725i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4725i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-c9065"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-c9065/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c359if"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c359if/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-8705i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-8705i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc6152"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc6152/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-lite-c165"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-lite-c165/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-1435if"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-1435if/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5550i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5550i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c7565i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c7565i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3935i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c3935i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/oce-colorwave-3500"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/oce-colorwave-3500/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-ta-20"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-ta-20/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c257if"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c257if/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c7770i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c7770i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm1242"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm1242/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm1246"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm1246/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/better-buys-recognizes-canons-imagerunner-advance-4500-iii-series"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/better-buys-recognizes-canons-imagerunner-advance-4500-iii-series/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hiring-full-time-outside-sales-representative-apply-today"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hiring-full-time-outside-sales-representative-apply-today/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-digitizing-the-companys-print-workflow-is-a-great-success"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-digitizing-the-companys-print-workflow-is-a-great-success/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-g2140-usb-production-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-g2140-usb-production-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-ta-30"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-ta-30/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-should-your-new-business-do-investment-in-wide-format-printing-solutions"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-should-your-new-business-do-investment-in-wide-format-printing-solutions/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-successful-companies-prefer-the-multifunction-laser-printer"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-successful-companies-prefer-the-multifunction-laser-printer/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-525"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-525/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-615"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-615/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-8505"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-8505/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4751i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4751i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/photocopiers-for-sale"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/photocopiers-for-sale/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-m1060-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-m1060-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4535"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4535/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c7570i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c7570i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6000i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6000i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6755i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6755i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6765i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6765i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c7780i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-c7780i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc8160"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc8160/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc9255"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc9255/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-b605"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-b605/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/general"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/general/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6780i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-6780i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-125"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-125/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-c9070"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-primelink-c9070/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-c7020"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-c7020/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/awards"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/awards/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/news"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/news/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/covid-19-statement"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/covid-19-statement/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-innovative-canon-scanners-can-be-a-great-choice-for-your-business"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-innovative-canon-scanners-can-be-a-great-choice-for-your-business/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-large-format-printers-can-benefit-your-business"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-large-format-printers-can-benefit-your-business/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-cr-l1-check-transport"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-cr-l1-check-transport/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-6010c-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-6010c-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-x10cii-production-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-x10cii-production-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-tx-3000"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-tx-3000/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-tx-4000"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-tx-4000/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4545"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4545/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4551"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-4551/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-8585"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-8585/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c356if"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c356if/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5560i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c5560i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c7580"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c7580/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-5700-folder-inserter"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-fpi-5700-folder-inserter/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-45"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/francotyp-postalia-postbase-45/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2604-smc"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2604-smc/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc4150"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc4150/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm3250"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm3250/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/oce-colorwave-3700"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/oce-colorwave-3700/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-c7025"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-c7025/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-8795i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-8795i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c3525i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c3525i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2404"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2404/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-office-equipment-vancouver-is-a-great-solution-for-digital-workflow"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-office-equipment-vancouver-is-a-great-solution-for-digital-workflow/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-m260-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-m260-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-c7030"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/xerox-versalink-c7030/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4745i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-dx-4745i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-f120-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-f120-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2360"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2360/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-4605"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-4605/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-pro-2000"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-pro-2000/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc9235"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xc9235/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-tm-300"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageprograf-tm-300/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm9145"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm9145/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-your-business-can-get-numerous-benefits-from-digital-copying"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-your-business-can-get-numerous-benefits-from-digital-copying/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-c230-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-c230-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-c240-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-c240-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-g2090-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-g2090-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c810"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c810/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c3530i"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagerunner-advance-c3530i/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/oce-colorwave-910"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/oce-colorwave-910/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-6030c-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-6030c-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-m140-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-m140-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/brand-info"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/brand-info/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/multifunction-laser-printer"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/multifunction-laser-printer/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-cr-150-check-transport"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-cr-150-check-transport/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-g2110-usb-production-office-document-scanner"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-dr-g2110-usb-production-office-document-scanner/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2465"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2465/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/forms-links"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/forms-links/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-scanfront-400-networked-document-scanner-copy"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imageformula-scanfront-400-networked-document-scanner-copy/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c910"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/canon-imagepress-c910/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2445-smc"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-2445-smc/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-4107"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/idealmbm-destroyit-4107/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm9165"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/product/lexmark-xm9165/"
+  to = "/"
+  status = 301
+  force = true
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 301
+  to = "/404.html"
+  status = 404
 
 [[headers]]
   for = "/*.html"
@@ -2655,9 +5543,30 @@
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.gif"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
