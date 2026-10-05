@@ -4868,6 +4868,327 @@
     display: flex;
     justify-content: center;
   }
+
+  /* ===================================================
+     SECTION 6B — COMMON QUESTIONS (homepage FAQ band)
+     Sits between testimonials and the final CTA. Native
+     <details>/<summary> accordion; eyebrow pill + glass panel
+     mirror the service-stats treatment.
+     =================================================== */
+  .home-faq {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-block: clamp(96px, 11vw, 150px);
+    background:
+      radial-gradient(70% 58% at 50% 0%, rgba(126, 167, 255, 0.3), transparent 62%),
+      radial-gradient(56% 50% at 92% 92%, rgba(31, 92, 245, 0.14), transparent 60%),
+      linear-gradient(180deg, #f8fbff 0%, #eef4ff 58%, #e8f0ff 100%);
+  }
+  .home-faq::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(15, 56, 158, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 56, 158, 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 16%, rgba(0, 0, 0, 0.5), transparent 66%);
+    mask-image: radial-gradient(ellipse at 50% 16%, rgba(0, 0, 0, 0.5), transparent 66%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .home-faq .container {
+    position: relative;
+    z-index: 1;
+  }
+  .home-faq .section-head {
+    max-width: 780px;
+    margin-bottom: clamp(36px, 4.6vw, 56px);
+  }
+  .home-faq .section-head .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 34px;
+    padding: 6px 15px;
+    border-radius: 999px;
+    background: rgba(21, 71, 209, 0.08);
+    border: 1px solid rgba(21, 71, 209, 0.14);
+    box-shadow: 0 10px 28px -22px rgba(15, 56, 158, 0.55);
+    color: var(--blue-700);
+    line-height: 1.35;
+    text-align: center;
+  }
+  .home-faq .section-head h2 {
+    font-size: clamp(2.25rem, 4.5vw, 4.1rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    max-width: none;
+    margin-inline: auto;
+  }
+  .home-faq .section-head p {
+    max-width: 60ch;
+    margin-inline: auto;
+    color: rgba(26, 40, 74, 0.74);
+    font-size: 17px;
+  }
+  .home-faq-panel {
+    position: relative;
+    padding: clamp(12px, 1.8vw, 22px);
+    border-radius: 34px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.56)),
+      radial-gradient(90% 70% at 0% 0%, rgba(126, 167, 255, 0.22), transparent 68%);
+    border: 1px solid rgba(126, 167, 255, 0.3);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 36px 90px -56px rgba(15, 56, 158, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .home-faq-panel::before {
+    content: "";
+    position: absolute;
+    left: clamp(20px, 3vw, 38px);
+    top: 0;
+    width: min(520px, 58%);
+    height: 3px;
+    border-radius: 999px;
+    background:
+      linear-gradient(90deg, var(--blue-600) 0%, #7ea7ff 34%, #ffffff 52%, #7ea7ff 68%, transparent 100%);
+    background-size: 220% 100%;
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
+    transform-origin: left center;
+    animation: servicePanelHighlightExtend 7.5s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  .home-faq-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+  .home-faq-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+  }
+  .home-faq-item {
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid rgba(126, 167, 255, 0.26);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86));
+    box-shadow: 0 18px 40px -34px rgba(15, 56, 158, 0.5);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  }
+  .home-faq-item:hover {
+    border-color: rgba(21, 71, 209, 0.3);
+    box-shadow: 0 24px 52px -34px rgba(15, 56, 158, 0.6);
+  }
+  .home-faq-item[open] {
+    border-color: rgba(21, 71, 209, 0.34);
+    background: var(--white);
+    box-shadow: 0 28px 60px -34px rgba(15, 56, 158, 0.62);
+  }
+  .home-faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 18px 18px 22px;
+    border-radius: 20px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16.5px;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    transition: color 0.2s ease;
+  }
+  .home-faq-item summary::-webkit-details-marker { display: none; }
+  .home-faq-item summary::marker { content: ""; }
+  .home-faq-item summary:hover { color: var(--blue-700); }
+  .home-faq-item[open] summary { color: var(--blue-700); }
+  .home-faq-q {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-wrap: pretty;
+  }
+  .home-faq-icon {
+    position: relative;
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: rgba(21, 71, 209, 0.08);
+    border: 1px solid rgba(21, 71, 209, 0.14);
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .home-faq-icon::before,
+  .home-faq-icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 2px;
+    background: var(--blue-700);
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+  }
+  .home-faq-icon::before { width: 14px; height: 2px; }
+  .home-faq-icon::after { width: 2px; height: 14px; }
+  .home-faq-item summary:hover .home-faq-icon {
+    background: rgba(21, 71, 209, 0.14);
+    border-color: rgba(21, 71, 209, 0.24);
+  }
+  .home-faq-item[open] .home-faq-icon {
+    background: var(--blue-600);
+    border-color: var(--blue-700);
+    box-shadow: 0 10px 24px -14px rgba(15, 56, 158, 0.95);
+  }
+  .home-faq-item[open] .home-faq-icon::before,
+  .home-faq-item[open] .home-faq-icon::after {
+    background: var(--white);
+  }
+  /* Plus → minus: the vertical bar folds into the horizontal one */
+  .home-faq-item[open] .home-faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .home-faq-answer {
+    padding: 0 22px 20px;
+    color: rgba(11, 19, 48, 0.76);
+    font-size: 15px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+  .home-faq-answer::before {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: 14px;
+    background: linear-gradient(90deg, rgba(21, 71, 209, 0.22), rgba(126, 167, 255, 0.1) 70%, transparent);
+  }
+  .home-faq-answer p + p { margin-top: 10px; }
+  .home-faq-answer a {
+    color: var(--blue-700);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(21, 71, 209, 0.28);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .home-faq-answer a:hover {
+    color: var(--blue-800);
+    border-bottom-color: currentColor;
+  }
+  .home-faq-answer a[href^="tel:"],
+  .home-faq-answer a[href^="mailto:"] {
+    white-space: nowrap;
+  }
+  .home-faq-item[open] .home-faq-answer {
+    animation: homeFaqAnswerIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes homeFaqAnswerIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  /* Browsers that can animate to height:auto get a smooth expand/collapse */
+  @supports (interpolate-size: allow-keywords) {
+    .home-faq-item { interpolate-size: allow-keywords; }
+    .home-faq-item::details-content {
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 0.32s allow-discrete,
+        opacity 0.32s ease,
+        block-size 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .home-faq-item[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+    .home-faq-item[open] .home-faq-answer { animation: none; }
+  }
+  .home-faq-foot {
+    margin-top: clamp(26px, 3.4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+  .home-faq-foot p {
+    max-width: 62ch;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: rgba(26, 40, 74, 0.74);
+    text-wrap: pretty;
+  }
+  .home-faq-foot p a,
+  .home-faq-nowrap {
+    white-space: nowrap;
+  }
+  .home-faq-foot p a {
+    color: var(--blue-700);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .home-faq-foot p a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 900px) {
+    .home-faq-columns {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+    .home-faq-col { gap: 10px; }
+  }
+  @media (max-width: 760px) {
+    .home-faq {
+      padding-block: clamp(72px, 14vw, 108px);
+    }
+    .home-faq .section-head {
+      margin-bottom: 32px;
+    }
+    .home-faq .section-head h2 {
+      font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+    .home-faq-panel {
+      padding: 10px;
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9));
+      border-color: rgba(126, 167, 255, 0.36);
+      box-shadow: 0 28px 70px -42px rgba(15, 56, 158, 0.55);
+    }
+    .home-faq-panel::before {
+      left: 18px;
+      width: min(320px, 62%);
+    }
+    .home-faq-item { border-radius: 18px; }
+    .home-faq-item summary {
+      padding: 15px 14px 15px 18px;
+      gap: 12px;
+      font-size: 15.5px;
+      border-radius: 18px;
+    }
+    .home-faq-icon {
+      width: 34px;
+      height: 34px;
+    }
+    .home-faq-answer {
+      padding: 0 18px 18px;
+      font-size: 14.5px;
+    }
+    .home-faq-foot p { font-size: 15px; }
+  }
+
   /* ===================================================
      SECTION 7 — FINAL CTA
      =================================================== */
@@ -8460,6 +8781,89 @@ html { background-color: #ffffff; }
     }
   })();
 </script>
+
+<!-- ===================================================
+     SECTION 6B — COMMON QUESTIONS (homepage FAQ band)
+     Answers mirror /faqs (automation-one-faq.html) — keep the two in sync.
+     =================================================== -->
+<section class="home-faq" id="home-faq" aria-labelledby="home-faq-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Common questions</span>
+      <h2 id="home-faq-title">Straight answers to the questions <em>we hear most.</em></h2>
+      <p>Quotes, leasing, brands, coverage and service calls &mdash; the essentials in one place. The full list lives on our FAQ page.</p>
+    </div>
+
+    <div class="home-faq-panel">
+      <div class="home-faq-columns">
+        <div class="home-faq-col">
+          <details class="home-faq-item" name="home-faq">
+            <summary>
+              <span class="home-faq-q">How do I get a quote?</span>
+              <span class="home-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="home-faq-answer">
+              <p>Use <a href="#request-quote" class="js-open-quote-drawer">Request a Quote</a> on any page, book a <a href="https://outlook.office.com/bookwithme/user/48f44798213c49c58da8cd11ed706640@automationone.ca/meetingtype/_9-MxglwWk2yaqP_e8Dhfw2?anonymous&ismsaljsauthenabled&ep=mcard" target="_blank" rel="noopener noreferrer">consultation</a>, or call <a href="tel:+16042556622">604-255-6622</a>. Tell us your monthly volume, colour needs, and any scan/fax requirements. We typically respond within one business day with options, not a high-pressure pitch.</p>
+            </div>
+          </details>
+          <details class="home-faq-item" name="home-faq">
+            <summary>
+              <span class="home-faq-q">Should I buy, lease, or rent?</span>
+              <span class="home-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="home-faq-answer">
+              <p>It depends on cash flow, how long you'll keep the device, and whether you want supplies and service bundled. Leasing is common for offices that want predictable monthly costs; purchasing can make sense for stable, long-term fleets. Your account manager will walk through both models with real numbers.</p>
+            </div>
+          </details>
+          <details class="home-faq-item" name="home-faq">
+            <summary>
+              <span class="home-faq-q">Are you affiliated with a single manufacturer?</span>
+              <span class="home-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="home-faq-answer">
+              <p>No. We're authorized for Canon, Xerox, Lexmark, Francotyp-Postalia, Ideal MBM, and more. That independence lets us recommend the device that fits your volume, workflow, and budget &mdash; not whichever brand happens to be on promotion.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="home-faq-col">
+          <details class="home-faq-item" name="home-faq">
+            <summary>
+              <span class="home-faq-q">What areas do you serve?</span>
+              <span class="home-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="home-faq-answer">
+              <p>Our home base is Vancouver, with technicians and sales coverage throughout the Lower Mainland and much of British Columbia. If you're outside the core region, call <a href="tel:+16042556622">604-255-6622</a> or email <a href="mailto:info@automationone.ca">info@automationone.ca</a> &mdash; we can usually still help or point you to the right resource.</p>
+            </div>
+          </details>
+          <details class="home-faq-item" name="home-faq">
+            <summary>
+              <span class="home-faq-q">How do I request a service call?</span>
+              <span class="home-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="home-faq-answer">
+              <p>Submit the form on our <a href="/service">Service &amp; Support</a> page (emails <a href="mailto:dispatch@automationone.ca">dispatch@automationone.ca</a>), or call <a href="tel:+16042556622">604-255-6622</a> during business hours. Include your company name, device model, error codes, and whether the machine is completely down.</p>
+            </div>
+          </details>
+          <details class="home-faq-item" name="home-faq">
+            <summary>
+              <span class="home-faq-q">Can you service printers we didn't buy from you?</span>
+              <span class="home-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="home-faq-answer">
+              <p>Often yes, depending on brand and model. Contact us with the serial number and current contract status. If we're not the right fit, we'll tell you honestly rather than waste your time.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-faq-foot">
+      <p>Didn't find your answer? Call <a href="tel:+16042556622">604-255-6622</a> <span class="home-faq-nowrap">(toll-free <a href="tel:+18886305880">1-888-630-5880</a>)</span> or email <a href="mailto:info@automationone.ca">info@automationone.ca</a> and we'll get you to the right person.</p>
+      <a class="cta cta-pill-arrow-blue" href="/faqs">Browse all FAQs</a>
+    </div>
+  </div>
+</section>
 
 <!-- ===================================================
      SECTION 7 — FINAL CTA
