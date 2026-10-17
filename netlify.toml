@@ -10,7 +10,7 @@
   force = true
 
 [build]
-  publish = "."
+  publish = "Automation One/Website"
 
 # --- Branded links page ---
 [[redirects]]

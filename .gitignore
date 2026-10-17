@@ -6,6 +6,8 @@ __MACOSX/
 
 # Scratch / working artifacts (not deployed)
 .pdf-cache/
+.chrome-solutions-check/
+.vendor-pymupdf/
 _brand-refresh-preview/
 _info-pkg-assets/
 _info-pkg-out/
@@ -17,126 +19,126 @@ generate-info-package-2026.py
 remake-info-package-brand-refresh.py
 
 # Local pretty-URL symlinks (python3 scripts/apply-short-urls.py)
-/about
-/billable-confirmation
-/canon
-/canon/color-imagerunner-advance-dx-c3926i
-/canon/color-imagerunner-advance-dx-c3930i
-/canon/color-imagerunner-advance-dx-c3935i
-/canon/color-imagerunner-c3326i
-/canon/imageclass-x-mf1333c
-/canon/imageforce-1440
-/canon/imageforce-1440p
-/canon/imageforce-520
-/canon/imageforce-610
-/canon/imageforce-6155
-/canon/imageforce-6160
-/canon/imageforce-6170
-/canon/imageforce-710
-/canon/imageforce-8105
-/canon/imageforce-8186
-/canon/imageforce-8195
-/canon/imageforce-c1333
-/canon/imageforce-c1333p
-/canon/imageforce-c3150
-/canon/imageforce-c331
-/canon/imageforce-c431
-/canon/imageforce-c5140
-/canon/imageforce-c5150
-/canon/imageforce-c5160
-/canon/imageforce-c5170
-/canon/imageforce-c521
-/canon/imageforce-c611
-/canon/imageforce-c7165
-/canon/imagepress-v1000
-/canon/imagepress-v700
-/canon/imagepress-v800
-/canon/imagepress-v900
-/canon/imagerunner-advance-dx-4925i
-/canon/imagerunner-advance-dx-4935i
-/canon/imagerunner-advance-dx-4945i
-/contact
-/digital-solutions
-/faq
-/faqs
-/news
-/solutions
-/what-we-do
-/what-we-do-for-you
-/office-printers
-/multifunction-printers
-/production-printers
-/wide-format-printers
-/colour-printers
-/monochrome-printers
-/document-scanners
-/paper-cutters
-/paper-shredders
-/mailing-machines
-/envelope-inserters
-/fp
-/ideal-mbm
-/lexmark
-/lexmark/c4342
-/lexmark/c4352
-/lexmark/m1342
-/lexmark/m3350
-/lexmark/m5255
-/lexmark/m5270
-/lexmark/xc2326
-/lexmark/xc2335
-/lexmark/xc4342
-/lexmark/xc4352
-/lexmark/xm1342
-/lexmark/xm3142
-/lexmark/xm3350br
-/lexmark/xm5365
-/lexmark/xm7355
-/lexmark/xm7370
-/network-survey
-/printer-bash
-/products
-/resources
-/service
-/testimonials
-/toner
-/what-we-do
-/xerox
-/xerox/altalink-b8145
-/xerox/altalink-b8155
-/xerox/altalink-b8170
-/xerox/altalink-b8245
-/xerox/altalink-b8255
-/xerox/altalink-b8270
-/xerox/altalink-c8130
-/xerox/altalink-c8135
-/xerox/altalink-c8145
-/xerox/altalink-c8155
-/xerox/altalink-c8170
-/xerox/altalink-c8230
-/xerox/altalink-c8235
-/xerox/altalink-c8245
-/xerox/altalink-c8255
-/xerox/altalink-c8270
-/xerox/primelink-b9100
-/xerox/primelink-b9110
-/xerox/primelink-b9125
-/xerox/primelink-b9136
-/xerox/primelink-c9265
-/xerox/primelink-c9275
-/xerox/primelink-c9281
-/xerox/versalink-b7125
-/xerox/versalink-b7130
-/xerox/versalink-b7135
-/xerox/versalink-c7120
-/xerox/versalink-c7125
-/xerox/versalink-c7130
-/latest-news
-/news/canon
-/news/fp
-/news/ideal-mbm
-/news/industry
-/news/lexmark
-/news/xerox
+/Automation One/Website/about
+/Automation One/Website/billable-confirmation
+/Automation One/Website/canon
+/Automation One/Website/canon/color-imagerunner-advance-dx-c3926i
+/Automation One/Website/canon/color-imagerunner-advance-dx-c3930i
+/Automation One/Website/canon/color-imagerunner-advance-dx-c3935i
+/Automation One/Website/canon/color-imagerunner-c3326i
+/Automation One/Website/canon/imageclass-x-mf1333c
+/Automation One/Website/canon/imageforce-1440
+/Automation One/Website/canon/imageforce-1440p
+/Automation One/Website/canon/imageforce-520
+/Automation One/Website/canon/imageforce-610
+/Automation One/Website/canon/imageforce-6155
+/Automation One/Website/canon/imageforce-6160
+/Automation One/Website/canon/imageforce-6170
+/Automation One/Website/canon/imageforce-710
+/Automation One/Website/canon/imageforce-8105
+/Automation One/Website/canon/imageforce-8186
+/Automation One/Website/canon/imageforce-8195
+/Automation One/Website/canon/imageforce-c1333
+/Automation One/Website/canon/imageforce-c1333p
+/Automation One/Website/canon/imageforce-c3150
+/Automation One/Website/canon/imageforce-c331
+/Automation One/Website/canon/imageforce-c431
+/Automation One/Website/canon/imageforce-c5140
+/Automation One/Website/canon/imageforce-c5150
+/Automation One/Website/canon/imageforce-c5160
+/Automation One/Website/canon/imageforce-c5170
+/Automation One/Website/canon/imageforce-c521
+/Automation One/Website/canon/imageforce-c611
+/Automation One/Website/canon/imageforce-c7165
+/Automation One/Website/canon/imagepress-v1000
+/Automation One/Website/canon/imagepress-v700
+/Automation One/Website/canon/imagepress-v800
+/Automation One/Website/canon/imagepress-v900
+/Automation One/Website/canon/imagerunner-advance-dx-4925i
+/Automation One/Website/canon/imagerunner-advance-dx-4935i
+/Automation One/Website/canon/imagerunner-advance-dx-4945i
+/Automation One/Website/contact
+/Automation One/Website/digital-solutions
+/Automation One/Website/faq
+/Automation One/Website/faqs
+/Automation One/Website/news
+/Automation One/Website/solutions
+/Automation One/Website/what-we-do
+/Automation One/Website/what-we-do-for-you
+/Automation One/Website/office-printers
+/Automation One/Website/multifunction-printers
+/Automation One/Website/production-printers
+/Automation One/Website/wide-format-printers
+/Automation One/Website/colour-printers
+/Automation One/Website/monochrome-printers
+/Automation One/Website/document-scanners
+/Automation One/Website/paper-cutters
+/Automation One/Website/paper-shredders
+/Automation One/Website/mailing-machines
+/Automation One/Website/envelope-inserters
+/Automation One/Website/fp
+/Automation One/Website/ideal-mbm
+/Automation One/Website/lexmark
+/Automation One/Website/lexmark/c4342
+/Automation One/Website/lexmark/c4352
+/Automation One/Website/lexmark/m1342
+/Automation One/Website/lexmark/m3350
+/Automation One/Website/lexmark/m5255
+/Automation One/Website/lexmark/m5270
+/Automation One/Website/lexmark/xc2326
+/Automation One/Website/lexmark/xc2335
+/Automation One/Website/lexmark/xc4342
+/Automation One/Website/lexmark/xc4352
+/Automation One/Website/lexmark/xm1342
+/Automation One/Website/lexmark/xm3142
+/Automation One/Website/lexmark/xm3350br
+/Automation One/Website/lexmark/xm5365
+/Automation One/Website/lexmark/xm7355
+/Automation One/Website/lexmark/xm7370
+/Automation One/Website/network-survey
+/Automation One/Website/printer-bash
+/Automation One/Website/products
+/Automation One/Website/resources
+/Automation One/Website/service
+/Automation One/Website/testimonials
+/Automation One/Website/toner
+/Automation One/Website/what-we-do
+/Automation One/Website/xerox
+/Automation One/Website/xerox/altalink-b8145
+/Automation One/Website/xerox/altalink-b8155
+/Automation One/Website/xerox/altalink-b8170
+/Automation One/Website/xerox/altalink-b8245
+/Automation One/Website/xerox/altalink-b8255
+/Automation One/Website/xerox/altalink-b8270
+/Automation One/Website/xerox/altalink-c8130
+/Automation One/Website/xerox/altalink-c8135
+/Automation One/Website/xerox/altalink-c8145
+/Automation One/Website/xerox/altalink-c8155
+/Automation One/Website/xerox/altalink-c8170
+/Automation One/Website/xerox/altalink-c8230
+/Automation One/Website/xerox/altalink-c8235
+/Automation One/Website/xerox/altalink-c8245
+/Automation One/Website/xerox/altalink-c8255
+/Automation One/Website/xerox/altalink-c8270
+/Automation One/Website/xerox/primelink-b9100
+/Automation One/Website/xerox/primelink-b9110
+/Automation One/Website/xerox/primelink-b9125
+/Automation One/Website/xerox/primelink-b9136
+/Automation One/Website/xerox/primelink-c9265
+/Automation One/Website/xerox/primelink-c9275
+/Automation One/Website/xerox/primelink-c9281
+/Automation One/Website/xerox/versalink-b7125
+/Automation One/Website/xerox/versalink-b7130
+/Automation One/Website/xerox/versalink-b7135
+/Automation One/Website/xerox/versalink-c7120
+/Automation One/Website/xerox/versalink-c7125
+/Automation One/Website/xerox/versalink-c7130
+/Automation One/Website/latest-news
+/Automation One/Website/news/canon
+/Automation One/Website/news/fp
+/Automation One/Website/news/ideal-mbm
+/Automation One/Website/news/industry
+/Automation One/Website/news/lexmark
+/Automation One/Website/news/xerox
 
 stephen-achtem-business-card.pdf

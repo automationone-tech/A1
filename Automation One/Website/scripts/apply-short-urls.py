@@ -218,7 +218,9 @@ def write_netlify_toml(path_map: dict[str, str]) -> None:
     ]
 
     lines.append(HEADERS_BLOCK.strip())
-    (ROOT / "netlify.toml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # netlify.toml stays at the repo root; the site itself lives in Website/.
+    repo_root = Path(__file__).resolve().parents[3]
+    (repo_root / "netlify.toml").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Wrote netlify.toml ({len(path_map)} short paths + legacy 301s)")
 
 
